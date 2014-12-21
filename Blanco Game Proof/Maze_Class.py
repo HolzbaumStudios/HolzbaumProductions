@@ -22,11 +22,15 @@ class Maze(object):
         #construct
         self._DimX=DimX
         self._DimY=DimY
+        self._mazeSize=[DimX,DimY]
         self._basic_maze=np.zeros(shape=(DimX,DimY))
+        self._terminal_maze=self._buildTerminalMaze()
+        print(self._terminal_maze)
+        self._teminalMazeIdx=self._getStateIdx(self._terminal_maze)
+        print(self._teminalMazeIdx)
         self._openbin=[]
         self._Fixed=Fixed
-        self._mazeSize=[DimX,DimY]
-        self.stateCost=np.ones(DimX*DimY)*np.inf 
+        self.stateCost=np.ones(2**(DimX*DimY))*np.inf 
         self.pressInput=[]
         #update basic Maze
         self._updateMaze()
@@ -35,13 +39,27 @@ class Maze(object):
     def _updateMaze(self):
         self._basic_maze=np.zeros(shape=(self._DimX,self._DimY))
         self._mazeSize=[self._DimX,self._DimY]
-        self.stateCost=np.ones(self._DimX*self._DimY)*np.inf 
+        self.stateCost=np.ones(2**(self._DimX*self._DimY))*np.inf
+        self.stateCost[0]=0
+        
         
         #update basic Maze with the fixed cells and set these values to -1
         for numrow,row in enumerate(self._basic_maze):
             for numcol,element in enumerate(row):
                 if [numcol+1,numrow+1] in self._Fixed:
                     self._basic_maze[numcol,numrow]=-1
+        
+        self._terminal_maze=self._buildTerminalMaze()
+        self._teminalMazeIdx=self._getStateIdx(self._terminal_maze)
+                    
+    def _buildTerminalMaze(self):
+        self._terminal_maze=np.copy(self._basic_maze)
+        for numrow,row in enumerate(self._basic_maze):
+            for numcol,element in enumerate(row):
+                if element==0:
+                    self._terminal_maze[numrow,numcol]=1
+        return self._terminal_maze
+        
         
     def _getCellID(self, CellCoordinates):
         '''
@@ -160,7 +178,7 @@ class Maze(object):
         
         '''
         stateIndex=0
-        for numrow,row in enumerate(self._basic_maze):
+        for numrow,row in enumerate(StateMaze):
             for numcol,value in enumerate(row):
                 topower=self._getCellID([numrow+1,numcol+1])-1
                 if value==-1:
@@ -213,7 +231,81 @@ class Maze(object):
         plt.xlim(-1,self._DimX)
         plt.ylim(-1,self._DimY)                
         plt.show()
-    
+        
+    def findShortestPath(self):
+        openBin=[]
+        openBinIdx=[]
+        #Add start state to openBin
+        openBin.append(self._basic_maze)
+        openBinIdx.append(0)
+        
+        while openBin!=[]:
+            for c,M in enumerate(openBin):
+                if c==0:
+                    Maxidx=c
+                    maxSum=np.sum(M)
+                if np.sum(M)>maxSum:
+                    Maxidx=c
+                    maxSum=np.sum(M)
+                    
+                
+            RemovedMaze=openBin.pop(Maxidx)
+            openBinIdx.pop(Maxidx)
+            removedIdx=self._getStateIdx(RemovedMaze)
+            for cell in range(1,self._DimX*self._DimY+1):
+                newMaze=self.pressCell(RemovedMaze,cell)
+                if False in (newMaze==self._terminal_maze):
+                    newMazeidx=self._getStateIdx(newMaze)
+                    if self.stateCost[removedIdx]+1<self.stateCost[newMazeidx]:
+                        if self.stateCost[removedIdx]+1<self.stateCost[self._teminalMazeIdx]:
+                            
+                            self.stateCost[newMazeidx]=self.stateCost[removedIdx]+1
+                            if newMazeidx not in openBinIdx:
+                                openBin.append(newMaze)
+                                openBinIdx.append(newMazeidx)                           
+                elif self.stateCost[removedIdx]+1<self.stateCost[self._teminalMazeIdx]:
+                    self.stateCost[self._teminalMazeIdx]=self.stateCost[removedIdx]+1
+                            
+                    
+        return self.stateCost
+        
+    def findPath(self):
+        openBin=[]
+        openBinIdx=[]
+        #Add start state to openBin
+        openBin.append(self._basic_maze)
+        openBinIdx.append(0)
+        
+        while openBin!=[]:
+            for c,M in enumerate(openBin):
+                if c==0:
+                    Maxidx=c
+                    maxSum=np.sum(M)
+                if np.sum(M)>maxSum:
+                    Maxidx=c
+                    maxSum=np.sum(M)
+                    
+                
+            RemovedMaze=openBin.pop(Maxidx)
+            openBinIdx.pop(Maxidx)
+            removedIdx=self._getStateIdx(RemovedMaze)
+            for cell in range(1,self._DimX*self._DimY+1):
+                newMaze=self.pressCell(RemovedMaze,cell)
+                if False in (newMaze==self._terminal_maze):
+                    newMazeidx=self._getStateIdx(newMaze)
+                    if self.stateCost[removedIdx]+1<self.stateCost[newMazeidx]:
+                        if self.stateCost[removedIdx]+1<self.stateCost[self._teminalMazeIdx]:
+                            
+                            self.stateCost[newMazeidx]=self.stateCost[removedIdx]+1
+                            if newMazeidx not in openBinIdx:
+                                openBin.append(newMaze)
+                                openBinIdx.append(newMazeidx)                           
+                elif self.stateCost[removedIdx]+1<self.stateCost[self._teminalMazeIdx]:
+                    self.stateCost[self._teminalMazeIdx]=self.stateCost[removedIdx]+1
+                    return self.stateCost
+                            
+                    
+        return self.stateCost
 
         
         

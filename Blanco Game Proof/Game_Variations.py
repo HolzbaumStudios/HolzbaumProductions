@@ -14,6 +14,27 @@ class Block_Method(Maze):
     def __init__(self,DimX,DimY,Fixed=[]):
         super(Block_Method,self).__init__(DimX,DimY,Fixed)
         self.pressInput=[[0,0],[0,1],[0,-1],[1,0],[1,1],[1,-1],[-1,0],[-1,1],[-1,-1]]#all the fields around the cell which change color
+        
+class Circle_Method(Maze):
+    def __init__(self,DimX,DimY,Fixed=[]):
+        super(Circle_Method,self).__init__(DimX,DimY,Fixed)
+        self.pressInput=[[0,1],[0,-1],[1,0],[1,1],[1,-1],[-1,0],[-1,1],[-1,-1]]#all the fields around the cell which change color
+        
+class Cross_Method(Maze):
+    def __init__(self,DimX,DimY,Fixed=[]):
+        super(Cross_Method,self).__init__(DimX,DimY,Fixed)
+        self.pressInput=[[0,0],[0,1],[0,-1],[1,0],[-1,0]]#all the fields around the cell which change color
+        
+class Cross_Hole_Method(Maze):
+    def __init__(self,DimX,DimY,Fixed=[]):
+        super(Cross_Hole_Method,self).__init__(DimX,DimY,Fixed)
+        self.pressInput=[[0,1],[0,-1],[1,0],[-1,0]]#all the fields around the cell which change color
+        
+                    
+                            
+#
+                
+            
     
     
         
@@ -23,10 +44,6 @@ class Block_Method(Maze):
         
     
     
-if __name__=="__main__":
-    b=Block_Method(10,10,Fixed=[[1,2]])
-    n=b.pressCell(b._basic_maze,25)
-    b.plotBasicMaze()
-    b.plotStateMaze(n)
+
 
     
