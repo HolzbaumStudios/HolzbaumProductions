@@ -7,8 +7,10 @@ Created on Sat Dec 20 12:55:04 2014
 import numpy as np
 import matplotlib.pyplot as plt
 
-class Maze():
-    """This is a class that builds and caluculates a Maze
+
+class Maze(object):
+    """
+    This is a class that builds and caluculates a Maze
     
     Args:
       DimX (int): The X-Dimension of the maze.\n
@@ -17,21 +19,29 @@ class Maze():
 
     """
     def __init__(self,DimX,DimY,Fixed=[]):
-        
+        #construct
         self._DimX=DimX
         self._DimY=DimY
-        self.Fixed=Fixed
         self._basic_maze=np.zeros(shape=(DimX,DimY))
-        self.mazeSize=[DimX,DimY]
-    
+        self._openbin=[]
+        self._Fixed=Fixed
+        self._mazeSize=[DimX,DimY]
+        self.stateCost=np.ones(DimX*DimY)*np.inf 
+        self.pressInput=[]
+        #update basic Maze
+        self._updateMaze()
+        
+        
+    def _updateMaze(self):
+        self._basic_maze=np.zeros(shape=(self._DimX,self._DimY))
+        self._mazeSize=[self._DimX,self._DimY]
+        self.stateCost=np.ones(self._DimX*self._DimY)*np.inf 
         
         #update basic Maze with the fixed cells and set these values to -1
         for numrow,row in enumerate(self._basic_maze):
             for numcol,element in enumerate(row):
-                if [numcol+1,numrow+1] in self.Fixed:
+                if [numcol+1,numrow+1] in self._Fixed:
                     self._basic_maze[numcol,numrow]=-1
-        
-    
         
     def _getCellID(self, CellCoordinates):
         '''
@@ -47,7 +57,7 @@ class Maze():
         Returns:
             SingleIndex (int): Index of the cell.            
         '''
-        SingleIndex = (CellCoordinates[0]-1)*self.mazeSize[1]+CellCoordinates[1]
+        SingleIndex = (CellCoordinates[0]-1)*self._mazeSize[1]+CellCoordinates[1]
         return SingleIndex
         
     def _getCellCoordinate(self, CellIdx):
@@ -62,35 +72,135 @@ class Maze():
         
         '''
         CellCoordinates=np.zeros(2)
-        CellCoordinates[0]=np.floor((CellIdx-1)/self.mazeSize[1])+1
-        CellCoordinates[1]=np.mod(CellIdx-1,self.mazeSize[1])+1
+        CellCoordinates[0]=np.floor((CellIdx-1)/self._mazeSize[1])+1
+        CellCoordinates[1]=np.mod(CellIdx-1,self._mazeSize[1])+1
         return CellCoordinates
-
-    def _isFixed(self,CellIdx):  
+        
+    def _isInsideMaze(self,CellCoordinate):
         '''
         This method returns the cell coordinates for a given cell index.
         
         Args:
-            CellIdx (int): Index of the cell. 
+            CellCoordinates(list [1x2]): Cellcoordinates with first element reffering to x coordinate and secound to y. 
+            
+        Returns:
+            inside (bool): if the cell is inside, inside=True else inside=False
+        
+        '''
+        if (self._mazeSize[0]>=CellCoordinate[0]>0) and (self._mazeSize[1]>=CellCoordinate[1]>0):
+            inside=True
+        else:
+            inside=False
+            
+        return inside
+                
+        
+
+    def _isFixed(self,CellCoordinate):  
+        '''
+        This method returns the cell coordinates for a given cell index.
+        
+        Args:
+            CellCoordinates(list [1x2]): Cellcoordinates with first element reffering to x coordinate and secound to y. 
             
         Returns:
             fixed (bool): if the cell is fixed, fixed=True else fixed=False
         
         '''
         fixed=False
-        for fixedCell in self.Fixed:
-            if self._getCellID(fixedCell[0],fixedCell[1])==CellIdx:
+        for fixedCell in self._Fixed:
+            if fixedCell==CellCoordinate:
                 fixed=True
-        
         return fixed
+        
+    def _applyPressInputToCell(self,cellIdx):
+        
+        Cellcor=self._getCellCoordinate(cellIdx)
+        evaluationCells=[]
+        for pInput in self.pressInput:
+            testCell=[Cellcor[0]+pInput[0],Cellcor[1]+pInput[1]]
+            if self._isInsideMaze(testCell) and not self._isFixed(testCell):
+                evaluationCells.append(testCell)
+        return evaluationCells
+        
+    def _evaluateCells(self,evaluateCells,stateMaze):
+        '''
+        This method changes all the values of all cells in evaluateCells form 0 to 1 ore vice versa.
+                
+        Args:
+            stateMaze (numpyArray, [DimX x DimY]): Matrix of the mazeState \n
+            evaluateCells (list): List of coordinates o cells:
+            
+            
+        Returns:
+            newStateMaze (numpyArray, [DimX x DimY]): Matrix of the newmazeState
+        
+        
+        '''
+        newStateMaze=np.copy(stateMaze)
+        for evCell in evaluateCells:
+            value=newStateMaze[evCell[0]-1,evCell[1]-1]
+            if value==1:
+                newStateMaze[evCell[0]-1,evCell[1]-1]=0
+            elif value==0:
+                newStateMaze[evCell[0]-1,evCell[1]-1]=1
+        return newStateMaze
+        
+    def _getStateIdx(self,StateMaze):
+        '''
+        This method returns a unique state index for a given maze state.
+        the index is generated by a binary counter system. Starts at the bottom left
+        and raises in y-direction
+        
+        Args:
+            StateMaze (numpyArray, [DimX x DimY]): Matrix of the mazeState 
+            
+        Returns:
+            stateIndex (int): Index of Maze state
+        
+        '''
+        stateIndex=0
+        for numrow,row in enumerate(self._basic_maze):
+            for numcol,value in enumerate(row):
+                topower=self._getCellID([numrow+1,numcol+1])-1
+                if value==-1:
+                    pass
+                else:
+                    stateIndex += value*2**topower
+        return stateIndex
+        
+    def pressCell(self,stateMaze,cellIdx):
+        '''
+        This method evaluates the new stateMaze if we have a current maze and cellIdx is pressed
+        
+        Args:
+            stateMaze (numpyArray, [DimX x DimY]): Matrix of the mazeState\n
+            cellIdx (int): Index of Cell
+            
+        Returns:
+            newStateMaze (numpyArray, [DimX x DimY]): Matrix of the new maze State
+        
+        '''
+        evaluateCells=self._applyPressInputToCell(cellIdx)
+        newStateMaze=self._evaluateCells(evaluateCells,stateMaze)
+        
+        return newStateMaze
+                
         
     def plotBasicMaze(self):
         '''
         This method plots a basic maze
         '''
+        self.plotStateMaze(self._basic_maze)
+        
+        
+    def plotStateMaze(self,stateMaze):
+        '''
+        This method plots the state maze
+        '''
         plt.figure()
         ax=plt.subplot(1,1,1)
-        for numrow,row in enumerate(self._basic_maze):
+        for numrow,row in enumerate(stateMaze):
             for numcol,column in enumerate(row):
                 if column==1:
                     ax.plot(numrow,numcol,marker='s',color='r',markersize=30)
@@ -103,10 +213,8 @@ class Maze():
         plt.xlim(-1,self._DimX)
         plt.ylim(-1,self._DimY)                
         plt.show()
-        
-        
-        
-        
+    
+
         
         
         
@@ -115,12 +223,23 @@ if __name__=="__main__":
     #close all exsisting Plots
     plt.close('all')
     #create a maze
-    M=Maze(5,5,[[1,2],[4,5]])
+    M=Maze(3,3,[[1,2],[2,2]])
     #Plot the basic maze
-    M.plotBasicMaze()
-    Coor=[2,3]
-    idx=M._getCellID(Coor)
-    print("idx:"+str(idx))
-    cor=M._getCellCoordinate(idx)
-    print(cor)
-        
+#    M.plotBasicMaze()
+#    #test the Cell coordinate functions
+#    Coor=[2,3]
+#    idx=M._getCellID(Coor)
+#    print("idx:"+str(idx))
+#    cor=M._getCellCoordinate(idx)
+#    print(cor)
+#    Sidx=M._getStateIdx(M._basic_maze)
+#    State1=M._basic_maze
+#    State1[0,0]=1
+#    State1[1,0]=1
+#    print(Sidx)
+#    M.plotStateMaze(State1)
+#    Sidx1=M._getStateIdx(State1)
+#    print("")
+#    print(State1)
+#    print(Sidx1)
+    print(M._isInsideMaze([2,4]))
