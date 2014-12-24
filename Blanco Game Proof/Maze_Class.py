@@ -25,9 +25,9 @@ class Maze(object):
         self._mazeSize=[DimX,DimY]
         self._basic_maze=np.zeros(shape=(DimX,DimY))
         self._terminal_maze=self._buildTerminalMaze()
-        print(self._terminal_maze)
+        #print(self._terminal_maze)
         self._teminalMazeIdx=self._getStateIdx(self._terminal_maze)
-        print(self._teminalMazeIdx)
+        print("Number of states: "+str(self._teminalMazeIdx))
         self._openbin=[]
         self._Fixed=Fixed
         self.stateCost=np.ones(2**(DimX*DimY))*np.inf 
