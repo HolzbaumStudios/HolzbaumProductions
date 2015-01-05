@@ -20,7 +20,7 @@ from Game_Variations import *
 
 #%%
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[])
+B=Block_Method(6,9,Fixed=[])
 B.plotBasicMaze()
 #press a cell on basic maze
 nextMaze=B.pressCell(B._basic_maze,7)

@@ -7,7 +7,7 @@ Created on Sun Dec 21 09:45:27 2014
 
 import numpy as np
 import matplotlib.pyplot as plt
-from Maze_Class import *
+from Maze_Class_V2 import *
 
 
 class Block_Method(Maze):
@@ -30,7 +30,7 @@ class Cross_Hole_Method(Maze):
         super(Cross_Hole_Method,self).__init__(DimX,DimY,Fixed)
         self.pressInput=[[0,1],[0,-1],[1,0],[-1,0]]#all the fields around the cell which change color
         
-                    
+
                             
 #
                 
