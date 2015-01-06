@@ -46,8 +46,8 @@ class Maze(object):
         #update basic Maze with the fixed cells and set these values to -1
         for numrow,row in enumerate(self._basic_maze):
             for numcol,element in enumerate(row):
-                if [numcol+1,numrow+1] in self._Fixed:
-                    self._basic_maze[numcol,numrow]=-1
+                if [numrow+1,numcol+1] in self._Fixed:
+                    self._basic_maze[numrow,numcol]=-1
         
         self._terminal_maze=self._buildTerminalMaze()
         self._teminalMazeIdx=self._getStateIdx(self._terminal_maze)
