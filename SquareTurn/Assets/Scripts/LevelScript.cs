@@ -19,11 +19,16 @@ public class LevelScript : MonoBehaviour {
 
 		if (level == 1) {
 						//Initialize the Array and set every value to 0
-						InitializeArraySize (3, 3);
+						InitializeArraySize (0, 0);
 						//Define the extras
 				} else if (level == 2) {
 						//Initialize the Array and set every value to 0
-						InitializeArraySize (3, 6);
+						InitializeArraySize (4, 4);
+
+						fieldStructureArray [2, 2] = 2;
+			fieldStructureArray [0, 0] = 2;
+
+						
 						//Define the extras
 				} else if (level == 3) {
 						//Initialize the Array and set every value to 0

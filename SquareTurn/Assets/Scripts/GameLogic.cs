@@ -147,7 +147,7 @@ public class GameLogic : MonoBehaviour {
 		column = int.Parse (squareName.Substring (3, 1)); //Get the fourth letter of the word and convert to string
 
 		//Get the value of the clicked square
-		int clickedSquareState = CheckSquareState (row,column);
+		int clickedSquareState = squareArray[row,column].squareState;
 
 
 		//TopRow
@@ -195,7 +195,8 @@ public class GameLogic : MonoBehaviour {
 			tempColumn = column;
 			if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
 				int squareState = CheckSquareState (tempRow,tempColumn ); //Get the new square value
-				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0)) squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0)) 
+					squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
 			}
 		}
 		//Square middle right
