@@ -26,6 +26,8 @@ public class TurnScript : MonoBehaviour {
 			break;
 			case 1:squareColor = Color.yellow;
 			break;
+			case 3:squareColor = Color.red;
+			break;
 		}
 		transform.GetComponent<UnityEngine.UI.Image>().color = squareColor;
 		yield return new WaitForSeconds(0.6f);

@@ -16,7 +16,7 @@ public class GameLogic : MonoBehaviour {
 	//-----------------CLASSES---------------
 	public class cSquareClass{
 		public GameObject squareObject;
-		public int squareState = 0; //States: 0 = no Square, 1 = wrongSide, 2 = rightSide
+		public int squareState = 0; //States: 0 = wrongSide, 1 = rightSide, 2 = noSquare/wall, 3 = crossTurn
 
 		public int GetSquareState()
 		{
@@ -96,7 +96,7 @@ public class GameLogic : MonoBehaviour {
 				squareArray[i,j].squareState = levelScript.fieldStructureArray[i,j];
 				//Debug.Log (squareArray[i,j].squareState);
 				//Create the square
-				if(squareArray[i,j].squareState == 0 || squareArray[i,j].squareState == 1){
+				if(squareArray[i,j].squareState == 0 || squareArray[i,j].squareState == 1 || squareArray[i,j].squareState == 3){
 					GameObject column = Instantiate(squareObject,transform.position,transform.rotation) as GameObject;
 					squareArray[i,j].squareObject = column;
 					column.transform.parent = GameObject.Find ("squarePanel").transform;
@@ -104,6 +104,9 @@ public class GameLogic : MonoBehaviour {
 					//if state is set to 1 change the color
 					if(squareArray[i,j].squareState == 1){
 						column.transform.GetComponent<UnityEngine.UI.Image>().color = Color.yellow;
+					}
+					if(squareArray[i,j].squareState == 3){
+						column.transform.GetComponent<UnityEngine.UI.Image>().color = Color.red;
 					}
 					//Set position regarding width count
 					if(evenNumberWidth)
@@ -143,71 +146,98 @@ public class GameLogic : MonoBehaviour {
 		row = int.Parse (squareName.Substring (1, 1)); //Get the second letter of the word and convert to string
 		column = int.Parse (squareName.Substring (3, 1)); //Get the fourth letter of the word and convert to string
 
+		//Get the value of the clicked square
+		int clickedSquareState = CheckSquareState (row,column);
+
+
 		//TopRow
 		//Square top left
-		tempRow = row + 1;
-		tempColumn = column -1;
-		if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
-			int squareState = CheckSquareState (tempRow,tempColumn); //Get the new square value
-			if(squareArray[tempRow,tempColumn].squareObject) squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+		if(clickedSquareState == 0 || clickedSquareState == 1){
+			tempRow = row + 1;
+			tempColumn = column -1;
+			if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
+				int squareState = CheckSquareState (tempRow,tempColumn); //Get the new square value
+				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0)) squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+			}
 		}
 		//Square top middle
-		tempRow = row + 1;
-		tempColumn = column;
-		if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
-			int squareState = CheckSquareState (tempRow,tempColumn); //Get the new square value
-			if(squareArray[tempRow,tempColumn].squareObject) squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+		if(clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 3){
+			tempRow = row + 1;
+			tempColumn = column;
+			if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
+				int squareState = CheckSquareState (tempRow,tempColumn); //Get the new square value
+				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0)) squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+			}
 		}
 		//Square top right
-		tempRow = row + 1;
-		tempColumn = column + 1;
-		if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
-			int squareState = CheckSquareState (tempRow,tempColumn); //Get the new square value
-			if(squareArray[tempRow,tempColumn].squareObject) squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+		if(clickedSquareState == 0 || clickedSquareState == 1){
+			tempRow = row + 1;
+			tempColumn = column + 1;
+			if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
+				int squareState = CheckSquareState (tempRow,tempColumn); //Get the new square value
+				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0)) squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+			}
 		}
 		//Middle ROw
 		//Square middle left
-		tempRow = row;
-		tempColumn = column -1;
-		if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
-			int squareState = CheckSquareState (tempRow,tempColumn); //Get the new square value
-			if(squareArray[tempRow,tempColumn].squareObject) squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+		if (clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 3) {
+			tempRow = row;
+			tempColumn = column - 1;
+			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
+					int squareState = CheckSquareState (tempRow, tempColumn); //Get the new square value
+					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0))
+							squareArray [tempRow, tempColumn].squareObject.SendMessage ("TurnSquare", squareState); //Turn the square with the new value
+			}
 		}
 		//Square middle middle
-		tempRow = row;
-		tempColumn = column;
-		if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
-			int squareState = CheckSquareState (tempRow,tempColumn); //Get the new square value
-			if(squareArray[tempRow,tempColumn].squareObject) squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+		if (clickedSquareState == 0 || clickedSquareState == 1) {
+			tempRow = row;
+			tempColumn = column;
+			if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
+				int squareState = CheckSquareState (tempRow,tempColumn ); //Get the new square value
+				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0)) squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+			}
 		}
 		//Square middle right
-		tempRow = row;
-		tempColumn = column + 1;
-		if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
-			int squareState = CheckSquareState (tempRow,tempColumn); //Get the new square value
-			if(squareArray[tempRow,tempColumn].squareObject) squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+		if (clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 3) {
+			tempRow = row;
+			tempColumn = column + 1;
+			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
+					int squareState = CheckSquareState (tempRow, tempColumn); //Get the new square value
+					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0))
+							squareArray [tempRow, tempColumn].squareObject.SendMessage ("TurnSquare", squareState); //Turn the square with the new value
+			}
 		}
 		//Bottom ROw
 		//Square bottom left
-		tempRow = row-1;
-		tempColumn = column -1;
-		if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
-			int squareState = CheckSquareState (tempRow,tempColumn); //Get the new square value
-			if(squareArray[tempRow,tempColumn].squareObject) squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+		if (clickedSquareState == 0 || clickedSquareState == 1) {
+			tempRow = row - 1;
+			tempColumn = column - 1;
+			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
+					int squareState = CheckSquareState (tempRow, tempColumn); //Get the new square value
+					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0))
+							squareArray [tempRow, tempColumn].squareObject.SendMessage ("TurnSquare", squareState); //Turn the square with the new value
+			}
 		}
 		//Square bottom middle
-		tempRow = row-1;
-		tempColumn = column;
-		if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
-			int squareState = CheckSquareState (tempRow,tempColumn); //Get the new square value
-			if(squareArray[tempRow,tempColumn].squareObject) squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+		if (clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 3) {
+			tempRow = row - 1;
+			tempColumn = column;
+			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
+					int squareState = CheckSquareState (tempRow, tempColumn); //Get the new square value
+					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0))
+							squareArray [tempRow, tempColumn].squareObject.SendMessage ("TurnSquare", squareState); //Turn the square with the new value
+			}
 		}
 		//Square bottom right
-		tempRow = row-1;
-		tempColumn = column + 1;
-		if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
-			int squareState = CheckSquareState (tempRow,tempColumn); //Get the new square value
-			if(squareArray[tempRow,tempColumn].squareObject) squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+		if (clickedSquareState == 0 || clickedSquareState == 1) {
+			tempRow = row - 1;
+			tempColumn = column + 1;
+			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
+					int squareState = CheckSquareState (tempRow, tempColumn); //Get the new square value
+					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0))
+							squareArray [tempRow, tempColumn].squareObject.SendMessage ("TurnSquare", squareState); //Turn the square with the new value
+			}
 		}
 
 
@@ -222,7 +252,6 @@ public class GameLogic : MonoBehaviour {
 		}else if(squareArray[row,column].squareState == 1){
 			squareArray[row,column].SetSquareState(0);
 		}
-
 		return squareArray[row,column].squareState;
 	}
 
