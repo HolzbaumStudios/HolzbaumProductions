@@ -18,67 +18,67 @@ import matplotlib.pyplot as plt
 #import all from Game Variations
 from Game_Variations import *
 
-Savepath=r"4x4/"
+Savepath=r"5x5/"
 #%%1
 count=1
 """
 #initialize Object 4x4 Maze
-B=Block_Method(4,4)#,Fixed=[[1,1]])#,[1,4],[3,4],[4,4],[5,4]])
-Sol=B.findPath()
-#Sol=B.findShortestPath()
+B=Block_Method(5,5)#,Fixed=[[1,1]])#,[1,4],[3,4],[4,4],[5,4]])
+#Sol=B.findPath()
+Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
 
 #%%2
 
-count+=1
 
+count+=1
 """
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[1,2]])#,[1,4],[3,4],[4,4],[5,4]])
+B=Block_Method(5,5,Fixed=[[1,1]])#,[1,4],[3,4],[4,4],[5,4]])
 Sol=B.findPath()
 #Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
+
 #%%3
 
 count+=1
-
 """
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[1,1]])#,[1,4],[3,4],[4,4],[5,4]])
+B=Block_Method(5,5,Fixed=[[1,1],[5,5]])#,[1,4],[3,4],[4,4],[5,4]])
 Sol=B.findPath()
 #Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
+
 #%%4
 
 count+=1
-
 """
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[2,2]])#,[1,4],[3,4],[4,4],[5,4]])
+B=Block_Method(5,5,Fixed=[[1,1],[5,1],[1,5],[5,5]])#,[1,4],[3,4],[4,4],[5,4]])
 Sol=B.findPath()
 #Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
@@ -87,28 +87,29 @@ plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 count+=1
 """
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[1,2],[1,1]])#,[1,4],[3,4],[4,4],[5,4]])
+B=Block_Method(5,5,Fixed=[[1,1],[5,1],[5,5]])#,[1,4],[3,4],[4,4],[5,4]])
 Sol=B.findPath()
 #Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
+
 #%%6
 
 count+=1
 """
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[1,2],[1,3]])#,[1,4],[3,4],[4,4],[5,4]])
+B=Block_Method(5,5,Fixed=[[1,1],[2,2],[5,5]])#,[1,4],[3,4],[4,4],[5,4]])
 Sol=B.findPath()
 #Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
@@ -117,43 +118,45 @@ plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 count+=1
 """
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[2,2],[1,1]])#,[1,4],[3,4],[4,4],[5,4]])
+B=Block_Method(5,5,Fixed=[[1,1],[2,2],[4,4],[5,5]])#,[1,4],[3,4],[4,4],[5,4]])
 Sol=B.findPath()
 #Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
+
 #%%8
 
 count+=1
-""" Achtung schon shortest
-#initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[2,2],[2,1]])#,[1,4],[3,4],[4,4],[5,4]])
-#Sol=B.findPath()
-Sol=B.findShortestPath()
-print("State Costs: "+str(Sol[1]))
-plt.figure()
-ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
-B.plotBasicMaze(Axes=ax)
-plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
-#%%9
-
-count+=1
-"""Achtung schon shortest
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[2,2],[2,3]])#,[1,4],[3,4],[4,4],[5,4]])
+B=Block_Method(5,5,Fixed=[[1,1],[2,2],[3,3],[4,4],[5,5]])#,[1,4],[3,4],[4,4],[5,4]])
 Sol=B.findPath()
 #Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
+B.plotBasicMaze(Axes=ax)
+plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
+"""
+
+#%%9
+
+count+=1
+"""
+#initialize Object 4x4 Maze
+B=Block_Method(5,5,Fixed=[[1,1],[2,2],[3,3],[4,4],[5,5],[1,5]])#,[1,4],[3,4],[4,4],[5,4]])
+Sol=B.findPath()
+#Sol=B.findShortestPath()
+print("State Costs: "+str(Sol[1]))
+plt.figure()
+ax=plt.subplot(1,1,1)
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
@@ -161,15 +164,15 @@ plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 #%%10
 
 count+=1
-"""Achtung schon shortest
+"""
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[2,2],[3,3]])#,[1,4],[3,4],[4,4],[5,4]])
+B=Block_Method(5,5,Fixed=[[1,1],[2,2],[3,3],[4,4],[5,5],[1,5],[5,1]])#,[1,4],[3,4],[4,4],[5,4]])
 Sol=B.findPath()
 #Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
@@ -177,15 +180,15 @@ plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 #%%11
 
 count+=1
-"""Achtung schon shortest
+"""
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[3,2],[2,1]])#,[1,4],[3,4],[4,4],[5,4]])
+B=Block_Method(5,5,Fixed=[[1,1],[2,2],[3,3],[4,4],[5,5],[1,5],[2,4],[5,1]])#,[1,4],[3,4],[4,4],[5,4]])
 Sol=B.findPath()
 #Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
@@ -193,15 +196,15 @@ plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 #%%12
 
 count+=1
-"""Achtung schon shortest
+"""
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[1,2],[2,1]])#,[1,4],[3,4],[4,4],[5,4]])
+B=Block_Method(5,5,Fixed=[[1,1],[2,2],[3,3],[4,4],[5,5],[1,5],[2,4],[4,2],[5,1]])#,[1,4],[3,4],[4,4],[5,4]])
 Sol=B.findPath()
 #Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
@@ -209,15 +212,15 @@ plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 #%%13
 
 count+=1
-"""Achtung schon shortest
+"""
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[1,1],[3,3]])#,[1,4],[3,4],[4,4],[5,4]])
-#Sol=B.findPath()
-Sol=B.findShortestPath()
+B=Block_Method(5,5,Fixed=[[2,2],[2,3],[2,4],[1,5],[5,1]])#,[1,4],[3,4],[4,4],[5,4]])
+Sol=B.findPath()
+#Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
@@ -227,139 +230,172 @@ plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 count+=1
 """
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[1,1],[4,4]])#,[1,4],[3,4],[4,4],[5,4]])
+B=Block_Method(5,5,Fixed=[[2,3],[2,2],[3,3],[4,4],[2,4],[3,2],[3,4],[4,2],[4,3]])#,[1,4],[3,4],[4,4],[5,4]])
 Sol=B.findPath()
 #Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
 
-count+=1
-"""
-#initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[1,1],[1,4]])#,[1,4],[3,4],[4,4],[5,4]])
-Sol=B.findPath()
-#Sol=B.findShortestPath()
-print("State Costs: "+str(Sol[1]))
-plt.figure()
-ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
-B.plotBasicMaze(Axes=ax)
-plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
-"""
+#%%15
 
 count+=1
 """
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[1,1],[1,4],[4,4]])#,[1,4],[3,4],[4,4],[5,4]])
+B=Block_Method(5,5,Fixed=[[1,1],[2,2],[2,3],[2,4],[1,5]])#,[5,1]])#,[1,4],[3,4],[4,4],[5,4]])
 Sol=B.findPath()
 #Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
 
-count+=1
-"""
-#initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[1,1],[1,4],[4,1],[4,4]])#,[1,4],[3,4],[4,4],[5,4]])
-Sol=B.findPath()
-#Sol=B.findShortestPath()
-print("State Costs: "+str(Sol[1]))
-plt.figure()
-ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
-B.plotBasicMaze(Axes=ax)
-plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
-"""
+#%%16
 
 count+=1
 """
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[1,1],[1,2],[4,4]])#,[1,4],[3,4],[4,4],[5,4]])
+B=Block_Method(5,5,Fixed=[[1,1],[2,2],[2,3],[2,4],[1,5],[5,1]])#,[1,4],[3,4],[4,4],[5,4]])
 Sol=B.findPath()
 #Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
 
-count+=1
-"""
-#initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[1,1],[1,2],[4,3],[4,4]])#,[1,4],[3,4],[4,4],[5,4]])
-Sol=B.findPath()
-#Sol=B.findShortestPath()
-print("State Costs: "+str(Sol[1]))
-plt.figure()
-ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
-B.plotBasicMaze(Axes=ax)
-plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
-"""
+#%%17
 
 count+=1
 """
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[1,1],[1,2],[4,3],[1,4],[2,4],[4,1],[3,1],[4,4]])#,[1,4],[3,4],[4,4],[5,4]])
+B=Block_Method(5,5,Fixed=[[1,2],[1,4]])#,[5,1]])#,[1,4],[3,4],[4,4],[5,4]])
 Sol=B.findPath()
 #Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
+#%%18
 
 count+=1
 """
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[1,1],[1,2],[3,4],[4,4]])#,[1,4],[3,4],[4,4],[5,4]])
+B=Block_Method(5,5,Fixed=[[1,2],[1,4],[1,3]])#,[5,1]])#,[1,4],[3,4],[4,4],[5,4]])
 Sol=B.findPath()
 #Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
 
+#%%19
+
 count+=1
-"""
+""" Dont know if it has solution
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[1,1],[1,2],[3,4],[4,3],[4,4]])#,[1,4],[3,4],[4,4],[5,4]])
+B=Block_Method(5,5,Fixed=[[1,2],[1,4],[1,3],[2,1],[2,5]])#,[5,1]])#,[1,4],[3,4],[4,4],[5,4]])
 Sol=B.findPath()
 #Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
 
+#%%20
+
 count+=1
 """
 #initialize Object 4x4 Maze
-B=Block_Method(4,4,Fixed=[[1,1],[1,2],[3,4],[4,4],[1,4]])
+B=Block_Method(5,5,Fixed=[[1,2],[1,4],[1,3],[2,1],[2,5],[2,3]])#,[5,1]])#,[1,4],[3,4],[4,4],[5,4]])
 Sol=B.findPath()
 #Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
 plt.figure()
 ax=plt.subplot(1,1,1)
-plt.title("4x4, Shortest="+str(Sol[1])+" moves")
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
+B.plotBasicMaze(Axes=ax)
+plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
+"""
+
+#%%21
+
+count+=1
+""" Dont know if it has solution
+#initialize Object 4x4 Maze
+B=Block_Method(5,5,Fixed=[[1,2],[1,4],[1,3],[2,1],[2,5],[3,3]])#,[5,1]])#,[1,4],[3,4],[4,4],[5,4]])
+Sol=B.findPath()
+#Sol=B.findShortestPath()
+print("State Costs: "+str(Sol[1]))
+plt.figure()
+ax=plt.subplot(1,1,1)
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
+B.plotBasicMaze(Axes=ax)
+plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
+"""
+
+
+#%%22
+
+count+=1
+"""
+#initialize Object 4x4 Maze
+B=Block_Method(5,5,Fixed=[[1,2],[1,4],[1,3],[2,1],[2,5],[2,3],[3,3]])#,[5,1]])#,[1,4],[3,4],[4,4],[5,4]])
+Sol=B.findPath()
+#Sol=B.findShortestPath()
+print("State Costs: "+str(Sol[1]))
+plt.figure()
+ax=plt.subplot(1,1,1)
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
+B.plotBasicMaze(Axes=ax)
+plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
+"""
+
+#%%23
+
+count+=1
+""" Dont know if it has solution
+#initialize Object 4x4 Maze
+B=Block_Method(5,5,Fixed=[[1,2],[1,4],[1,3],[2,1],[2,5],[4,1],[5,2],[5,3],[5,4],[4,5]])#,[5,1]])#,[1,4],[3,4],[4,4],[5,4]])
+Sol=B.findPath()
+#Sol=B.findShortestPath()
+print("State Costs: "+str(Sol[1]))
+plt.figure()
+ax=plt.subplot(1,1,1)
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
+B.plotBasicMaze(Axes=ax)
+plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
+"""
+#%%23
+
+count+=1
+"""
+#initialize Object 4x4 Maze
+B=Block_Method(5,5,Fixed=[[1,2],[1,4],[1,3],[2,1],[2,5],[4,1],[5,2],[5,3],[5,4],[4,5],[2,3]])#,[5,1]])#,[1,4],[3,4],[4,4],[5,4]])
+Sol=B.findPath()
+#Sol=B.findShortestPath()
+print("State Costs: "+str(Sol[1]))
+plt.figure()
+ax=plt.subplot(1,1,1)
+plt.title("5x5, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 """
