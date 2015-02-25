@@ -273,6 +273,8 @@ public class GameLogic : MonoBehaviour {
 
 		if(playerWon){
 			Debug.Log ("Gewonnen");
+			//Store the statistics in Prefabs (Script: UserStatistics)
+			GameObject.Find ("UserStatistics").SendMessage ("StoreStatistics");
 		}
 	}
 

@@ -47,12 +47,14 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\ChooseLevelScript.cs" />
-     <Compile Include="Assets\Scripts\GameLogic.cs" />
-     <Compile Include="Assets\Scripts\LevelScript.cs" />
+     <Compile Include="Assets\Scripts\DontDestroy.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\GameLogic.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\LevelScript.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\ResetLevelScript.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\TurnScript.cs" />
      <Compile Include="Assets\Scripts\MenuScript.cs" />
-     <Compile Include="Assets\Scripts\ResetLevelScript.cs" />
      <Compile Include="Assets\Scripts\StarColorScript.cs" />
-     <Compile Include="Assets\Scripts\TurnScript.cs" />
+     <Compile Include="Assets\Scripts\UserStatistics.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>

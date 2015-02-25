@@ -8,6 +8,9 @@ public class TurnScript : MonoBehaviour {
 
 	//---------------FUNCTIONS-------------------------------
 	public void StartSquareTurn(){
+
+		GameObject.Find ("UserStatistics").SendMessage ("UpdateStatistic", "Turn++"); //Update the turn statistics (Script: UserStatistics.cs)
+
 		GameObject.Find ("gameManager").SendMessage ("TurnOtherSquares", gameObject.name);
 	}
 
@@ -22,9 +25,9 @@ public class TurnScript : MonoBehaviour {
 		//Set Color
 		Color squareColor = Color.blue;
 		switch(squareState){
-			case 0:squareColor = new Color32(0, 155, 169, 255);
+			case 0:squareColor = new Color32(72, 120, 168, 255);
 			break;
-			case 1:squareColor = Color.yellow;
+			case 1:squareColor = new Color32(240, 120, 48, 255);
 			break;
 			case 3:squareColor = Color.red;
 			break;

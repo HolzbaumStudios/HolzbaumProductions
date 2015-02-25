@@ -44,8 +44,12 @@ public class LevelScript : MonoBehaviour {
 						fieldStructureArray [2, 1] = 1;
 				} else if (level == 4) {
 						//Initialize the Array and set every value to 0
-						InitializeArraySize (5, 5);
-						fieldStructureArray [2, 2] = 3;
+						InitializeArraySize (4, 4);
+						fieldStructureArray [0, 0] = 2;
+						fieldStructureArray [0, 3] = 2;
+						fieldStructureArray [3, 0] = 2;
+						fieldStructureArray [3, 3] = 2;
+						
 				}
 
 		//Set gameManager active to start the level creation
