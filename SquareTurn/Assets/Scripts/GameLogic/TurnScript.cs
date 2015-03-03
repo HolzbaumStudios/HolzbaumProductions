@@ -15,7 +15,7 @@ public class TurnScript : MonoBehaviour {
 	}
 
 	public void TurnSquare(int squareState){
-		animation.Play ();
+		GetComponent<Animation>().Play ();
 		StartCoroutine(AnimationSettings(squareState));
 	}
 
