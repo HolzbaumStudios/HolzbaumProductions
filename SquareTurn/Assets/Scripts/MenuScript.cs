@@ -9,4 +9,8 @@ public class MenuScript : MonoBehaviour {
 		Application.LoadLevel ("gameScene");
 	}
 
+	public void GoBackToMenu(){
+		Application.LoadLevel ("menu");
+	}
+
 }
