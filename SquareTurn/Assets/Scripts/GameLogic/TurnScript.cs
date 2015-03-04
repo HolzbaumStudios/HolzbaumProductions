@@ -5,13 +5,23 @@ public class TurnScript : MonoBehaviour {
 
 	private int row;
 	private int column;
+	private GameObject managerObject;
+
+	//----------------INITIALIZATION-----------------------------------------
+	void Start(){
+		managerObject = GameObject.Find ("gameManager");
+	}
 
 	//---------------FUNCTIONS-------------------------------
 	public void StartSquareTurn(){
 
-		GameObject.Find ("UserStatistics").SendMessage ("UpdateStatistic", "Turn++"); //Update the turn statistics (Script: UserStatistics.cs)
+		bool gameWon = managerObject.GetComponent<GameLogic>().ReturnWinningState();
 
-		GameObject.Find ("gameManager").SendMessage ("TurnOtherSquares", gameObject.name);
+		if (!gameWon) { //only turn squares if game not won
+
+			GameObject.Find ("UserStatistics").SendMessage ("UpdateStatistic", "Turn++"); //Update the turn statistics (Script: UserStatistics.cs)
+			managerObject.SendMessage ("TurnOtherSquares", gameObject.name);
+		}
 	}
 
 	public void TurnSquare(int squareState){
