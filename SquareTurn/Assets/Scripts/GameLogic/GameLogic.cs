@@ -11,6 +11,7 @@ public class GameLogic : MonoBehaviour {
 
 	public GameObject squareObject;
 	public GameObject turnText;
+	public bool playerWon = false;
 	LevelScript levelScript;
 
 	//-----------------CLASSES---------------
@@ -259,16 +260,16 @@ public class GameLogic : MonoBehaviour {
 
 	//Check everyturn if the player has won
 	void CheckIfWon(){
-		bool playerWon = true;
+		playerWon = true;
 
-		for(int i = 0; i < fieldRows; i++)
-		{
-			for(int j = 0; j < fieldColumns; j++)
-			{	
-				if(squareArray[i,j].squareState == 0){
-					playerWon = false;
+		if (PlayerPrefs.GetInt ("ChosenLevel") < 400) { //Everything under 400 are normal lavels. 4xx are form levels
+				for (int i = 0; i < fieldRows; i++) {
+						for (int j = 0; j < fieldColumns; j++) {	
+								if (squareArray [i, j].squareState == 0) {
+										playerWon = false;
+								}
+						}
 				}
-			}
 		}
 
 		if(playerWon){
@@ -276,6 +277,12 @@ public class GameLogic : MonoBehaviour {
 			//Store the statistics in Prefabs (Script: UserStatistics)
 			GameObject.Find ("UserStatistics").SendMessage ("StoreStatistics");
 		}
+	}
+
+
+	//When user tries to turn a square (TurnScript), it checks if the game is already won, by accessing this function
+	public bool ReturnWinningState(){
+		return playerWon;
 	}
 
 
