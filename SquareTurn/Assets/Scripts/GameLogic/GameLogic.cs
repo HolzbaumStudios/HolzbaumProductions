@@ -6,8 +6,8 @@ public class GameLogic : MonoBehaviour {
 	//--------------Variables----------------
 	int fieldRows;
 	int fieldColumns;
-	float squareSpace = Screen.width/14; //The spacing between the squares  --> otherwise 120
-	float squareSize = Screen.width/15;
+	float squareSpace = Screen.width/12.3f; //The spacing between the squares  --> otherwise 120 //before 13.3 -> /14 
+	float squareSize = Screen.width/13; //before 13.3 -> /15
 
 	public GameObject squareObject;
 	public GameObject turnText;
@@ -44,7 +44,6 @@ public class GameLogic : MonoBehaviour {
 		InitializeArray (fieldRows, fieldColumns); //Initializes the array
 		PrepareField (); //Prepares the field with the buttons
 	}
-
 
 
 	//-------------FUNCTIONS-------------------------------
@@ -115,11 +114,14 @@ public class GameLogic : MonoBehaviour {
 						float halfField = fieldColumns / 2;
 						float difference = halfField - j;
 						column.GetComponent<RectTransform>().anchoredPosition = new Vector2(-difference * squareSpace + squareSpace/2,yPosition);
+						//Debug.Log (i + "," + j+ "   X: " + (-difference * squareSpace + squareSpace/2) + " Y: " + yPosition);
 					}else{
 						float halfField = fieldColumns / 2;
 						float difference = halfField - j;
 						column.GetComponent<RectTransform>().anchoredPosition = new Vector2(-difference * squareSpace,yPosition);
+						//Debug.Log (i + "," + j+ "   X: " + (-difference * squareSpace) + " Y: " + yPosition);
 					}
+	
 					//Set size of the square
 					column.GetComponent<RectTransform>().sizeDelta = new Vector2(squareSize,squareSize);
 				}
