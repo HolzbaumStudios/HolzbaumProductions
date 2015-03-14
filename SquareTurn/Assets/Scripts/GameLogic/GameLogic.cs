@@ -13,6 +13,8 @@ public class GameLogic : MonoBehaviour {
 	public GameObject turnText;
 	public bool playerWon = false;
 	LevelScript levelScript;
+	private GameObject userStatistics;
+	private int numberOfTurns; //To count how many squares have been turned --> for statistics
 
 	//-----------------CLASSES---------------
 	public class cSquareClass{
@@ -34,6 +36,7 @@ public class GameLogic : MonoBehaviour {
 
 	//-------------------------START--------------------------------
 	void Start () {
+		userStatistics = GameObject.Find ("UserStatistics");
 
 		levelScript = GameObject.Find ("LevelScript").GetComponent<LevelScript>();
 
@@ -149,6 +152,7 @@ public class GameLogic : MonoBehaviour {
 		row = int.Parse (squareName.Substring (1, 1)); //Get the second letter of the word and convert to string
 		column = int.Parse (squareName.Substring (3, 1)); //Get the fourth letter of the word and convert to string
 
+
 		//Get the value of the clicked square
 		int clickedSquareState = squareArray[row,column].squareState;
 
@@ -160,7 +164,10 @@ public class GameLogic : MonoBehaviour {
 			tempColumn = column -1;
 			if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
 				int squareState = CheckSquareState (tempRow,tempColumn); //Get the new square value
-				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0)) squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0)){
+					squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+					numberOfTurns++;
+				}
 			}
 		}
 		//Square top middle
@@ -169,7 +176,10 @@ public class GameLogic : MonoBehaviour {
 			tempColumn = column;
 			if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
 				int squareState = CheckSquareState (tempRow,tempColumn); //Get the new square value
-				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0)) squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0)){
+					squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+					numberOfTurns++;
+				}
 			}
 		}
 		//Square top right
@@ -178,7 +188,10 @@ public class GameLogic : MonoBehaviour {
 			tempColumn = column + 1;
 			if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
 				int squareState = CheckSquareState (tempRow,tempColumn); //Get the new square value
-				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0)) squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0)){
+					squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+					numberOfTurns++;
+				}
 			}
 		}
 		//Middle ROw
@@ -187,9 +200,11 @@ public class GameLogic : MonoBehaviour {
 			tempRow = row;
 			tempColumn = column - 1;
 			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
-					int squareState = CheckSquareState (tempRow, tempColumn); //Get the new square value
-					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0))
-							squareArray [tempRow, tempColumn].squareObject.SendMessage ("TurnSquare", squareState); //Turn the square with the new value
+				int squareState = CheckSquareState (tempRow, tempColumn); //Get the new square value
+				if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0)){
+						squareArray [tempRow, tempColumn].squareObject.SendMessage ("TurnSquare", squareState); //Turn the square with the new value
+						numberOfTurns++;
+				}
 			}
 		}
 		//Square middle middle
@@ -198,8 +213,10 @@ public class GameLogic : MonoBehaviour {
 			tempColumn = column;
 			if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
 				int squareState = CheckSquareState (tempRow,tempColumn ); //Get the new square value
-				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0)) 
+				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0)){ 
 					squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
+					numberOfTurns++;
+				}
 			}
 		}
 		//Square middle right
@@ -208,8 +225,10 @@ public class GameLogic : MonoBehaviour {
 			tempColumn = column + 1;
 			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
 					int squareState = CheckSquareState (tempRow, tempColumn); //Get the new square value
-					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0))
+					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0)){
 							squareArray [tempRow, tempColumn].squareObject.SendMessage ("TurnSquare", squareState); //Turn the square with the new value
+							numberOfTurns++;
+					}
 			}
 		}
 		//Bottom ROw
@@ -219,8 +238,10 @@ public class GameLogic : MonoBehaviour {
 			tempColumn = column - 1;
 			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
 					int squareState = CheckSquareState (tempRow, tempColumn); //Get the new square value
-					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0))
+					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0)){
 							squareArray [tempRow, tempColumn].squareObject.SendMessage ("TurnSquare", squareState); //Turn the square with the new value
+							numberOfTurns++;
+					}
 			}
 		}
 		//Square bottom middle
@@ -229,8 +250,10 @@ public class GameLogic : MonoBehaviour {
 			tempColumn = column;
 			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
 					int squareState = CheckSquareState (tempRow, tempColumn); //Get the new square value
-					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0))
+					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0)){
 							squareArray [tempRow, tempColumn].squareObject.SendMessage ("TurnSquare", squareState); //Turn the square with the new value
+							numberOfTurns++;
+					}
 			}
 		}
 		//Square bottom right
@@ -239,11 +262,16 @@ public class GameLogic : MonoBehaviour {
 			tempColumn = column + 1;
 			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
 					int squareState = CheckSquareState (tempRow, tempColumn); //Get the new square value
-					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0))
+					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0)){
 							squareArray [tempRow, tempColumn].squareObject.SendMessage ("TurnSquare", squareState); //Turn the square with the new value
+							numberOfTurns++;
+					}
 			}
 		}
 
+		//Send statistic to  userstatistics.cs
+		userStatistics.GetComponent<UserStatistics>().UpdateStatistic("Turns++",numberOfTurns);
+		numberOfTurns = 0;
 
 		//Check if won
 		CheckIfWon();
@@ -277,7 +305,7 @@ public class GameLogic : MonoBehaviour {
 		if(playerWon){
 			Debug.Log ("Gewonnen");
 			//Store the statistics in Prefabs (Script: UserStatistics)
-			GameObject.Find ("UserStatistics").SendMessage ("StoreStatistics");
+			userStatistics.SendMessage ("StoreStatistics");
 		}
 	}
 

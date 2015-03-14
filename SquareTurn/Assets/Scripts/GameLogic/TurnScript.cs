@@ -6,10 +6,12 @@ public class TurnScript : MonoBehaviour {
 	private int row;
 	private int column;
 	private GameObject managerObject;
+	private GameObject userStatistics;
 
 	//----------------INITIALIZATION-----------------------------------------
 	void Start(){
 		managerObject = GameObject.Find ("gameManager");
+		userStatistics = GameObject.Find ("UserStatistics");
 	}
 
 	//---------------FUNCTIONS-------------------------------
@@ -19,7 +21,7 @@ public class TurnScript : MonoBehaviour {
 
 		if (!gameWon) { //only turn squares if game not won
 
-			GameObject.Find ("UserStatistics").SendMessage ("UpdateStatistic", "Turn++"); //Update the turn statistics (Script: UserStatistics.cs)
+			userStatistics.GetComponent<UserStatistics>().UpdateStatistic("Move++",1); //Update the turn statistics (Script: UserStatistics.cs)
 			managerObject.SendMessage ("TurnOtherSquares", gameObject.name);
 		}
 	}

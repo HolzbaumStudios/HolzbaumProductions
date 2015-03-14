@@ -12,12 +12,14 @@ public class UserStatistics : MonoBehaviour {
 	/// --------------------------Variables--------------------------------------------------- 
 	// (PlayerPref variables have the same name, but start with a capital letter)
 
-	int totalNumberOfTurns;  //How many squares the user has turned in the whole game
+	int totalNumberOfMoves;  //How many moves the user has made in the whole game
+	int totalNumberOfTurns; //How many squares the user has turned in the whole game
 
 	// ---------------------------INITIALIZATION----------------------------------------------
 	
 	void Start(){
 		//Store the prefabs in the local variables
+		totalNumberOfMoves = PlayerPrefs.GetInt ("TotalNumberOfMoves");
 		totalNumberOfTurns = PlayerPrefs.GetInt ("TotalNumberOfTurns");
 
 	}
@@ -25,14 +27,18 @@ public class UserStatistics : MonoBehaviour {
 	// --------------------------FUNCTIONS---------------------------------------------------
 
 	//Update the statistic, depending on the transmitted String
-	void UpdateStatistic(string statisticName){
+	public void UpdateStatistic(string statisticName, int amount){
+
+		Debug.Log ("Amount: " + amount);
 
 		switch (statisticName) {
-			case "Turn++": totalNumberOfTurns++;
+			case "Move++": totalNumberOfMoves++;
+			break;
+			case "Turns++": totalNumberOfTurns = totalNumberOfTurns + amount;
 			break;
 		}
 
-		Debug.Log (totalNumberOfTurns);
+		Debug.Log ("Moves: " + totalNumberOfMoves + " Turns: " + totalNumberOfTurns);
 	}
 
 
@@ -40,6 +46,7 @@ public class UserStatistics : MonoBehaviour {
 
 	//Store the variables into prefabs
 	public void StoreStatistics(){
+		PlayerPrefs.SetInt ("TotalNumberOfMoves", totalNumberOfMoves);
 		PlayerPrefs.SetInt ("TotalNumberOfTurns", totalNumberOfTurns);
 	}
 
