@@ -106,7 +106,7 @@ public class GameLogic : MonoBehaviour {
 					column.name = "r"+i+"c" +j;
 					//if state is set to 1 change the color
 					if(squareArray[i,j].squareState == 1){
-						column.transform.GetComponent<UnityEngine.UI.Image>().color = Color.yellow;
+						column.transform.GetComponent<UnityEngine.UI.Image>().color = new Color32(240, 120, 48, 255);
 					}
 					if(squareArray[i,j].squareState == 3){
 						column.transform.GetComponent<UnityEngine.UI.Image>().color = Color.red;
