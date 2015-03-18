@@ -25,14 +25,19 @@ class Maze(object):
         self._mazeSize=[DimX,DimY]
         self._basic_maze=np.zeros(shape=(DimX,DimY))
         self.stateCost=[0]
+        #make a pointerarray for getting out the right way.
+        self.SolutionWay=[0]
         self._terminal_maze=self._buildTerminalMaze()
         self.reachableStates=[self._basic_maze]
         self._teminalMazeIdx=self._addToReachableStates(self._terminal_maze)
+        self.SolutionWay.append(np.nan)
         #print(self._terminal_maze)
         print("Number of current states: "+str(self._teminalMazeIdx))
         self._openbin=[]
         self._Fixed=Fixed
         self.pressInput=[]
+        
+       
         
         #update basic Maze
         self._updateMaze()
@@ -202,6 +207,7 @@ class Maze(object):
                 return idx
         self.reachableStates.append(Maze)
         self.stateCost.append(np.inf)
+        self.SolutionWay.append(np.nan)
         return len(self.reachableStates)-1
         
         
@@ -261,6 +267,8 @@ class Maze(object):
         openBin.append(self._basic_maze)
         openBinIdx.append(0)
         
+        maxopenbin=len(openBinIdx)
+        
         while openBin!=[]:
             for c,M in enumerate(openBin):
                 if c==0:
@@ -269,6 +277,11 @@ class Maze(object):
                 if np.sum(M)>maxSum:
                     Maxidx=c
                     maxSum=np.sum(M)
+            
+            if len(openBinIdx)>maxopenbin:
+                maxopenbin=len(openBinIdx)
+                print(str(maxopenbin))
+            
                     
                 
             RemovedMaze=openBin.pop(Maxidx)
@@ -282,15 +295,18 @@ class Maze(object):
                         if self.stateCost[removedIdx]+1<self.stateCost[self._teminalMazeIdx]:
                             
                             self.stateCost[newMazeidx]=self.stateCost[removedIdx]+1
+                            self.SolutionWay[newMazeidx]=removedIdx
                             if newMazeidx not in openBinIdx:
                                 openBin.append(newMaze)
                                 openBinIdx.append(newMazeidx)                           
                 elif self.stateCost[removedIdx]+1<self.stateCost[self._teminalMazeIdx]:
                     self.stateCost[self._teminalMazeIdx]=self.stateCost[removedIdx]+1
+                    self.SolutionWay[self._teminalMazeIdx]=removedIdx
                     print("Current final cost: "+str(self.stateCost[self._teminalMazeIdx]))
                             
                     
         return self.stateCost
+        
         
     def findPath(self):
         openBin=[]
@@ -329,6 +345,38 @@ class Maze(object):
                             
                     
         return self.stateCost
+        
+    def getChronologicalShortestpath(self):
+        Currentidx=self._teminalMazeIdx
+        SolutionWaymazes=[]
+        SolutionWaymazes.append(self.reachableStates[Currentidx])
+        if self.SolutionWay[Currentidx]==np.nan:
+            print("Has no solution yet, please execute findShortestPath if you have not done so yet")
+            return SolutionWaymazes
+        else:
+            while (Currentidx!=0):
+                Currentidx=self.SolutionWay[Currentidx]
+                SolutionWaymazes.append(self.reachableStates[Currentidx])
+        return SolutionWaymazes
+    
+    def PlotChronologicalShortestpath(self):
+        SolWaymaze=self.getChronologicalShortestpath()
+        for maze in SolWaymaze:
+            self.plotStateMaze(maze)
+    
+    def PrintChronologicalShortestpath(self):
+        SolWaymaze=self.getChronologicalShortestpath()
+        for maze in SolWaymaze:
+            print(str(maze))
+            
+    def WriteChronologicalShortestpathtoFile(self,filepath):
+        txtfile=open(filepath,'w')
+        SolWaymaze=self.getChronologicalShortestpath()
+        txtfile.write("Shortest Path in "+str(len(SolWaymaze))+" Steps \n")
+        for maze in SolWaymaze:
+            txtfile.write(str(maze)+"\n")
+            
+        
 
         
         
