@@ -28,8 +28,8 @@ count=1
 
 #
 print("Calculating Nr.: "+str(count))
-#initialize Object 4x4 Maze
-B=Kat3_Method(3,3,Crossers=[[2,2]],Edgers=[[1,3]])#Fixed=[[1,1]],OneTurns=[[1,2]],Crossers=[[2,2]],Edgers=[[1,3]])#,[1,4],[3,4],[4,4],[5,4]])
+#initialize Object 3x3 Maze
+B=Kat3_Method(3,3,Crossers=[[2,2]])#Fixed=[[1,1]],OneTurns=[[1,2]],Crossers=[[2,2]],Edgers=[[1,3]])#,[1,4],[3,4],[4,4],[5,4]])
 #Sol=B.findPath()
 Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
@@ -42,10 +42,10 @@ B.PrintChronologicalShortestpath()
 Filename=Savepath+str(count)+"cost="+str(Sol[1])+".txt"
 B.WriteChronologicalShortestpathtoFile(Filename)
 #
-"""
+
 #%%
 count+=1
-
+"""
 #
 print("Calculating Nr.: "+str(count))
 

@@ -7,7 +7,7 @@ Created on Sun Dec 21 09:45:27 2014
 
 import numpy as np
 import matplotlib.pyplot as plt
-from Maze_Class_V3 import *
+from Maze_Class import *
 
 
 class Block_Method(Maze):
