@@ -101,11 +101,38 @@ public class LevelScript : MonoBehaviour {
 		if (level == 107) {
 			InitializeArraySize (4, 4);
 			fieldStructureArray [0, 0] = 2;
-			fieldStructureArray [1, 1] = 2;
+			fieldStructureArray [1, 0] = 2;
 			fieldStructureArray [2, 3] = 2;
 			fieldStructureArray [3, 3] = 2;
 		}
 
+		if (level == 108) {
+			InitializeArraySize (5, 5);
+		}
+
+		if (level == 109) {
+			InitializeArraySize (5, 5);
+			fieldStructureArray [0, 0] = 2;
+			fieldStructureArray [4, 4] = 2;
+		}
+
+		if (level == 110) {
+			InitializeArraySize (5, 5);
+			fieldStructureArray [0, 0] = 2;
+			fieldStructureArray [0, 1] = 2;
+			fieldStructureArray [0, 3] = 2;
+			fieldStructureArray [0, 4] = 2;
+			fieldStructureArray [1, 0] = 2;
+			fieldStructureArray [1, 4] = 2;
+			fieldStructureArray [2, 0] = 2;
+			fieldStructureArray [2, 4] = 2;
+			fieldStructureArray [3, 0] = 2;
+			fieldStructureArray [3, 4] = 2;
+			fieldStructureArray [4, 0] = 2;
+			fieldStructureArray [4, 1] = 2;
+			fieldStructureArray [4, 3] = 2;
+			fieldStructureArray [4, 4] = 2;
+		}
 
 
 
