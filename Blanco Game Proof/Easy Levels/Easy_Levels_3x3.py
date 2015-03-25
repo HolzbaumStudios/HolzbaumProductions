@@ -20,7 +20,7 @@ sys.path.append("C:\Users\Mija\Documents\HolzBaumStudios\HolzbaumProductions\Bla
 #import the Classes and lybrairies
 import matplotlib.pyplot as plt
 #import all from Game Variations
-from Game_VariationsV3 import *
+from Game_Variations import *
 
 Savepath=r"3x3/"
 #%%

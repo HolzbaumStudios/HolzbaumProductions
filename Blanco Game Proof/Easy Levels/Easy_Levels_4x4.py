@@ -15,6 +15,8 @@ If there is no solution, the calculation would endure long time, so press contro
 
 #import the Classes and lybrairies
 import matplotlib.pyplot as plt
+import sys
+sys.path.append("C:\Users\Mija\Documents\HolzBaumStudios\HolzbaumProductions\Blanco Game Proof")
 #import all from Game Variations
 from Game_Variations import *
 
