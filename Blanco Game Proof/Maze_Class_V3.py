@@ -62,7 +62,7 @@ class Maze(object):
         self._terminal_maze=Maze_State(np.copy(self._basic_maze.Matrix))
         for numrow,row in enumerate(self._basic_maze.Matrix):
             for numcol,element in enumerate(row):
-                if element==0:
+                if ((element==0) or (element==2)):
                     self._terminal_maze.ChangeMatrix(numrow,numcol,1)
         return self._terminal_maze
         
@@ -96,8 +96,8 @@ class Maze(object):
         
         '''
         CellCoordinates=np.zeros(2)
-        CellCoordinates[0]=np.floor((CellIdx-1)/self._mazeSize[1])+1
-        CellCoordinates[1]=np.mod(CellIdx-1,self._mazeSize[1])+1
+        CellCoordinates[0]=int(np.floor((CellIdx-1)/self._mazeSize[1])+1)
+        CellCoordinates[1]=int(np.mod(CellIdx-1,self._mazeSize[1])+1)
         return CellCoordinates
         
     def _isInsideMaze(self,CellCoordinate):
@@ -136,6 +136,7 @@ class Maze(object):
             if fixedCell==CellCoordinate:
                 fixed=True
         return fixed
+    
         
     def _applyPressInputToCell(self,cellIdx):
         
@@ -143,7 +144,8 @@ class Maze(object):
         if self._isFixed([Cellcor[0],Cellcor[1]]):
             return []
         evaluationCells=[]
-        for pInput in self.pressInput:
+        Presser=self.pressInput
+        for pInput in Presser:
             testCell=[Cellcor[0]+pInput[0],Cellcor[1]+pInput[1]]
             if self._isInsideMaze(testCell) and not self._isFixed(testCell):
                 evaluationCells.append(testCell)
@@ -170,6 +172,8 @@ class Maze(object):
                 newStateMaze.ChangeMatrix(evCell[0]-1,evCell[1]-1,0)
             elif value==0:
                 newStateMaze.ChangeMatrix(evCell[0]-1,evCell[1]-1,1)
+            elif value==2:
+                newStateMaze.ChangeMatrix(evCell[0]-1,evCell[1]-1,0)
         return newStateMaze
         
     def _getStateIdx(self,StateMaze):
@@ -236,9 +240,14 @@ class Maze(object):
                     ax.plot(numrow,numcol,marker='s',color='r',markersize=30)
                 elif column==0:
                     ax.plot(numrow,numcol,marker='s',color='b',markersize=30)
+                elif column==2:
+                    ax.plot(numrow,numcol,marker='s',color='y',markersize=30)
                 elif column==-1:
                     ax.plot(numrow,numcol,marker='s',color='w',markersize=30)
-                
+                elif column==-2:
+                    ax.plot(numrow,numcol,marker='s',color='g',markersize=30) 
+                elif column==-3:
+                    ax.plot(numrow,numcol,marker='s',color='k',markersize=30)                
                 
         plt.xlim(-1,self._DimX)
         plt.ylim(-1,self._DimY)                
@@ -389,9 +398,9 @@ class Maze_State():
         BuilderString=''
         for i in self.Matrix:
             for j in i:              
-                if int(j) in [0,1]:
+                if int(j) in [0,1,2]:
                     BuilderString+=str(int(j))
-        self.Index=int(BuilderString,2)
+        self.Index=int(BuilderString,3)
     
     def ChangeMatrix(self,numrow,numcol,value):
         self.Matrix[numrow,numcol]=value
