@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ChooseLevelScript : MonoBehaviour {
 	
@@ -14,4 +15,16 @@ public class ChooseLevelScript : MonoBehaviour {
 		PlayerPrefs.SetInt ("ChosenLevel", level);
 		Application.LoadLevel ("gameScene");
 	}
+
+	public void InputLevel(){
+		GameObject inputField = transform.FindChild ("InputField").FindChild ("Text").gameObject;
+
+	
+		int levelNumber = int.Parse (inputField.GetComponent<Text> ().text);
+
+		LoadLevel (levelNumber);
+	}
+
+
+
 }
