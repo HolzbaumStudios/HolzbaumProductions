@@ -11,3 +11,7 @@ SquareTurn/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll.mdb
 *.info
 SquareTurn/Library/metadata/9e/9e0f4ce6dd7863543a1d2020f547de77
 SquareTurn/Library/metadata/b8/b8b579e7674c6a1498a96d1e4a868fac
+*.csproj
+*.info
+*.log
+*.sln

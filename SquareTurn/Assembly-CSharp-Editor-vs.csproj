@@ -123,11 +123,7 @@
  <HintPath>C:/Program Files/Unity 5/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="IFacebook">
-<<<<<<< HEAD
  <HintPath>C:/Users/Felipe/Documents/GitHub/HolzbaumProductions/SquareTurn/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
-=======
- <HintPath>C:/Users/roman/Desktop/HolzbaumProductions/SquareTurn/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
->>>>>>> origin/DevelopmentSquareTurn
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity 5/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>

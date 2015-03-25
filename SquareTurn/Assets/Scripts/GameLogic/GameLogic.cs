@@ -8,9 +8,11 @@ public class GameLogic : MonoBehaviour {
 	int fieldColumns;
 	float squareSpace = Screen.width/12.3f; //The spacing between the squares  --> otherwise 120 //before 13.3 -> /14 
 	float squareSize = Screen.width/13; //before 13.3 -> /15
+	int turnNumber;
 
 	public GameObject squareObject;
-	public GameObject turnText;
+	public GameObject turnTextLandscape;
+	public GameObject turnTextPortrait;
 	public bool playerWon = false;
 	LevelScript levelScript;
 	private GameObject userStatistics;
@@ -138,11 +140,17 @@ public class GameLogic : MonoBehaviour {
 	//Turn the squares around the klicked square
 	public void TurnOtherSquares(string squareName){
 		//Set the counter up
-		int turnNumber;
-		turnNumber = int.Parse(turnText.GetComponent<UnityEngine.UI.Text>().text);
+
+		//turnNumber = int.Parse(turnText.GetComponent<UnityEngine.UI.Text>().text);
 		turnNumber++;
-		
-		turnText.GetComponent<UnityEngine.UI.Text>().text = turnNumber.ToString ();
+
+		if (turnTextLandscape) {
+			turnTextLandscape.GetComponent<UnityEngine.UI.Text> ().text = turnNumber.ToString ();
+		}
+		if (turnTextPortrait) {
+			turnTextPortrait.GetComponent<UnityEngine.UI.Text> ().text = turnNumber.ToString ();
+		}
+
 
 		//Variables
 		int row;

@@ -68,18 +68,13 @@
      <Compile Include="Assets\Scripts\GameLogic\LevelScript.cs" />
      <Compile Include="Assets\Scripts\GameLogic\ResetLevelScript.cs" />
      <Compile Include="Assets\Scripts\GameLogic\TurnScript.cs" />
-<<<<<<< HEAD
-     <Compile Include="Assets\Scripts\TempScripts\ChooseLevelScript.cs" />
-     <Compile Include="Assets\Scripts\TempScripts\MenuScript.cs" />
-     <Compile Include="Assets\Scripts\TempScripts\StarColorScript.cs" />
-=======
      <Compile Include="Assets\Scripts\Menu\ChangeMusic.cs" />
      <Compile Include="Assets\Scripts\Menu\ClickToLoadAsync.cs" />
      <Compile Include="Assets\Scripts\Menu\DontDestroyMusic.cs" />
      <Compile Include="Assets\Scripts\Menu\LoadOnClick.cs" />
-     <Compile Include="Assets\Scripts\MenuScript.cs" />
-     <Compile Include="Assets\Scripts\StarColorScript.cs" />
->>>>>>> origin/DevelopmentSquareTurn
+     <Compile Include="Assets\Scripts\TempScripts\ChooseLevelScript.cs" />
+     <Compile Include="Assets\Scripts\TempScripts\MenuScript.cs" />
+     <Compile Include="Assets\Scripts\TempScripts\StarColorScript.cs" />
      <Compile Include="Assets\Scripts\UserStatistics.cs" />
      <None Include="Assets\Plugins\Android\unityads\proguard-project.txt" />
      <None Include="Assets\Plugins\Android\facebook\proguard-project.txt" />
@@ -135,11 +130,7 @@
  <HintPath>C:/Program Files/Unity 5/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="IFacebook">
-<<<<<<< HEAD
  <HintPath>C:/Users/Felipe/Documents/GitHub/HolzbaumProductions/SquareTurn/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
-=======
- <HintPath>C:/Users/roman/Desktop/HolzbaumProductions/SquareTurn/Assets/Facebook/Scripts/IFacebook.dll</HintPath>
->>>>>>> origin/DevelopmentSquareTurn
  </Reference>
   </ItemGroup>
   <ItemGroup>
