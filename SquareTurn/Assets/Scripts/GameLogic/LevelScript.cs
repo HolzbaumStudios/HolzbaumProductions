@@ -134,6 +134,83 @@ public class LevelScript : MonoBehaviour {
 			fieldStructureArray [4, 4] = 2;
 		}
 
+		if (level == 111) {
+			InitializeArraySize (5, 5);
+			fieldStructureArray [0, 2] = 2;
+			fieldStructureArray [2, 0] = 2;
+			fieldStructureArray [2, 4] = 2;
+			fieldStructureArray [4, 2] = 2;
+		}
+
+		if (level == 112) {
+			InitializeArraySize (6, 6);
+			fieldStructureArray [0, 0] = 2;
+			fieldStructureArray [0, 1] = 2;
+			fieldStructureArray [0, 4] = 2;
+			fieldStructureArray [0, 5] = 2;
+			fieldStructureArray [1, 0] = 2;
+			fieldStructureArray [1, 5] = 2;
+			fieldStructureArray [4, 0] = 2;
+			fieldStructureArray [4, 5] = 2;
+			fieldStructureArray [5, 0] = 2;
+			fieldStructureArray [5, 1] = 2;
+			fieldStructureArray [5, 4] = 2;
+			fieldStructureArray [5, 5] = 2;
+		}
+
+		if (level == 113) {
+			InitializeArraySize (3, 3);
+			fieldStructureArray [0, 0] = 2;
+			fieldStructureArray [1, 1] = 2;
+		}
+
+		if (level == 114) {
+			InitializeArraySize (3, 3);
+			fieldStructureArray [0, 0] = 2;
+			fieldStructureArray [1, 0] = 2;
+			fieldStructureArray [1, 1] = 2;
+		}
+
+		if (level == 115) {
+			InitializeArraySize (3, 3);
+			fieldStructureArray [0, 1] = 2;
+			fieldStructureArray [1, 0] = 2;
+			fieldStructureArray [1, 1] = 2;
+		}
+
+		if (level == 116) {
+			InitializeArraySize (4, 4);
+			fieldStructureArray [0, 0] = 2;
+			fieldStructureArray [3, 0] = 2;
+			fieldStructureArray [3, 3] = 2;
+		}
+
+		if (level == 117) {
+			InitializeArraySize (4, 4);
+			fieldStructureArray [0, 0] = 2;
+			fieldStructureArray [2, 2] = 2;
+		}
+
+		if (level == 118) {
+			InitializeArraySize (4, 4);
+			fieldStructureArray [0, 0] = 2;
+			fieldStructureArray [3, 3] = 2;
+		}
+
+		if (level == 119) {
+			InitializeArraySize (4, 4);
+			fieldStructureArray [0, 0] = 2;
+			fieldStructureArray [0, 3] = 2;
+			fieldStructureArray [3, 0] = 2;
+			fieldStructureArray [3, 3] = 2;
+		}
+
+		if (level == 120) {
+			InitializeArraySize (4, 4);
+			fieldStructureArray [0, 0] = 2;
+			fieldStructureArray [1, 0] = 2;
+			fieldStructureArray [3, 3] = 2;
+		}
 
 
 
