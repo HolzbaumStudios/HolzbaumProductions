@@ -10,8 +10,7 @@ public class CheckForAchievements : MonoBehaviour {
 		PlayerPrefs.SetInt ("NewAchievement", 1);
 
 		if (PlayerPrefs.GetInt ("NewAchievement") == 1) {
-			achievementPanel.SetActive (true);
-			achievementPanel.GetComponent<Animation>().Play ();
+			GameObject.Find ("UserStatistics").GetComponent<AchievementCollection>().SetAchievementWindow(achievementPanel);
 		}
 	}
 

@@ -1,34 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class AchievementCollection : MonoBehaviour {
 
 	/////////////ACHIEVEMENT CLASS//////////////////////////////
 	class Achievement{
 
-		string title;
-		string condition;
-		Sprite image;
+		public string title;
+		public string condition;
 		int state; // 0 -> Locked, 1 -> new unlocked, 2 -> unlocked
 
 
+		public Achievement(string tit, string cond){
+			title = tit;
+			condition = cond;
+		}
+
 		////SET Stuff
-		//Write all the values for the achievement
-		public void WriteValues(string iTitle, string iCondition){
-			title = iTitle;
-			condition = iCondition;
-		}
-
-		//Set the picture for the achievement
-		public void SetPicture(Sprite iPicture){
-			image = iPicture;
-		}
-
 		//Get the state from the prefab
 		public void SetState(int newState){
 			state = newState;
 		}
-
 
 		////Get Stuff
 		public string GetTitle(){
@@ -43,9 +36,6 @@ public class AchievementCollection : MonoBehaviour {
 			return state;
 		}
 
-		public Sprite GetImage(){
-			return image;
-		}
 
 	}
 
@@ -60,36 +50,36 @@ public class AchievementCollection : MonoBehaviour {
 	public Sprite spriteAchievement4;
 
 
-	//Class Variables
-	new Achievement achievement1;
-	new Achievement achievement2;
-	new Achievement achievement3;
-	new Achievement achievement4;
+	//Create Class Variables
+	Achievement achievement1 = new Achievement("Plant the seeds!", "Unlock 10 trees.");
+	Achievement achievement2 = new Achievement("Addicted to squares!", "Start the game 50 times.");
+	//Achievement achievement3 = new Achievement("Plant the seeds!", "Unlock 10 trees.");
+	//Achievement achievement4 = new Achievement("Plant the seeds!", "Unlock 10 trees.");
 
 
 
-
-
-	/////////////////////START///////////////////////////////
+	/////////////////////////START/////////////////////////////
+	/// 
 	void Awake(){
-	//SetAchievementSettings
-		//Achievement1
-		achievement1.WriteValues ("Plant the seeds!", "Unlock 10 trees.");
-		achievement1.SetPicture (spriteAchievement1);
-		achievement1.SetState(PlayerPrefs.GetInt("achievement1State"));
-
-		//Achievement2
-		achievement2.WriteValues ("Addicted to squaress!", "Start the game 50 times.");
-		achievement2.SetPicture (spriteAchievement2);
-		achievement1.SetState(PlayerPrefs.GetInt("achievement2State"));
-	
+		achievement1.SetState (PlayerPrefs.GetInt("Achievement1State"));
+		achievement2.SetState (PlayerPrefs.GetInt("Achievement2State"));
 	}
-
-
 
 	////////////////////////FUNCTIONS//////////////////////////
 	/// 
-	/// Enable the achievementPanel
+	/// Change the Values of the achievement panel
+	public void SetAchievementWindow(GameObject achievementPanel){
+		achievementPanel.SetActive (true);
+		achievementPanel.GetComponent<Animation>().Play ();
 
+		GameObject achievementImage = achievementPanel.transform.FindChild ("AchievementImage").gameObject;
+		GameObject achievementText = achievementPanel.transform.FindChild ("AchievementText").gameObject;
+
+		achievementImage.GetComponent<Image>().sprite = spriteAchievement1;
+		achievementText.GetComponent<Text>().text = achievement2.GetTitle();
+
+		Debug.Log ("Ausgeführt!");
+
+	}
 
 }
