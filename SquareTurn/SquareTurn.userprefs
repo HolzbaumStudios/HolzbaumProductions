@@ -2,8 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Achievements\AchievementCollection.cs">
     <Files>
-      <File FileName="Assets\Scripts\Achievements\AchievementCollection.cs" Line="65" Column="66" />
-      <File FileName="Assets\Scripts\Achievements\CheckForAchievements.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Achievements\AchievementCollection.cs" Line="83" Column="27" />
+      <File FileName="Assets\Scripts\Achievements\CheckForAchievements.cs" Line="7" Column="2" />
       <File FileName="Assets\Scripts\GameLogic\LevelScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\TempScripts\MenuScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CheckDeviceOrientation.cs" Line="1" Column="1" />
