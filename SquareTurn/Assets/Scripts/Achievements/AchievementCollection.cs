@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class AchievementCollection : MonoBehaviour {
 
+	//Assign to UserStatistics
+
 	/////////////ACHIEVEMENT CLASS//////////////////////////////
 	class Achievement{
 

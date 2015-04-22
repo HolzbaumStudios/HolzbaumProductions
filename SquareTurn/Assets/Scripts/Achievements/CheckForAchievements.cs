@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CheckForAchievements : MonoBehaviour {
 
+	//Assign to main menu canvas
+
 	public GameObject achievementPanel;
 
 	// Use this for initialization

@@ -8,6 +8,8 @@ using Facebook.MiniJSON;
 
 public class ShareOnFacebook : MonoBehaviour {
 
+	////Assign to AchievementPanel
+
 	// Use this for initialization
 	void Awake(){
 		FB.Init(SetInit, OnHideUnity);
