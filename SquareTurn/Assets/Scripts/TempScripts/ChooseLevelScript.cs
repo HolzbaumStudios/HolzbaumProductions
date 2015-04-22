@@ -25,6 +25,10 @@ public class ChooseLevelScript : MonoBehaviour {
 		LoadLevel (levelNumber);
 	}
 
+	public void LoadAchievementsLevel(){
+		Application.LoadLevel ("achievements");
+	}
+
 
 
 }
