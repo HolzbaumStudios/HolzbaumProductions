@@ -716,7 +716,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 474263175}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18992c16f54a9024fa3a212e702fd58a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a17d26893c7bb942aa501c606545247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   achievementPanel: {fileID: 825591029}
@@ -1291,7 +1291,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 825591029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b5be1b6c3572944581625de5326a793, type: 3}
+  m_Script: {fileID: 11500000, guid: 8932b8592380a674aadcbea9d13db229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!111 &825591032
@@ -2384,9 +2384,9 @@ RectTransform:
   - {fileID: 639659450}
   m_Father: {fileID: 474263176}
   m_RootOrder: 3
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 326, y: -223}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -74, y: 27}
   m_SizeDelta: {x: 114, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1369636228
@@ -2486,13 +2486,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1527089316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7b25c8cd91c7364da91eb04b0a551ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fce2569bd161d744b1f128e5b65c60b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteAchievement1: {fileID: 21300000, guid: 51cd8efa45957274eaa4fb8533c67fd7, type: 3}
-  spriteAchievement2: {fileID: 21300000, guid: 51cd8efa45957274eaa4fb8533c67fd7, type: 3}
-  spriteAchievement3: {fileID: 21300000, guid: 51cd8efa45957274eaa4fb8533c67fd7, type: 3}
-  spriteAchievement4: {fileID: 21300000, guid: 51cd8efa45957274eaa4fb8533c67fd7, type: 3}
+  spriteAchievement1: {fileID: 21300000, guid: a37cb349e0f42b049a5c685f9f2118d3, type: 3}
+  spriteAchievement2: {fileID: 21300000, guid: a37cb349e0f42b049a5c685f9f2118d3, type: 3}
+  spriteAchievement3: {fileID: 21300000, guid: a37cb349e0f42b049a5c685f9f2118d3, type: 3}
+  spriteAchievement4: {fileID: 21300000, guid: a37cb349e0f42b049a5c685f9f2118d3, type: 3}
 --- !u!1 &1573421987
 GameObject:
   m_ObjectHideFlags: 0
