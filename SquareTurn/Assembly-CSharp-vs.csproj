@@ -65,6 +65,7 @@
      <Compile Include="Assets\Facebook\Scripts\util.cs" />
      <Compile Include="Assets\Scripts\Achievements\AchievementCollection.cs" />
      <Compile Include="Assets\Scripts\Achievements\CheckForAchievements.cs" />
+     <Compile Include="Assets\Scripts\Achievements\PrepareAchievementScene.cs" />
      <Compile Include="Assets\Scripts\Achievements\ShareOnFacebook.cs" />
      <Compile Include="Assets\Scripts\CheckDeviceOrientation.cs" />
      <Compile Include="Assets\Scripts\DontDestroy.cs" />

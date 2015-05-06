@@ -12,7 +12,7 @@ public class AchievementCollection : MonoBehaviour {
 
 		public string title;
 		public string condition;
-		int state; // 0 -> Locked, 1 -> new unlocked, 2 -> unlocked
+		int state = 0; // 0 -> Locked, 1 -> new unlocked, 2 -> unlocked
 
 
 		public Achievement(string tit, string cond){
@@ -78,6 +78,7 @@ public class AchievementCollection : MonoBehaviour {
 		achievementSpriteList.Add (spriteAchievement1);
 		achievementSpriteList.Add (spriteAchievement2);
 
+
 		//Get the state for all achievements at the beginning
 		for (int i = 0; i < achievementList.Count; i++)
 		{
@@ -87,7 +88,7 @@ public class AchievementCollection : MonoBehaviour {
 		}
 
 
-		//achievementList [0].SetState (1); //--> just for testing purposes
+		achievementList [0].SetState (2); //--> just for testing purposes
 		//achievementList [1].SetState (1); //--> just for testing purposes
 	}
 
@@ -137,6 +138,26 @@ public class AchievementCollection : MonoBehaviour {
 		GameObject achievementPanel = GameObject.Find ("AchievementPanel");
 		achievementPanel.SetActive (false);
 		SetAchievementWindow(achievementPanel); //Call the function again, to determine if there are more unlocked achievements
+	}
+
+
+
+	//Set the achievements on the AchievementScene to Unlocked
+	//Script is triggered by the script PrepareAchievementScene
+	public void PrepareAchievementScene(){
+
+		int numberOfAchievements = achievementList.Count;
+		Transform achievementContainer = GameObject.Find ("AchievementContainer").transform;
+
+		for (int i = 0; i < numberOfAchievements; i++) {
+			if(achievementList[i].GetState() == 2){ //If achievement has been unlocked
+				string panelName = "ShowAchievementPanel" + i;
+				Transform panelObject = achievementContainer.FindChild (panelName).transform;
+				GameObject lockedPanel = panelObject.FindChild("Locked").gameObject; //Find the locked component
+				lockedPanel.SetActive (false);
+			}
+		}
+
 	}
 
 }
