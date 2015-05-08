@@ -55,6 +55,14 @@ public class LevelScript : MonoBehaviour {
 				fieldStructureArray [3, 0] = 2;
 				fieldStructureArray [3, 3] = 2;
 				
+		} else if (level == 5) {
+			//Initialize the Array and set every value to 0
+			InitializeArraySize (6, 6);
+			fieldStructureArray [0, 0] = 5;
+			fieldStructureArray [0, 1] = 5;
+			fieldStructureArray [4, 2] = 3;
+			fieldStructureArray [3, 3] = 4;
+			
 		}
 
 		//////LEVEL 100 - 199/----------------------------------------------------

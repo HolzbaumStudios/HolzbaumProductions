@@ -21,7 +21,7 @@ public class GameLogic : MonoBehaviour {
 	//-----------------CLASSES---------------
 	public class cSquareClass{
 		public GameObject squareObject;
-		public int squareState = 0; //States: 0 = wrongSide, 1 = rightSide, 2 = noSquare/wall, 3 = crossTurn
+		public int squareState = 0; //States: 0 = wrongSide (blue), 1 = rightSide (orange), 2 = noSquare/wall, 3 = crossTurn (red), 4 = edgeTurn (green), 5 = Yellow
 
 		public int GetSquareState()
 		{
@@ -101,17 +101,23 @@ public class GameLogic : MonoBehaviour {
 				squareArray[i,j].squareState = levelScript.fieldStructureArray[i,j];
 				//Debug.Log (squareArray[i,j].squareState);
 				//Create the square
-				if(squareArray[i,j].squareState == 0 || squareArray[i,j].squareState == 1 || squareArray[i,j].squareState == 3){
+				if(squareArray[i,j].squareState == 0 || squareArray[i,j].squareState == 1 || squareArray[i,j].squareState == 3 || squareArray[i,j].squareState == 4 || squareArray[i,j].squareState == 5){
 					GameObject column = Instantiate(squareObject,transform.position,transform.rotation) as GameObject;
 					squareArray[i,j].squareObject = column;
 					column.transform.parent = GameObject.Find ("squarePanel").transform;
 					column.name = "r"+i+"c" +j;
 					//if state is set to 1 change the color
-					if(squareArray[i,j].squareState == 1){
+					if(squareArray[i,j].squareState == 1){ //if correct side
 						column.transform.GetComponent<UnityEngine.UI.Image>().color = new Color32(240, 120, 48, 255);
 					}
-					if(squareArray[i,j].squareState == 3){
+					else if(squareArray[i,j].squareState == 3){ //If cross
 						column.transform.GetComponent<UnityEngine.UI.Image>().color = Color.red;
+					}
+					else if(squareArray[i,j].squareState == 4){ //If cross
+						column.transform.GetComponent<UnityEngine.UI.Image>().color = Color.green;
+					}
+					else if(squareArray[i,j].squareState == 5){ //If cross
+						column.transform.GetComponent<UnityEngine.UI.Image>().color = Color.yellow;
 					}
 					//Set position regarding width count
 					if(evenNumberWidth)
@@ -167,12 +173,12 @@ public class GameLogic : MonoBehaviour {
 
 		//TopRow
 		//Square top left
-		if(clickedSquareState == 0 || clickedSquareState == 1){
+		if(clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 4){
 			tempRow = row + 1;
 			tempColumn = column -1;
 			if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
 				int squareState = CheckSquareState (tempRow,tempColumn); //Get the new square value
-				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0)){
+				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0 || squareState == 5)){
 					squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
 					numberOfTurns++;
 				}
@@ -184,19 +190,19 @@ public class GameLogic : MonoBehaviour {
 			tempColumn = column;
 			if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
 				int squareState = CheckSquareState (tempRow,tempColumn); //Get the new square value
-				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0)){
+				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0 || squareState == 5)){
 					squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
 					numberOfTurns++;
 				}
 			}
 		}
 		//Square top right
-		if(clickedSquareState == 0 || clickedSquareState == 1){
+		if(clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 4){
 			tempRow = row + 1;
 			tempColumn = column + 1;
 			if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
 				int squareState = CheckSquareState (tempRow,tempColumn); //Get the new square value
-				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0)){
+				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0 || squareState == 5)){
 					squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
 					numberOfTurns++;
 				}
@@ -209,7 +215,7 @@ public class GameLogic : MonoBehaviour {
 			tempColumn = column - 1;
 			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
 				int squareState = CheckSquareState (tempRow, tempColumn); //Get the new square value
-				if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0)){
+				if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0 || squareState == 5)){
 						squareArray [tempRow, tempColumn].squareObject.SendMessage ("TurnSquare", squareState); //Turn the square with the new value
 						numberOfTurns++;
 				}
@@ -221,7 +227,7 @@ public class GameLogic : MonoBehaviour {
 			tempColumn = column;
 			if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
 				int squareState = CheckSquareState (tempRow,tempColumn ); //Get the new square value
-				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0)){ 
+				if(squareArray[tempRow,tempColumn].squareObject && (squareState == 1 || squareState == 0 || squareState == 5)){ 
 					squareArray[tempRow,tempColumn].squareObject.SendMessage("TurnSquare", squareState); //Turn the square with the new value
 					numberOfTurns++;
 				}
@@ -233,7 +239,7 @@ public class GameLogic : MonoBehaviour {
 			tempColumn = column + 1;
 			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
 					int squareState = CheckSquareState (tempRow, tempColumn); //Get the new square value
-					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0)){
+					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0 || squareState == 5)){
 							squareArray [tempRow, tempColumn].squareObject.SendMessage ("TurnSquare", squareState); //Turn the square with the new value
 							numberOfTurns++;
 					}
@@ -241,12 +247,12 @@ public class GameLogic : MonoBehaviour {
 		}
 		//Bottom ROw
 		//Square bottom left
-		if (clickedSquareState == 0 || clickedSquareState == 1) {
+		if (clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 4) {
 			tempRow = row - 1;
 			tempColumn = column - 1;
 			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
 					int squareState = CheckSquareState (tempRow, tempColumn); //Get the new square value
-					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0)){
+					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0 || squareState == 5)){
 							squareArray [tempRow, tempColumn].squareObject.SendMessage ("TurnSquare", squareState); //Turn the square with the new value
 							numberOfTurns++;
 					}
@@ -258,19 +264,19 @@ public class GameLogic : MonoBehaviour {
 			tempColumn = column;
 			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
 					int squareState = CheckSquareState (tempRow, tempColumn); //Get the new square value
-					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0)){
+					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0  || squareState == 5)){
 							squareArray [tempRow, tempColumn].squareObject.SendMessage ("TurnSquare", squareState); //Turn the square with the new value
 							numberOfTurns++;
 					}
 			}
 		}
 		//Square bottom right
-		if (clickedSquareState == 0 || clickedSquareState == 1) {
+		if (clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 4) {
 			tempRow = row - 1;
 			tempColumn = column + 1;
 			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
 					int squareState = CheckSquareState (tempRow, tempColumn); //Get the new square value
-					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0)){
+					if (squareArray [tempRow, tempColumn].squareObject && (squareState == 1 || squareState == 0  || squareState == 5)){
 							squareArray [tempRow, tempColumn].squareObject.SendMessage ("TurnSquare", squareState); //Turn the square with the new value
 							numberOfTurns++;
 					}
@@ -290,6 +296,8 @@ public class GameLogic : MonoBehaviour {
 		if(squareArray[row,column].squareState == 0){
 			squareArray[row,column].SetSquareState(1);
 		}else if(squareArray[row,column].squareState == 1){
+			squareArray[row,column].SetSquareState(0);
+		}else if(squareArray[row,column].squareState == 5){
 			squareArray[row,column].SetSquareState(0);
 		}
 		return squareArray[row,column].squareState;
