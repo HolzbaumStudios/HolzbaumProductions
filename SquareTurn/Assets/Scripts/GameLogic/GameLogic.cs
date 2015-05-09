@@ -18,6 +18,8 @@ public class GameLogic : MonoBehaviour {
 	private GameObject userStatistics;
 	private int numberOfTurns; //To count how many squares have been turned --> for statistics
 
+	public GameObject gameEndPanel; //The panel which appears, when the level has been finished
+
 	//-----------------CLASSES---------------
 	public class cSquareClass{
 		public GameObject squareObject;
@@ -322,7 +324,25 @@ public class GameLogic : MonoBehaviour {
 			Debug.Log ("Gewonnen");
 			//Store the statistics in Prefabs (Script: UserStatistics)
 			userStatistics.SendMessage ("StoreStatistics");
+			StartCoroutine(EnableEndPanel());
 		}
+	}
+
+	IEnumerator EnableEndPanel()
+	{
+		yield return new WaitForSeconds (0.5f);
+		gameEndPanel.SetActive (true);
+		GameObject childPanel = gameEndPanel.transform.FindChild("GameEndPanel").gameObject;
+		childPanel.GetComponent<Animation>().Play ();
+
+		//Set the number of turns
+		string turnText;
+		if (turnNumber > 1) {
+			turnText = turnNumber + " turns";
+		} else {
+			turnText = turnNumber + " turn";
+		}
+		childPanel.transform.FindChild ("TurnText").GetComponent<UnityEngine.UI.Text> ().text = turnText;
 	}
 
 

@@ -4,6 +4,7 @@ using System.Collections;
 public class ResetLevelScript : MonoBehaviour {
 
 	private GameObject userStatistics;
+
 	
 	void Start(){
 		userStatistics = GameObject.Find("UserStatistics");
