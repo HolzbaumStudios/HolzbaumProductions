@@ -1252,6 +1252,7 @@ GameObject:
   - 114: {fileID: 825591033}
   - 111: {fileID: 825591032}
   - 114: {fileID: 825591031}
+  - 114: {fileID: 825591035}
   m_Layer: 5
   m_Name: AchievementPanel
   m_TagString: Untagged
@@ -1339,6 +1340,20 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 825591029}
+--- !u!114 &825591035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 825591029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &826838400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1539,6 +1554,7 @@ GameObject:
   - 222: {fileID: 954885560}
   - 114: {fileID: 954885559}
   - 114: {fileID: 954885558}
+  - 114: {fileID: 954885561}
   m_Layer: 5
   m_Name: Share
   m_TagString: Untagged
@@ -1562,7 +1578,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 96.9000015, y: -84.1999969}
+  m_AnchoredPosition: {x: 128.399994, y: -83.1999969}
   m_SizeDelta: {x: 76.8000031, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &954885558
@@ -1648,6 +1664,20 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 954885556}
+--- !u!114 &954885561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 954885556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &972190866
 Prefab:
   m_ObjectHideFlags: 0
@@ -2705,6 +2735,7 @@ GameObject:
   - 222: {fileID: 1710736764}
   - 114: {fileID: 1710736763}
   - 114: {fileID: 1710736762}
+  - 114: {fileID: 1710736765}
   m_Layer: 5
   m_Name: OK
   m_TagString: Untagged
@@ -2728,7 +2759,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 179.149994, y: -84.1999969}
+  m_AnchoredPosition: {x: 210.600006, y: -83.1999969}
   m_SizeDelta: {x: 76.8000031, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1710736762
@@ -2814,6 +2845,20 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1710736760}
+--- !u!114 &1710736765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1710736760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1774978303
 GameObject:
   m_ObjectHideFlags: 0
