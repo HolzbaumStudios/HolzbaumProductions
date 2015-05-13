@@ -35,7 +35,9 @@ public class TreeTable : MonoBehaviour {
 	{
 		switch(levelNumber)
 		{
-			case 100: twoTrees = 4; threeTrees = 3; break;
+			case 100: twoTrees = 4; threeTrees = 1; break;
+			case 101: twoTrees = 2; threeTrees = 3; break;
+			case 102: twoTrees = 4; threeTrees = 3; break;
 		}
 	}
 }

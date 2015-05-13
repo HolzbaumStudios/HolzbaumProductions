@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameLogic : MonoBehaviour {
 
@@ -19,6 +20,7 @@ public class GameLogic : MonoBehaviour {
 	private int numberOfTurns; //To count how many squares have been turned --> for statistics
 
 	public GameObject gameEndPanel; //The panel which appears, when the level has been finished
+	public GameObject treeContainer;
 
 	//-----------------CLASSES---------------
 	public class cSquareClass{
@@ -343,6 +345,8 @@ public class GameLogic : MonoBehaviour {
 			turnText = turnNumber + " turn";
 		}
 		childPanel.transform.FindChild ("TurnText").GetComponent<UnityEngine.UI.Text> ().text = turnText;
+
+		GetNumberOfTrees ();
 	}
 
 
@@ -351,7 +355,38 @@ public class GameLogic : MonoBehaviour {
 		return playerWon;
 	}
 
+	//Get the number of achieved trees, based on the number of turns
+	void GetNumberOfTrees()
+	{
+		int numberOfTrees;
+		int levelNumber = PlayerPrefs.GetInt ("ChosenLevel");
+		numberOfTrees = userStatistics.GetComponent<TreeTable> ().GetNumberOfTrees (levelNumber, turnNumber); //Call the function Get number of trees transmitting the levelnumber and the number of turns needed
+
+		Debug.Log ("Number of Trees: " + numberOfTrees);
+
+		string prefabName = "StarsLevel" + levelNumber;
+		PlayerPrefs.SetInt (prefabName, numberOfTrees);
+
+		//Get the tree objects
+		GameObject tree1 = treeContainer.transform.FindChild ("Tree1").gameObject;
+		GameObject tree2 = treeContainer.transform.FindChild ("Tree2").gameObject;
+		GameObject tree3 = treeContainer.transform.FindChild ("Tree3").gameObject;
+
+		//Set the tree objects
+		tree1.GetComponent<Image>().color = Color.yellow;
+		if(numberOfTrees > 1)
+		{
+			tree2.GetComponent<Image>().color = Color.yellow;
+		}
+
+		if (numberOfTrees > 2) 
+		{
+			tree3.GetComponent<Image> ().color = Color.yellow;
+		}
+
+	}
 
 
 
+	
 }
