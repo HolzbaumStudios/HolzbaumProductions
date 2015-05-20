@@ -49,6 +49,6 @@ public class turnCreditsOnClick : MonoBehaviour {
 		squareS.GetComponent<UnityEngine.UI.Image> ().color = new Color32(240, 120, 48, 255);
 		squareS.transform.FindChild ("Letter").gameObject.SetActive (false);
 		yield return new WaitForSeconds(0.25f);
-		Application.LoadLevel ("temp_menu");
+		Application.LoadLevel ("creditsScene");
 	}
 }

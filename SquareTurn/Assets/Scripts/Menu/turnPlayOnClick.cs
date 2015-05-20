@@ -37,7 +37,7 @@ public class turnPlayOnClick : MonoBehaviour {
 		squareY.GetComponent<UnityEngine.UI.Image> ().color = new Color32(240, 120, 48, 255);
 		squareY.transform.FindChild ("Letter").gameObject.SetActive (false);
 		yield return new WaitForSeconds(0.5f);
-		Application.LoadLevel ("temp_menu");
+		Application.LoadLevel ("levelMenu");
 	}
 
 
