@@ -430,9 +430,29 @@ Prefab:
       propertyPath: loadLevelName
       value: startMenu
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11403718, guid: 359001bc42b545b4aac9c61b6fd7e748, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 359001bc42b545b4aac9c61b6fd7e748, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1766195745
+GameObject:
+  m_PrefabParentObject: {fileID: 179994, guid: 359001bc42b545b4aac9c61b6fd7e748, type: 2}
+  m_PrefabInternal: {fileID: 1766195744}
+--- !u!114 &1766195746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1766195745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b83665033e2cf45a78b041557cf337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectList:
+  - {fileID: 688274544}
+  loadLevel: 1
+  loadLevelName: startMenu
 --- !u!1 &1960320682
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,9 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TempScripts\MenuScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Menu\ChangeMusic.cs">
     <Files>
-      <File FileName="Assets\Scripts\Menu\BackToMainMenu.cs" Line="11" Column="1" />
-      <File FileName="Assets\Scripts\TreeTable.cs" Line="21" Column="4" />
+      <File FileName="Assets\Scripts\DontDestroyAndLoad.cs" Line="37" Column="1" />
+      <File FileName="Assets\Scripts\Menu\BackToMainMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TreeTable.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Achievements\ShareOnFacebook.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Achievements\AchievementCollection.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Achievements\CheckForAchievements.cs" Line="1" Column="1" />
@@ -11,9 +12,12 @@
       <File FileName="Assets\Scripts\CheckDeviceOrientation.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\GameLogic\TurnScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\GameLogic\GameLogic.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\TempScripts\StarColorScript.cs" Line="19" Column="64" />
-      <File FileName="Assets\Scripts\GameLogic\LevelCompletedMenu.cs" Line="32" Column="1" />
+      <File FileName="Assets\Scripts\TempScripts\StarColorScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameLogic\LevelCompletedMenu.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\TempScripts\MenuScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\DontDestroy.cs" Line="32" Column="1" />
+      <File FileName="Assets\Scripts\Menu\musicOnOff.cs" Line="30" Column="93" />
+      <File FileName="Assets\Scripts\Menu\ChangeMusic.cs" Line="27" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
