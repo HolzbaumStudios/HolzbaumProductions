@@ -33,7 +33,7 @@ public class TurnScript : MonoBehaviour {
 
 	//Sets the color of the square
 	IEnumerator AnimationSettings(int squareState){
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(0.25f);
 		//Set Color
 		Color squareColor = Color.blue;
 		switch(squareState){
