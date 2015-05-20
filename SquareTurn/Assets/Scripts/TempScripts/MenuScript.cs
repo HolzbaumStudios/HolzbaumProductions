@@ -11,7 +11,7 @@ public class MenuScript : MonoBehaviour {
 
 	public void GoBackToMenu(){
 		GameObject.Find("UserStatistics").SendMessage ("StoreStatistics");
-		Application.LoadLevel ("temp_menu");
+		Application.LoadLevel ("levelMenu");
 	}
 
 }
