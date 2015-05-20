@@ -8,10 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/logoDisplayScene.unity
   - enabled: 1
-    path: Assets/Scenes/startMenu.unity
-  - enabled: 1
     path: Assets/Scenes/levelMenu.unity
+  - enabled: 1
+    path: Assets/Scenes/startMenu.unity
   - enabled: 1
     path: Assets/Scenes/gameScene.unity
   - enabled: 1
     path: Assets/Scenes/achievements.unity
+  - enabled: 1
+    path: Assets/Scenes/creditsScene.unity

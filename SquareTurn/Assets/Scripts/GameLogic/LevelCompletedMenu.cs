@@ -26,6 +26,7 @@ public class LevelCompletedMenu : MonoBehaviour {
 	public void BackToMainMenu(){
 		GameObject.Find("UserStatistics").SendMessage ("StoreStatistics");
 		Application.LoadLevel ("levelMenu");
+
 	}
 
 }
