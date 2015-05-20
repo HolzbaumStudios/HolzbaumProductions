@@ -10,6 +10,8 @@ public class DontDestroy : MonoBehaviour {
 
 	//Variables
 	public List<GameObject> objectList; //List is filled in the editor
+	public bool loadLevel = false;
+	public string loadLevelName;
 
 	//------INITIALIZATION-------------
 	void Start(){
@@ -21,5 +23,14 @@ public class DontDestroy : MonoBehaviour {
 		for (int i = 0; i < listLength; i++) {
 			DontDestroyOnLoad(objectList[i]);
 		}
+
+		StartCoroutine (LoadLevel ());
 	}
+
+
+	IEnumerator LoadLevel(){
+		yield return new WaitForSeconds (2);
+		Application.LoadLevel (loadLevelName);
+	}
+
 }
