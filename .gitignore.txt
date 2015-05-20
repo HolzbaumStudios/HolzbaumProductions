@@ -1,4 +1,3 @@
-*.meta
 *.csproj
 SquareTurn/Assembly-CSharp-Editor.csproj
 SquareTurn/Assembly-CSharp-firstpass-vs.csproj
