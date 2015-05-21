@@ -14,4 +14,12 @@ public class MenuScript : MonoBehaviour {
 		Application.LoadLevel ("levelMenu");
 	}
 
+	void Update(){
+		if(Input.GetKeyDown(KeyCode.Escape))
+		{
+			Debug.Log ("Pressed");
+			Application.LoadLevel("startMenu");
+		}
+	}
+
 }

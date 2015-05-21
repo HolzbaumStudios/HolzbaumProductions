@@ -30,12 +30,7 @@ public class ChooseLevelScript : MonoBehaviour {
 	}
 
 
-	void Update(){
-		if(Input.GetKeyDown(KeyCode.Escape))
-		{
-			Application.LoadLevel("startMenu");
-		}
-	}
+
 
 
 }
