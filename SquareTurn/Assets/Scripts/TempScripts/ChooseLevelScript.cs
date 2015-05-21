@@ -13,8 +13,6 @@ public class ChooseLevelScript : MonoBehaviour {
 		
 		//Start the Level
 		PlayerPrefs.SetInt ("ChosenLevel", level);
-		GameObject musicObject = GameObject.Find ("Music_Background").gameObject;
-		Destroy (musicObject);
 		Application.LoadLevel ("gameScene");
 	}
 

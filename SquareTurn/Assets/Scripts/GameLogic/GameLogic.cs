@@ -364,8 +364,12 @@ public class GameLogic : MonoBehaviour {
 
 		Debug.Log ("Number of Trees: " + numberOfTrees);
 
+
 		string prefabName = "StarsLevel" + levelNumber;
-		PlayerPrefs.SetInt (prefabName, numberOfTrees);
+		if(numberOfTrees > PlayerPrefs.GetInt (prefabName))
+		{
+			PlayerPrefs.SetInt (prefabName, numberOfTrees);
+		}
 
 		//Get the tree objects
 		GameObject tree1 = treeContainer.transform.FindChild ("Tree1").gameObject;
