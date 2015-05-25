@@ -153,7 +153,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
-          m_IntArgument: 106
+          m_IntArgument: 107
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

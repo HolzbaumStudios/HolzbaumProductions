@@ -43,7 +43,10 @@ public class TreeTable : MonoBehaviour {
 			case 105: twoTrees = 5; threeTrees = 3; break;
 			case 106: twoTrees = 7; threeTrees = 3; break;
 			case 107: twoTrees = 5; threeTrees = 2; break;
-			case 108: twoTrees = 6; threeTrees = 3; break;
+			case 108: twoTrees = 6; threeTrees = 4; break;
+			case 109: twoTrees = 6; threeTrees = 4; break;
+			case 110: twoTrees = 5; threeTrees = 2; break;
+			case 111: twoTrees = 7; threeTrees = 4; break;
 				
 		}
 	}
