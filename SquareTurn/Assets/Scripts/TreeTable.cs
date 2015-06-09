@@ -36,18 +36,29 @@ public class TreeTable : MonoBehaviour {
 		switch(levelNumber)
 		{
 			case 100: twoTrees = 4; threeTrees = 1; break;
-			case 101: twoTrees = 2; threeTrees = 3; break;
-			case 102: twoTrees = 4; threeTrees = 3; break;
-			case 103: twoTrees = 7; threeTrees = 4; break;
+			case 101: twoTrees = 4; threeTrees = 2; break;
+			case 102: twoTrees = 4; threeTrees = 2; break;
+			case 103: twoTrees = 6; threeTrees = 4; break;
 			case 104: twoTrees = 7; threeTrees = 4; break;
-			case 105: twoTrees = 5; threeTrees = 3; break;
-			case 106: twoTrees = 7; threeTrees = 3; break;
-			case 107: twoTrees = 5; threeTrees = 2; break;
+			case 105: twoTrees = 6; threeTrees = 3; break;
+			case 106: twoTrees = 6; threeTrees = 3; break;
+			case 107: twoTrees = 4; threeTrees = 2; break;
 			case 108: twoTrees = 6; threeTrees = 4; break;
 			case 109: twoTrees = 6; threeTrees = 4; break;
 			case 110: twoTrees = 5; threeTrees = 2; break;
-			case 111: twoTrees = 7; threeTrees = 4; break;
-				
+			case 111: twoTrees = 8; threeTrees = 4; break;
+			case 112: twoTrees = 8; threeTrees = 4; break;
+			case 113: twoTrees = 6; threeTrees = 3; break;
+			case 114: twoTrees = 5; threeTrees = 3; break;
+			case 115: twoTrees = 8; threeTrees = 5; break;
+			case 116: twoTrees = 8; threeTrees = 5; break;
+			case 117: twoTrees = 8; threeTrees = 5; break;
+			case 118: twoTrees = 12; threeTrees = 6; break;
+			case 119: twoTrees = 8; threeTrees = 4; break;
+			case 120: twoTrees = 7; threeTrees = 4; break;
+			case 121: twoTrees = 12; threeTrees = 8; break;
+			case 122: twoTrees = 14; threeTrees = 7; break;
+			case 123: twoTrees = 16; threeTrees = 9; break;
 		}
 	}
 }
