@@ -177,7 +177,7 @@ public class GameLogic : MonoBehaviour {
 
 		//TopRow
 		//Square top left
-		if(clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 4){
+		if(clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 5 || clickedSquareState == 4){
 			tempRow = row + 1;
 			tempColumn = column -1;
 			if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
@@ -189,7 +189,7 @@ public class GameLogic : MonoBehaviour {
 			}
 		}
 		//Square top middle
-		if(clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 3){
+		if(clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 5 || clickedSquareState == 3){
 			tempRow = row + 1;
 			tempColumn = column;
 			if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
@@ -201,7 +201,7 @@ public class GameLogic : MonoBehaviour {
 			}
 		}
 		//Square top right
-		if(clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 4){
+		if(clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 5 || clickedSquareState == 4){
 			tempRow = row + 1;
 			tempColumn = column + 1;
 			if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
@@ -214,7 +214,7 @@ public class GameLogic : MonoBehaviour {
 		}
 		//Middle ROw
 		//Square middle left
-		if (clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 3) {
+		if (clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 5 || clickedSquareState == 3) {
 			tempRow = row;
 			tempColumn = column - 1;
 			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
@@ -226,7 +226,7 @@ public class GameLogic : MonoBehaviour {
 			}
 		}
 		//Square middle middle
-		if (clickedSquareState == 0 || clickedSquareState == 1) {
+		if (clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 5 ) {
 			tempRow = row;
 			tempColumn = column;
 			if(tempRow >= 0 && tempRow < fieldRows && tempColumn >=0 && tempColumn < fieldColumns){
@@ -238,7 +238,7 @@ public class GameLogic : MonoBehaviour {
 			}
 		}
 		//Square middle right
-		if (clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 3) {
+		if (clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 5 || clickedSquareState == 3) {
 			tempRow = row;
 			tempColumn = column + 1;
 			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
@@ -251,7 +251,7 @@ public class GameLogic : MonoBehaviour {
 		}
 		//Bottom ROw
 		//Square bottom left
-		if (clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 4) {
+		if (clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 5 || clickedSquareState == 4) {
 			tempRow = row - 1;
 			tempColumn = column - 1;
 			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
@@ -263,7 +263,7 @@ public class GameLogic : MonoBehaviour {
 			}
 		}
 		//Square bottom middle
-		if (clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 3) {
+		if (clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 5 || clickedSquareState == 3) {
 			tempRow = row - 1;
 			tempColumn = column;
 			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
@@ -275,7 +275,7 @@ public class GameLogic : MonoBehaviour {
 			}
 		}
 		//Square bottom right
-		if (clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 4) {
+		if (clickedSquareState == 0 || clickedSquareState == 1 || clickedSquareState == 5 || clickedSquareState == 4) {
 			tempRow = row - 1;
 			tempColumn = column + 1;
 			if (tempRow >= 0 && tempRow < fieldRows && tempColumn >= 0 && tempColumn < fieldColumns) {
@@ -315,7 +315,7 @@ public class GameLogic : MonoBehaviour {
 		if (PlayerPrefs.GetInt ("ChosenLevel") < 400) { //Everything under 400 are normal lavels. 4xx are form levels
 				for (int i = 0; i < fieldRows; i++) {
 						for (int j = 0; j < fieldColumns; j++) {	
-								if (squareArray [i, j].squareState == 0) {
+								if (squareArray [i, j].squareState == 0 || squareArray [i, j].squareState == 5) {
 										playerWon = false;
 								}
 						}
