@@ -13,6 +13,7 @@ public class ChooseLevelScript : MonoBehaviour {
 		
 		//Start the Level
 		PlayerPrefs.SetInt ("ChosenLevel", level);
+		GameObject.Find ("LevelChoice").GetComponent<MenuScript> ().SaveCategoryPosition (); //Saves the category window position
 		Application.LoadLevel ("gameScene");
 	}
 

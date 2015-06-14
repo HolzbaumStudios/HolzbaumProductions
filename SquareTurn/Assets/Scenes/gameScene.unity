@@ -1820,7 +1820,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1234036278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 225ebb8f54b02d54cbbd73521f6ec855, type: 3}
+  m_Script: {fileID: 11500000, guid: d8320bac30286f743ab0e2de8cbb3f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1234036281
@@ -1863,15 +1863,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1234036280}
-        m_MethodName: GoBackToMenu
-        m_Mode: 1
+        m_MethodName: LoadSceneByString
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: levelMenu
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2551,15 +2551,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1665802999}
-        m_MethodName: GoBackToMenu
-        m_Mode: 1
+        m_MethodName: LoadSceneByString
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: levelMenu
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2572,7 +2572,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1665802994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 225ebb8f54b02d54cbbd73521f6ec855, type: 3}
+  m_Script: {fileID: 11500000, guid: d8320bac30286f743ab0e2de8cbb3f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1674352594

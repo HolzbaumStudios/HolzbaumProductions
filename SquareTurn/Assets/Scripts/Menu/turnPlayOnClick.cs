@@ -37,6 +37,8 @@ public class turnPlayOnClick : MonoBehaviour {
 		squareY.GetComponent<UnityEngine.UI.Image> ().color = new Color32(240, 120, 48, 255);
 		squareY.transform.FindChild ("Letter").gameObject.SetActive (false);
 		yield return new WaitForSeconds(0.5f);
+
+		PlayerPrefs.SetInt ("ActiveCategory", 0); //Set the the levelcategory to none (with this, the category selection is displayed)
 		Application.LoadLevel ("levelMenu");
 	}
 
