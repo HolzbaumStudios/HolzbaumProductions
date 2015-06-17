@@ -237,7 +237,7 @@ class Maze(object):
         for numrow,row in enumerate(stateMaze.Matrix):
             for numcol,column in enumerate(row):
                 if column==1:
-                    ax.plot(numrow,numcol,marker='s',color='r',markersize=30)
+                    ax.plot(numrow,numcol,marker='s',color='orange',markersize=30)
                 elif column==0:
                     ax.plot(numrow,numcol,marker='s',color='b',markersize=30)
                 elif column==2:
@@ -245,9 +245,9 @@ class Maze(object):
                 elif column==-1:
                     ax.plot(numrow,numcol,marker='s',color='w',markersize=30)
                 elif column==-2:
-                    ax.plot(numrow,numcol,marker='s',color='g',markersize=30) 
+                    ax.plot(numrow,numcol,marker='s',color='r',markersize=30) 
                 elif column==-3:
-                    ax.plot(numrow,numcol,marker='s',color='k',markersize=30)                
+                    ax.plot(numrow,numcol,marker='s',color='g',markersize=30)                
                 
         plt.xlim(-1,self._DimX)
         plt.ylim(-1,self._DimY)                
@@ -276,9 +276,10 @@ class Maze(object):
             if len(openBinIdx)>maxopenbin:
                 
                 maxopenbin=len(openBinIdx)
-                if maxopenbin>Maxold+100:
+                if maxopenbin>Maxold+1000:
                     Maxold=maxopenbin
                     print(str(Maxold))
+                    print("Current final cost: "+str(self._terminal_maze.stateCost))
             
                     
                 
@@ -294,12 +295,14 @@ class Maze(object):
                             
                             self.reachableStates.get(newMaze.Index).stateCost=RemovedMaze.stateCost+1
                             self.reachableStates.get(newMaze.Index).reachedFromIndex=RemovedMaze.Index
+                            self.reachableStates.get(newMaze.Index).reachedByPressingCell=cell
                             if newMaze.Index not in openBinIdx:
                                 openBin.append(self.reachableStates.get(newMaze.Index))
                                 openBinIdx.append(newMaze.Index)                           
                 elif RemovedMaze.stateCost+1<self._terminal_maze.stateCost:
                     self._terminal_maze.stateCost=RemovedMaze.stateCost+1
                     self._terminal_maze.reachedFromIndex=RemovedMaze.Index
+                    self._terminal_maze.reachedByPressingCell=cell
                     print("Current final cost: "+str(self._terminal_maze.stateCost))
                             
                     
@@ -383,11 +386,18 @@ class Maze(object):
         txtfile.write("Shortest Path in "+str(self._terminal_maze.stateCost)+" Steps \n")
         for maze in SolWaymaze:
             txtfile.write(str(maze.Matrix)+"\n")
+            if maze.reachedByPressingCell != None:
+                cellcoord=self._getCellCoordinate(maze.reachedByPressingCell)
+                txtfile.write("Press Cell: "+str(cellcoord))
+                if maze.Matrix[cellcoord[0]-1,cellcoord[1]-1] in [-2,-3]:
+                    txtfile.write(" Special Cell")
+                txtfile.write("\n")
             
 class Maze_State():
     def __init__(self,Maze_Matrix):
         self.Matrix=Maze_Matrix
         self.reachedFromIndex=None
+        self.reachedByPressingCell=None
         self.Index=None
         self.stateCost=np.inf
         self._Sum=None

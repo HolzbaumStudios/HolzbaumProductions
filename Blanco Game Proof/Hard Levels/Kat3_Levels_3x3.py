@@ -29,7 +29,7 @@ count=1
 #
 print("Calculating Nr.: "+str(count))
 #initialize Object 3x3 Maze
-B=Kat3_Method(3,3,Crossers=[[2,2]])#Fixed=[[1,1]],OneTurns=[[1,2]],Crossers=[[2,2]],Edgers=[[1,3]])#,[1,4],[3,4],[4,4],[5,4]])
+B=Kat3_Method(3,3,Crossers=[[1,1]])#Fixed=[[1,1]],OneTurns=[[1,2]],Crossers=[[2,2]],Edgers=[[1,3]])#,[1,4],[3,4],[4,4],[5,4]])
 #Sol=B.findPath()
 Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
@@ -43,14 +43,12 @@ Filename=Savepath+str(count)+"cost="+str(Sol[1])+".txt"
 B.WriteChronologicalShortestpathtoFile(Filename)
 #
 
-#%%
+#%% 2
 count+=1
-"""
 #
 print("Calculating Nr.: "+str(count))
-
-#initialize Object 4x4 Maze
-B=Block_Method(3,3,Fixed=[[2,2]])#,[1,4],[3,4],[4,4],[5,4]])
+#initialize Object 3x3 Maze
+B=Kat3_Method(3,3,Crossers=[[2,2]])#Fixed=[[1,1]],OneTurns=[[1,2]],Crossers=[[2,2]],Edgers=[[1,3]])#,[1,4],[3,4],[4,4],[5,4]])
 #Sol=B.findPath()
 Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
@@ -59,17 +57,16 @@ ax=plt.subplot(1,1,1)
 plt.title("3x3, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
+B.PrintChronologicalShortestpath()
 Filename=Savepath+str(count)+"cost="+str(Sol[1])+".txt"
 B.WriteChronologicalShortestpathtoFile(Filename)
-#
 
-#%%
+#%% 3
 count+=1
-
 #
 print("Calculating Nr.: "+str(count))
-#initialize Object 4x4 Maze
-B=Block_Method(3,3,Fixed=[[2,2],[1,1]])#,[1,4],[3,4],[4,4],[5,4]])
+#initialize Object 3x3 Maze
+B=Kat3_Method(3,3,Crossers=[[1,2]])#Fixed=[[1,1]],OneTurns=[[1,2]],Crossers=[[2,2]],Edgers=[[1,3]])#,[1,4],[3,4],[4,4],[5,4]])
 #Sol=B.findPath()
 Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
@@ -78,18 +75,16 @@ ax=plt.subplot(1,1,1)
 plt.title("3x3, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
-
+B.PrintChronologicalShortestpath()
 Filename=Savepath+str(count)+"cost="+str(Sol[1])+".txt"
 B.WriteChronologicalShortestpathtoFile(Filename)
-#
-#%%
 
+#%% 4
 count+=1
-
 #
 print("Calculating Nr.: "+str(count))
-#initialize Object 4x4 Maze
-B=Block_Method(3,3,Fixed=[[2,2],[1,2]])
+#initialize Object 3x3 Maze
+B=Kat3_Method(3,3,Edgers=[[1,1]])#Fixed=[[1,1]],OneTurns=[[1,2]],Crossers=[[2,2]],Edgers=[[1,3]])#,[1,4],[3,4],[4,4],[5,4]])
 #Sol=B.findPath()
 Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
@@ -98,17 +93,16 @@ ax=plt.subplot(1,1,1)
 plt.title("3x3, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
+B.PrintChronologicalShortestpath()
 Filename=Savepath+str(count)+"cost="+str(Sol[1])+".txt"
 B.WriteChronologicalShortestpathtoFile(Filename)
-#
 
-#%%
+#%% 5
 count+=1
-
 #
 print("Calculating Nr.: "+str(count))
-#initialize Object 4x4 Maze
-B=Block_Method(3,3,Fixed=[[2,2],[1,2],[3,2]])
+#initialize Object 3x3 Maze
+B=Kat3_Method(3,3,Edgers=[[2,2]])#Fixed=[[1,1]],OneTurns=[[1,2]],Crossers=[[2,2]],Edgers=[[1,3]])#,[1,4],[3,4],[4,4],[5,4]])
 #Sol=B.findPath()
 Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
@@ -117,17 +111,16 @@ ax=plt.subplot(1,1,1)
 plt.title("3x3, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
+B.PrintChronologicalShortestpath()
 Filename=Savepath+str(count)+"cost="+str(Sol[1])+".txt"
 B.WriteChronologicalShortestpathtoFile(Filename)
-#
 
-#%%
+#%% 6
 count+=1
-
 #
 print("Calculating Nr.: "+str(count))
-#initialize Object 4x4 Maze
-B=Block_Method(3,3,Fixed=[[2,2],[1,2],[1,1]])
+#initialize Object 3x3 Maze
+B=Kat3_Method(3,3,Crossers=[[1,2]])#Fixed=[[1,1]],OneTurns=[[1,2]],Crossers=[[2,2]],Edgers=[[1,3]])#,[1,4],[3,4],[4,4],[5,4]])
 #Sol=B.findPath()
 Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
@@ -136,16 +129,16 @@ ax=plt.subplot(1,1,1)
 plt.title("3x3, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
+B.PrintChronologicalShortestpath()
 Filename=Savepath+str(count)+"cost="+str(Sol[1])+".txt"
 B.WriteChronologicalShortestpathtoFile(Filename)
-#
-#%%
-count+=1
 
+#%% 7
+count+=1
 #
 print("Calculating Nr.: "+str(count))
-#initialize Object 4x4 Maze
-B=Block_Method(3,3,Fixed=[[2,2],[1,2],[2,1]])
+#initialize Object 3x3 Maze
+B=Kat3_Method(3,3,Fixed=[[1,1]],Crossers=[[2,2]])#Fixed=[[1,1]],OneTurns=[[1,2]],Crossers=[[2,2]],Edgers=[[1,3]])#,[1,4],[3,4],[4,4],[5,4]])
 #Sol=B.findPath()
 Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
@@ -154,16 +147,15 @@ ax=plt.subplot(1,1,1)
 plt.title("3x3, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
+B.PrintChronologicalShortestpath()
 Filename=Savepath+str(count)+"cost="+str(Sol[1])+".txt"
 B.WriteChronologicalShortestpathtoFile(Filename)
-#
-#%%
-count+=1
 
-#
+#%% 8
+count+=1
 print("Calculating Nr.: "+str(count))
-#initialize Object 4x4 Maze
-B=Block_Method(3,3,Fixed=[[2,2],[3,3],[1,1]])
+#initialize Object 3x3 Maze
+B=Kat3_Method(3,3,Fixed=[[1,1]],Edgers=[[2,2]])#Fixed=[[1,1]],OneTurns=[[1,2]],Crossers=[[2,2]],Edgers=[[1,3]])#,[1,4],[3,4],[4,4],[5,4]])
 #Sol=B.findPath()
 Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
@@ -172,27 +164,6 @@ ax=plt.subplot(1,1,1)
 plt.title("3x3, Shortest="+str(Sol[1])+" moves")
 B.plotBasicMaze(Axes=ax)
 plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
+B.PrintChronologicalShortestpath()
 Filename=Savepath+str(count)+"cost="+str(Sol[1])+".txt"
 B.WriteChronologicalShortestpathtoFile(Filename)
-#
-#%%
-count+=1
-#
-print("Calculating Nr.: "+str(count))
-#initialize Object 4x4 Maze
-B=Block_Method(3,3,Fixed=[[2,2],[3,1],[1,1]])
-#Sol=B.findPath()
-Sol=B.findShortestPath()
-print("State Costs: "+str(Sol[1]))
-plt.figure()
-ax=plt.subplot(1,1,1)
-plt.title("3x3, Shortest="+str(Sol[1])+" moves")
-B.plotBasicMaze(Axes=ax)
-plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
-print Sol
-Filename=Savepath+str(count)+"cost="+str(Sol[1])+".txt"
-B.WriteChronologicalShortestpathtoFile(Filename)
-#
-print("--- %s seconds ---" % (time.time() - start_time))
-
-"""
