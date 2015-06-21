@@ -112,6 +112,7 @@ GameObject:
   - 224: {fileID: 22460712}
   - 222: {fileID: 22247052}
   - 114: {fileID: 11455504}
+  - 114: {fileID: 11499748}
   m_Layer: 5
   m_Name: ShowAchievementPanel
   m_TagString: Untagged
@@ -164,8 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: fc80218a8545d0d439755f644c2c4d42, type: 3}
+  m_Color: {r: .941176474, g: .941176474, b: .941176474, a: .90196079}
+  m_Sprite: {fileID: 21300000, guid: ef84288c699e60a48bd278fe360d4921, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -254,7 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: a37cb349e0f42b049a5c685f9f2118d3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51cd8efa45957274eaa4fb8533c67fd7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -340,6 +341,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Get ten ninjas in a row, before falling down!
+--- !u!114 &11499748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 0
 --- !u!222 &22202680
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -516,7 +531,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: .5}
   m_AnchorMax: {x: 0, y: .5}
   m_AnchoredPosition: {x: 80, y: -4.00543213e-05}
-  m_SizeDelta: {x: 133.899994, y: 139.600006}
+  m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22477764
 RectTransform:
