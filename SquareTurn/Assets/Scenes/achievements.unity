@@ -189,7 +189,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1959622532}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -9.00239975e-05, y: -53.7999992}
@@ -338,8 +338,8 @@ RectTransform:
   m_Children:
   - {fileID: 1401640642}
   - {fileID: 80118320}
-  - {fileID: 1913955245}
   - {fileID: 1640736688}
+  - {fileID: 1913955245}
   m_Father: {fileID: 1372130161}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -422,7 +422,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -565,6 +565,10 @@ Prefab:
     - target: {fileID: 178156, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Name
       value: ShowAchievementPanel0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499748, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_UseGraphicAlpha
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
@@ -863,7 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: .501960814}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: .450980395}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!114 &1058220155
@@ -877,24 +881,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6927ec4e8affa31469db7a53b8b8335f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1237238233
-GameObject:
-  m_PrefabParentObject: {fileID: 178156, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
-  m_PrefabInternal: {fileID: 1913955244}
---- !u!114 &1237238236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1237238233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
-  m_EffectDistance: {x: 2, y: -2}
-  m_UseGraphicAlpha: 1
 --- !u!1 &1372130160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,42 +1086,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b,
     type: 2}
   m_PrefabInternal: {fileID: 461701984}
---- !u!1 &1666760324
-GameObject:
-  m_PrefabParentObject: {fileID: 178156, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
-  m_PrefabInternal: {fileID: 461701984}
---- !u!114 &1666760327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1666760324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
-  m_EffectDistance: {x: 2, y: -2}
-  m_UseGraphicAlpha: 1
---- !u!1 &1675932354
-GameObject:
-  m_PrefabParentObject: {fileID: 178156, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
-  m_PrefabInternal: {fileID: 2107885636}
---- !u!114 &1675932357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1675932354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
-  m_EffectDistance: {x: 2, y: -2}
-  m_UseGraphicAlpha: 1
 --- !u!1 &1735541832
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,7 +1114,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1959622532}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -9.15527344e-05, y: 0}
@@ -1234,7 +1184,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -1288,6 +1238,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11499748, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_UseGraphicAlpha
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
@@ -1307,6 +1261,7 @@ GameObject:
   - 222: {fileID: 1959622534}
   - 114: {fileID: 1959622533}
   - 114: {fileID: 1959622535}
+  - 114: {fileID: 1959622536}
   m_Layer: 5
   m_Name: ProgressCircleContainer
   m_TagString: Untagged
@@ -1325,8 +1280,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 587134377}
-  - {fileID: 35169974}
   - {fileID: 1735541833}
+  - {fileID: 35169974}
   m_Father: {fileID: 1372130161}
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
@@ -1375,6 +1330,20 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
+--- !u!114 &1959622536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1959622531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fae6e7d52ba92c4ea61b8b105d973fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfAchievements: 10
+  progressCircle: {fileID: 1735541832}
+  progressPercent: {fileID: 587134376}
 --- !u!1001 &2107885636
 Prefab:
   m_ObjectHideFlags: 0
@@ -1457,6 +1426,10 @@ Prefab:
     - target: {fileID: 178156, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Name
       value: ShowAchievementPanel1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499748, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_UseGraphicAlpha
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
