@@ -912,7 +912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .323529422, g: .323529422, b: .323529422, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 18
@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .470588207, g: .449826956, b: .449826956, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 24
@@ -1222,7 +1222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .470588207, g: .449826956, b: .449826956, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 24
@@ -1252,6 +1252,7 @@ GameObject:
   - 224: {fileID: 802297460}
   - 222: {fileID: 802297462}
   - 114: {fileID: 802297461}
+  - 114: {fileID: 802297463}
   m_Layer: 5
   m_Name: turnPanel
   m_TagString: Untagged
@@ -1276,7 +1277,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 92, y: -66}
-  m_SizeDelta: {x: 108, y: 70}
+  m_SizeDelta: {x: 85, y: 65}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &802297461
 MonoBehaviour:
@@ -1290,7 +1291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .151005656, g: .152708724, b: .154411793, a: 0}
+  m_Color: {r: .282352954, g: .470588237, b: .65882355, a: .984313726}
   m_Sprite: {fileID: 21300000, guid: b66f9ddfd24dc4d4da438abcad111bf4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1305,6 +1306,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 802297459}
+--- !u!114 &802297463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 802297459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &868983372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,7 +1354,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 85, y: 65}
-  m_SizeDelta: {x: 108, y: 70}
+  m_SizeDelta: {x: 85, y: 65}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &868983374
 MonoBehaviour:
@@ -1353,7 +1368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .151005656, g: .152708724, b: .154411793, a: 0}
+  m_Color: {r: .282352954, g: .470588237, b: .65882355, a: .984313726}
   m_Sprite: {fileID: 21300000, guid: b66f9ddfd24dc4d4da438abcad111bf4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1720,6 +1735,7 @@ GameObject:
   - 114: {fileID: 1234036282}
   - 114: {fileID: 1234036281}
   - 114: {fileID: 1234036280}
+  - 114: {fileID: 1234036284}
   m_Layer: 5
   m_Name: ReturnPanel
   m_TagString: Untagged
@@ -1743,7 +1759,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 85, y: -65}
-  m_SizeDelta: {x: 70, y: 70}
+  m_SizeDelta: {x: 65, y: 65}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1234036280
 MonoBehaviour:
@@ -1821,7 +1837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .151005656, g: .152708724, b: .154411793, a: .419607848}
+  m_Color: {r: .941176474, g: .470588237, b: .188235298, a: 1}
   m_Sprite: {fileID: 21300000, guid: b66f9ddfd24dc4d4da438abcad111bf4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1836,6 +1852,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1234036278}
+--- !u!114 &1234036284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1234036278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!224 &1315654844
 RectTransform:
   m_PrefabParentObject: {fileID: 22400000, guid: a562d46ed02ffff42a234510c8adfa86,
@@ -1924,6 +1954,7 @@ GameObject:
   - 114: {fileID: 1467099097}
   - 114: {fileID: 1467099099}
   - 114: {fileID: 1467099100}
+  - 114: {fileID: 1467099101}
   m_Layer: 5
   m_Name: resetPanel
   m_TagString: Untagged
@@ -1946,8 +1977,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -73, y: -142.5}
-  m_SizeDelta: {x: 70, y: 70}
+  m_AnchoredPosition: {x: -73, y: -136.399994}
+  m_SizeDelta: {x: 65, y: 65}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1467099097
 MonoBehaviour:
@@ -1961,7 +1992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .151005656, g: .152708724, b: .154411793, a: .419607848}
+  m_Color: {r: .941176474, g: .470588237, b: .188235298, a: 1}
   m_Sprite: {fileID: 21300000, guid: b66f9ddfd24dc4d4da438abcad111bf4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -2040,6 +2071,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5eb038d3ba512f40a7dba9b9b832e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1467099101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1467099095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!224 &1491067787
 RectTransform:
   m_PrefabParentObject: {fileID: 22400000, guid: a562d46ed02ffff42a234510c8adfa86,
@@ -2258,6 +2303,7 @@ GameObject:
   - 114: {fileID: 1665802996}
   - 114: {fileID: 1665802998}
   - 114: {fileID: 1665802999}
+  - 114: {fileID: 1665803000}
   m_Layer: 5
   m_Name: ReturnPanel
   m_TagString: Untagged
@@ -2281,7 +2327,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -73, y: -66}
-  m_SizeDelta: {x: 70, y: 70}
+  m_SizeDelta: {x: 65, y: 65}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1665802996
 MonoBehaviour:
@@ -2295,7 +2341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .151005656, g: .152708724, b: .154411793, a: .419607848}
+  m_Color: {r: .941176474, g: .470588237, b: .188235298, a: 1}
   m_Sprite: {fileID: 21300000, guid: b66f9ddfd24dc4d4da438abcad111bf4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -2374,6 +2420,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8320bac30286f743ab0e2de8cbb3f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1665803000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1665802994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &1674352594
 Prefab:
   m_ObjectHideFlags: 0
@@ -2749,6 +2809,7 @@ GameObject:
   - 114: {fileID: 1827000828}
   - 114: {fileID: 1827000827}
   - 114: {fileID: 1827000826}
+  - 114: {fileID: 1827000830}
   m_Layer: 5
   m_Name: resetPanel
   m_TagString: Untagged
@@ -2771,8 +2832,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 158, y: -65}
-  m_SizeDelta: {x: 70, y: 70}
+  m_AnchoredPosition: {x: 155.600006, y: -65}
+  m_SizeDelta: {x: 65, y: 65}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1827000826
 MonoBehaviour:
@@ -2850,7 +2911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .151005656, g: .152708724, b: .154411793, a: .419607848}
+  m_Color: {r: .941176474, g: .470588237, b: .188235298, a: 1}
   m_Sprite: {fileID: 21300000, guid: b66f9ddfd24dc4d4da438abcad111bf4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -2865,6 +2926,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1827000824}
+--- !u!114 &1827000830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1827000824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1877964851
 GameObject:
   m_ObjectHideFlags: 0
@@ -3118,7 +3193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .323529422, g: .323529422, b: .323529422, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 18
