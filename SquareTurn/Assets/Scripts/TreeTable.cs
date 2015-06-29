@@ -3,8 +3,8 @@ using System.Collections;
 
 public class TreeTable : MonoBehaviour {
 	//This script contains the values which decide how many trees (stars) you get, depending on the number of turns
-	private int twoTrees; //Max number of turns to get two trees
-	private int threeTrees; //Max number of turns to get three trees
+	public int twoTrees; //Max number of turns to get two trees
+	public int threeTrees; //Max number of turns to get three trees
 
 	public int GetNumberOfTrees(int levelNumber, int numberOfTurns)
 	{
@@ -30,12 +30,18 @@ public class TreeTable : MonoBehaviour {
 
 	}
 
+	//Get the maximum number of turns to display it in the game scene (Pro Only)
+	public void GetValuesPro()
+	{
+		GetValues (PlayerPrefs.GetInt ("ChosenLevel"));
+	}
+
 	//THe value to all levels are stored here
 	void GetValues(int levelNumber)
 	{
 		switch(levelNumber)
 		{
-			case 100: twoTrees = 4; threeTrees = 1; break;
+			case 100: twoTrees = 3; threeTrees = 1; break;
 			case 101: twoTrees = 4; threeTrees = 2; break;
 			case 102: twoTrees = 4; threeTrees = 2; break;
 			case 103: twoTrees = 6; threeTrees = 4; break;
