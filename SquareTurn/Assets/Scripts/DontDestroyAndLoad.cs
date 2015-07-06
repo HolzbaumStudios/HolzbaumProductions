@@ -29,7 +29,7 @@ public class DontDestroyAndLoad : MonoBehaviour {
 
 
 	IEnumerator LoadLevel(){
-		yield return new WaitForSeconds (2);
+		yield return new WaitForSeconds (4);
 		Application.LoadLevel (loadLevelName);
 	}
 
