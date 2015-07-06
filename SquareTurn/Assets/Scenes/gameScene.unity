@@ -1812,8 +1812,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 31.3000031, y: 1.90734863e-06}
-  m_SizeDelta: {x: 22.3999996, y: 20}
+  m_AnchoredPosition: {x: 27, y: 0}
+  m_SizeDelta: {x: 31, y: 20}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &882779438
 MonoBehaviour:
@@ -1835,7 +1835,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 5
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 5
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -2256,8 +2256,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 31.2999992, y: -0}
-  m_SizeDelta: {x: 22.3999996, y: 20}
+  m_AnchoredPosition: {x: 28.4500084, y: 3.39745441e-07}
+  m_SizeDelta: {x: 28.1000004, y: 20}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1102710547
 MonoBehaviour:
@@ -2293,7 +2293,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 5
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 5
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -4078,8 +4078,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 31.2999992, y: -0}
-  m_SizeDelta: {x: 22.3999996, y: 20}
+  m_AnchoredPosition: {x: 26, y: 0}
+  m_SizeDelta: {x: 33, y: 20}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1823444780
 MonoBehaviour:
@@ -4101,7 +4101,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 5
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 5
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -4993,8 +4993,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 31.3000031, y: 1.90734863e-06}
-  m_SizeDelta: {x: 22.3999996, y: 20}
+  m_AnchoredPosition: {x: 21.25, y: 3.10540236e-06}
+  m_SizeDelta: {x: 42.5, y: 20}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2005711986
 MonoBehaviour:
@@ -5030,7 +5030,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 5
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 5
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
