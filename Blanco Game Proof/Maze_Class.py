@@ -392,6 +392,8 @@ class Maze(object):
                 if maze.Matrix[cellcoord[0]-1,cellcoord[1]-1] in [-2,-3]:
                     txtfile.write(" Special Cell")
                 txtfile.write("\n")
+    
+        
             
 class Maze_State():
     def __init__(self,Maze_Matrix):
