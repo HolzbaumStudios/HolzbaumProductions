@@ -102,6 +102,7 @@ public class AchievementCollection : MonoBehaviour {
 		if(achievementNumber != 100)
 		{ 
 			achievementPanel.SetActive (true);
+			achievementPanel.GetComponent<Animation>().Play ();
 
 			GameObject achievementImage = achievementPanel.transform.FindChild ("AchievementImage").gameObject;
 			GameObject achievementText = achievementPanel.transform.FindChild ("AchievementText").gameObject;
