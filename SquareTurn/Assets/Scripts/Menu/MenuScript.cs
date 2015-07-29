@@ -21,31 +21,29 @@ public class MenuScript : MonoBehaviour {
 		}
 
 
-
 		//Set the position of the category slider to the last known position
-		int posCategory1 = 800;
-		int posCategory2 = 800;
-		int posCategory3 = 800;
-		int posCategory4 = 800;
+		int posCategory1 = PlayerPrefs.GetInt ("PosCategory1");
+		int posCategory2 = PlayerPrefs.GetInt ("PosCategory2");
+		int posCategory3 = PlayerPrefs.GetInt ("PosCategory3");
+		int posCategory4 = PlayerPrefs.GetInt ("PosCategory4");
 
 
-		if(PlayerPrefs.GetInt("FirstStart") == 0)
+		if(posCategory1 != 0)
 		{
-			posCategory1 = PlayerPrefs.GetInt ("PosCategory1");
-			posCategory2 = PlayerPrefs.GetInt ("PosCategory2");
-			posCategory3 = PlayerPrefs.GetInt ("PosCategory3");
-			posCategory4 = PlayerPrefs.GetInt ("PosCategory4");
-		}else{
-			PlayerPrefs.SetInt ("FirstStart", 1); 
+			category1.transform.localPosition = new Vector2 (posCategory1,0);
 		}
-
-
-
-		category1.transform.localPosition = new Vector2 (posCategory1,0);
-		category2.transform.localPosition = new Vector2 (posCategory2,0);
-		category3.transform.localPosition = new Vector2 (posCategory3,0);
-		category4.transform.localPosition = new Vector2 (posCategory4,0);
-
+		if(posCategory2 != 0)
+		{
+			category2.transform.localPosition = new Vector2 (posCategory2,0);
+		}
+		if(posCategory3 != 0)
+		{
+			category3.transform.localPosition = new Vector2 (posCategory3,0);
+		}
+		if(posCategory4 != 0)
+		{
+			category4.transform.localPosition = new Vector2 (posCategory4,0);
+		}
 	}
 
 	public IEnumerator StartLevel(){
@@ -122,12 +120,10 @@ public class MenuScript : MonoBehaviour {
 	//The function is accessed by the script ChooseLevelScript.cs
 	public void SaveCategoryPosition()
 	{
-		PlayerPrefs.SetInt ("PosCategory1", (int)category1.transform.localPosition.x);
-		PlayerPrefs.SetInt ("PosCategory2", (int)category2.transform.localPosition.x);
-		PlayerPrefs.SetInt ("PosCategory3", (int)category3.transform.localPosition.x);
-		PlayerPrefs.SetInt ("PosCategory4", (int)category4.transform.localPosition.x);
-
-
+		PlayerPrefs.SetInt ("PosCategory1", (int)category1.transform.position.x);
+		PlayerPrefs.SetInt ("PosCategory2", (int)category2.transform.position.x);
+		PlayerPrefs.SetInt ("PosCategory3", (int)category3.transform.position.x);
+		PlayerPrefs.SetInt ("PosCategory4", (int)category4.transform.position.x);
 	}
 
 }
