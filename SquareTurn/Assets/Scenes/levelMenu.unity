@@ -11213,7 +11213,6 @@ GameObject:
   - 223: {fileID: 474263179}
   - 114: {fileID: 474263178}
   - 114: {fileID: 474263177}
-  - 114: {fileID: 474263180}
   m_Layer: 5
   m_Name: MenuCanvas
   m_TagString: Untagged
@@ -11296,18 +11295,6 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!114 &474263180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 474263175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18992c16f54a9024fa3a212e702fd58a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  achievementPanel: {fileID: 1713889355}
 --- !u!1 &478303262
 GameObject:
   m_ObjectHideFlags: 0
@@ -42937,6 +42924,7 @@ GameObject:
   - 224: {fileID: 1713889356}
   - 222: {fileID: 1713889358}
   - 114: {fileID: 1713889357}
+  - 114: {fileID: 1713889359}
   m_Layer: 5
   m_Name: AchievementPanel
   m_TagString: Untagged
@@ -42989,6 +42977,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1713889355}
+--- !u!114 &1713889359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1713889355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18992c16f54a9024fa3a212e702fd58a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  achievementPanel: {fileID: 1713889355}
 --- !u!1 &1723923533
 GameObject:
   m_ObjectHideFlags: 0
@@ -48625,8 +48625,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1926639116}
   m_HandleRect: {fileID: 1926639115}
   m_Direction: 0
-  m_Value: 1.52587916e-07
-  m_Size: .333333373
+  m_Value: 1.14440951e-07
+  m_Size: .333333403
   m_NumberOfSteps: 3
   m_OnValueChanged:
     m_PersistentCalls:
