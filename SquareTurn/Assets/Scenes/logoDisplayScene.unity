@@ -126,6 +126,86 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: spriteAchievement1
+      value: 
+      objectReference: {fileID: 21300000, guid: 51cd8efa45957274eaa4fb8533c67fd7,
+        type: 3}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: spriteAchievement2
+      value: 
+      objectReference: {fileID: 21300000, guid: f375cfc1f310e9948a1a64dc2598844d,
+        type: 3}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: spriteAchievement0
+      value: 
+      objectReference: {fileID: 21300000, guid: c121bb78b2452ee43884b12054c4f074,
+        type: 3}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: spriteAchievement3
+      value: 
+      objectReference: {fileID: 21300000, guid: 51cd8efa45957274eaa4fb8533c67fd7,
+        type: 3}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: spriteAchievement4
+      value: 
+      objectReference: {fileID: 21300000, guid: b18596653b7f9ff41a6676bbe4ea2177,
+        type: 3}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: spriteAchievement5
+      value: 
+      objectReference: {fileID: 21300000, guid: 51cd8efa45957274eaa4fb8533c67fd7,
+        type: 3}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: spriteAchievement6
+      value: 
+      objectReference: {fileID: 21300000, guid: 51cd8efa45957274eaa4fb8533c67fd7,
+        type: 3}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: spriteAchievement7
+      value: 
+      objectReference: {fileID: 21300000, guid: 51cd8efa45957274eaa4fb8533c67fd7,
+        type: 3}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: spriteAchievement8
+      value: 
+      objectReference: {fileID: 21300000, guid: 51cd8efa45957274eaa4fb8533c67fd7,
+        type: 3}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: spriteAchievement9
+      value: 
+      objectReference: {fileID: 21300000, guid: 51cd8efa45957274eaa4fb8533c67fd7,
+        type: 3}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: spriteAchievement10
+      value: 
+      objectReference: {fileID: 21300000, guid: 7845986a461e843489b0fed1d0ae3b7b,
+        type: 3}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: spriteAchievement11
+      value: 
+      objectReference: {fileID: 21300000, guid: 94b370ea30419a548972f03c039509f4,
+        type: 3}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: spriteAchievement12
+      value: 
+      objectReference: {fileID: 21300000, guid: 51cd8efa45957274eaa4fb8533c67fd7,
+        type: 3}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: spriteAchievement13
+      value: 
+      objectReference: {fileID: 21300000, guid: 3db627972b1250640b51e295abe69993,
+        type: 3}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: spriteAchievement14
+      value: 
+      objectReference: {fileID: 21300000, guid: e21be82784f05d148a2b5e48e9401387,
+        type: 3}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: spriteAchievement15
+      value: 
+      objectReference: {fileID: 21300000, guid: 175967a8560fa9b48b5a3c78f44d27e7,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
   m_IsPrefabParent: 0

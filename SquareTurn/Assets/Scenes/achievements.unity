@@ -341,6 +341,23 @@ Prefab:
       propertyPath: m_UseGraphicAlpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Turn 200 tiles
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Turn 200 tiles
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Turnaround
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476276, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7845986a461e843489b0fed1d0ae3b7b,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
@@ -459,8 +476,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -820}
-  m_SizeDelta: {x: 0, y: 1639}
+  m_AnchoredPosition: {x: 0, y: -1153}
+  m_SizeDelta: {x: 0, y: 2306}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &350355442
 MonoBehaviour:
@@ -598,8 +615,20 @@ Prefab:
     - target: {fileID: 11476276, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 175967a8560fa9b48b5a3c78f44d27e7,
+      objectReference: {fileID: 21300000, guid: f375cfc1f310e9948a1a64dc2598844d,
         type: 3}
+    - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Solve every level from pack 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Solve every level from pack 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Time to blossom
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
@@ -697,6 +726,18 @@ Prefab:
     - target: {fileID: 11499748, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_UseGraphicAlpha
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Solve 30 levels
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Solve 30 levels
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Challenger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
@@ -882,6 +923,18 @@ Prefab:
       propertyPath: m_UseGraphicAlpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Solve 75 levels
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Solve 75 levels
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Blackbelt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
@@ -985,6 +1038,23 @@ Prefab:
       propertyPath: m_UseGraphicAlpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Start the game 50 times
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Start the game 50 times
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Adult
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476276, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e21be82784f05d148a2b5e48e9401387,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
@@ -1088,6 +1158,23 @@ Prefab:
       propertyPath: m_UseGraphicAlpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Solve every level from pack 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Solve every level from pack 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Flowerfield
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476276, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b18596653b7f9ff41a6676bbe4ea2177,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
@@ -1190,6 +1277,18 @@ Prefab:
     - target: {fileID: 11499748, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_UseGraphicAlpha
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Solve 1 level
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Solve 1 level
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: First steps
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
@@ -1512,7 +1611,7 @@ Prefab:
     - target: {fileID: 11476276, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3db627972b1250640b51e295abe69993,
+      objectReference: {fileID: 21300000, guid: c121bb78b2452ee43884b12054c4f074,
         type: 3}
     - target: {fileID: 11476276, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_PreserveAspect
@@ -1525,6 +1624,18 @@ Prefab:
     - target: {fileID: 186244, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Solve every level from pack 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Solve every level from pack 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: PLANTING THE SEED
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
@@ -1743,6 +1854,23 @@ Prefab:
       propertyPath: m_UseGraphicAlpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Turn 1000 tiles
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Turn 1000 tiles
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Turning Tables
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476276, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 94b370ea30419a548972f03c039509f4,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
@@ -1932,6 +2060,18 @@ Prefab:
       propertyPath: m_UseGraphicAlpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Get all the stars in pack 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Get all the stars in pack 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Rainforest dryer
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
@@ -2096,6 +2236,18 @@ Prefab:
       propertyPath: m_UseGraphicAlpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Turn 5000 tiles
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Turn 5000 tiles
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Flippin' Ninja
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
@@ -2199,6 +2351,18 @@ Prefab:
       propertyPath: m_UseGraphicAlpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Get all the stars in pack 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Get all the stars in pack 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Climbing tree
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
@@ -2301,6 +2465,18 @@ Prefab:
     - target: {fileID: 11499748, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_UseGraphicAlpha
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Solve 10 levels
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Solve 10 levels
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Amateur
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
@@ -2499,6 +2675,23 @@ Prefab:
       propertyPath: m_UseGraphicAlpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Start the game 100 times
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Start the game 100 times
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Veteran
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476276, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 175967a8560fa9b48b5a3c78f44d27e7,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
@@ -2602,6 +2795,23 @@ Prefab:
       propertyPath: m_UseGraphicAlpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Start the game 10 times
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Start the game 10 times
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Child
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476276, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3db627972b1250640b51e295abe69993,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
@@ -2705,6 +2915,18 @@ Prefab:
     - target: {fileID: 111408, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Get all the stars in pack 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Get all the stars in pack 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Text
+      value: Growing stem
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
