@@ -29,9 +29,7 @@ public class UserStatistics : MonoBehaviour {
 
 	//Update the statistic, depending on the transmitted String
 	public void UpdateStatistic(string statisticName, int amount){
-
-		Debug.Log ("Amount: " + amount);
-
+		
 		switch (statisticName) {
 			case "Move++": totalNumberOfMoves++;
 			break;
@@ -41,7 +39,8 @@ public class UserStatistics : MonoBehaviour {
 			break;
 		}
 
-		Debug.Log ("Moves: " + totalNumberOfMoves + " Turns: " + totalNumberOfTurns + " Resets: " + totalNumberOfResets);
+		StoreStatistics ();
+		
 	}
 
 

@@ -9,11 +9,19 @@ public class CheckForAchievements : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		PlayerPrefs.SetInt ("NewAchievement", 1);
+		StartCoroutine (CheckAchievements());
+	}
 
-		if (PlayerPrefs.GetInt ("NewAchievement") == 1) {
-			GameObject.Find ("UserStatistics").GetComponent<AchievementCollection>().SetAchievementWindow(achievementPanel);
-		}
+	//Checks for new Achievements every 1.5 seconds
+	IEnumerator CheckAchievements()
+	{
+		do
+		{
+			yield return new WaitForSeconds(1.5f);
+			if (PlayerPrefs.GetInt ("NewAchievement") == 1) {
+				GameObject.Find ("UserStatistics").GetComponent<AchievementCollection>().SetAchievementWindow(achievementPanel);
+			}
+		}while( 1 == 1);
 	}
 
 }

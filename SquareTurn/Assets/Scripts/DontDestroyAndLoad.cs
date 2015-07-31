@@ -29,6 +29,7 @@ public class DontDestroyAndLoad : MonoBehaviour {
 
 
 	IEnumerator LoadLevel(){
+		PlayerPrefs.DeleteAll ();
 		yield return new WaitForSeconds (4);
 		Application.LoadLevel (loadLevelName);
 	}

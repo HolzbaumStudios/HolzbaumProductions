@@ -22,6 +22,13 @@ public class GameLogic : MonoBehaviour {
 	public GameObject gameEndPanel; //The panel which appears, when the level has been finished
 	public GameObject treeContainer;
 
+	//Variables to store achievement prefabs
+	//The prefab values are stored in this variables (in the start function), because they have to be checked with every move.
+	//Getting prefabs costs more than just checking a variable
+	int achievement10State; //Turn 200 tiles
+	int achievement11State; //Turn 1000 tiles
+	int achievement12State; //Turn 5000 tiles
+
 	//-----------------CLASSES---------------
 	public class cSquareClass{
 		public GameObject squareObject;
@@ -45,6 +52,10 @@ public class GameLogic : MonoBehaviour {
 		userStatistics = GameObject.Find ("UserStatistics");
 
 		levelScript = GameObject.Find ("LevelScript").GetComponent<LevelScript>();
+
+		achievement10State = PlayerPrefs.GetInt("Achievement10State");
+		achievement11State = PlayerPrefs.GetInt("Achievement11State");
+		achievement12State = PlayerPrefs.GetInt("Achievement12State");
 
 		//Get Rows and Columns
 		fieldRows = levelScript.rows;
@@ -287,9 +298,45 @@ public class GameLogic : MonoBehaviour {
 			}
 		}
 
+
+
 		//Send statistic to  userstatistics.cs
 		userStatistics.GetComponent<UserStatistics>().UpdateStatistic("Turns++",numberOfTurns);
 		numberOfTurns = 0;
+
+		//Check achievements
+		int totalNumberOfTurns = PlayerPrefs.GetInt ("TotalNumberOfTurns");
+		Debug.Log ("Achievement10State" + achievement10State + " " + totalNumberOfTurns);
+		if(achievement10State<1) //If achievement is not unlocked...
+		{
+			if(totalNumberOfTurns>=200) //.. check if achievement condition is met
+			{
+				Debug.Log ("Executed");
+				PlayerPrefs.SetInt ("NewAchievement", 1);
+				PlayerPrefs.SetInt("Achievement10State", 1);
+				achievement10State = 1;
+			}
+		}
+		if(achievement11State<1)
+		{
+			if(totalNumberOfTurns>=1000)
+			{
+				Debug.Log ("Executed11");
+				PlayerPrefs.SetInt ("NewAchievement", 1);
+				PlayerPrefs.SetInt("Achievement11State", 1);
+				achievement11State = 1;
+			}
+		}
+		if(achievement12State<1)
+		{
+			if(totalNumberOfTurns>=5000)
+			{
+				PlayerPrefs.SetInt ("NewAchievement", 1);
+				PlayerPrefs.SetInt("Achievement12State", 1);
+				achievement12State = 1;
+			}
+		}
+
 
 		//Check if won
 		CheckIfWon();
@@ -312,7 +359,7 @@ public class GameLogic : MonoBehaviour {
 	void CheckIfWon(){
 		playerWon = true;
 
-		if (PlayerPrefs.GetInt ("ChosenLevel") < 400) { //Everything under 400 are normal lavels. 4xx are form levels
+		if (PlayerPrefs.GetInt ("ChosenLevel") < 300) { //Everything under 300 are normal lavels. 4xx are form levels
 				for (int i = 0; i < fieldRows; i++) {
 						for (int j = 0; j < fieldColumns; j++) {	
 								if (squareArray [i, j].squareState == 0 || squareArray [i, j].squareState == 5) {
@@ -325,7 +372,7 @@ public class GameLogic : MonoBehaviour {
 		if(playerWon){
 			Debug.Log ("Gewonnen");
 			//Store the statistics in Prefabs (Script: UserStatistics)
-			userStatistics.SendMessage ("StoreStatistics");
+			//userStatistics.SendMessage ("StoreStatistics");
 			StartCoroutine(EnableEndPanel());
 		}
 	}
