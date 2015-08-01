@@ -4912,6 +4912,7 @@ GameObject:
   - 114: {fileID: 1926130410}
   - 114: {fileID: 1926130413}
   - 114: {fileID: 1926130408}
+  - 114: {fileID: 1926130414}
   m_Layer: 5
   m_Name: StartMenuCanvas
   m_TagString: Untagged
@@ -5056,6 +5057,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Slider_Loading: {fileID: 1446193065}
   Image_Loading: {fileID: 1178451630}
+--- !u!114 &1926130414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1926130407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e07c1279e58e094d8c9355986d5acd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1928808827
 GameObject:
   m_ObjectHideFlags: 0
@@ -5399,8 +5411,8 @@ MonoBehaviour:
   disableTestMode: 0
   showInfoLogs: 0
   showDebugLogs: 0
-  showWarningLogs: 1
-  showErrorLogs: 1
+  showWarningLogs: 0
+  showErrorLogs: 0
 --- !u!4 &1968156354
 Transform:
   m_ObjectHideFlags: 0
