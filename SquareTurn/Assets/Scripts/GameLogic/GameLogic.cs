@@ -360,8 +360,9 @@ public class GameLogic : MonoBehaviour {
 	//Check everyturn if the player has won
 	void CheckIfWon(){
 		playerWon = true;
+		int chosenLevel = PlayerPrefs.GetInt ("ChosenLevel");
 
-		if (PlayerPrefs.GetInt ("ChosenLevel") < 300) { //Everything under 300 are normal lavels. 4xx are form levels
+		if (chosenLevel < 300) { //Everything under 300 are normal lavels. 4xx are form levels
 				for (int i = 0; i < fieldRows; i++) {
 						for (int j = 0; j < fieldColumns; j++) {	
 								if (squareArray [i, j].squareState == 0 || squareArray [i, j].squareState == 5) {
@@ -372,7 +373,38 @@ public class GameLogic : MonoBehaviour {
 		}
 
 		if(playerWon){
-			Debug.Log ("Gewonnen");
+			//If a new level has been solved, save this value into a prefab
+			if(PlayerPrefs.GetInt ("StarsLevel" + chosenLevel) == 0)
+			{
+				int completedLevels = PlayerPrefs.GetInt ("NumberOfCompletedLevels") + 1;
+				PlayerPrefs.SetInt ("NumberOfCompletedLevels", completedLevels);
+
+				//Check for reached achievements
+				if(completedLevels == 1)
+				{
+					userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (6,1);
+					PlayerPrefs.SetInt ("NewAchievement", 1);
+					achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
+				}
+				else if(completedLevels==10)
+				{
+					userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (7,1);
+					PlayerPrefs.SetInt ("NewAchievement", 1);
+					achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
+				}
+				else if(completedLevels==30)
+				{
+					userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (8,1);
+					PlayerPrefs.SetInt ("NewAchievement", 1);
+					achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
+				}
+				else if(completedLevels==75)
+				{
+					userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (9,1);
+					PlayerPrefs.SetInt ("NewAchievement", 1);
+					achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
+				}
+			}
 			//Store the statistics in Prefabs (Script: UserStatistics)
 			//userStatistics.SendMessage ("StoreStatistics");
 			StartCoroutine(EnableEndPanel());
@@ -410,8 +442,6 @@ public class GameLogic : MonoBehaviour {
 		int numberOfTrees;
 		int levelNumber = PlayerPrefs.GetInt ("ChosenLevel");
 		numberOfTrees = userStatistics.GetComponent<TreeTable> ().GetNumberOfTrees (levelNumber, turnNumber); //Call the function Get number of trees transmitting the levelnumber and the number of turns needed
-
-		Debug.Log ("Number of Trees: " + numberOfTrees);
 
 
 		string prefabName = "StarsLevel" + levelNumber;
