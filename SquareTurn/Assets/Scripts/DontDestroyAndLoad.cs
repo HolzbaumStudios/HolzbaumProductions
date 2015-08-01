@@ -13,8 +13,17 @@ public class DontDestroyAndLoad : MonoBehaviour {
 	public bool loadLevel = false;
 	public string loadLevelName;
 
+
+
+	void Awake()
+	{
+		//PlayerPrefs.DeleteAll ();
+		//PlayerPrefs.SetInt ("TotalNumberOfTurns", 4980);
+	}
+
 	//------INITIALIZATION-------------
 	void Start(){
+
 		//Get the list length
 		int listLength;
 		listLength = objectList.Count;
@@ -29,7 +38,6 @@ public class DontDestroyAndLoad : MonoBehaviour {
 
 
 	IEnumerator LoadLevel(){
-		PlayerPrefs.DeleteAll ();
 		yield return new WaitForSeconds (4);
 		Application.LoadLevel (loadLevelName);
 	}

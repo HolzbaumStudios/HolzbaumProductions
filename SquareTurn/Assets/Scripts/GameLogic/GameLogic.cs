@@ -21,13 +21,12 @@ public class GameLogic : MonoBehaviour {
 
 	public GameObject gameEndPanel; //The panel which appears, when the level has been finished
 	public GameObject treeContainer;
+	private GameObject achievementPanel;
 
 	//Variables to store achievement prefabs
 	//The prefab values are stored in this variables (in the start function), because they have to be checked with every move.
 	//Getting prefabs costs more than just checking a variable
-	int achievement10State; //Turn 200 tiles
-	int achievement11State; //Turn 1000 tiles
-	int achievement12State; //Turn 5000 tiles
+
 
 	//-----------------CLASSES---------------
 	public class cSquareClass{
@@ -50,12 +49,9 @@ public class GameLogic : MonoBehaviour {
 	//-------------------------START--------------------------------
 	void Start () {
 		userStatistics = GameObject.Find ("UserStatistics");
+		achievementPanel = GameObject.Find ("AchievementPanel");
 
 		levelScript = GameObject.Find ("LevelScript").GetComponent<LevelScript>();
-
-		achievement10State = PlayerPrefs.GetInt("Achievement10State");
-		achievement11State = PlayerPrefs.GetInt("Achievement11State");
-		achievement12State = PlayerPrefs.GetInt("Achievement12State");
 
 		//Get Rows and Columns
 		fieldRows = levelScript.rows;
@@ -304,39 +300,45 @@ public class GameLogic : MonoBehaviour {
 		userStatistics.GetComponent<UserStatistics>().UpdateStatistic("Turns++",numberOfTurns);
 		numberOfTurns = 0;
 
+		int achievement10State = userStatistics.GetComponent<AchievementCollection>().GetLocalAchievementState (10);
+		int achievement11State = userStatistics.GetComponent<AchievementCollection>().GetLocalAchievementState (11);
+		int achievement12State = userStatistics.GetComponent<AchievementCollection>().GetLocalAchievementState (12);
+
 		//Check achievements
 		int totalNumberOfTurns = PlayerPrefs.GetInt ("TotalNumberOfTurns");
-		Debug.Log ("Achievement10State" + achievement10State + " " + totalNumberOfTurns);
+		Debug.Log ("Achievement10State " + achievement10State + " Achievement11State " + achievement11State + " Number of Turns " + totalNumberOfTurns);
 		if(achievement10State<1) //If achievement is not unlocked...
 		{
 			if(totalNumberOfTurns>=200) //.. check if achievement condition is met
 			{
-				Debug.Log ("Executed");
-				PlayerPrefs.SetInt ("NewAchievement", 1);
-				PlayerPrefs.SetInt("Achievement10State", 1);
-				achievement10State = 1;
+				Debug.Log ("Execute Achievement 10");
+				userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (10,1);
+				PlayerPrefs.SetInt ("NewAchievement", 1); //Set the newAchievement playerPref always after setting the achievementStates
+
 			}
 		}
-		if(achievement11State<1)
+		else if(achievement11State<1)
 		{
 			if(totalNumberOfTurns>=1000)
 			{
-				Debug.Log ("Executed11");
+				Debug.Log ("Execute Achievement 11");
+				userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (11,1);
 				PlayerPrefs.SetInt ("NewAchievement", 1);
-				PlayerPrefs.SetInt("Achievement11State", 1);
-				achievement11State = 1;
+
 			}
 		}
-		if(achievement12State<1)
+		else if(achievement12State<1)
 		{
 			if(totalNumberOfTurns>=5000)
 			{
+				userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (12,1);
 				PlayerPrefs.SetInt ("NewAchievement", 1);
-				PlayerPrefs.SetInt("Achievement12State", 1);
-				achievement12State = 1;
+
 			}
 		}
 
+		//Call the achievement check function
+		achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
 
 		//Check if won
 		CheckIfWon();

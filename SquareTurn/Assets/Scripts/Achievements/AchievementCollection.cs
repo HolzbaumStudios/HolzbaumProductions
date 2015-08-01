@@ -166,7 +166,7 @@ public class AchievementCollection : MonoBehaviour {
 			achievementImage.GetComponent<Image>().sprite = achievementSpriteList[achievementNumber];
 			achievementText.GetComponent<Text>().text = achievementList[achievementNumber].GetTitle();
 
-			StartCoroutine(AnimationCountdown(6));
+			StartCoroutine(AnimationCountdown(6, achievementPanel));
 		}
 		else
 		{
@@ -180,8 +180,11 @@ public class AchievementCollection : MonoBehaviour {
 
 		for(int i = 0; i < achievementList.Count; i++){
 			if(achievementList[i].GetState() == 1){
-				returnValue = i;
+				Debug.Log ("AchievementListNumber: " + i);
 				achievementList[i].SetState(2);
+				string prefabName = "Achievement" + i + "State";
+				PlayerPrefs.SetInt (prefabName, 2);
+				returnValue = i;
 				i = achievementList.Count;
 			}
 		}
@@ -192,8 +195,7 @@ public class AchievementCollection : MonoBehaviour {
 
 	///Close achievement panel
 	//If the player clicks ok, this function is run
-	public void CloseAchievementPanel(){
-		GameObject achievementPanel = GameObject.Find ("AchievementPanelBase");
+	public void CloseAchievementPanel(GameObject achievementPanel){
 		achievementPanel.SetActive (false);
 		SetAchievementWindow(achievementPanel); //Call the function again, to determine if there are more unlocked achievements
 	}
@@ -219,10 +221,21 @@ public class AchievementCollection : MonoBehaviour {
 	}
 
 	//Wait a specified time of seconds, until disabling the animation panel
-	IEnumerator AnimationCountdown(float seconds)
+	IEnumerator AnimationCountdown(float seconds, GameObject achievementPanel)
 	{
 		yield return new WaitForSeconds(seconds);
-		CloseAchievementPanel ();
+		CloseAchievementPanel (achievementPanel);
+	}
+
+	//Functions is called to set the achievement state of a specific achievement
+	public void SetLocalAchievementState(int achievementNumber, int achievementState)
+	{
+		achievementList [achievementNumber].SetState (achievementState);
+	}
+
+	public int GetLocalAchievementState(int achievementNumber)
+	{
+		return achievementList [achievementNumber].GetState ();
 	}
 
 }
