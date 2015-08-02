@@ -306,7 +306,6 @@ public class GameLogic : MonoBehaviour {
 
 		//Check achievements
 		int totalNumberOfTurns = PlayerPrefs.GetInt ("TotalNumberOfTurns");
-		Debug.Log ("Achievement10State " + achievement10State + " Achievement11State " + achievement11State + " Number of Turns " + totalNumberOfTurns);
 		if(achievement10State<1) //If achievement is not unlocked...
 		{
 			if(totalNumberOfTurns>=200) //.. check if achievement condition is met
