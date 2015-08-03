@@ -444,9 +444,36 @@ public class GameLogic : MonoBehaviour {
 
 
 		string prefabName = "StarsLevel" + levelNumber;
-		if(numberOfTrees > PlayerPrefs.GetInt (prefabName))
+		int playerPrefValue = PlayerPrefs.GetInt (prefabName);
+		if(numberOfTrees > playerPrefValue)
 		{
 			PlayerPrefs.SetInt (prefabName, numberOfTrees);
+		}
+
+		//Add number of stars to statistic
+
+		if (playerPrefValue < numberOfTrees)
+		{
+			int difference = numberOfTrees - playerPrefValue;
+			if(levelNumber >= 100 && levelNumber < 200)
+			{
+				int newStarValue = PlayerPrefs.GetInt("Category1Stars") + difference;
+				PlayerPrefs.SetInt ("Category1Stars", newStarValue);
+			}
+			else if(levelNumber >= 200 && levelNumber < 300)
+			{
+				int newStarValue = PlayerPrefs.GetInt("Category2Stars") + difference;
+				PlayerPrefs.SetInt ("Category2Stars", newStarValue);
+			}
+			else if(levelNumber >= 300 && levelNumber < 400)
+			{
+				int newStarValue = PlayerPrefs.GetInt("Category3Stars") + difference;
+				PlayerPrefs.SetInt ("Category3Stars", newStarValue);
+			}
+			else
+			{
+				Debug.Log ("Levelnummer nicht vorhanden!");
+			}
 		}
 
 		//Get the tree objects
