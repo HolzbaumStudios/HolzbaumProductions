@@ -1,23 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TurnScript : MonoBehaviour {
+public class TurnScriptTutorial : MonoBehaviour {
 
 	private int row;
 	private int column;
 	private GameObject managerObject;
-	private GameObject userStatistics;
 
 	//----------------INITIALIZATION-----------------------------------------
 	void Start(){
-		managerObject = GameObject.Find ("gameManager");
-		userStatistics = GameObject.Find ("UserStatistics");
+		managerObject = GameObject.Find ("gameManager");;
 	}
 
 	//---------------FUNCTIONS-------------------------------
-	public void StartSquareTurn(){
+	public void StartSquareTurn(int stepNumber){
 		
-			managerObject.SendMessage ("TurnOtherSquares", gameObject.name);
+		managerObject.GetComponent<Tutorial1Script>().ExecuteStep(stepNumber);
 	}
 
 	public void TurnSquare(int squareState){
