@@ -13,6 +13,7 @@ public class Tutorial1Script : MonoBehaviour {
 
 	private bool checkForUserInput = true;
 	private int currentStep;
+	private int moveCounterTutorial = 0;
 
 	void Start()
 	{
@@ -67,6 +68,7 @@ public class Tutorial1Script : MonoBehaviour {
 				squareContainerRow3[2].GetComponent<TurnScriptTutorial>().TurnSquare(1);
 				squareContainerRow3[3].GetComponent<TurnScriptTutorial>().TurnSquare(1);
 
+				messagePanels[1].transform.FindChild("Text3").gameObject.SetActive(false);
 				messagePanels[1].SetActive(false);
 				StartCoroutine(WaitSomeTime(1.0f));
 			}break;
@@ -144,7 +146,36 @@ public class Tutorial1Script : MonoBehaviour {
 				squareContainerRow3[2].GetComponent<TurnScriptTutorial>().TurnSquare(0);
 				squareContainerRow3[3].GetComponent<TurnScriptTutorial>().TurnSquare(0);
 
+				checkForUserInput = true;
+
 				StartCoroutine(WaitSomeTime(1.0f));
+			}break;
+			case 11: //Reload the level
+			{
+				messagePanels[0].SetActive(true);
+				messagePanels[0].transform.FindChild("Text9").gameObject.SetActive(true);
+			}break;
+			case 12: //Reload the level
+			{
+				messagePanels[0].transform.FindChild("Text9").gameObject.SetActive(false);	
+				messagePanels[0].SetActive(false);
+				messagePanels[1].SetActive(true);
+				messagePanels[1].transform.FindChild("Text10").gameObject.SetActive(true);
+				
+				checkForUserInput = false;
+
+				squareContainerRow0[0].GetComponent<Button>().enabled = true;
+				squareContainerRow0[3].GetComponent<Button>().enabled = true;
+				squareContainerRow3[0].GetComponent<Button>().enabled = true;
+				squareContainerRow3[3].GetComponent<Button>().enabled = true;
+			}break;
+			case 13: //Reload the level
+			{
+				messagePanels[1].transform.FindChild("Text10").gameObject.SetActive(false);	
+				messagePanels[1].SetActive(false);
+				messagePanels[0].SetActive(true);
+				//messagePanels[0].transform.FindChild("Text10").gameObject.SetActive(true);
+				
 			}break;
 		}
 	}
@@ -154,4 +185,56 @@ public class Tutorial1Script : MonoBehaviour {
 		yield return new WaitForSeconds(seconds);
 		ExecuteStep(currentStep + 1);
 	}
+
+
+	public void TurnLastSquares(int squareNumber)
+	{
+
+
+		switch(squareNumber)
+		{
+			case 0: //Changed to second message
+			{
+				squareContainerRow0[0].GetComponent<TurnScriptTutorial>().TurnSquare(1);
+				squareContainerRow0[1].GetComponent<TurnScriptTutorial>().TurnSquare(1);
+				squareContainerRow1[0].GetComponent<TurnScriptTutorial>().TurnSquare(1);
+				squareContainerRow1[1].GetComponent<TurnScriptTutorial>().TurnSquare(1);
+				moveCounterTutorial++;
+				squareContainerRow0[0].GetComponent<Button>().enabled = false;
+			}break;
+			case 3: //Show message and arrow to click the button
+			{
+				squareContainerRow0[2].GetComponent<TurnScriptTutorial>().TurnSquare(1);
+				squareContainerRow0[3].GetComponent<TurnScriptTutorial>().TurnSquare(1);
+				squareContainerRow1[2].GetComponent<TurnScriptTutorial>().TurnSquare(1);
+				squareContainerRow1[3].GetComponent<TurnScriptTutorial>().TurnSquare(1);
+				moveCounterTutorial++;
+				squareContainerRow0[3].GetComponent<Button>().enabled = false;
+			}break;
+			case 30: //Show message and arrow to click the button
+			{
+				squareContainerRow2[0].GetComponent<TurnScriptTutorial>().TurnSquare(1);
+				squareContainerRow2[1].GetComponent<TurnScriptTutorial>().TurnSquare(1);
+				squareContainerRow3[0].GetComponent<TurnScriptTutorial>().TurnSquare(1);
+				squareContainerRow3[1].GetComponent<TurnScriptTutorial>().TurnSquare(1);
+				moveCounterTutorial++;
+				squareContainerRow3[0].GetComponent<Button>().enabled = false;
+			}break;
+			case 33: //Show message and arrow to click the button
+			{
+				squareContainerRow2[2].GetComponent<TurnScriptTutorial>().TurnSquare(1);
+				squareContainerRow2[3].GetComponent<TurnScriptTutorial>().TurnSquare(1);
+				squareContainerRow3[2].GetComponent<TurnScriptTutorial>().TurnSquare(1);
+				squareContainerRow3[3].GetComponent<TurnScriptTutorial>().TurnSquare(1);
+				moveCounterTutorial++;
+				squareContainerRow3[3].GetComponent<Button>().enabled = false;
+			}break;
+		}
+
+		if(moveCounterTutorial == 4)
+		{
+			ExecuteStep(currentStep + 1);
+		}
+	}
+
 }

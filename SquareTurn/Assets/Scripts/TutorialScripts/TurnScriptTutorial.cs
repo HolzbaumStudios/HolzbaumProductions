@@ -41,5 +41,10 @@ public class TurnScriptTutorial : MonoBehaviour {
 		//Set Rotation
 		transform.eulerAngles = new Vector3(0,0,0);
 	}
+
+	public void TurnFinalSquares(int squareNumber) //0 = downLeft, 03 = downRight, 30 = upLeft, 33 = upRight
+	{
+		managerObject.GetComponent<Tutorial1Script>().TurnLastSquares(squareNumber);
+	}
 	
 }
