@@ -14,12 +14,25 @@ public class ChooseLevelScript : MonoBehaviour {
 		//Start the Level
 		PlayerPrefs.SetInt ("ChosenLevel", level);
 		GameObject.Find ("LevelChoice").GetComponent<MenuScript> ().SaveCategoryPosition (); //Saves the category window position
-		Application.LoadLevel ("gameScene");
+		if(PlayerPrefs.GetInt ("Tutorial1Finished") == 0)
+		{
+			if(level >= 100 && level < 200)
+			{
+				Application.LoadLevel ("tutorialScene");
+			}
+			else
+			{
+				Application.LoadLevel ("gameScene");
+			}
+		}
+		else
+		{
+			Application.LoadLevel ("gameScene");
+		}
 	}
 
 	public void InputLevel(){
 		GameObject inputField = transform.FindChild ("InputField").FindChild ("Text").gameObject;
-
 	
 		int levelNumber = int.Parse (inputField.GetComponent<Text> ().text);
 
