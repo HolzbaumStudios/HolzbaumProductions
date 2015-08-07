@@ -17,7 +17,9 @@ public class DontDestroyAndLoad : MonoBehaviour {
 
 	void Awake()
 	{
+
 		//PlayerPrefs.DeleteAll ();
+
 		//PlayerPrefs.SetInt ("TotalNumberOfTurns", 4980);
 	}
 
