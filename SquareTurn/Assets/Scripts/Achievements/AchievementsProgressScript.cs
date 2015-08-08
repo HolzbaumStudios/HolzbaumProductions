@@ -19,7 +19,7 @@ public class AchievementsProgressScript : MonoBehaviour {
 		string achievementName = "";
 		for(int i = 0; i < numberOfAchievements; i++)
 		{
-			achievementName = "Achievement" + numberOfAchievements + "State";
+			achievementName = "Achievement" + i + "State";
 			if(PlayerPrefs.GetInt(achievementName) == 2)
 			{
 				unlockedAchievements++;

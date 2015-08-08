@@ -17,3 +17,5 @@ EditorBuildSettings:
     path: Assets/Scenes/achievements.unity
   - enabled: 1
     path: Assets/Scenes/creditsScene.unity
+  - enabled: 1
+    path: Assets/Scenes/tutorialScene.unity
