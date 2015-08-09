@@ -157,16 +157,17 @@ public class Tutorial1Script : MonoBehaviour {
 				squareContainerRow3[2].GetComponent<TurnScriptTutorial>().TurnSquare(0);
 				squareContainerRow3[3].GetComponent<TurnScriptTutorial>().TurnSquare(0);
 
-				checkForUserInput = true;
+				
 
 				StartCoroutine(WaitSomeTime(1.0f));
 			}break;
-			case 11: //Reload the level
+			case 11: 
 			{
+				checkForUserInput = true;
 				messagePanels[0].SetActive(true);
 				messagePanels[0].transform.FindChild("Text9").gameObject.SetActive(true);
 			}break;
-			case 12: //Reload the level
+			case 12:
 			{
 				messagePanels[0].transform.FindChild("Text9").gameObject.SetActive(false);	
 				messagePanels[0].SetActive(false);
@@ -180,7 +181,7 @@ public class Tutorial1Script : MonoBehaviour {
 				squareContainerRow3[0].GetComponent<Button>().enabled = true;
 				squareContainerRow3[3].GetComponent<Button>().enabled = true;
 			}break;
-			case 13: //Reload the level
+			case 13: 
 			{
 				messagePanels[3].SetActive(false);
 				messagePanels[1].transform.FindChild("Text10").gameObject.SetActive(false);	
