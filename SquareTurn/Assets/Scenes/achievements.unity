@@ -2073,6 +2073,11 @@ Prefab:
       propertyPath: m_Text
       value: Rainforest dryer
       objectReference: {fileID: 0}
+    - target: {fileID: 11476276, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6f976e1075105c34f83ab28455541f49,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
@@ -2364,6 +2369,11 @@ Prefab:
       propertyPath: m_Text
       value: Climbing tree
       objectReference: {fileID: 0}
+    - target: {fileID: 11476276, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3c445e73472aeb94fae128aca12c8343,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
@@ -2911,7 +2921,7 @@ Prefab:
     - target: {fileID: 11476276, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e21be82784f05d148a2b5e48e9401387,
+      objectReference: {fileID: 21300000, guid: 758bbeadc0793f448a35e739aeb9df72,
         type: 3}
     - target: {fileID: 111408, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_IsActive

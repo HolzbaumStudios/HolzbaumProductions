@@ -129,7 +129,7 @@ Prefab:
     - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
       propertyPath: spriteAchievement1
       value: 
-      objectReference: {fileID: 21300000, guid: 51cd8efa45957274eaa4fb8533c67fd7,
+      objectReference: {fileID: 21300000, guid: 758bbeadc0793f448a35e739aeb9df72,
         type: 3}
     - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
       propertyPath: spriteAchievement2
@@ -144,7 +144,7 @@ Prefab:
     - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
       propertyPath: spriteAchievement3
       value: 
-      objectReference: {fileID: 21300000, guid: 51cd8efa45957274eaa4fb8533c67fd7,
+      objectReference: {fileID: 21300000, guid: 3c445e73472aeb94fae128aca12c8343,
         type: 3}
     - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
       propertyPath: spriteAchievement4
@@ -154,7 +154,7 @@ Prefab:
     - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
       propertyPath: spriteAchievement5
       value: 
-      objectReference: {fileID: 21300000, guid: 51cd8efa45957274eaa4fb8533c67fd7,
+      objectReference: {fileID: 21300000, guid: 6f976e1075105c34f83ab28455541f49,
         type: 3}
     - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
       propertyPath: spriteAchievement6
