@@ -16,16 +16,15 @@ public class MenuScript : MonoBehaviour {
 	{
 		//If the players returns from the level, the correct category should open automatically
 		int activeCategory = PlayerPrefs.GetInt ("ActiveCategory");
-		if (activeCategory != 0) {
+		if (activeCategory > 0) {
 			ChooseCategory (activeCategory);
 		}
 
-
+	/*
 		//Set the position of the category slider to the last known position
 		int posCategory1 = PlayerPrefs.GetInt ("PosCategory1");
 		int posCategory2 = PlayerPrefs.GetInt ("PosCategory2");
 		int posCategory3 = PlayerPrefs.GetInt ("PosCategory3");
-		int posCategory4 = PlayerPrefs.GetInt ("PosCategory4");
 
 
 		if(posCategory1 != 0)
@@ -40,10 +39,11 @@ public class MenuScript : MonoBehaviour {
 		{
 			category3.transform.localPosition = new Vector2 (posCategory3,0);
 		}
-		if(posCategory4 != 0)
-		{
-			category4.transform.localPosition = new Vector2 (posCategory4,0);
-		}
+*/
+
+		float sliderPosition = PlayerPrefs.GetFloat ("SliderPosition");
+		categorySlider.GetComponent<Scrollbar> ().value = sliderPosition;
+
 	}
 
 	public IEnumerator StartLevel(){
@@ -108,7 +108,6 @@ public class MenuScript : MonoBehaviour {
 		case 1: category1.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category1.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 1); break;
 		case 2: category2.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category2.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 2); break;
 		case 3: category3.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category3.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 3); break;
-		case 4: category4.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category4.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 4); break;
 		}
 
 		//Enable the scrollbar;
@@ -120,10 +119,13 @@ public class MenuScript : MonoBehaviour {
 	//The function is accessed by the script ChooseLevelScript.cs
 	public void SaveCategoryPosition()
 	{
+		/*
 		PlayerPrefs.SetInt ("PosCategory1", (int)category1.transform.position.x);
 		PlayerPrefs.SetInt ("PosCategory2", (int)category2.transform.position.x);
 		PlayerPrefs.SetInt ("PosCategory3", (int)category3.transform.position.x);
-		PlayerPrefs.SetInt ("PosCategory4", (int)category4.transform.position.x);
+		*/
+		float sliderPosition = categorySlider.GetComponent<Scrollbar> ().value;
+		PlayerPrefs.SetFloat ("SliderPosition", sliderPosition);
 	}
 
 }
