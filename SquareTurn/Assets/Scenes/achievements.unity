@@ -133,6 +133,7 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &34717895
 MonoBehaviour:
@@ -241,7 +242,7 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 35169973}
---- !u!224 &80118320
+--- !u!224 &80118320 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b,
     type: 2}
@@ -361,7 +362,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &152262567
+--- !u!224 &152262567 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b,
     type: 2}
@@ -729,11 +730,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Solve 30 levels
+      value: Solve 40 levels
       objectReference: {fileID: 0}
     - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Solve 30 levels
+      value: Solve 40 levels
       objectReference: {fileID: 0}
     - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
@@ -742,7 +743,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &550624885
+--- !u!224 &550624885 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b,
     type: 2}
@@ -925,11 +926,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Solve 75 levels
+      value: "Solve 72\n levels"
       objectReference: {fileID: 0}
     - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Solve 75 levels
+      value: Solve 72 levels
       objectReference: {fileID: 0}
     - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
@@ -938,7 +939,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &668534630
+--- !u!224 &668534630 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b,
     type: 2}
@@ -1058,7 +1059,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &995329349
+--- !u!224 &995329349 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b,
     type: 2}
@@ -1178,7 +1179,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1033094881
+--- !u!224 &1033094881 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b,
     type: 2}
@@ -1280,11 +1281,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Solve 1 level
+      value: Solve 5 levels
       objectReference: {fileID: 0}
     - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Solve 1 level
+      value: Solve 5 levels
       objectReference: {fileID: 0}
     - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
@@ -1293,7 +1294,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1047250822
+--- !u!224 &1047250822 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b,
     type: 2}
@@ -1370,6 +1371,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &1058140681
 Transform:
   m_ObjectHideFlags: 0
@@ -1464,8 +1466,7 @@ MonoBehaviour:
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1874,12 +1875,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1397589014
+--- !u!224 &1397589014 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b,
     type: 2}
   m_PrefabInternal: {fileID: 1397589013}
---- !u!224 &1401640642
+--- !u!224 &1401640642 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b,
     type: 2}
@@ -1960,7 +1961,7 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
---- !u!224 &1640736688
+--- !u!224 &1640736688 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b,
     type: 2}
@@ -2075,7 +2076,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1662984576
+--- !u!224 &1662984576 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b,
     type: 2}
@@ -2251,7 +2252,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1832877262
+--- !u!224 &1832877262 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b,
     type: 2}
@@ -2366,7 +2367,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1913955245
+--- !u!224 &1913955245 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b,
     type: 2}
@@ -2468,11 +2469,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Solve 10 levels
+      value: Solve 20 levels
       objectReference: {fileID: 0}
     - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Solve 10 levels
+      value: Solve 20 levels
       objectReference: {fileID: 0}
     - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
@@ -2481,7 +2482,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1956410382
+--- !u!224 &1956410382 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b,
     type: 2}
@@ -2695,7 +2696,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &2043255522
+--- !u!224 &2043255522 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b,
     type: 2}
@@ -2815,7 +2816,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &2044499457
+--- !u!224 &2044499457 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22460712, guid: bb81209465e8f20449eef2b1cd49976b,
     type: 2}

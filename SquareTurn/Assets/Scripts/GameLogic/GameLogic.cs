@@ -379,25 +379,25 @@ public class GameLogic : MonoBehaviour {
 				PlayerPrefs.SetInt ("NumberOfCompletedLevels", completedLevels);
 
 				//Check for reached achievements
-				if(completedLevels == 1)
+				if(completedLevels == 5)
 				{
 					userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (6,1);
 					PlayerPrefs.SetInt ("NewAchievement", 1);
 					achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
 				}
-				else if(completedLevels==10)
+				else if(completedLevels==20)
 				{
 					userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (7,1);
 					PlayerPrefs.SetInt ("NewAchievement", 1);
 					achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
 				}
-				else if(completedLevels==30)
+				else if(completedLevels==40)
 				{
 					userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (8,1);
 					PlayerPrefs.SetInt ("NewAchievement", 1);
 					achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
 				}
-				else if(completedLevels==75)
+				else if(completedLevels==72)
 				{
 					userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (9,1);
 					PlayerPrefs.SetInt ("NewAchievement", 1);

@@ -76,10 +76,10 @@ public class AchievementCollection : MonoBehaviour {
 	Achievement achievement4 = new Achievement("Flowerfield", "Solve every level from pack 3"); 
 	Achievement achievement5 = new Achievement("Rainforest dryer", "Get all the stars in pack 3"); 
 
-	Achievement achievement6 = new Achievement("First steps", "Solve 1 level");
-	Achievement achievement7 = new Achievement("Amateur", "Solve 10 levels"); 
-	Achievement achievement8 = new Achievement("Challenger", "Solve 30 levels"); 
-	Achievement achievement9 = new Achievement("Blackbelt", "Solve 75 levels");
+	Achievement achievement6 = new Achievement("First steps", "Solve 5 levels");
+	Achievement achievement7 = new Achievement("Amateur", "Solve 20 levels"); 
+	Achievement achievement8 = new Achievement("Challenger", "Solve 40 levels"); 
+	Achievement achievement9 = new Achievement("Blackbelt", "Solve 72 levels");
 
 	Achievement achievement10 = new Achievement("Turnaround", "Turn 200 tiles"); 
 	Achievement achievement11 = new Achievement("Turning tables", "Turn 1000 tiles"); 
@@ -237,5 +237,17 @@ public class AchievementCollection : MonoBehaviour {
 	{
 		return achievementList [achievementNumber].GetState ();
 	}
+
+	//Resets all achievements
+	public void SetAchievementsBack()
+	{
+		for (int i = 0; i < achievementList.Count; i++)
+		{
+			string prefabName = "Achievement" + i + "State";
+			achievementList[i].SetState (0);
+			PlayerPrefs.SetInt (prefabName, 0);
+		}
+	}
+
 
 }

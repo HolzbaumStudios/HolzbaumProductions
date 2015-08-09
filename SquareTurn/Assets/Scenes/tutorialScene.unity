@@ -133,6 +133,7 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &25966655
 MonoBehaviour:
@@ -1124,8 +1125,7 @@ MonoBehaviour:
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1402,9 +1402,9 @@ RectTransform:
   - {fileID: 1701125493}
   m_Father: {fileID: 1471813082}
   m_RootOrder: 5
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: -180}
+  m_AnchorMin: {x: .5, y: 0}
+  m_AnchorMax: {x: .5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 70}
   m_SizeDelta: {x: 442, y: 90}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &685931913
@@ -1560,9 +1560,9 @@ RectTransform:
   - {fileID: 659114553}
   m_Father: {fileID: 1471813082}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -308, y: 184}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 92, y: -66}
   m_SizeDelta: {x: 85, y: 65}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &802297461
@@ -2134,8 +2134,7 @@ MonoBehaviour:
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2548,9 +2547,9 @@ RectTransform:
   - {fileID: 1617131607}
   m_Father: {fileID: 1471813082}
   m_RootOrder: 8
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -257, y: 47.8499985}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 143, y: -202.149994}
   m_SizeDelta: {x: 238.099976, y: 59.4000244}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1234574231
@@ -2687,9 +2686,9 @@ RectTransform:
   - {fileID: 1961949951}
   m_Father: {fileID: 1471813082}
   m_RootOrder: 9
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 215.100006, y: 220.25}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -184.899994, y: -29.75}
   m_SizeDelta: {x: 137, y: 42}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1285096161
@@ -2961,9 +2960,9 @@ RectTransform:
   - {fileID: 2137547418}
   m_Father: {fileID: 1471813082}
   m_RootOrder: 1
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 327, y: 113.600006}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -73, y: -136.399994}
   m_SizeDelta: {x: 65, y: 65}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1467099097
@@ -3037,8 +3036,7 @@ MonoBehaviour:
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3387,8 +3385,7 @@ MonoBehaviour:
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3518,8 +3515,7 @@ MonoBehaviour:
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 30
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3859,8 +3855,7 @@ MonoBehaviour:
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 33
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4184,9 +4179,9 @@ RectTransform:
   - {fileID: 1704807811}
   m_Father: {fileID: 1471813082}
   m_RootOrder: 2
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 327, y: 184}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -73, y: -66}
   m_SizeDelta: {x: 65, y: 65}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1665802996
@@ -4260,8 +4255,7 @@ MonoBehaviour:
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: levelMenu
@@ -4721,6 +4715,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &1821727106
 Transform:
   m_ObjectHideFlags: 0
@@ -4907,8 +4902,7 @@ MonoBehaviour:
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

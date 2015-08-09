@@ -53,5 +53,12 @@ public class UserStatistics : MonoBehaviour {
 		PlayerPrefs.SetInt ("TotalNumberOfResets", totalNumberOfResets);
 	}
 
+	//Resets all statistics when called by DeleteAllData
+	public void SetStatisticsBack()
+	{
+		totalNumberOfMoves = 0;
+		totalNumberOfTurns = 0;
+		totalNumberOfResets = 0;
+	}
 	
 }
