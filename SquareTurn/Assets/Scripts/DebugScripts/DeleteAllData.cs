@@ -12,6 +12,7 @@ public class DeleteAllData : MonoBehaviour {
 		//Set Variables
 		GameObject userStatistics = GameObject.Find ("UserStatistics");
 		userStatistics.GetComponent<AchievementCollection> ().SetAchievementsBack ();
+		userStatistics.GetComponent<UserStatistics> ().SetStatisticsBack ();
 
 		Debug.Log ("Data deleted!");
 	}
