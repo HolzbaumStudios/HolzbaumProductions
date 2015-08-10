@@ -448,7 +448,15 @@ public class GameLogic : MonoBehaviour {
 		if(numberOfTrees > playerPrefValue)
 		{
 			PlayerPrefs.SetInt (prefabName, numberOfTrees);
+			//If reached 3 stars for the first time, update to the playerprefs
+			if(numberOfTrees == 3)
+			{
+				int newPerfectValue = PlayerPrefs.GetInt ("PerfectedLevels") + 1;
+				PlayerPrefs.SetInt ("PerfectedLevels", newPerfectValue);
+			}
 		}
+
+
 
 		//Add number of stars to statistic
 
