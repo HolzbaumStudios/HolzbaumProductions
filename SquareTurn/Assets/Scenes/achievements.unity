@@ -2254,6 +2254,11 @@ Prefab:
       propertyPath: m_Text
       value: Flippin' Ninja
       objectReference: {fileID: 0}
+    - target: {fileID: 11476276, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cfd33043b90de974fa3b85322a08e556,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
   m_IsPrefabParent: 0
