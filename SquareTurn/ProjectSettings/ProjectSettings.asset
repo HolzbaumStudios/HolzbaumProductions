@@ -121,8 +121,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: D:/GitHub/HolzbaumProductions/SquareTurn/user.keystore
+  AndroidKeyaliasName: squaredkey
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1
