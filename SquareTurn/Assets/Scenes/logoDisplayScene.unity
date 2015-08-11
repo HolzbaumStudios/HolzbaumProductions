@@ -189,7 +189,7 @@ Prefab:
     - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
       propertyPath: spriteAchievement12
       value: 
-      objectReference: {fileID: 21300000, guid: 51cd8efa45957274eaa4fb8533c67fd7,
+      objectReference: {fileID: 21300000, guid: cfd33043b90de974fa3b85322a08e556,
         type: 3}
     - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
       propertyPath: spriteAchievement13
