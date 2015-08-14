@@ -12,24 +12,34 @@ public class CheckAchievementsAtStart : MonoBehaviour {
 		GameObject achievementPanel = GameObject.Find ("AchievementPanel");
 
 		int numberOfAppStarts = PlayerPrefs.GetInt ("NumberOfAppStarts");
+		
+		if(userStatistics.GetComponent<AchievementCollection>().GetLocalAchievementState(13) == 0)
+		{
+			if(numberOfAppStarts >= 10)
+			{
+				userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (13,1);
+				PlayerPrefs.SetInt ("NewAchievement", 1); //Set the newAchievement playerPref always after setting the achievementStates
+				achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
+			}
+		}
+		else if(userStatistics.GetComponent<AchievementCollection>().GetLocalAchievementState(14) == 0)
+		{
 
-		if(numberOfAppStarts == 10)
-		{
-			userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (13,1);
-			PlayerPrefs.SetInt ("NewAchievement", 1); //Set the newAchievement playerPref always after setting the achievementStates
-			achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
+			if(numberOfAppStarts >= 50)
+			{
+				userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (14,1);
+				PlayerPrefs.SetInt ("NewAchievement", 1); //Set the newAchievement playerPref always after setting the achievementStates
+				achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
+			}
 		}
-		else if(numberOfAppStarts == 50)
+		else if(userStatistics.GetComponent<AchievementCollection>().GetLocalAchievementState(15) == 0)
 		{
-			userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (14,1);
-			PlayerPrefs.SetInt ("NewAchievement", 1); //Set the newAchievement playerPref always after setting the achievementStates
-			achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
-		}
-		else if(numberOfAppStarts == 100)
-		{
-			userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (15,1);
-			PlayerPrefs.SetInt ("NewAchievement", 1); //Set the newAchievement playerPref always after setting the achievementStates
-			achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
+			if(numberOfAppStarts >= 100)
+			{
+				userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (15,1);
+				PlayerPrefs.SetInt ("NewAchievement", 1); //Set the newAchievement playerPref always after setting the achievementStates
+				achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
+			}
 		}
 	}
 }
