@@ -14,37 +14,22 @@ public class MenuScript : MonoBehaviour {
 
 	void Start()
 	{
+		Debug.Log ("Started Script");
 		//If the players returns from the level, the correct category should open automatically
 		int activeCategory = PlayerPrefs.GetInt ("ActiveCategory");
 		if (activeCategory > 0) {
 			ChooseCategory (activeCategory);
 		}
 
-	/*
-		//Set the position of the category slider to the last known position
-		int posCategory1 = PlayerPrefs.GetInt ("PosCategory1");
-		int posCategory2 = PlayerPrefs.GetInt ("PosCategory2");
-		int posCategory3 = PlayerPrefs.GetInt ("PosCategory3");
+		SetSliderPosition ();
+	}
 
-
-		if(posCategory1 != 0)
-		{
-			category1.transform.localPosition = new Vector2 (posCategory1,0);
-		}
-		if(posCategory2 != 0)
-		{
-			category2.transform.localPosition = new Vector2 (posCategory2,0);
-		}
-		if(posCategory3 != 0)
-		{
-			category3.transform.localPosition = new Vector2 (posCategory3,0);
-		}
-*/
-
+	public void SetSliderPosition()
+	{
 		float sliderPosition = PlayerPrefs.GetFloat ("SliderPosition");
 		categorySlider.GetComponent<Scrollbar> ().value = sliderPosition;
-
 	}
+	
 
 	public IEnumerator StartLevel(){
 		yield return new WaitForSeconds(0.1f);
@@ -60,7 +45,6 @@ public class MenuScript : MonoBehaviour {
 	void Update(){
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
-			Debug.Log ("Pressed");
 			if(Application.loadedLevelName == "levelMenu")
 			{
 				if(categoryChoice.activeSelf)
@@ -69,18 +53,7 @@ public class MenuScript : MonoBehaviour {
 				}
 				else
 				{
-					//Disable the slider
-					categorySlider.SetActive(false);
-
-					//Disable the active Category
-					if(category1.activeSelf) category1.SetActive(false);
-					else if(category2.activeSelf) category2.SetActive(false);
-					else if(category3.activeSelf) category3.SetActive(false);
-					else if(category4.activeSelf) category4.SetActive(false);
-
-					//Enable category Choice
-					categoryChoice.SetActive (true);
-
+					DisableAllCategories();
 				}
 
 			}
@@ -89,6 +62,23 @@ public class MenuScript : MonoBehaviour {
 				Application.LoadLevel("startMenu");
 			}
 		}
+	}
+	
+
+	//Disables all categories and opens the level choice
+	public void DisableAllCategories()
+	{
+		//Disable the slider
+		categorySlider.SetActive(false);
+		
+		//Disable the active Category
+		if(category1.activeSelf) category1.SetActive(false);
+		else if(category2.activeSelf) category2.SetActive(false);
+		//else if(category3.activeSelf) category3.SetActive(false);
+		
+		//Enable category Choice
+		categoryChoice.SetActive (true);
+		PlayerPrefs.SetInt ("ActiveCategory", 0);
 	}
 
 
