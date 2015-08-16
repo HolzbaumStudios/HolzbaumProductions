@@ -82,6 +82,13 @@ public class GameLogic : MonoBehaviour {
 		bool evenNumberWidth = false;
 		bool evenNumberHeight = false;
 
+		//If mode == portrait, set the square size depending on the height
+		if(Screen.height > Screen.width)
+		{
+			squareSpace = Screen.height/12.3f; //The spacing between the squares  --> otherwise 120 //before 13.3 -> /14 
+			squareSize = Screen.height/13; //before 13.3 -> /15
+		}
+
 
 		//Check if Width and Height is even
 		if(fieldRows%2==0){
