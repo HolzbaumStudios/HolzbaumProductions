@@ -5,12 +5,7 @@ public class TurnScriptTutorial : MonoBehaviour {
 
 	private int row;
 	private int column;
-	private GameObject managerObject;
-
-	//----------------INITIALIZATION-----------------------------------------
-	void Start(){
-		managerObject = GameObject.Find ("gameManager");;
-	}
+	public GameObject managerObject;
 
 	//---------------FUNCTIONS-------------------------------
 	public void StartSquareTurn(int stepNumber){

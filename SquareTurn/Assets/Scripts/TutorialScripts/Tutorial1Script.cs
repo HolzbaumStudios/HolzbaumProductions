@@ -11,7 +11,6 @@ public class Tutorial1Script : MonoBehaviour {
 
 	public GameObject[] messagePanels;
 	public GameObject turnsPanel;
-	public GameObject turnsPanelPortrait;
 
 	private bool checkForUserInput = true;
 	private int currentStep;
@@ -66,7 +65,7 @@ public class Tutorial1Script : MonoBehaviour {
 				//Set the movecounter
 				moveCounterTutorial++;
 				turnsPanel.GetComponent<Text>().text = moveCounterTutorial.ToString();
-				//turnsPanelPortrait.GetComponent<Text>().text = moveCounterTutorial.ToString();
+
 				//Turn squares
 				squareContainerRow1[1].GetComponent<TurnScriptTutorial>().TurnSquare(1);
 				squareContainerRow1[2].GetComponent<TurnScriptTutorial>().TurnSquare(1);
@@ -109,7 +108,7 @@ public class Tutorial1Script : MonoBehaviour {
 				//Set the movecounter
 				moveCounterTutorial++;
 				turnsPanel.GetComponent<Text>().text = moveCounterTutorial.ToString();
-				//turnsPanelPortrait.GetComponent<Text>().text = moveCounterTutorial.ToString();
+
 				//Turn squares
 				squareContainerRow0[1].GetComponent<TurnScriptTutorial>().TurnSquare(1);
 				squareContainerRow0[2].GetComponent<TurnScriptTutorial>().TurnSquare(1);
@@ -155,7 +154,7 @@ public class Tutorial1Script : MonoBehaviour {
 				//Set the movecounter
 				moveCounterTutorial = 0;
 				turnsPanel.GetComponent<Text>().text = moveCounterTutorial.ToString();
-				//turnsPanelPortrait.GetComponent<Text>().text = moveCounterTutorial.ToString();
+
 				//Turn squares
 				squareContainerRow0[1].GetComponent<TurnScriptTutorial>().TurnSquare(0);
 				squareContainerRow0[2].GetComponent<TurnScriptTutorial>().TurnSquare(0);
@@ -253,7 +252,6 @@ public class Tutorial1Script : MonoBehaviour {
 		}
 
 		turnsPanel.GetComponent<Text>().text = moveCounterTutorial.ToString();
-		//turnsPanelPortrait.GetComponent<Text>().text = moveCounterTutorial.ToString();
 
 		if(moveCounterTutorial == 1)
 		{
