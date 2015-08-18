@@ -20,7 +20,9 @@ public class GameLogic : MonoBehaviour {
 	private int numberOfTurns; //To count how many squares have been turned --> for statistics
 
 	public GameObject gameEndPanel; //The panel which appears, when the level has been finished
+	public GameObject gameEndPanelPortrait;
 	public GameObject treeContainer;
+	public GameObject treeContainerPortrait;
 	private GameObject achievementPanel;
 
 	//Variables to store achievement prefabs
@@ -421,8 +423,11 @@ public class GameLogic : MonoBehaviour {
 	{
 		yield return new WaitForSeconds (0.5f);
 		gameEndPanel.SetActive (true);
+		gameEndPanelPortrait.SetActive(true);
 		GameObject childPanel = gameEndPanel.transform.FindChild("GameEndPanel").gameObject;
+		GameObject childPanelPortrait = gameEndPanelPortrait.transform.FindChild("GameEndPanel").gameObject;
 		childPanel.GetComponent<Animation>().Play ();
+		childPanelPortrait.GetComponent<Animation>().Play ();
 
 		//Set the number of turns
 		string turnText;
@@ -432,6 +437,8 @@ public class GameLogic : MonoBehaviour {
 			turnText = turnNumber + " turn";
 		}
 		childPanel.transform.FindChild ("TurnText").GetComponent<UnityEngine.UI.Text> ().text = turnText;
+		childPanelPortrait.transform.FindChild ("TurnText").GetComponent<UnityEngine.UI.Text> ().text = turnText;
+
 
 		GetNumberOfTrees ();
 	}
@@ -492,20 +499,39 @@ public class GameLogic : MonoBehaviour {
 		}
 
 		//Get the tree objects
-		GameObject tree1 = treeContainer.transform.FindChild ("Tree1").gameObject;
-		GameObject tree2 = treeContainer.transform.FindChild ("Tree2").gameObject;
-		GameObject tree3 = treeContainer.transform.FindChild ("Tree3").gameObject;
+		GameObject tree1Landscape = treeContainer.transform.FindChild ("Tree1").gameObject;
+		GameObject tree2Landscape = treeContainer.transform.FindChild ("Tree2").gameObject;
+		GameObject tree3Landscape = treeContainer.transform.FindChild ("Tree3").gameObject;
+
+		GameObject tree1Portrait = treeContainerPortrait.transform.FindChild ("Tree1").gameObject;
+		GameObject tree2Portrait = treeContainerPortrait.transform.FindChild ("Tree2").gameObject;
+		GameObject tree3Portrait = treeContainerPortrait.transform.FindChild ("Tree3").gameObject;
 
 		//Set the tree objects
-		tree1.GetComponent<Image>().color = Color.yellow;
+		tree1Landscape.GetComponent<Image>().color = Color.yellow;
+		tree1Portrait.GetComponent<Image>().color = Color.yellow;
 		if(numberOfTrees > 1)
 		{
-			tree2.GetComponent<Image>().color = Color.yellow;
+			tree2Landscape.GetComponent<Image>().color = Color.yellow;
+			tree2Portrait.GetComponent<Image>().color = Color.yellow;
+		}
+		else
+		{
+			tree2Landscape.GetComponent<Image>().color = Color.black;
+			tree2Portrait.GetComponent<Image>().color = Color.black;
+			tree3Landscape.GetComponent<Image>().color = Color.black;
+			tree3Portrait.GetComponent<Image>().color = Color.black;
 		}
 
 		if (numberOfTrees > 2) 
 		{
-			tree3.GetComponent<Image> ().color = Color.yellow;
+			tree3Landscape.GetComponent<Image> ().color = Color.yellow;
+			tree3Portrait.GetComponent<Image>().color = Color.yellow;
+		}
+		else
+		{
+			tree3Landscape.GetComponent<Image>().color = Color.black;
+			tree3Portrait.GetComponent<Image>().color = Color.black;
 		}
 
 	}

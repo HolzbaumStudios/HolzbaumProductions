@@ -6,20 +6,20 @@ public class LevelCompletedMenu : MonoBehaviour {
 	//It contains the functions for the buttons of said panel
 
 	private GameObject userStatistics;
-	private GameObject endGameBackground;
+	public GameObject endGameBackgroundLandscape;
+	public GameObject endGameBackgroundPortrait;
 
 	void Start()
 	{
-		endGameBackground = transform.parent.gameObject;
 		userStatistics = GameObject.Find("UserStatistics");
 	}
 
 	public void ResetLevel()
 	{
-		endGameBackground.SetActive (false);
+		endGameBackgroundLandscape.SetActive (false);
+		endGameBackgroundPortrait.SetActive (false);
 		userStatistics.GetComponent<UserStatistics>().UpdateStatistic("Resets++",1);
 		userStatistics.SendMessage ("StoreStatistics");
-		endGameBackground.SetActive (false);
 		Application.LoadLevel ("gameScene");
 	}
 
