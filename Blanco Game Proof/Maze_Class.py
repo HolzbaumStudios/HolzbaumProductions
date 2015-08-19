@@ -22,6 +22,7 @@ class Maze(object):
         #construct
         self._DimX=DimX
         self._DimY=DimY
+        self.test=[]
         self._mazeSize=[DimX,DimY]
         self._basic_maze=Maze_State(np.zeros(shape=(DimX,DimY)))
         #make a pointerarray for getting out the right way.
@@ -395,7 +396,7 @@ class Maze(object):
     
         
             
-class Maze_State():
+class Maze_State(object):
     def __init__(self,Maze_Matrix):
         self.Matrix=Maze_Matrix
         self.reachedFromIndex=None

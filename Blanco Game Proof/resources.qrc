@@ -1,0 +1,9 @@
+<!DOCTYPE RCC><RCC version="1.0">
+	<qresource>
+		<file alias="white_cell.png">images/white_cell.png</file>
+		<file alias="blue_cell.png">images/blue_cell.png</file>
+		<file alias="red_cell.png">images/red_cell.png</file>
+		<file alias="yellow_cell.png">images/yellow_cell.png</file>
+		<file alias="green_cell.png">images/green_cell.png</file>	
+	</qresource>
+</RCC>
