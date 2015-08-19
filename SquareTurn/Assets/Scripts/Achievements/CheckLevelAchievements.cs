@@ -16,7 +16,6 @@ public class CheckLevelAchievements : MonoBehaviour {
 		{
 			if(PlayerPrefs.GetInt("Achievement0State") == 0)
 			{
-				Debug.Log ("Call AchievementState");
 				bool reachedOneStar = true;
 
 				for(int i = 100; i <= 123; i++)

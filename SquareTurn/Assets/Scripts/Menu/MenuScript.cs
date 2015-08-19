@@ -14,7 +14,6 @@ public class MenuScript : MonoBehaviour {
 
 	void Start()
 	{
-		Debug.Log ("Started Script");
 		//If the players returns from the level, the correct category should open automatically
 		int activeCategory = PlayerPrefs.GetInt ("ActiveCategory");
 		if (activeCategory > 0) {
