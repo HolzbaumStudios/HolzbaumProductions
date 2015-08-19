@@ -22,7 +22,7 @@ public class DisplayHandler : MonoBehaviour {
 	{	
 			
 
-			if(Screen.orientation == ScreenOrientation.Landscape || debugSimulateLandscape == true)
+			if(Screen.orientation == ScreenOrientation.LandscapeLeft || Screen.orientation == ScreenOrientation.LandscapeRight || debugSimulateLandscape == true)
 			{
 				if(!setToLandscape)
 				{

@@ -265,6 +265,12 @@ public class Tutorial1Script : MonoBehaviour {
 
 	public void EndTutorial()
 	{
+		//Enable auto rotation again
+		Screen.autorotateToPortrait = true;
+		Screen.autorotateToLandscapeLeft= true;
+		Screen.autorotateToLandscapeRight= true;
+		Screen.orientation = ScreenOrientation.AutoRotation;
+		
 		PlayerPrefs.SetInt ("Tutorial1Finished", 1);
 		Application.LoadLevel ("gameScene");
 	}

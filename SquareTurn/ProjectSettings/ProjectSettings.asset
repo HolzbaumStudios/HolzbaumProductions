@@ -79,7 +79,7 @@ PlayerSettings:
   xboxOneDisableKinectGpuReservation: 0
   virtualRealitySupported: 0
   productGUID: 891dfa9d0f143bd40bfc95730a0023b0
-  AndroidBundleVersionCode: 3
+  AndroidBundleVersionCode: 4
   AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -121,7 +121,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: D:/GitHub/HolzbaumProductions/SquareTurn/user.keystore
+  AndroidKeystoreName: C:/Users/Felipe/Documents/GitHub/HolzbaumProductions/SquareTurn/user.keystore
   AndroidKeyaliasName: squaredkey
   AndroidTVCompatibility: 1
   AndroidIsGame: 1

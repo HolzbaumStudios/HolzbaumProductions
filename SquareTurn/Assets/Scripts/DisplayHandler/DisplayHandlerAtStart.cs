@@ -14,13 +14,15 @@ public class DisplayHandlerAtStart : MonoBehaviour {
 		portraitCanvas = GameObject.Find ("CanvasPortrait");
 		landscapeCanvas = GameObject.Find ("CanvasLandscape");
 
-		if(Screen.orientation == ScreenOrientation.Landscape || debugSimulateLandscape == true)
+		if(Screen.orientation == ScreenOrientation.LandscapeLeft || Screen.orientation == ScreenOrientation.LandscapeRight || debugSimulateLandscape == true)
 		{
 			SetScreenOrientation(true);
+			DisableAutoRotation(true);
 		}
 		else
 		{
 			SetScreenOrientation(false);
+			DisableAutoRotation(false);
 		}
 
 	}
@@ -38,6 +40,21 @@ public class DisplayHandlerAtStart : MonoBehaviour {
 		{
 			portraitCanvas.SetActive(true);
 			landscapeCanvas.SetActive(false);
+		}
+	}
+
+	public void DisableAutoRotation(bool setLandscape) {
+		if(setLandscape)
+		{
+			Screen.autorotateToPortrait = false;
+			Screen.autorotateToPortraitUpsideDown = false;
+			Screen.orientation = ScreenOrientation.Landscape;
+		}
+		else
+		{
+			Screen.autorotateToLandscapeLeft= false;
+			Screen.autorotateToLandscapeRight= false;
+			Screen.orientation = ScreenOrientation.Portrait;
 		}
 	}
 
