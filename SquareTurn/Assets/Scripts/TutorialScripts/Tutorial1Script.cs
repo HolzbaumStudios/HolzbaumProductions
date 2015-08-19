@@ -39,7 +39,7 @@ public class Tutorial1Script : MonoBehaviour {
 	public void ExecuteStep(int stepNumber)
 	{
 		currentStep = stepNumber;
-		Debug.Log (currentStep);
+		//Debug.Log (currentStep);
 		switch(stepNumber)
 		{
 			case 1: //Changed to second message

@@ -21015,6 +21015,60 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 712483720}
+--- !u!1001 &713577640
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 411472, guid: c645196baaf981a4f85764a08926bcc2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 507.991272
+      objectReference: {fileID: 0}
+    - target: {fileID: 411472, guid: c645196baaf981a4f85764a08926bcc2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 249.430023
+      objectReference: {fileID: 0}
+    - target: {fileID: 411472, guid: c645196baaf981a4f85764a08926bcc2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411472, guid: c645196baaf981a4f85764a08926bcc2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411472, guid: c645196baaf981a4f85764a08926bcc2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411472, guid: c645196baaf981a4f85764a08926bcc2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411472, guid: c645196baaf981a4f85764a08926bcc2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411472, guid: c645196baaf981a4f85764a08926bcc2, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 168544, guid: c645196baaf981a4f85764a08926bcc2, type: 2}
+      propertyPath: m_Name
+      value: UnityAds
+      objectReference: {fileID: 0}
+    - target: {fileID: 168544, guid: c645196baaf981a4f85764a08926bcc2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c645196baaf981a4f85764a08926bcc2, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &713577641 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 168544, guid: c645196baaf981a4f85764a08926bcc2, type: 2}
+  m_PrefabInternal: {fileID: 713577640}
 --- !u!1 &715229356
 GameObject:
   m_ObjectHideFlags: 0
@@ -61070,8 +61124,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1926639116}
   m_HandleRect: {fileID: 1926639115}
   m_Direction: 0
-  m_Value: 1.14440937e-07
-  m_Size: .333333373
+  m_Value: 1.33514419e-07
+  m_Size: .333333343
   m_NumberOfSteps: 3
   m_OnValueChanged:
     m_PersistentCalls:
@@ -64979,6 +65033,46 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2056671094}
+--- !u!1 &2056793262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2056793264}
+  - 114: {fileID: 2056793263}
+  m_Layer: 0
+  m_Name: AdsHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2056793263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2056793262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49caa774c338a76499acd4b6d5f64d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unityAdsObject: {fileID: 713577641}
+--- !u!4 &2056793264
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2056793262}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 187.444199, y: 281.122314, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1 &2062766388
 GameObject:
   m_ObjectHideFlags: 0
