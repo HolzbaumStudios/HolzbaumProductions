@@ -63,6 +63,8 @@ public class AchievementCollection : MonoBehaviour {
 	public Sprite spriteAchievement14;
 	public Sprite spriteAchievement15;
 
+	public string[] achievementLogoLink;
+
 	//Create Lists
 	List<Sprite> achievementSpriteList = new List<Sprite> ();
 	List<Achievement> achievementList = new List<Achievement>(); //List for the achievement class
@@ -164,7 +166,11 @@ public class AchievementCollection : MonoBehaviour {
 			GameObject achievementText = achievementPanel.transform.FindChild ("AchievementText").gameObject;
 
 			achievementImage.GetComponent<Image>().sprite = achievementSpriteList[achievementNumber];
-			achievementText.GetComponent<Text>().text = achievementList[achievementNumber].GetTitle();
+			string achievementTitle = achievementList[achievementNumber].GetTitle();
+			achievementText.GetComponent<Text>().text = achievementTitle;
+
+			//Set the facebook values
+			achievementPanel.GetComponent<ShareOnFacebook>().SetAchievementInfos(achievementTitle, achievementLogoLink[achievementNumber], achievementList[achievementNumber].GetCondition());
 
 			StartCoroutine(AnimationCountdown(6, achievementPanel));
 		}
@@ -248,6 +254,5 @@ public class AchievementCollection : MonoBehaviour {
 			PlayerPrefs.SetInt (prefabName, 0);
 		}
 	}
-
 
 }

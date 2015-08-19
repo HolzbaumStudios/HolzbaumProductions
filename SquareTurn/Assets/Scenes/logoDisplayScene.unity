@@ -94,6 +94,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: achievementLogoLink.Array.size
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 402278, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 389.5
@@ -206,6 +210,26 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 175967a8560fa9b48b5a3c78f44d27e7,
         type: 3}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: achievementLogoLink.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: achievementLogoLink.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: achievementLogoLink.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: achievementLogoLink.Array.data[4]
+      value: https://www.facebook.com/863879333650766/photos/a.938289359543096.1073741827.863879333650766/938289369543095/?l=239f0fe6f6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: achievementLogoLink.Array.data[10]
+      value: https://www.facebook.com/863879333650766/photos/a.938289359543096.1073741827.863879333650766/938289466209752/?l=c604519663
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
   m_IsPrefabParent: 0
