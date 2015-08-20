@@ -100,19 +100,22 @@ class FieldWindow(QMainWindow):
     def saveMaze(self):
         root=Tk()
         fileName=asksaveasfile(mode='w',defaultextension=".txt")
-        fileName.close()
-        Manager=MazeClassManager()
-        Manager.Maze=self.maze_graphics_view.scene().maze
-        Manager.saveMaze2File(fileName.name)
         root.destroy()
+        if fileName.name!='':
+            fileName.close()
+            Manager=MazeClassManager()
+            Manager.Maze=self.maze_graphics_view.scene().maze
+            Manager.saveMaze2File(fileName.name)
+        
         
     def loadMaze(self):
         root=Tk()
         name = askopenfilename( filetypes = (("Text Files","*.txt"),("All Files","*.")))
-        Manager=MazeClassManager()
-        Manager.loadMazeFromFile(name)
-        self.maze_graphics_view.scene().maze=Manager.Maze
-        self.maze_graphics_view.scene().update_maze()
+        if name!='':
+            Manager=MazeClassManager()
+            Manager.loadMazeFromFile(name)
+            self.maze_graphics_view.scene().maze=Manager.Maze
+            self.maze_graphics_view.scene().update_maze()
         root.destroy()
 
 def main():
