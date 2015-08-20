@@ -25,6 +25,8 @@ class MazeGraphicsScene(QGraphicsScene):
     def __init__(self,mazeX=6,mazeY=6):
         super(MazeGraphicsScene,self).__init__()
         
+        self.mazeX=mazeX
+        self.mazeY=mazeY
         self.maze = Kat3_Method(mazeX,mazeY)
         
         self.background_brush=QBrush()
@@ -32,15 +34,37 @@ class MazeGraphicsScene(QGraphicsScene):
         self.background_brush.setTexture(self.background_picture)
         self.setBackgroundBrush(self.background_brush)
         
-    
-    
+#        view=self.views()[0]
+#        self.total_width=view.width()
+#        self.total_height=view.height()
+#        print("w: "+str(self.total_width))
         
-    def update_status(self):
-        pass
-#        for each in self.field._crops:
-#            each.update_status()
-#        for each in self.field._animals:
-#            each.update_status()            
+        
+    def update_maze(self):
+        view=self.views()[0]
+        self.total_width=view.width()
+        self.total_height=view.height()
+        
+        cell_space_width=int(self.total_width/self.mazeX)
+        cell_space_height=int(self.total_height/self.mazeY)
+        
+        #remove all items
+        items=self.items()
+        for i in items:
+            self.removeItem(i)
+            
+        for Xi in range(0,self.mazeX):
+            for Yi in range(0,self.mazeY):
+                MatrixValue=self.maze._basic_maze.Matrix[Xi][Yi]
+                ViewXPos=Xi*cell_space_width-cell_space_width/2
+                ViewYPos=Yi*cell_space_height-cell_space_height/2
+                self.maze.test.append(WhiteCellGraphicsPixmapItem())
+                self._add_graphic_item(True,"white_cell",[ViewXPos,ViewYPos])
+                
+        
+        print("w: "+str(self.total_width))
+
+                   
         
     
     def _drop_position(self, item):
@@ -59,19 +83,25 @@ class MazeGraphicsScene(QGraphicsScene):
         
         return drop_x,drop_y
         
-    def _visualise_graphic_item(self,graphic_item_type):
+    def _visualise_graphic_item(self,graphic_item_type,view_position=None):
         if graphic_item_type == "white_cell":
-            x,y = self._drop_position(self.maze.test[-1])
+            if view_position==None:
+                x,y = self._drop_position(self.maze.test[-1])
+            else:
+                x=view_position[0]
+                y=view_position[1]
             self.maze.test[-1].setPos(x,y)
             self.addItem(self.maze.test[-1])
+            
+            #self.update_maze()
 #        elif graphic_item_type =="animal":
 #            x,y = self._drop_position(self.field._animals[-1])
 #            self.field._animals[-1].setPos(x,y)
 #            self.addItem(self.field._animals[-1])
      
-    def _add_graphic_item(self,result,graphic_item_type):
+    def _add_graphic_item(self,result,graphic_item_type,view_position=None):
         if result:
-            self._visualise_graphic_item(graphic_item_type)
+            self._visualise_graphic_item(graphic_item_type,view_position)
         else:
             error_message =QMessageBox()
             error_message.setText("No more {0}s can be added to this field".format(graphic_item_type))

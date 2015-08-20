@@ -62,10 +62,13 @@ class FieldWindow(QMainWindow):
         self.maze_graphics_view.setScene(MazeGraphicsScene()) #1,5 are standing for max Crops and max animals
         
         self.maze_graphics_view.setFixedHeight(400)
-        self. maze_graphics_view.setFixedWidth(400)
+        self.maze_graphics_view.setFixedWidth(400)
         self.maze_graphics_view.setSceneRect(0,0,400,400)
         self.maze_graphics_view.setHorizontalScrollBarPolicy(1)
         self.maze_graphics_view.setVerticalScrollBarPolicy(1)
+        
+        self.maze_graphics_view.scene().update_maze()
+        
         
         self.maze_report_button=QPushButton("Calculate Shortest Solution")
         self.maze_automatic_grow_button=QPushButton("Save Level")
