@@ -40,24 +40,24 @@ class BlueCellDragLabel(QDragLabel):
     """this class provides a White Cell that can be dragged and dropped"""
     def __init__(self):
         super(BlueCellDragLabel,self).__init__(QPixmap(":/blue_cell.png"))
-        self.mimetext = "application/x-white"
+        self.mimetext = "application/x-blue"
 
 class YellowCellDragLabel(QDragLabel):
     """this class provides a White Cell that can be dragged and dropped"""
     def __init__(self):
         super(YellowCellDragLabel,self).__init__(QPixmap(":/yellow_cell.png"))
-        self.mimetext = "application/x-white"
+        self.mimetext = "application/x-yellow"
 
 class RedCellDragLabel(QDragLabel):
     """this class provides a White Cell that can be dragged and dropped"""
     def __init__(self):
         super(RedCellDragLabel,self).__init__(QPixmap(":/red_cell.png"))
-        self.mimetext = "application/x-white"
+        self.mimetext = "application/x-red"
 
 class GreenCellDragLabel(QDragLabel):
     """this class provides a White Cell that can be dragged and dropped"""
     def __init__(self):
         super(GreenCellDragLabel,self).__init__(QPixmap(":/green_cell.png"))
-        self.mimetext = "application/x-white"
+        self.mimetext = "application/x-green"
         
         

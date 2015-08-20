@@ -154,6 +154,33 @@ class Kat3_Method(Kat2_Method):
                 fixed=True
         return fixed
     
+    def _isOneTurns(self,CellCoordinate):  
+        '''
+        This method returns the cell coordinates for a given cell index.
+        
+        Args:
+            CellCoordinates(list [1x2]): Cellcoordinates with first element reffering to x coordinate and secound to y. 
+            
+        Returns:
+            fixed (bool): if the cell is fixed, fixed=True else fixed=False
+        
+        '''
+        fixed=False
+        for fixedCell in self._OneTurns:
+            if fixedCell==CellCoordinate:
+                fixed=True
+        return fixed
+    
+    def _deleteSpecialCell(self,CellCoordinate):
+        if self._isFixed(CellCoordinate):
+            self._Fixed.remove(CellCoordinate)
+        if self._isOneTurns(CellCoordinate):
+            self._OneTurns.remove(CellCoordinate)
+        if self._isCrosser(CellCoordinate):
+            self._crossers.remove(CellCoordinate)
+        if self._isEdger(CellCoordinate):
+            self._edgers.remove(CellCoordinate)
+        
         
     def _applyPressInputToCell(self,cellIdx):
         

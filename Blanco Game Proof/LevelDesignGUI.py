@@ -6,12 +6,15 @@ Created on Wed Jul 29 18:34:40 2015
 """
 import sys
 
+from Tkinter import *
+from tkFileDialog import askopenfilename,asksaveasfile
 from PyQt4.QtGui import*
 from PyQt4.QtCore import *
 from graphic_white_cell_item_class import *
 from graphic_drag_label_class import *
 from graphic_maze_scene_class import *
-
+from calculation_dialog_class import *
+from Maze_Class_Manager import *
 
 class FieldWindow(QMainWindow):
     """this class creates a main window to observe the growth of a simulated field"""
@@ -70,26 +73,47 @@ class FieldWindow(QMainWindow):
         self.maze_graphics_view.scene().update_maze()
         
         
-        self.maze_report_button=QPushButton("Calculate Shortest Solution")
-        self.maze_automatic_grow_button=QPushButton("Save Level")
-        self.maze_manual_grow_button=QPushButton("Load Level")
+        self.maze_SPCalc_button=QPushButton("Calculate Shortest Solution")
+        self.maze_save_button=QPushButton("Save Level")
+        self.maze_load_button=QPushButton("Load Level")
         
         self.layout=QVBoxLayout()
         
         self.layout.addWidget(self.maze_graphics_view)
-        self.layout.addWidget(self.maze_report_button)
-        self.layout.addWidget(self.maze_automatic_grow_button)
-        self.layout.addWidget(self.maze_manual_grow_button)
+        self.layout.addWidget(self.maze_save_button)
+        self.layout.addWidget(self.maze_load_button)
+        self.layout.addWidget(self.maze_SPCalc_button)
         
         self.main_widget = QWidget()
         self.main_widget.setLayout(self.layout)
         self.setCentralWidget(self.main_widget)
         
         #connections
-#        self.maze_automatic_grow_button.clicked.connect(self.automatically_grow)
-#        self.maze_manual_grow_button.clicked.connect(self.manually_grow)        
-#        self.maze_report_button.clicked.connect(self.report)     
+        self.maze_SPCalc_button.clicked.connect(self.calculateMaze)
+        self.maze_save_button.clicked.connect(self.saveMaze)        
+        self.maze_load_button.clicked.connect(self.loadMaze)     
         
+    def calculateMaze(self):
+        calculation_dialog = CalculationDialog(self.maze_graphics_view.scene().maze)
+        calculation_dialog.exec_()
+    
+    def saveMaze(self):
+        root=Tk()
+        fileName=asksaveasfile(mode='w',defaultextension=".txt")
+        fileName.close()
+        Manager=MazeClassManager()
+        Manager.Maze=self.maze_graphics_view.scene().maze
+        Manager.saveMaze2File(fileName.name)
+        root.destroy()
+        
+    def loadMaze(self):
+        root=Tk()
+        name = askopenfilename( filetypes = (("Text Files","*.txt"),("All Files","*.")))
+        Manager=MazeClassManager()
+        Manager.loadMazeFromFile(name)
+        self.maze_graphics_view.scene().maze=Manager.Maze
+        self.maze_graphics_view.scene().update_maze()
+        root.destroy()
 
 def main():
     field_simulation= QApplication(sys.argv) #create new application
