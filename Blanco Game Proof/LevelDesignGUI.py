@@ -118,7 +118,7 @@ class FieldWindow(QMainWindow):
             Manager.loadMazeFromFile(name)
             self.maze_graphics_view.scene().maze=Manager.Maze
             self.maze_graphics_view.scene().update_maze()
-            self.maze_graphics_view.scene().maze.saveName=name
+            
         
 
 def main():
