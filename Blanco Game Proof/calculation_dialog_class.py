@@ -8,6 +8,7 @@ from Tkinter import *
 from tkFileDialog import askopenfilename,asksaveasfile
 from PyQt4.QtGui import *
 import matplotlib.pyplot as plt
+from Maze_Class_Manager import *
 
 class CalculationDialog(QDialog):
     """This class create a dialog to report field"""
@@ -31,7 +32,6 @@ class CalculationDialog(QDialog):
         self.report_layout=QGridLayout()
         self.layout=QVBoxLayout()
         
-        row=1
         self.texer="No Calculation yet"
         self.report_layout.addWidget(self.calculation_label,0,0)
         self.report_layout.addWidget(self.solution_label,0,1)
@@ -51,24 +51,41 @@ class CalculationDialog(QDialog):
         
     def calculateSolution(self):
         #save the files
-        root=Tk()
-        fileName=asksaveasfile(mode='w',defaultextension=".txt")
-        fileName.close()
-        root.destroy()        
-        save_name=fileName.name
+        save_name='default'
+        if self.Maze.saveName==None:
+            root=Tk()
+            fileName=asksaveasfile(mode='w',defaultextension=".txt")
+            fileName.close()
+            root.destroy()        
+            save_name=fileName.name
+            
         
-        self.calculation_info_label.setText("Processing")
-        Sol=self.Maze.findShortestPath()
-        self.solution_info_label.setText("Solution in "+str(Sol[1])+" steps.")
-        self.calculation_info_label.setText("Finished")
-        
-        plt.figure()
-        ax=plt.subplot(1,1,1)
-        plt.title("Shortest="+str(Sol[1])+" moves")
-        self.Maze.plotBasicMaze(Axes=ax)
-        plt.savefig(save_name.replace(".txt",".jpg"))        
-        
-        self.Maze.WriteChronologicalShortestpathtoFile(save_name)
+        if save_name!='':
+            if self.Maze.saveName==None:
+                self.Maze.saveName=save_name
+                
+            self.calculation_info_label.setText("Processing")
+            
+            self.setLayout(self.layout)
+            self.updateGeometry()
+            
+            Manager=MazeClassManager()
+            Manager.Maze=self.Maze
+            Manager.saveMaze2File(self.Maze.saveName)            
+            
+            
+            
+            Sol=self.Maze.findShortestPath()
+            self.solution_info_label.setText("Solution in "+str(Sol[1])+" steps.")
+            self.calculation_info_label.setText("Finished")
+            
+            plt.figure()
+            ax=plt.subplot(1,1,1)
+            plt.title("Shortest="+str(Sol[1])+" moves")
+            self.Maze.plotBasicMaze(Axes=ax)
+            plt.savefig(self.Maze.saveName.replace(".txt","_Sol_in_"+str(Sol[1])+"_steps.jpg"))        
+            plt.close('all')
+            self.Maze.WriteChronologicalShortestpathtoFile(self.Maze.saveName.replace(".txt","_sol.txt"))
         
                 
                 

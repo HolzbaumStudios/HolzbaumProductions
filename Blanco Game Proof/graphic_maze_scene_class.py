@@ -113,7 +113,7 @@ class MazeGraphicsScene(QGraphicsScene):
                 self.maze._edgers.append(Coord)
             self.maze._updateMaze()
             self.update_maze()
-            self.maze.test=[]
+            
             
                 
             

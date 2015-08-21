@@ -28,7 +28,7 @@ count=1
 """
 start_time = time.time()
 print("Calculating Nr.: "+str(count))
-B=Block_Method(6,6)
+B=Kat3_Method(6,6)
 #Sol=B.findPath()
 Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
@@ -174,7 +174,7 @@ count+=1
 """
 start_time = time.time()
 print("Calculating Nr.: "+str(count))
-B=Block_Method(6,6,Fixed=[[1,1],[1,2],[1,3],[1,6],[2,1],[2,2],[2,3],[2,6],[5,1],[5,2],[5,3],[5,6],[6,1],[6,2],[6,3],[6,6]])
+B=Kat3_Method(6,6,Fixed=[[1,1],[1,2],[1,3],[1,6],[2,1],[2,2],[2,3],[2,6],[5,1],[5,2],[5,3],[5,6],[6,1],[6,2],[6,3],[6,6]])
 #Sol=B.findPath()
 Sol=B.findShortestPath()
 print("State Costs: "+str(Sol[1]))
@@ -209,7 +209,7 @@ print("--- %s seconds ---" % (time.time() - start_time))
 
 #%%11
 count+=1
-"""
+
 start_time = time.time()
 print("Calculating Nr.: "+str(count))
 B=Block_Method(6,6,Fixed=[[1,1],[1,2],[1,3],[2,1],[2,2],[2,3],[3,1],[3,2],[4,5],[4,6],[5,4],[5,5],[5,6],[6,4],[6,6],[6,5],[6,6]])
@@ -225,4 +225,4 @@ plt.savefig(Savepath+str(count)+"cost="+str(Sol[1])+".jpg")
 Filename=Savepath+str(count)+"cost="+str(Sol[1])+".txt"
 B.WriteChronologicalShortestpathtoFile(Filename)
 print("--- %s seconds ---" % (time.time() - start_time))
-"""
+

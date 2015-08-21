@@ -6,7 +6,7 @@ Created on Sat Dec 20 12:55:04 2014
 """
 import numpy as np
 import matplotlib.pyplot as plt
-
+import copy
 
 class Maze(object):
     """
@@ -22,9 +22,10 @@ class Maze(object):
         #construct
         self._DimX=DimX
         self._DimY=DimY
-        self.test=[]
         self._mazeSize=[DimX,DimY]
         self._basic_maze=Maze_State(np.zeros(shape=(DimX,DimY)))
+        #create own savename
+        self.saveName=None
         #make a pointerarray for getting out the right way.
         self._terminal_maze=None
         self.reachableStates=dict()
@@ -265,6 +266,18 @@ class Maze(object):
         maxopenbin=len(openBinIdx)
         Maxold=0
         
+        SpecialCellsinMaze=False
+        for i in self._basic_maze.Matrix:
+            if 2 in i or -2 in i or -3 in i:
+                SpecialCellsinMaze=True
+                break
+        
+        if SpecialCellsinMaze:
+            MaxTurner=3
+        else:
+            MaxTurner=1
+        
+        
         while openBin!=[]:
             for c,M in enumerate(openBin):
                 if c==0:
@@ -288,23 +301,27 @@ class Maze(object):
             openBinIdx.pop(Maxidx)
         
             for cell in range(1,self._DimX*self._DimY+1):
-                newMaze=self.pressCell(RemovedMaze,cell)
-                if newMaze.Index!=self._terminal_maze.Index:
-                    self._addToReachableStates(newMaze)
-                    if RemovedMaze.stateCost+1<self.reachableStates.get(newMaze.Index).stateCost:
-                        if RemovedMaze.stateCost+1<self._terminal_maze.stateCost:
-                            
-                            self.reachableStates.get(newMaze.Index).stateCost=RemovedMaze.stateCost+1
-                            self.reachableStates.get(newMaze.Index).reachedFromIndex=RemovedMaze.Index
-                            self.reachableStates.get(newMaze.Index).reachedByPressingCell=cell
-                            if newMaze.Index not in openBinIdx:
-                                openBin.append(self.reachableStates.get(newMaze.Index))
-                                openBinIdx.append(newMaze.Index)                           
-                elif RemovedMaze.stateCost+1<self._terminal_maze.stateCost:
-                    self._terminal_maze.stateCost=RemovedMaze.stateCost+1
-                    self._terminal_maze.reachedFromIndex=RemovedMaze.Index
-                    self._terminal_maze.reachedByPressingCell=cell
-                    print("Current final cost: "+str(self._terminal_maze.stateCost))
+                Koor=self._getCellCoordinate(cell)
+                if RemovedMaze.pressCelloverview[int(Koor[0])-1][int(Koor[1])-1] < MaxTurner:
+                    newMaze=self.pressCell(RemovedMaze,cell)
+                    newMaze.pressCelloverview=[[row for row in col] for col in RemovedMaze.pressCelloverview]
+                    newMaze.pressCelloverview[int(Koor[0])-1][int(Koor[1])-1]+=1
+                    if newMaze.Index!=self._terminal_maze.Index:
+                        self._addToReachableStates(newMaze)
+                        if RemovedMaze.stateCost+1<self.reachableStates.get(newMaze.Index).stateCost:
+                            if RemovedMaze.stateCost+1<self._terminal_maze.stateCost:
+                                
+                                self.reachableStates.get(newMaze.Index).stateCost=RemovedMaze.stateCost+1
+                                self.reachableStates.get(newMaze.Index).reachedFromIndex=RemovedMaze.Index
+                                self.reachableStates.get(newMaze.Index).reachedByPressingCell=cell
+                                if newMaze.Index not in openBinIdx:
+                                    openBin.append(self.reachableStates.get(newMaze.Index))
+                                    openBinIdx.append(newMaze.Index)                           
+                    elif RemovedMaze.stateCost+1<self._terminal_maze.stateCost:
+                        self._terminal_maze.stateCost=RemovedMaze.stateCost+1
+                        self._terminal_maze.reachedFromIndex=RemovedMaze.Index
+                        self._terminal_maze.reachedByPressingCell=cell
+                        print("Current final cost: "+str(self._terminal_maze.stateCost))
                             
                     
         return [self._basic_maze.stateCost, self._terminal_maze.stateCost]
@@ -399,6 +416,12 @@ class Maze(object):
 class Maze_State(object):
     def __init__(self,Maze_Matrix):
         self.Matrix=Maze_Matrix
+        self.pressCelloverview=[]
+        for k in self.Matrix:
+            l=[]
+            for j in k:
+                l.append(0)
+            self.pressCelloverview.append(l)
         self.reachedFromIndex=None
         self.reachedByPressingCell=None
         self.Index=None

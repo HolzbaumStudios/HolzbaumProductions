@@ -102,6 +102,7 @@ class FieldWindow(QMainWindow):
         fileName=asksaveasfile(mode='w',defaultextension=".txt")
         root.destroy()
         if fileName.name!='':
+            self.maze_graphics_view.scene().maze.saveName=fileName.name
             fileName.close()
             Manager=MazeClassManager()
             Manager.Maze=self.maze_graphics_view.scene().maze
@@ -111,12 +112,14 @@ class FieldWindow(QMainWindow):
     def loadMaze(self):
         root=Tk()
         name = askopenfilename( filetypes = (("Text Files","*.txt"),("All Files","*.")))
+        root.destroy()
         if name!='':
             Manager=MazeClassManager()
             Manager.loadMazeFromFile(name)
             self.maze_graphics_view.scene().maze=Manager.Maze
             self.maze_graphics_view.scene().update_maze()
-        root.destroy()
+            self.maze_graphics_view.scene().maze.saveName=name
+        
 
 def main():
     field_simulation= QApplication(sys.argv) #create new application
