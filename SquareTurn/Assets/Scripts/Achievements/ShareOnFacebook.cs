@@ -27,7 +27,7 @@ public class ShareOnFacebook : MonoBehaviour {
 		}
 
 		FB.Feed(                                                                                                                 
-	        linkCaption: "I just unlocked the \"" + achievementTitle + "\"! Can you do it too?",               
+	        linkCaption: "I just unlocked the \"" + achievementTitle + "\" achievement! Can you do it too?",               
 	        picture: achievementLogoLink,                                                     
 	        linkName: "Checkout Squared!",                                                                 
 	        link: "http://apps.facebook.com/" + FB.AppId + "/?challenge_brag=" + (FB.IsLoggedIn ? FB.UserId : "guest")       
