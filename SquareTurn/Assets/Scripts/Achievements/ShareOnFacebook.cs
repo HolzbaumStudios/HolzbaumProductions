@@ -9,6 +9,11 @@ using Facebook.MiniJSON;
 public class ShareOnFacebook : MonoBehaviour {
 
 	////Assign to AchievementPanel
+	/// 
+	//Variable to set achievement Info
+	string achievementTitle;
+	string achievementLogoLink;
+	string achievementDescription;
 
 	// Use this for initialization
 	void Awake(){
@@ -22,8 +27,8 @@ public class ShareOnFacebook : MonoBehaviour {
 		}
 
 		FB.Feed(                                                                                                                 
-	        linkCaption: "I just unlocked the Banana Achievement! Can you do it too?",               
-	        picture: "http://www.friendsmash.com/images/logo_large.jpg",                                                     
+	        linkCaption: "I just unlocked the \"" + achievementTitle + "\" achievement! Can you do it too?",               
+	        picture: achievementLogoLink,                                                     
 	        linkName: "Checkout Squared!",                                                                 
 	        link: "http://apps.facebook.com/" + FB.AppId + "/?challenge_brag=" + (FB.IsLoggedIn ? FB.UserId : "guest")       
         ); 
@@ -34,10 +39,13 @@ public class ShareOnFacebook : MonoBehaviour {
 	}
 
 
-
-
-
-
+	//Set the achievement infos (this function is called by the achievementCollection -> SetAchievement Windows
+	public void SetAchievementInfos(string title, string link, string description)
+	{
+		achievementTitle = title;
+		achievementLogoLink = link;
+		achievementDescription = description;
+	}
 
 	/// <summary>
 	/// Facebook sdk relevant functions
