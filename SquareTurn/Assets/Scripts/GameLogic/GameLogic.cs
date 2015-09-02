@@ -23,7 +23,8 @@ public class GameLogic : MonoBehaviour {
 	public GameObject gameEndPanelPortrait;
 	public GameObject treeContainer;
 	public GameObject treeContainerPortrait;
-	private GameObject achievementPanel;
+	public GameObject achievementPanel;
+	public GameObject achievementPanelLandscape;
 
 	//Variables to store achievement prefabs
 	//The prefab values are stored in this variables (in the start function), because they have to be checked with every move.
@@ -51,7 +52,6 @@ public class GameLogic : MonoBehaviour {
 	//-------------------------START--------------------------------
 	void Start () {
 		userStatistics = GameObject.Find ("UserStatistics");
-		achievementPanel = GameObject.Find ("AchievementPanel");
 
 		levelScript = GameObject.Find ("LevelScript").GetComponent<LevelScript>();
 
@@ -346,7 +346,14 @@ public class GameLogic : MonoBehaviour {
 		}
 
 		//Call the achievement check function
-		achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
+		if(achievementPanel.transform.parent.gameObject.activeSelf == true)
+		{
+			achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
+		}
+		if(achievementPanelLandscape.transform.parent.gameObject.activeSelf == true)
+		{
+			achievementPanelLandscape.GetComponent<CheckForAchievements> ().CheckAchievements ();
+		}
 
 		//Check if won
 		CheckIfWon();

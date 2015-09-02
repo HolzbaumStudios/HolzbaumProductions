@@ -155,11 +155,12 @@ public class AchievementCollection : MonoBehaviour {
 	/// Change the Values of the achievement panel
 	public void SetAchievementWindow(GameObject achievementPanel){
 		int achievementNumber = GetNextAchievement (); //Call function to check which achievement has been unlocked
-
+		Debug.Log (achievementPanel.name);
 
 		if(achievementNumber != 100)
 		{ 
 			achievementPanel.SetActive (true);
+			Debug.Log ("Achievement active");
 			//achievementPanel.GetComponent<Animation>().Play ();
 
 			GameObject achievementImage = achievementPanel.transform.FindChild ("AchievementImage").gameObject;
