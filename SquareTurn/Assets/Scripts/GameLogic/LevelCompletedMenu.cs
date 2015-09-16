@@ -29,4 +29,19 @@ public class LevelCompletedMenu : MonoBehaviour {
 
 	}
 
+	public void ContinueToNextLevel(){
+		GameObject.Find ("UserStatistics").SendMessage ("StoreStatistics");
+		int levelNumber = PlayerPrefs.GetInt ("ChosenLevel");
+		levelNumber ++;
+		PlayerPrefs.SetInt ("ChosenLevel", levelNumber);
+		Application.LoadLevel ("gameScene");
+	}
 }
+
+
+
+
+
+
+
+
