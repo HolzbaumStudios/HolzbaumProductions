@@ -26,11 +26,16 @@ public class ShareOnFacebook : MonoBehaviour {
 			LoginToFacebook ();
 		}
 
+		////////////////////////////////////////////
+		/// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		/// IMPORTANT --> The link has to be changed depending on the device /////////
+		/// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		/// //////////////////////////
 		FB.Feed(                                                                                                                 
 	        linkCaption: "I just unlocked the \"" + achievementTitle + "\" achievement! Can you do it too?",               
 	        picture: achievementLogoLink,                                                     
 	        linkName: "Checkout Squared!",                                                                 
-	        link: "http://apps.facebook.com/" + FB.AppId + "/?challenge_brag=" + (FB.IsLoggedIn ? FB.UserId : "guest")       
+	        link: "http://www.holzbaumproductions.com"       
         ); 
 	}
 	
