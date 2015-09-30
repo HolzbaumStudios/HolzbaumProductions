@@ -15,10 +15,11 @@ public class ChangeMusic : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void OnLevelWasLoaded(int scene) 
+	void OnLevelWasLoaded(string scene) 
 	{
-		if (scene == 2) 
+		if (scene == "gameScene") 
 		{
+			source.Stop ();
 			source.clip = selectlevelmusic;
 			source.Play();
 		}
