@@ -3174,8 +3174,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 34.7000008, y: -1.60000002}
-  m_SizeDelta: {x: 53.5999985, y: 30.7999992}
+  m_AnchoredPosition: {x: 37, y: -1.70000005}
+  m_SizeDelta: {x: 60, y: 31}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1020987265
 MonoBehaviour:
@@ -3189,7 +3189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
-  m_EffectDistance: {x: 1, y: -1}
+  m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!114 &1020987266
 MonoBehaviour:
@@ -3216,7 +3216,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: <8
+  m_Text: <12
 --- !u!222 &1020987267
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6437,8 +6437,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 36.5999985, y: 1.79999995}
-  m_SizeDelta: {x: 48.4000015, y: 28.7000008}
+  m_AnchoredPosition: {x: 37, y: 1.79999995}
+  m_SizeDelta: {x: 60, y: 31}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1916220786
 MonoBehaviour:
@@ -6452,7 +6452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
-  m_EffectDistance: {x: 1, y: -1}
+  m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!114 &1916220787
 MonoBehaviour:
@@ -6479,7 +6479,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: <5
+  m_Text: <12
 --- !u!222 &1916220788
 CanvasRenderer:
   m_ObjectHideFlags: 0
