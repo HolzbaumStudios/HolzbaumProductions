@@ -4,33 +4,38 @@ using System.Collections;
 public class musicOnOff : MonoBehaviour {
 
 	// Variablen
-	public GameObject squareMusic;
+	private GameObject squareMusicButton;
 	public bool status;
-	private GameObject musicBackground;
+	public bool firststart;
 
 
 	// Funktionen
-	void Start(){
-		musicBackground = GameObject.Find ("Music_Background");
+	void Update(){
+		if (Application.loadedLevelName == "startMenu" && firststart == true) {
+			this.GetComponent<AudioSource>().Play();
+			firststart = false;
+		}
 	}
 
 
-	public void TurnButton()
+	public void TurnButton(GameObject musicButton)
 	{
+		squareMusicButton = musicButton;
+
 		if (status == true)
 		{
-			squareMusic.GetComponent<UnityEngine.UI.Image> ().color = new Color32(131, 139, 139, 255);
-			squareMusic.transform.FindChild ("LetterRot1").gameObject.SetActive (true);
-			squareMusic.transform.FindChild ("LetterRot2").gameObject.SetActive (true);
-			musicBackground.GetComponent<AudioSource>().Pause();
+			squareMusicButton.GetComponent<UnityEngine.UI.Image> ().color = new Color32(131, 139, 139, 255);
+			squareMusicButton.transform.FindChild ("LetterRot1").gameObject.SetActive (true);
+			squareMusicButton.transform.FindChild ("LetterRot2").gameObject.SetActive (true);
+			this.GetComponent<AudioSource>().Pause();
 			status = false;
 		}
 		else if (status == false)
 		{
-			squareMusic.GetComponent<UnityEngine.UI.Image> ().color = new Color32(72, 120, 168, 255);
-			squareMusic.transform.FindChild ("LetterRot1").gameObject.SetActive (false);
-			squareMusic.transform.FindChild ("LetterRot2").gameObject.SetActive (false);
-			musicBackground.GetComponent<AudioSource>().Play();
+			squareMusicButton.GetComponent<UnityEngine.UI.Image> ().color = new Color32(72, 120, 168, 255);
+			squareMusicButton.transform.FindChild ("LetterRot1").gameObject.SetActive (false);
+			squareMusicButton.transform.FindChild ("LetterRot2").gameObject.SetActive (false);
+			this.GetComponent<AudioSource>().Play();
 			status = true;
 		}
 	}
