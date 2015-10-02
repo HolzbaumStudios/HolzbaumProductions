@@ -20,7 +20,17 @@ public class DisplayHandler : MonoBehaviour {
 
 	void Update()
 	{	
-			
+			#if UNITY_EDITOR
+				if (Screen.width > Screen.height)
+				{
+					debugSimulateLandscape = true;
+				}
+				else
+				{
+					debugSimulateLandscape = false;
+				}
+		   
+			#endif
 
 			if(Screen.orientation == ScreenOrientation.LandscapeLeft || Screen.orientation == ScreenOrientation.LandscapeRight || debugSimulateLandscape == true)
 			{
