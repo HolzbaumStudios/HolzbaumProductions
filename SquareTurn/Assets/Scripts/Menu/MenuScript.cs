@@ -73,7 +73,7 @@ public class MenuScript : MonoBehaviour {
 		//Disable the active Category
 		if(category1.activeSelf) category1.SetActive(false);
 		else if(category2.activeSelf) category2.SetActive(false);
-		//else if(category3.activeSelf) category3.SetActive(false);
+		else if(category3.activeSelf) category3.SetActive(false);
 		
 		//Enable category Choice
 		categoryChoice.SetActive (true);
