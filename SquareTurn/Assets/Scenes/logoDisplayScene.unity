@@ -228,7 +228,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
       propertyPath: achievementLogoLink.Array.data[10]
-      value: scontent-vie1-1.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/11896196_938289466209752_2305776461903829830_n.png?oh=3e1890d63bc74396a3ca73394dd5fc43&oe=563BAF74
+      value: https://codepo8.github.io/canvas-images-and-pixels/img/horse.pnghttps://codepo8.github.io/canvas-images-and-pixels/img/horse.png
       objectReference: {fileID: 0}
     - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
       propertyPath: achievementLogoLink.Array.data[3]

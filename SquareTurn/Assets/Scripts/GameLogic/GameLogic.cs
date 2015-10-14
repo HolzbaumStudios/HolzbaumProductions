@@ -377,7 +377,7 @@ public class GameLogic : MonoBehaviour {
 		playerWon = true;
 		int chosenLevel = PlayerPrefs.GetInt ("ChosenLevel");
 
-		if (chosenLevel < 300) { //Everything under 300 are normal lavels. 4xx are form levels
+		//if (chosenLevel < 500) { //Everything under 300 are normal lavels. 4xx are form levels
 				for (int i = 0; i < fieldRows; i++) {
 						for (int j = 0; j < fieldColumns; j++) {	
 								if (squareArray [i, j].squareState == 0 || squareArray [i, j].squareState == 5) {
@@ -385,7 +385,7 @@ public class GameLogic : MonoBehaviour {
 								}
 						}
 				}
-		}
+		//}
 
 		if(playerWon){
 			//If a new level has been solved, save this value into a prefab
