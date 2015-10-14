@@ -41,6 +41,10 @@ public class DisplayHandler : MonoBehaviour {
 					{
 						SetLevelMenuCategorySlider(false);
 					}
+					if(Application.loadedLevelName == "startMenu")
+					{
+						SetLevelMusic(true);
+					}
 
 					SetScreenOrientation(true);
 
@@ -50,6 +54,8 @@ public class DisplayHandler : MonoBehaviour {
 					{
 						SetLevelMenu(true);
 					}
+
+					
 
 					setToLandscape = true;
 					setToPortrait = false;
@@ -64,7 +70,10 @@ public class DisplayHandler : MonoBehaviour {
 					{
 						SetLevelMenuCategorySlider(true);
 					}
-
+					if(Application.loadedLevelName == "startMenu")
+					{
+						SetLevelMusic(false);
+					}
 
 					SetScreenOrientation(false);
 
@@ -74,7 +83,8 @@ public class DisplayHandler : MonoBehaviour {
 					{
 						SetLevelMenu(false);
 					}
-
+					
+					
 
 					setToLandscape = false;
 					setToPortrait = true;
@@ -118,10 +128,12 @@ public class DisplayHandler : MonoBehaviour {
 		GameObject levelChoice;
 		if(setLandscape)
 		{
+
 			levelChoice = landscapeCanvas.transform.FindChild("LevelChoice").gameObject;
 		}
 		else
 		{
+
 			levelChoice = portraitCanvas.transform.FindChild("LevelChoice").gameObject;
 		}
 
@@ -135,7 +147,50 @@ public class DisplayHandler : MonoBehaviour {
 			//Disable the active Category
 			levelChoice.GetComponent<MenuScript>().DisableAllCategories();
 		}
+
 	}
+
+	void SetLevelMusic(bool setLandscape)
+	{
+		GameObject musicButton; // Das ist der Music Button
+		GameObject musicBackground; // Da hängt der Skript MuiscOnOff dran (inkl. Status des Buttons)
+		bool statusMusicButton; // Der aktuelle Status
+
+		musicBackground = GameObject.Find("Music_Background").gameObject;
+		statusMusicButton = musicBackground.GetComponent<musicOnOff>().status;
+
+		if(setLandscape) 
+		{
+			Transform imageBackground = landscapeCanvas.transform.FindChild("Image_Background");
+			musicButton = imageBackground.FindChild ("SquareImage_Music").gameObject;
+		} 
+		else
+		{
+			Transform imageBackground = portraitCanvas.transform.FindChild("Image_Background");
+			musicButton = imageBackground.FindChild ("SquareImage_Music").gameObject;
+		}
+		TurnButton (musicButton, statusMusicButton);
+		
+	}
+
+	public void TurnButton(GameObject musicButton, bool status)
+	{
+		GameObject squareMusicButton = musicButton;
+		
+		if (status == false)
+		{
+			squareMusicButton.GetComponent<UnityEngine.UI.Image> ().color = new Color32(131, 139, 139, 255);
+			squareMusicButton.transform.FindChild ("LetterRot1").gameObject.SetActive (true);
+			squareMusicButton.transform.FindChild ("LetterRot2").gameObject.SetActive (true);
+		}
+		else if (status == true)
+		{
+			squareMusicButton.GetComponent<UnityEngine.UI.Image> ().color = new Color32(72, 120, 168, 255);
+			squareMusicButton.transform.FindChild ("LetterRot1").gameObject.SetActive (false);
+			squareMusicButton.transform.FindChild ("LetterRot2").gameObject.SetActive (false);
+		}
+	}
+
 
 
 }
