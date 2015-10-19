@@ -6,7 +6,7 @@ Created on Sat Dec 20 12:55:04 2014
 """
 import numpy as np
 import matplotlib.pyplot as plt
-import copy
+import gc
 
 class Maze(object):
     """
@@ -31,7 +31,8 @@ class Maze(object):
         self.reachableStates=dict()
         
         #print(self._terminal_maze)
-        self._openbin=[]
+        self._openBin=[]
+        self._openBinIdx=[]
         self._Fixed=Fixed
         self.pressInput=[]
         
@@ -200,6 +201,33 @@ class Maze(object):
         '''
         if not Maze.Index in self.reachableStates:
             self.reachableStates[Maze.Index]=Maze
+    
+    def _removeUninterestingStatesFromReachableStates(self):
+        '''
+        This method removes all unusable states from reachableStates and from openBin, 
+        to free calcuating capacities.
+        '''
+        #remove all states from openBin which have higher cost than terminal maze cost:
+        newOpenBin=[]
+        newOpenBinIdx=[]
+        for c,idx in enumerate(self._openBinIdx):
+            if self.reachableStates.get(idx).stateCost<=self._terminal_maze.stateCost:
+               newOpenBin.append(self.reachableStates.get(idx))
+               newOpenBinIdx.append(idx)
+        self._openBin=newOpenBin
+        self._openBinIdx=newOpenBinIdx
+        newDict=dict()
+        #add terminal maze
+        newDict[self._terminal_maze.Index]=self._terminal_maze
+        
+        for idx2 in self.reachableStates.iterkeys():
+            currentMaze=self.reachableStates.get(idx2)
+            
+            if  currentMaze.stateCost <= self._terminal_maze.stateCost:
+                newDict[idx2]=currentMaze
+                
+        #assign the new dict to self.reachable states
+        self.reachableStates=newDict
         
         
     def pressCell(self,stateMaze,cellIdx):
@@ -257,13 +285,13 @@ class Maze(object):
         
         
     def findShortestPath(self):
-        openBin=[]
-        openBinIdx=[]
+        self._openBin=[]
+        self._openBinIdx=[]
         #Add start state to openBin
-        openBin.append(self._basic_maze)
-        openBinIdx.append(self._basic_maze.Index)
+        self._openBin.append(self._basic_maze)
+        self._openBinIdx.append(self._basic_maze.Index)
         
-        maxopenbin=len(openBinIdx)
+        maxopenbin=len(self._openBinIdx)
         Maxold=0
         
         SpecialCellsinMaze=False
@@ -278,8 +306,8 @@ class Maze(object):
             MaxTurner=1
         
         
-        while openBin!=[]:
-            for c,M in enumerate(openBin):
+        while self._openBin!=[]:
+            for c,M in enumerate(self._openBin):
                 if c==0:
                     Maxidx=c
                     maxSum=M.getSum()
@@ -287,57 +315,68 @@ class Maze(object):
                     Maxidx=c
                     maxSum=M.getSum()
             
-            if len(openBinIdx)>maxopenbin:
+            #Count how many elements are inside the open bin
+            if len(self._openBinIdx)>maxopenbin:
                 
-                maxopenbin=len(openBinIdx)
+                maxopenbin=len(self._openBinIdx)
+                #print the number of elements inside the open bin
                 if maxopenbin>Maxold+1000:
                     Maxold=maxopenbin
                     print(str(Maxold))
                     print("Current final cost: "+str(self._terminal_maze.stateCost))
             
                     
-                
-            RemovedMaze=openBin.pop(Maxidx)
-            openBinIdx.pop(Maxidx)
-        
+            #remove the maze from Bin
+            RemovedMaze=self._openBin.pop(Maxidx)
+            self._openBinIdx.pop(Maxidx)
+            
             for cell in range(1,self._DimX*self._DimY+1):
+
                 Koor=self._getCellCoordinate(cell)
+                #Check how often each cell was turned
                 if RemovedMaze.pressCelloverview[int(Koor[0])-1][int(Koor[1])-1] < MaxTurner:
                     newMaze=self.pressCell(RemovedMaze,cell)
                     newMaze.pressCelloverview=[[row for row in col] for col in RemovedMaze.pressCelloverview]
                     newMaze.pressCelloverview[int(Koor[0])-1][int(Koor[1])-1]+=1
+                    newMaze.stateCost=RemovedMaze.stateCost+1
+                    
                     if newMaze.Index!=self._terminal_maze.Index:
-                        self._addToReachableStates(newMaze)
-                        if RemovedMaze.stateCost+1<self.reachableStates.get(newMaze.Index).stateCost:
-                            if RemovedMaze.stateCost+1<self._terminal_maze.stateCost:
-                                
-                                self.reachableStates.get(newMaze.Index).stateCost=RemovedMaze.stateCost+1
-                                self.reachableStates.get(newMaze.Index).reachedFromIndex=RemovedMaze.Index
-                                self.reachableStates.get(newMaze.Index).reachedByPressingCell=cell
-                                if newMaze.Index not in openBinIdx:
-                                    openBin.append(self.reachableStates.get(newMaze.Index))
-                                    openBinIdx.append(newMaze.Index)                           
+                        if (newMaze.stateCost <= self._terminal_maze.stateCost):
+                            #dirty fix
+                            newMaze.stateCost=np.inf
+                            self._addToReachableStates(newMaze)
+                            if RemovedMaze.stateCost+1<self.reachableStates.get(newMaze.Index).stateCost:
+                                if RemovedMaze.stateCost+1<self._terminal_maze.stateCost:
+                                    
+                                    self.reachableStates.get(newMaze.Index).stateCost=RemovedMaze.stateCost+1
+                                    self.reachableStates.get(newMaze.Index).reachedFromIndex=RemovedMaze.Index
+                                    self.reachableStates.get(newMaze.Index).reachedByPressingCell=cell
+                                    if newMaze.Index not in self._openBinIdx:
+                                        self._openBin.append(self.reachableStates.get(newMaze.Index))
+                                        self._openBinIdx.append(newMaze.Index)                           
                     elif RemovedMaze.stateCost+1<self._terminal_maze.stateCost:
                         self._terminal_maze.stateCost=RemovedMaze.stateCost+1
                         self._terminal_maze.reachedFromIndex=RemovedMaze.Index
                         self._terminal_maze.reachedByPressingCell=cell
                         print("Current final cost: "+str(self._terminal_maze.stateCost))
-                            
-                    
+                        self._removeUninterestingStatesFromReachableStates()
+                        #collect all garbage space to free memory
+                        gc.collect()                        
+                        
         return [self._basic_maze.stateCost, self._terminal_maze.stateCost]
         
         
     def findPath(self):
-        openBin=[]
-        openBinIdx=[]
+        self._openBin=[]
+        self._openBinIdx=[]
         #Add start state to openBin
-        openBin.append(self._basic_maze)
-        openBinIdx.append(self._basic_maze.Index)
+        self._openBin.append(self._basic_maze)
+        self._openBinIdx.append(self._basic_maze.Index)
         
-        maxopenbin=len(openBinIdx)
+        maxopenbin=len(self._openBinIdx)
         
-        while openBin!=[]:
-            for c,M in enumerate(openBin):
+        while self._openBin!=[]:
+            for c,M in enumerate(self._openBin):
                 if c==0:
                     Maxidx=c
                     maxSum=M.getSum()
@@ -345,14 +384,14 @@ class Maze(object):
                     Maxidx=c
                     maxSum=M.getSum()
             
-            if len(openBinIdx)>maxopenbin:
-                maxopenbin=len(openBinIdx)
+            if len(self._openBinIdx)>maxopenbin:
+                maxopenbin=len(self._openBinIdx)
                 print(str(maxopenbin))
             
                     
                 
-            RemovedMaze=openBin.pop(Maxidx)
-            openBinIdx.pop(Maxidx)
+            RemovedMaze=self._openBin.pop(Maxidx)
+            self._openBinIdx.pop(Maxidx)
         
             for cell in range(1,self._DimX*self._DimY+1):
                 newMaze=self.pressCell(RemovedMaze,cell)
@@ -363,9 +402,9 @@ class Maze(object):
                             
                             self.reachableStates.get(newMaze.Index).stateCost=RemovedMaze.stateCost+1
                             self.reachableStates.get(newMaze.Index).reachedFromIndex=RemovedMaze.Index
-                            if newMaze.Index not in openBinIdx:
-                                openBin.append(self.reachableStates.get(newMaze.Index))
-                                openBinIdx.append(newMaze.Index)                           
+                            if newMaze.Index not in self._openBinIdx:
+                                self._openBin.append(self.reachableStates.get(newMaze.Index))
+                                self._openBinIdx.append(newMaze.Index)                           
                 else: 
                     self._terminal_maze.stateCost=RemovedMaze.stateCost+1
                     self._terminal_maze.reachedFromIndex=RemovedMaze.Index
