@@ -587,8 +587,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: When you click on a tile, all the squares around the pressed one will turn
-    around, too.
+  m_Text: When you click on a tile, the one you pressed and all squares surrounding
+    it, will turn around.
 --- !u!222 &99579980
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1244,8 +1244,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Congratulatios! You just solved your fist level. Now you're ready to take
-    on the next challenges.
+  m_Text: 'Congratulatios!
+
+    You just solved your fist level. Now you''re ready to start your journey with
+    squared.'
 --- !u!222 &176876319
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1441,7 +1443,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "We seem to have messed this level up. \nLet's start again."
+  m_Text: "We seem to have already messed up this level. \nLet's start again!"
 --- !u!222 &251893378
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1710,8 +1712,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: It does get a little more complex. Orange squares will turn back to blue
-    ones, so watch out for that.
+  m_Text: Sometimes however you will end up lost. Orange tiles will turn back to blue
+    when hit again. Think your moves through before clicking.
 --- !u!222 &328805827
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2139,8 +2141,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: In every level you will be presented a number of blue squares. Your goal
-    is to turn every square around.
+  m_Text: In every level you will be presented with a number of blue squares. Your
+    goal is to have all squares showing an orange color.
 --- !u!222 &427647213
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3476,7 +3478,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This panel counts up with ever move you make.
+  m_Text: This panel counts up with every move you make.
 --- !u!222 &737275632
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6105,8 +6107,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Great! Don't worry, it is really that simple. To win the level every square
-    has to be orange.
+  m_Text: Great! You're making progress!
 --- !u!222 &1317169875
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6238,7 +6239,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "We seem to have messed this level up a bit. \nLet's start again."
+  m_Text: "We seem to have already messed up this level. \nLet's start again!"
 --- !u!222 &1340299650
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7605,8 +7606,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: When you click on a tile, all the squares around the pressed one will turn
-    around, too.
+  m_Text: When you click on a tile, the one you pressed and all squares surrounding
+    it, will turn around.
 --- !u!222 &1522068949
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7672,8 +7673,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Congratulatios! You just solved your fist level. Now you're ready to take
-    on the next challenges.
+  m_Text: 'Congratulatios!
+
+    You just solved your fist level. Now you''re ready to start your journey with
+    squared.'
 --- !u!222 &1525662802
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8023,8 +8026,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: It does get a little more complex. Orange squares will turn back to blue
-    ones, so watch out for that.
+  m_Text: Sometimes however you will end up lost. Orange tiles will turn back to blue
+    when hit again. Think your moves through before clicking.
 --- !u!222 &1566127943
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8126,8 +8129,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Great! Don't worry, it is really that simple. To win the level every square
-    has to be orange.
+  m_Text: Great! You're making progress!
 --- !u!222 &1610909358
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8270,7 +8272,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This panel counts up with ever move you make.
+  m_Text: This panel counts up with every move you make.
 --- !u!222 &1617131609
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8809,8 +8811,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: In every level you will be presented a number of blue squares. Your goal
-    is to turn every square around.
+  m_Text: In every level you will be presented with a number of blue squares. Your
+    goal is to have all squares showing an orange color.
 --- !u!222 &1722663065
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9315,6 +9317,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
