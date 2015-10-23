@@ -7,6 +7,7 @@ Created on Sat Dec 20 12:55:04 2014
 import numpy as np
 import matplotlib.pyplot as plt
 import gc
+import heapq as hq
 
 class Maze(object):
     """
@@ -209,13 +210,13 @@ class Maze(object):
         '''
         #remove all states from openBin which have higher cost than terminal maze cost:
         newOpenBin=[]
-        newOpenBinIdx=[]
-        for c,idx in enumerate(self._openBinIdx):
+        for c,entry in enumerate(self._openBin):
+            idx=entry[1]
             if self.reachableStates.get(idx).stateCost<=self._terminal_maze.stateCost:
-               newOpenBin.append(self.reachableStates.get(idx))
-               newOpenBinIdx.append(idx)
+               hq.heappush(newOpenBin,(-self.reachableStates.get(idx).getSum(),idx))
+               
         self._openBin=newOpenBin
-        self._openBinIdx=newOpenBinIdx
+        
         newDict=dict()
         #add terminal maze
         newDict[self._terminal_maze.Index]=self._terminal_maze
@@ -285,13 +286,14 @@ class Maze(object):
         
         
     def findShortestPath(self):
+        #open bin should be a heap
         self._openBin=[]
-        self._openBinIdx=[]
         #Add start state to openBin
-        self._openBin.append(self._basic_maze)
-        self._openBinIdx.append(self._basic_maze.Index)
         
-        maxopenbin=len(self._openBinIdx)
+        hq.heappush(self._openBin,(-self._basic_maze.getSum(), self._basic_maze.Index))
+        #self._openBinIdx.append(self._basic_maze.Index)
+        
+        maxopenbin=len(self._openBin)
         Maxold=0
         
         SpecialCellsinMaze=False
@@ -304,21 +306,14 @@ class Maze(object):
             MaxTurner=3
         else:
             MaxTurner=1
-        
+        print('while loop start')
         
         while self._openBin!=[]:
-            for c,M in enumerate(self._openBin):
-                if c==0:
-                    Maxidx=c
-                    maxSum=M.getSum()
-                if M.getSum()>maxSum:
-                    Maxidx=c
-                    maxSum=M.getSum()
-            
+        
             #Count how many elements are inside the open bin
-            if len(self._openBinIdx)>maxopenbin:
+            if len(self._openBin)>maxopenbin:
                 
-                maxopenbin=len(self._openBinIdx)
+                maxopenbin=len(self._openBin)
                 #print the number of elements inside the open bin
                 if maxopenbin>Maxold+1000:
                     Maxold=maxopenbin
@@ -327,8 +322,7 @@ class Maze(object):
             
                     
             #remove the maze from Bin
-            RemovedMaze=self._openBin.pop(Maxidx)
-            self._openBinIdx.pop(Maxidx)
+            RemovedMaze=self.reachableStates.get(hq.heappop(self._openBin)[1])
             
             for cell in range(1,self._DimX*self._DimY+1):
 
@@ -351,9 +345,10 @@ class Maze(object):
                                     self.reachableStates.get(newMaze.Index).stateCost=RemovedMaze.stateCost+1
                                     self.reachableStates.get(newMaze.Index).reachedFromIndex=RemovedMaze.Index
                                     self.reachableStates.get(newMaze.Index).reachedByPressingCell=cell
-                                    if newMaze.Index not in self._openBinIdx:
-                                        self._openBin.append(self.reachableStates.get(newMaze.Index))
-                                        self._openBinIdx.append(newMaze.Index)                           
+                                    if (newMaze.getSum(),newMaze.Index) not in self._openBin:
+                                        
+                                        hq.heappush(self._openBin,(-newMaze.getSum(),newMaze.Index))
+                                        
                     elif RemovedMaze.stateCost+1<self._terminal_maze.stateCost:
                         self._terminal_maze.stateCost=RemovedMaze.stateCost+1
                         self._terminal_maze.reachedFromIndex=RemovedMaze.Index
@@ -366,53 +361,7 @@ class Maze(object):
         return [self._basic_maze.stateCost, self._terminal_maze.stateCost]
         
         
-    def findPath(self):
-        self._openBin=[]
-        self._openBinIdx=[]
-        #Add start state to openBin
-        self._openBin.append(self._basic_maze)
-        self._openBinIdx.append(self._basic_maze.Index)
-        
-        maxopenbin=len(self._openBinIdx)
-        
-        while self._openBin!=[]:
-            for c,M in enumerate(self._openBin):
-                if c==0:
-                    Maxidx=c
-                    maxSum=M.getSum()
-                if M.getSum()>maxSum:
-                    Maxidx=c
-                    maxSum=M.getSum()
-            
-            if len(self._openBinIdx)>maxopenbin:
-                maxopenbin=len(self._openBinIdx)
-                print(str(maxopenbin))
-            
-                    
-                
-            RemovedMaze=self._openBin.pop(Maxidx)
-            self._openBinIdx.pop(Maxidx)
-        
-            for cell in range(1,self._DimX*self._DimY+1):
-                newMaze=self.pressCell(RemovedMaze,cell)
-                if newMaze.Index!=self._terminal_maze.Index:
-                    self._addToReachableStates(newMaze)
-                    if RemovedMaze.stateCost+1<self.reachableStates.get(newMaze.Index).stateCost:
-                        if RemovedMaze.stateCost+1<self._terminal_maze.stateCost:
-                            
-                            self.reachableStates.get(newMaze.Index).stateCost=RemovedMaze.stateCost+1
-                            self.reachableStates.get(newMaze.Index).reachedFromIndex=RemovedMaze.Index
-                            if newMaze.Index not in self._openBinIdx:
-                                self._openBin.append(self.reachableStates.get(newMaze.Index))
-                                self._openBinIdx.append(newMaze.Index)                           
-                else: 
-                    self._terminal_maze.stateCost=RemovedMaze.stateCost+1
-                    self._terminal_maze.reachedFromIndex=RemovedMaze.Index
-                    print("Current final cost: "+str(self._terminal_maze.stateCost))
-                    return [self._basic_maze.stateCost, self._terminal_maze.stateCost]
-                            
-                    
-        return [self._basic_maze.stateCost, self._terminal_maze.stateCost]
+    
         
     def getChronologicalShortestpath(self):
         Currentidx=self._terminal_maze.Index
@@ -487,10 +436,10 @@ class Maze_State(object):
         self._calculateSum()
     
     def _calculateSum(self):
-        self.Sum=np.sum(self.Matrix)
+        self._Sum=np.sum(self.Matrix)
     
     def getSum(self):
-        return self.Sum
+        return self._Sum
         
                 
         
