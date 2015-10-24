@@ -213,7 +213,9 @@ class Maze(object):
         for c,entry in enumerate(self._openBin):
             idx=entry[1]
             if self.reachableStates.get(idx).stateCost<=self._terminal_maze.stateCost:
-               hq.heappush(newOpenBin,(-self.reachableStates.get(idx).getSum(),idx))
+               hq.heappush(newOpenBin,(entry[0],idx))
+            else:
+                self.reachableStates.get(idx).inOpenBin=False
                
         self._openBin=newOpenBin
         
@@ -289,8 +291,8 @@ class Maze(object):
         #open bin should be a heap
         self._openBin=[]
         #Add start state to openBin
-        
-        hq.heappush(self._openBin,(-self._basic_maze.getSum(), self._basic_maze.Index))
+        Statecounter=0
+        hq.heappush(self._openBin,(Statecounter, self._basic_maze.Index))
         #self._openBinIdx.append(self._basic_maze.Index)
         
         maxopenbin=len(self._openBin)
@@ -323,6 +325,7 @@ class Maze(object):
                     
             #remove the maze from Bin
             RemovedMaze=self.reachableStates.get(hq.heappop(self._openBin)[1])
+            self.reachableStates.get(RemovedMaze.Index).inOpenBin=False
             
             for cell in range(1,self._DimX*self._DimY+1):
 
@@ -345,18 +348,21 @@ class Maze(object):
                                     self.reachableStates.get(newMaze.Index).stateCost=RemovedMaze.stateCost+1
                                     self.reachableStates.get(newMaze.Index).reachedFromIndex=RemovedMaze.Index
                                     self.reachableStates.get(newMaze.Index).reachedByPressingCell=cell
-                                    if (newMaze.getSum(),newMaze.Index) not in self._openBin:
-                                        
-                                        hq.heappush(self._openBin,(-newMaze.getSum(),newMaze.Index))
+                                    if not self.reachableStates.get(newMaze.Index).inOpenBin:
+                                        self.reachableStates.get(newMaze.Index).inOpenBin=True
+                                        Statecounter+=1
+                                        hq.heappush(self._openBin,(Statecounter,newMaze.Index))
                                         
                     elif RemovedMaze.stateCost+1<self._terminal_maze.stateCost:
                         self._terminal_maze.stateCost=RemovedMaze.stateCost+1
                         self._terminal_maze.reachedFromIndex=RemovedMaze.Index
                         self._terminal_maze.reachedByPressingCell=cell
                         print("Current final cost: "+str(self._terminal_maze.stateCost))
-                        self._removeUninterestingStatesFromReachableStates()
+                        self._openBin=[]
+                        break
+                        #self._removeUninterestingStatesFromReachableStates()
                         #collect all garbage space to free memory
-                        gc.collect()                        
+                        #gc.collect()                        
                         
         return [self._basic_maze.stateCost, self._terminal_maze.stateCost]
         
@@ -414,6 +420,7 @@ class Maze_State(object):
         self.reachedByPressingCell=None
         self.Index=None
         self.stateCost=np.inf
+        self.inOpenBin=False
         self._Sum=None
         self.update()
         
