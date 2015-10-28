@@ -4647,7 +4647,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: PLANTING THE SEED
+      value: Planting the seed
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
