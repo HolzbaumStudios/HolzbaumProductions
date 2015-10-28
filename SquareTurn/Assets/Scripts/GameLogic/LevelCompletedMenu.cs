@@ -12,6 +12,11 @@ public class LevelCompletedMenu : MonoBehaviour {
 	void Start()
 	{
 		userStatistics = GameObject.Find("UserStatistics");
+		int levelNumber = PlayerPrefs.GetInt ("ChosenLevel");
+		if(levelNumber == 123 || levelNumber == 223 || levelNumber == 323)
+		{
+			DisableContinue();
+		}
 	}
 
 	public void ResetLevel()
@@ -35,6 +40,11 @@ public class LevelCompletedMenu : MonoBehaviour {
 		levelNumber ++;
 		PlayerPrefs.SetInt ("ChosenLevel", levelNumber);
 		Application.LoadLevel ("gameScene");
+	}
+
+	public void DisableContinue()
+	{
+		transform.FindChild("ContinueButton").gameObject.SetActive(false);
 	}
 }
 
