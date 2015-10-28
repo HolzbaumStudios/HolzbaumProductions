@@ -101,9 +101,9 @@ public class TreeTable : MonoBehaviour {
 			case 307: twoTrees = 7; threeTrees = 3; break;
 			case 308: twoTrees = 10; threeTrees = 5; break;
 			case 309: twoTrees = 9; threeTrees = 5; break;
-			case 310: twoTrees = 11; threeTrees = 6; break;
+			case 310: twoTrees = 12; threeTrees = 7; break;
 			case 311: twoTrees = 15; threeTrees = 9; break;
-			case 312: twoTrees = 11; threeTrees = 6; break;
+			case 312: twoTrees = 8; threeTrees = 4; break;
 			case 313: twoTrees = 12; threeTrees = 7; break;
 			case 314: twoTrees = 14; threeTrees = 7; break;
 			case 315: twoTrees = 16; threeTrees = 9; break;

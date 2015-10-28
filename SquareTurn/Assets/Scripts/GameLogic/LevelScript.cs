@@ -643,11 +643,11 @@ public class LevelScript : MonoBehaviour {
 		if (level == 314) {
 			InitializeArraySize (6, 5);
 			fieldStructureArray [0, 1] = 2;
-			fieldStructureArray [0, 4] = 2;
+			fieldStructureArray [0, 3] = 2;
 			fieldStructureArray [1, 1] = 2;
-			fieldStructureArray [1, 4] = 2;
+			fieldStructureArray [1, 3] = 2;
 			fieldStructureArray [2, 1] = 2;
-			fieldStructureArray [2, 4] = 2;
+			fieldStructureArray [2, 3] = 2;
 			fieldStructureArray [4, 0] = 2;
 			fieldStructureArray [4, 1] = 2;
 			fieldStructureArray [4, 3] = 2;
