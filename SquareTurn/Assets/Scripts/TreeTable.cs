@@ -104,11 +104,17 @@ public class TreeTable : MonoBehaviour {
 			case 310: twoTrees = 12; threeTrees = 7; break;
 			case 311: twoTrees = 15; threeTrees = 9; break;
 			case 312: twoTrees = 8; threeTrees = 4; break;
-			case 313: twoTrees = 12; threeTrees = 7; break;
-			case 314: twoTrees = 14; threeTrees = 7; break;
-			case 315: twoTrees = 16; threeTrees = 9; break;
-			case 316: twoTrees = 25; threeTrees = 16; break;
-			case 317: twoTrees = 32; threeTrees = 20; break;
+			case 313: twoTrees = 8; threeTrees = 4; break;
+			case 314: twoTrees = 10; threeTrees = 5; break;
+			case 315: twoTrees = 12; threeTrees = 7; break;
+			case 316: twoTrees = 12; threeTrees = 7; break;
+			case 317: twoTrees = 14; threeTrees = 7; break;
+			case 318: twoTrees = 12; threeTrees = 6; break;
+			case 319: twoTrees = 25; threeTrees = 16; break;
+			case 320: twoTrees = 16; threeTrees = 9; break;
+			case 321: twoTrees = 20; threeTrees = 11; break;
+			case 322: twoTrees = 28; threeTrees = 17; break;
+			case 323: twoTrees = 32; threeTrees = 20; break;
 		}
 	}
 }

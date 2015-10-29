@@ -621,6 +621,16 @@ public class LevelScript : MonoBehaviour {
 
 		if (level == 312) {
 			InitializeArraySize (6, 6);
+			fieldStructureArray [0, 5] = 2;
+			fieldStructureArray [1, 0] = 2;
+			fieldStructureArray [2, 5] = 2;
+			fieldStructureArray [3, 0] = 2;
+			fieldStructureArray [4, 5] = 2;
+			fieldStructureArray [5, 0] = 2;
+		}
+
+		if (level == 313) {
+			InitializeArraySize (6, 6);
 			fieldStructureArray [0, 2] = 2;
 			fieldStructureArray [0, 3] = 2;
 			fieldStructureArray [1, 2] = 2;
@@ -631,7 +641,43 @@ public class LevelScript : MonoBehaviour {
 			fieldStructureArray [5, 3] = 2;
 		}
 
-		if (level == 313) {
+		if (level == 314) {
+			InitializeArraySize (6, 6);
+			fieldStructureArray [0, 5] = 2;
+			fieldStructureArray [1, 0] = 2;
+			fieldStructureArray [2, 4] = 2;
+			fieldStructureArray [2, 5] = 2;
+			fieldStructureArray [3, 0] = 2;
+			fieldStructureArray [3, 1] = 2;
+			fieldStructureArray [4, 3] = 2;
+			fieldStructureArray [4, 4] = 2;
+			fieldStructureArray [4, 5] = 2;
+			fieldStructureArray [5, 0] = 2;
+			fieldStructureArray [5, 1] = 2;
+			fieldStructureArray [5, 2] = 2;
+		}
+
+		if (level == 315) {
+			InitializeArraySize (6, 6);
+			fieldStructureArray [0, 0] = 5;
+			fieldStructureArray [0, 1] = 5;
+			fieldStructureArray [0, 2] = 2;
+			fieldStructureArray [0, 3] = 2;
+			fieldStructureArray [0, 4] = 5;
+			fieldStructureArray [0, 5] = 5;
+			fieldStructureArray [3, 0] = 2;
+			fieldStructureArray [3, 5] = 2;
+			fieldStructureArray [4, 0] = 2;
+			fieldStructureArray [4, 1] = 2;
+			fieldStructureArray [4, 4] = 2;
+			fieldStructureArray [4, 5] = 2;
+			fieldStructureArray [5, 0] = 2;
+			fieldStructureArray [5, 1] = 2;
+			fieldStructureArray [5, 4] = 2;
+			fieldStructureArray [5, 5] = 2;
+		}
+
+		if (level == 316) {
 			InitializeArraySize (5, 3);
 			fieldStructureArray [1, 1] = 2;
 			fieldStructureArray [3, 1] = 2;
@@ -640,7 +686,7 @@ public class LevelScript : MonoBehaviour {
 			fieldStructureArray [4, 2] = 2;
 		}
 
-		if (level == 314) {
+		if (level == 317) {
 			InitializeArraySize (6, 5);
 			fieldStructureArray [0, 1] = 2;
 			fieldStructureArray [0, 3] = 2;
@@ -658,21 +704,21 @@ public class LevelScript : MonoBehaviour {
 			fieldStructureArray [5, 4] = 2;
 		}
 
-		if (level == 315) {
+		if (level == 318) {
 			InitializeArraySize (5, 5);
 			fieldStructureArray [0, 0] = 2;
 			fieldStructureArray [0, 1] = 2;
 			fieldStructureArray [1, 1] = 2;
 			fieldStructureArray [1, 3] = 2;
-			fieldStructureArray [1, 4] = 2;
-			fieldStructureArray [3, 0] = 2;
+			fieldStructureArray [2, 1] = 2;
+			fieldStructureArray [2, 3] = 2;
 			fieldStructureArray [3, 1] = 2;
 			fieldStructureArray [3, 3] = 2;
 			fieldStructureArray [4, 3] = 2;
 			fieldStructureArray [4, 4] = 2;
 		}
 
-		if (level == 316) {
+		if (level == 319) {
 			InitializeArraySize (4, 4);
 			fieldStructureArray [0, 0] = 5;
 			fieldStructureArray [0, 1] = 5;
@@ -688,8 +734,75 @@ public class LevelScript : MonoBehaviour {
 			fieldStructureArray [3, 3] = 5;
 		}
 
+		if (level == 320) {
+			InitializeArraySize (6, 5);
+			fieldStructureArray [0, 1] = 2;
+			fieldStructureArray [0, 3] = 2;
+			fieldStructureArray [1, 1] = 2;
+			fieldStructureArray [1, 3] = 2;
+			fieldStructureArray [3, 0] = 2;
+			fieldStructureArray [3, 4] = 2;
+			fieldStructureArray [4, 0] = 2;
+			fieldStructureArray [4, 1] = 2;
+			fieldStructureArray [4, 3] = 2;
+			fieldStructureArray [4, 4] = 2;
+			fieldStructureArray [5, 0] = 2;
+			fieldStructureArray [5, 1] = 2;
+			fieldStructureArray [5, 3] = 2;
+			fieldStructureArray [5, 4] = 2;
+		}
 
-		if (level == 317) {
+		if (level == 321) {
+			InitializeArraySize (6, 5);
+			fieldStructureArray [0, 0] = 5;
+			fieldStructureArray [0, 1] = 2;
+			fieldStructureArray [0, 2] = 5;
+			fieldStructureArray [0, 3] = 2;
+			fieldStructureArray [0, 4] = 5;
+			fieldStructureArray [1, 0] = 5;
+			fieldStructureArray [1, 1] = 2;
+			fieldStructureArray [1, 2] = 5;
+			fieldStructureArray [1, 3] = 2;
+			fieldStructureArray [1, 4] = 5;
+			fieldStructureArray [2, 0] = 5;
+			fieldStructureArray [2, 1] = 2;
+			fieldStructureArray [2, 2] = 5;
+			fieldStructureArray [2, 3] = 2;
+			fieldStructureArray [2, 4] = 5;
+			fieldStructureArray [3, 0] = 5;
+			fieldStructureArray [3, 1] = 5;
+			fieldStructureArray [3, 2] = 5;
+			fieldStructureArray [3, 3] = 5;
+			fieldStructureArray [3, 4] = 5;
+			fieldStructureArray [4, 0] = 2;
+			fieldStructureArray [4, 1] = 2;
+			fieldStructureArray [4, 3] = 2;
+			fieldStructureArray [4, 4] = 2;
+			fieldStructureArray [5, 0] = 2;
+			fieldStructureArray [5, 1] = 2;
+			fieldStructureArray [5, 3] = 2;
+			fieldStructureArray [5, 4] = 2;
+		}
+
+		if (level == 322) {
+			InitializeArraySize (6, 5);
+			fieldStructureArray [0, 0] = 5;
+			fieldStructureArray [0, 1] = 2;
+			fieldStructureArray [0, 2] = 5;
+			fieldStructureArray [0, 3] = 2;
+			fieldStructureArray [0, 4] = 5;
+			fieldStructureArray [1, 1] = 2;
+			fieldStructureArray [1, 3] = 2;
+			fieldStructureArray [4, 1] = 2;
+			fieldStructureArray [4, 3] = 2;
+			fieldStructureArray [5, 0] = 5;
+			fieldStructureArray [5, 1] = 2;
+			fieldStructureArray [5, 2] = 5;
+			fieldStructureArray [5, 3] = 2;
+			fieldStructureArray [5, 4] = 5;
+		}
+
+		if (level == 323) {
 			InitializeArraySize (6, 6);
 			fieldStructureArray [1, 1] = 2;
 			fieldStructureArray [1, 4] = 2;
