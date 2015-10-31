@@ -87,9 +87,9 @@ public class AchievementCollection : MonoBehaviour {
 	Achievement achievement11 = new Achievement("Turning tables", "Turn 1000 tiles"); 
 	Achievement achievement12 = new Achievement("Flippin' Ninja", "Turn 5000 tiles");
 
-	Achievement achievement13 = new Achievement("Child", "Start the game 10 times"); 
-	Achievement achievement14 = new Achievement("Adult", "Start the game 50 times"); 
-	Achievement achievement15 = new Achievement("Veteran", "Start the game 100 times"); 
+	Achievement achievement13 = new Achievement("Child", "Start the game 5 times"); 
+	Achievement achievement14 = new Achievement("Adult", "Start the game 20 times"); 
+	Achievement achievement15 = new Achievement("Veteran", "Start the game 40 times"); 
 
 
 	

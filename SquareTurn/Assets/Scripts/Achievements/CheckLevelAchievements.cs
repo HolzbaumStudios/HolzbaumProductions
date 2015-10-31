@@ -161,7 +161,7 @@ public class CheckLevelAchievements : MonoBehaviour {
 				if(reachedOneStar == true)
 				{
 					GameObject userStatistics = GameObject.Find ("UserStatistics");
-					userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (3,1);
+					userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (4,1);
 					PlayerPrefs.SetInt ("NewAchievement", 1);
 
 					//Check if also reached all three stars in the same moment
