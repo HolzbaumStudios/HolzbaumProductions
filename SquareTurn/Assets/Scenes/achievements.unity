@@ -1971,7 +1971,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: "Solve 72\n levels"
+      value: Solve 72 levels
       objectReference: {fileID: 0}
     - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
@@ -2091,11 +2091,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Start the game 50 times
+      value: Start the game 20 times
       objectReference: {fileID: 0}
     - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Start the game 50 times
+      value: Start the game 20 times
       objectReference: {fileID: 0}
     - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
@@ -3607,11 +3607,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Start the game 50 times
+      value: Start the game 20 times
       objectReference: {fileID: 0}
     - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Start the game 50 times
+      value: Start the game 20 times
       objectReference: {fileID: 0}
     - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
@@ -4302,11 +4302,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Start the game 10 times
+      value: Start the game 5 times
       objectReference: {fileID: 0}
     - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Start the game 10 times
+      value: Start the game 5 times
       objectReference: {fileID: 0}
     - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
@@ -4972,7 +4972,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: "Solve 72\n levels"
+      value: Solve 72 levels
       objectReference: {fileID: 0}
     - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
@@ -7364,11 +7364,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Start the game 100 times
+      value: Start the game 40 times
       objectReference: {fileID: 0}
     - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Start the game 100 times
+      value: Start the game 40 times
       objectReference: {fileID: 0}
     - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
@@ -8142,11 +8142,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Start the game 100 times
+      value: Start the game 40 times
       objectReference: {fileID: 0}
     - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Start the game 100 times
+      value: Start the game 40 times
       objectReference: {fileID: 0}
     - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
@@ -8262,11 +8262,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11496274, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Start the game 10 times
+      value: Start the game 5 times
       objectReference: {fileID: 0}
     - target: {fileID: 11488008, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
-      value: Start the game 10 times
+      value: Start the game 5 times
       objectReference: {fileID: 0}
     - target: {fileID: 11472580, guid: bb81209465e8f20449eef2b1cd49976b, type: 2}
       propertyPath: m_Text
