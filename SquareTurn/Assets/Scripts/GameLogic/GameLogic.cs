@@ -137,7 +137,7 @@ public class GameLogic : MonoBehaviour {
 						column.transform.GetComponent<UnityEngine.UI.Image>().color = Color.green;
 					}
 					else if(squareArray[i,j].squareState == 5){ //If cross
-						column.transform.GetComponent<UnityEngine.UI.Image>().color = Color.yellow;
+						column.transform.GetComponent<UnityEngine.UI.Image>().color = new Color32(255, 226, 32, 255);
 					}
 					//Set position regarding width count
 					if(evenNumberWidth)
