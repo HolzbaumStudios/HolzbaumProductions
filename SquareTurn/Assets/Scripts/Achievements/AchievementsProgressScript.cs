@@ -12,7 +12,7 @@ public class AchievementsProgressScript : MonoBehaviour {
 
 
 	private int unlockedAchievements = 0;
-	private int completedPercent;
+	private float completedPercent;
 	
 	// Update is called once per frame
 	void Start () {
@@ -27,9 +27,10 @@ public class AchievementsProgressScript : MonoBehaviour {
 		}
 
 		completedPercent = 100 / numberOfAchievements * unlockedAchievements;
+		int completedPercentInt = (int)completedPercent;
 
-		progressCircle.GetComponent<Image>().fillAmount = completedPercent/100f;
-		progressPercent.GetComponent<Text>().text = completedPercent.ToString ();
+		progressCircle.GetComponent<Image>().fillAmount = completedPercentInt/100f;
+		progressPercent.GetComponent<Text>().text = completedPercentInt.ToString ();
 	
 	}
 }
