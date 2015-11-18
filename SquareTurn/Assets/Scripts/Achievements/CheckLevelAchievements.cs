@@ -184,7 +184,7 @@ public class CheckLevelAchievements : MonoBehaviour {
 					achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
 				}
 			}
-			else if(PlayerPrefs.GetInt ("Achievement5tate") == 0)
+			else if(PlayerPrefs.GetInt ("Achievement5State") == 0)
 			{
 				bool reachedThreeStars = true;
 				

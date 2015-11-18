@@ -147,7 +147,8 @@ public class AchievementCollection : MonoBehaviour {
 
 
 		//achievementList [0].SetState (1); //--> just for testing purposes
-		//achievementList [1].SetState (1); //--> just for testing purposes
+		//achievementList [5].SetState (1); //--> just for testing purposes
+		//PlayerPrefs.SetInt ("NewAchievement", 1); //--> just for testin purposes
 	}
 
 	////////////////////////FUNCTIONS//////////////////////////
@@ -160,7 +161,7 @@ public class AchievementCollection : MonoBehaviour {
 		if(achievementNumber != 100)
 		{ 
 			achievementPanel.SetActive (true);
-			Debug.Log ("Achievement active");
+			//Debug.Log ("Achievement active");
 			//achievementPanel.GetComponent<Animation>().Play ();
 
 			GameObject achievementImage = achievementPanel.transform.FindChild ("AchievementImage").gameObject;
@@ -171,7 +172,7 @@ public class AchievementCollection : MonoBehaviour {
 			achievementText.GetComponent<Text>().text = achievementTitle;
 
 			//Set the facebook values
-			achievementPanel.GetComponent<ShareOnFacebook>().SetAchievementInfos(achievementTitle, achievementLogoLink[achievementNumber], achievementList[achievementNumber].GetCondition());
+			//achievementPanel.GetComponent<ShareOnFacebook>().SetAchievementInfos(achievementTitle, achievementLogoLink[achievementNumber], achievementList[achievementNumber].GetCondition());
 
 			StartCoroutine(AnimationCountdown(6, achievementPanel));
 		}
