@@ -20,13 +20,18 @@ public class AchievementsProgressScript : MonoBehaviour {
 		for(int i = 0; i < numberOfAchievements; i++)
 		{
 			achievementName = "Achievement" + i + "State";
-			if(PlayerPrefs.GetInt(achievementName) == 2)
+			int achievementState = PlayerPrefs.GetInt(achievementName);
+			if(achievementState > 0)
 			{
 				unlockedAchievements++;
 			}
 		}
 
-		completedPercent = 100 / numberOfAchievements * unlockedAchievements;
+		//Debug.Log ("Number of achievements: " + numberOfAchievements);
+		//Debug.Log ("Unlocked achievements: " + unlockedAchievements);
+
+		completedPercent = (100f / numberOfAchievements) * unlockedAchievements;
+		//Debug.Log ("Percent: " + completedPercent);
 		int completedPercentInt = (int)completedPercent;
 
 		progressCircle.GetComponent<Image>().fillAmount = completedPercentInt/100f;
