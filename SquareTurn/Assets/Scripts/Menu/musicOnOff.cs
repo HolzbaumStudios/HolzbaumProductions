@@ -25,16 +25,14 @@ public class musicOnOff : MonoBehaviour {
 		if (status == true)
 		{
 			squareMusicButton.GetComponent<UnityEngine.UI.Image> ().color = new Color32(131, 139, 139, 255);
-			squareMusicButton.transform.FindChild ("LetterRot1").gameObject.SetActive (true);
-			squareMusicButton.transform.FindChild ("LetterRot2").gameObject.SetActive (true);
+			squareMusicButton.transform.FindChild ("DisabledButton").gameObject.SetActive (true);
 			this.GetComponent<AudioSource>().Pause();
 			status = false;
 		}
 		else if (status == false)
 		{
 			squareMusicButton.GetComponent<UnityEngine.UI.Image> ().color = new Color32(72, 120, 168, 255);
-			squareMusicButton.transform.FindChild ("LetterRot1").gameObject.SetActive (false);
-			squareMusicButton.transform.FindChild ("LetterRot2").gameObject.SetActive (false);
+			squareMusicButton.transform.FindChild ("DisabledButton").gameObject.SetActive (false);
 			this.GetComponent<AudioSource>().Play();
 			status = true;
 		}
