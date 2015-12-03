@@ -312,6 +312,12 @@ class Maze(object):
         
         while self._openBin!=[]:
         
+            
+                    
+            #remove the maze from Bin
+            RemovedMaze=self.reachableStates.get(hq.heappop(self._openBin)[1])
+            self.reachableStates.get(RemovedMaze.Index).inOpenBin=False
+            
             #Count how many elements are inside the open bin
             if len(self._openBin)>maxopenbin:
                 
@@ -321,11 +327,7 @@ class Maze(object):
                     Maxold=maxopenbin
                     print(str(Maxold))
                     print("Current final cost: "+str(self._terminal_maze.stateCost))
-            
-                    
-            #remove the maze from Bin
-            RemovedMaze=self.reachableStates.get(hq.heappop(self._openBin)[1])
-            self.reachableStates.get(RemovedMaze.Index).inOpenBin=False
+                    print("Cost"+str(RemovedMaze.stateCost))
             
             for cell in range(1,self._DimX*self._DimY+1):
 
