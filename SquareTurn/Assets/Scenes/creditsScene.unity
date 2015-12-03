@@ -381,8 +381,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: -1084}
-  m_SizeDelta: {x: 460, y: 2168}
+  m_AnchoredPosition: {x: 0, y: -834}
+  m_SizeDelta: {x: 460, y: 1667}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1164300014
 MonoBehaviour:
@@ -409,15 +409,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Special Thanks \nTo\n\n\n\nTEAM\n\n\nPedro Blanco\n(Lead Programmer)\n\n\nMartinello
-    Roman\n(Lead GUI Designer)\n\n\nBrunner Micha\n(Lead Level Designer)\n\n\n\nMUSIC\n\nReto
-    Stauffacher\n\n\n\nTESTER\n\nFabian Baumann\n\nJasmin Berz\n\nNicole Pedro\n\nJoel
-    Meier\n\nSean O'Connell\n\nBrian Christner\n\nSilvan Haenggli\n\nFrancisco Bachmann\n\nMaikel
-    Steckhoven\n\nPhilipp Juretzko\n\nUrsi Brunner\n\nSchwoesterli Martinello\n\nSvenio
-    Berzio\n\nMartinio Berzio\n\nChristophErNiederer\n\nPatrizia Enis\n\nAna Lysis\n\nGottfried
-    Stutz\n\nKai Stutz\n\nPhil Stutz\n\nHanni Stutz\n\nShari Luegstenmann\n\nDJeftron
-    Deftrimi\n\nAntoine Burtz\n\nLin Led\n\nSantz Santiago\n\nGony Ngonie\n\nRichi
-    Schoenbaechler"
+  m_Text: "Special Thanks \nTo\n\n\n\nTEAM\n\n\nFelipe Blanco\n(Lead Programmer)\n\n\nRoman
+    Martinello\n(Lead GUI Designer)\n\n\nMicha Brunner\n(Lead Level Designer)\n\n\n\nTESTER\n\nRicardo
+    Zurfluh\n\nDaniel Blanco\n\nDominik Alasu\n\nRaffael Sahli\n\nPascal Kistler\n\nSandro
+    Aebischer\n\nYahya Djelassi\n\nPhilipp Benz\n\nNicole Blanco\n\nJasmin Berz\n\nBrian
+    Christner\n\nDavid B\xF6ller\n\nMartin Berz\n\nSven Berz\n\nOlivier Denzler\n\nElias
+    H\xE4fliger\n\nNadisa Bahsani Dilji\n\nSeverin Meier"
 --- !u!222 &1164300015
 CanvasRenderer:
   m_ObjectHideFlags: 0
