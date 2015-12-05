@@ -458,6 +458,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11402750, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
+      propertyPath: portraitCanvas
+      value: 
+      objectReference: {fileID: 1948457688}
+    - target: {fileID: 11402750, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
+      propertyPath: landscapeCanvas
+      value: 
+      objectReference: {fileID: 1372130160}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
   m_IsPrefabParent: 0
@@ -2526,6 +2534,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -3021,7 +3030,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1372130161
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3811,7 +3820,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1948457689
 RectTransform:
   m_ObjectHideFlags: 0

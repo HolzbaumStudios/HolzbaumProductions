@@ -5,22 +5,27 @@ public class DisplayHandler : MonoBehaviour {
 
 
 	public bool debugSimulateLandscape = false; //This variable is only used to simluate the rotation on the pc
-	private GameObject portraitCanvas;
-	private GameObject landscapeCanvas;
+	public GameObject portraitCanvas;
+	public GameObject landscapeCanvas;
 	private bool setToLandscape = false; //Used to check, that functions on screen orientation change only occur once
 	private bool setToPortrait = false; //Used to check, that functions on screen orientation change only occur once
 
 	// Use this for initialization
 	void Awake () {
-		portraitCanvas = GameObject.Find ("CanvasPortrait");
-		landscapeCanvas = GameObject.Find ("CanvasLandscape");
+		//portraitCanvas = GameObject.Find ("CanvasPortrait");
+		//landscapeCanvas = GameObject.Find ("CanvasLandscape");
 
-		landscapeCanvas.SetActive (false);
+		SetDisplayMode ();
 	}
 
 	void Update()
-	{	
-			#if UNITY_EDITOR
+	{
+		SetDisplayMode ();
+	}
+
+	void SetDisplayMode()
+	{
+		#if UNITY_EDITOR
 				if (Screen.width > Screen.height)
 				{
 					debugSimulateLandscape = true;
@@ -110,6 +115,7 @@ public class DisplayHandler : MonoBehaviour {
 	void SetLevelMenuCategorySlider(bool setLandscape)
 	{
 		GameObject levelChoice;
+		//landscapeCanvas.transform.FindChild("LevelChoice").gameObject.GetComponent<MenuScript> ().SaveCategoryPosition ();
 		if(setLandscape)
 		{
 			levelChoice = landscapeCanvas.transform.FindChild("LevelChoice").gameObject;
@@ -118,7 +124,6 @@ public class DisplayHandler : MonoBehaviour {
 		{
 			levelChoice = portraitCanvas.transform.FindChild("LevelChoice").gameObject;
 		}
-		levelChoice.GetComponent<MenuScript> ().SaveCategoryPosition ();
 	}
 
 	//Set the settings for the levelMenu

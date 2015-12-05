@@ -2741,6 +2741,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugSimulateLandscape: 0
+  portraitCanvas: {fileID: 1069768378}
+  landscapeCanvas: {fileID: 1926130407}
 --- !u!1 &644720276
 GameObject:
   m_ObjectHideFlags: 0
@@ -5205,7 +5207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1069768379
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5479,7 +5481,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .282352954, g: .470588237, b: .65882355, a: .0196078438}
+  m_BackGroundColor: {r: .282352954, g: .470588237, b: .65882355, a: .984313726}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -8993,7 +8995,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1926130409
 RectTransform:
   m_ObjectHideFlags: 0
