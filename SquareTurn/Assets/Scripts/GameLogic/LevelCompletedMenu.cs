@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Analytics;
+using System.Collections.Generic;
 
 public class LevelCompletedMenu : MonoBehaviour {
 	//This script is attached to the GameEndPanel in the game Scene
@@ -43,7 +45,14 @@ public class LevelCompletedMenu : MonoBehaviour {
 		//Count up levelnumber
 		int levelNumber = PlayerPrefs.GetInt ("ChosenLevel");
 		levelNumber ++;
-		PlayerPrefs.SetInt ("ChosenLevel", levelNumber);
+
+        //This line is only used for analytics purposes
+        Analytics.CustomEvent("Level Start", new Dictionary<string, object>
+        {
+            { "levelNumber", levelNumber }
+        });
+
+        PlayerPrefs.SetInt ("ChosenLevel", levelNumber);
 		Application.LoadLevel ("gameScene");
 	}
 
