@@ -3516,7 +3516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1119073686
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3857,6 +3857,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11402750, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
+      propertyPath: landscapeCanvas
+      value: 
+      objectReference: {fileID: 2080324522}
+    - target: {fileID: 11402750, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
+      propertyPath: portraitCanvas
+      value: 
+      objectReference: {fileID: 1119073685}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
   m_IsPrefabParent: 0
@@ -7346,7 +7354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2080324523
 MonoBehaviour:
   m_ObjectHideFlags: 0

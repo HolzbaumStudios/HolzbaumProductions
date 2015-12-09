@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
+using System.Collections.Generic;
 
 public class ChooseLevelScript : MonoBehaviour {
 	
@@ -20,7 +22,14 @@ public class ChooseLevelScript : MonoBehaviour {
 		}
 		else
 		{
-			Application.LoadLevel ("gameScene");
+            //This line is only used for analytics purposes
+            Analytics.CustomEvent("Level Start", new Dictionary<string, object>
+            {
+                { "levelNumber", level }
+            });
+
+            //This line is used to load the scene
+            Application.LoadLevel ("gameScene");
 		}
 	}
 
@@ -28,8 +37,7 @@ public class ChooseLevelScript : MonoBehaviour {
 		GameObject inputField = transform.FindChild ("InputField").FindChild ("Text").gameObject;
 	
 		int levelNumber = int.Parse (inputField.GetComponent<Text> ().text);
-
-		LoadLevel (levelNumber);
+        LoadLevel (levelNumber);
 	}
 
 	public void LoadAchievementsLevel(){
