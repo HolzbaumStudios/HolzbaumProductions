@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.Analytics;
 
 public class AchievementCollection : MonoBehaviour {
 
@@ -188,10 +189,13 @@ public class AchievementCollection : MonoBehaviour {
 
 		for(int i = 0; i < achievementList.Count; i++){
 			if(achievementList[i].GetState() == 1){
-				Debug.Log ("AchievementListNumber: " + i);
 				achievementList[i].SetState(2);
 				string prefabName = "Achievement" + i + "State";
 				PlayerPrefs.SetInt (prefabName, 2);
+				//Update Analytics
+				string eventName = "Achievement" + i;
+				Analytics.CustomEvent(eventName, new Dictionary<string, object>{});
+
 				returnValue = i;
 				i = achievementList.Count;
 			}
