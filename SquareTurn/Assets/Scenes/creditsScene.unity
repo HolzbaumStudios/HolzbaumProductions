@@ -119,10 +119,10 @@ RectTransform:
   - {fileID: 1284744627}
   m_Father: {fileID: 1910789786}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 87.5}
-  m_SizeDelta: {x: 0, y: 178}
+  m_AnchorMin: {x: .5, y: 0}
+  m_AnchorMax: {x: .5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 86}
+  m_SizeDelta: {x: 800, y: 183}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &31562504
 MonoBehaviour:
@@ -273,9 +273,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 31562503}
   m_RootOrder: 2
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -200, y: -21}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 200, y: 68}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &417562472
@@ -532,9 +532,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 31562503}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -6.67570021e-06, y: 21}
+  m_AnchorMin: {x: .5, y: 0}
+  m_AnchorMax: {x: .5, y: 0}
+  m_AnchoredPosition: {x: -6.67570021e-06, y: 110}
   m_SizeDelta: {x: 418, y: 83}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &795560137
@@ -568,9 +568,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 31562503}
   m_RootOrder: 1
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 200, y: -21}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -200, y: 68}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &795560139
@@ -844,8 +844,9 @@ MonoBehaviour:
     Martinello\n(Lead GUI Designer)\n\n\nMicha Brunner\n(Lead Level Designer)\n\n\n\nTESTER\n\nRicardo
     Zurfluh\n\nDaniel Blanco\n\nDominik Alasu\n\nRaffael Sahli\n\nPascal Kistler\n\nSandro
     Aebischer\n\nYahya Djelassi\n\nPhilipp Benz\n\nNicole Blanco\n\nJasmin Berz\n\nBrian
-    Christner\n\nDavid B\xF6ller\n\nMartin Berz\n\nSven Berz\n\nOlivier Denzler\n\nElias
-    H\xE4fliger\n\nNadisa Bahsani Dilji\n\nSeverin Meier"
+    Christner\n\nDavid Boeller\n\nMartin Berz\n\nSven Berz\n\nOlivier Denzler\n\nElias
+    Haefliger\n\nNadisa Bahsani Dilji\n\nSeverin Meier\n\nChristopher Murset\n\nBruno
+    Huerlimann\n\nDaniel Kritkos\n\nFabian Baumann (Sponsor Team Mascot)"
 --- !u!222 &1164300015
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -882,9 +883,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 31562503}
   m_RootOrder: 3
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: -35}
+  m_AnchorMin: {x: .5, y: 0}
+  m_AnchorMax: {x: .5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 54}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1284744628
