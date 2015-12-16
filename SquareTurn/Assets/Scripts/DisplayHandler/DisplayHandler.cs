@@ -162,7 +162,15 @@ public class DisplayHandler : MonoBehaviour {
 		bool statusMusicButton; // Der aktuelle Status
 
 		musicBackground = GameObject.Find("Music_Background").gameObject;
-		statusMusicButton = musicBackground.GetComponent<musicOnOff>().status;
+        if (PlayerPrefs.GetString("gameMusic") != "Off")
+        {
+            statusMusicButton = true;
+        }
+        else
+        {
+            statusMusicButton = false;
+        }
+		//statusMusicButton = musicBackground.GetComponent<musicOnOff>().status;
 
 		if(setLandscape) 
 		{
