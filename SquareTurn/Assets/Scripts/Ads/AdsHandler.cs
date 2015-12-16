@@ -9,7 +9,7 @@ public class AdsHandler : MonoBehaviour {
 
 	public GameObject unityAdsObject; //Add the gameObject UnityAds to this reference
 
-	// Use this for initialization
+	/*// Use this for initialization
 	void Awake() {
 		int counter = PlayerPrefs.GetInt ("AdCounter");
 		counter++;
@@ -22,6 +22,11 @@ public class AdsHandler : MonoBehaviour {
 		}
 		PlayerPrefs.SetInt ("AdCounter", counter);
 
+	}*/
+
+	public void EnableAds()
+	{
+		unityAdsObject.SetActive(true);
 	}
 
 }
