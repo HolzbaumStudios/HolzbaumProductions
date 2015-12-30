@@ -18,7 +18,13 @@ public class ChooseLevelScript : MonoBehaviour {
 		GameObject.Find ("LevelChoice").GetComponent<MenuScript> ().SaveCategoryPosition (); //Saves the category window position
 		if(PlayerPrefs.GetInt ("Tutorial1Finished") == 0)
 		{
-				Application.LoadLevel ("tutorialScene");
+			//This line is only used for analytics purposes
+			Analytics.CustomEvent("Level Start", new Dictionary<string, object>
+			                      {
+				{ "levelNumber", level }
+			});
+
+			Application.LoadLevel ("tutorialScene");
 		}
 		else
 		{
