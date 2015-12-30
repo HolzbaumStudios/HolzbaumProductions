@@ -26,7 +26,9 @@ public class AdsHandler : MonoBehaviour {
 
 	public void EnableAds()
 	{
-		unityAdsObject.SetActive(true);
+        #if UNITY_IOS || UNITY_ANDROID || UNITY_EDITOR
+            unityAdsObject.SetActive(true);
+        #endif
 	}
 
 }
