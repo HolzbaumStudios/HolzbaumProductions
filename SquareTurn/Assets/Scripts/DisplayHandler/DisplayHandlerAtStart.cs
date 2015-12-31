@@ -14,7 +14,19 @@ public class DisplayHandlerAtStart : MonoBehaviour {
 		portraitCanvas = GameObject.Find ("CanvasPortrait");
 		landscapeCanvas = GameObject.Find ("CanvasLandscape");
 
-		if(Screen.orientation == ScreenOrientation.LandscapeLeft || Screen.orientation == ScreenOrientation.LandscapeRight || debugSimulateLandscape == true)
+        #if UNITY_EDITOR
+                if (Screen.width > Screen.height)
+                {
+                    debugSimulateLandscape = true;
+                }
+                else
+                {
+                    debugSimulateLandscape = false;
+                }
+
+        #endif
+
+        if (Screen.orientation == ScreenOrientation.LandscapeLeft || Screen.orientation == ScreenOrientation.LandscapeRight || debugSimulateLandscape == true)
 		{
 			SetScreenOrientation(true);
 			DisableAutoRotation(true);
