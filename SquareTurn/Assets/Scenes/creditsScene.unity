@@ -1231,12 +1231,11 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Special Thanks \nTo\n\n\n\nTEAM\n\n\nFelipe Blanco\n(Lead Programmer)\n\n\nRoman
-    Martinello\n(Lead GUI Designer)\n\n\nMicha Brunner\n(Lead Level Designer)\n\n\n\nTESTER\n\nRicardo
-    Zurfluh\n\nDaniel Blanco\n\nDominik Alasu\n\nRaffael Sahli\n\nPascal Kistler\n\nSandro
-    Aebischer\n\nYahya Djelassi\n\nPhilipp Benz\n\nNicole Blanco\n\nJasmin Berz\n\nBrian
-    Christner\n\nDavid Boeller\n\nMartin Berz\n\nSven Berz\n\nOlivier Denzler\n\nElias
-    Haefliger\n\nNadisa Bahsani Dilji\n\nSeverin Meier\n\nChristopher Murset\n\nBruno
-    Huerlimann\n\nDaniel Kritkos\n\nKevin Pham\n\nFabian Baumann\n(Sponsor Team Mascot)\n\n"
+    Martinello\n(Lead GUI Designer)\n\n\nMicha Brunner\n(Lead Level Designer)\n\n\n\nTESTER\n\nDaniel
+    Blanco\n\nDominik Alasu\n\nRaffael Sahli\n\nPascal Kistler\n\nSandro Aebischer\n\nYahya
+    Djelassi\n\nPhilipp Benz\n\nJasmin Berz\n\nBrian Christner\n\nDavid Boeller\n\nMartin
+    Berz\n\nSven Berz\n\nOlivier Denzler\n\nNadisa Bahsani Dilji\n\nSeverin Meier\n\nChristopher
+    Murset\n\nBruno Huerlimann\n\nDaniel Kritkos\n\nFabian Baumann\n(Team Mascot Sponsor)\n\n"
 --- !u!222 &1164300015
 CanvasRenderer:
   m_ObjectHideFlags: 0
