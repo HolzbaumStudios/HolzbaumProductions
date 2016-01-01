@@ -615,7 +615,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: When you click on a tile, the one you pressed and all squares surrounding
+  m_Text: When you press on a tile, the tile you pressed and all tiles surrounding
     it, will turn around.
 --- !u!222 &99579980
 CanvasRenderer:
@@ -1374,10 +1374,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Congratulatios!
-
-    You just solved your fist level. Now you''re ready to start your journey with
-    squared.'
+  m_Text: "Congratulations!\nYou just solved your fist level. Now you're ready to
+    start playing Squared. \nGood luck!"
 --- !u!222 &176876319
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1518,7 +1516,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Now you know everything important to play the game. Let's try again to solve
+  m_Text: Now you know everything important to play Squared. Let's try again to solve
     this level the fastest way.
 --- !u!222 &245818610
 CanvasRenderer:
@@ -1872,8 +1870,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sometimes however you will end up lost. Orange tiles will turn back to blue
-    when hit again. Think your moves through before clicking.
+  m_Text: Sometimes however you will end up stuck. Orange tiles will turn back to
+    blue when pressed again. Think your moves through before playing.
 --- !u!222 &328805827
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2343,8 +2341,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: In every level you will be presented with a number of blue squares. Your
-    goal is to have all squares show an orange color.
+  m_Text: In every level you will be presented with a number of blue tiles. Your goal
+    is to arrange all tiles so they display an orange color.
 --- !u!222 &427647213
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3794,7 +3792,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This panel counts up with every move you make.
+  m_Text: This panel counts up with every tile you click.
 --- !u!222 &737275632
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4567,7 +4565,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tap all the corner pieces!
+  m_Text: Tap all the corner tiles!
 --- !u!222 &861289257
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6327,7 +6325,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Try tapping on this square!
+  m_Text: Try tapping on this tile!
 --- !u!222 &1236399880
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6850,7 +6848,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Try tapping on this square!
+  m_Text: Try tapping on this tile!
 --- !u!222 &1343407346
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6922,7 +6920,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Now you know everything important to play the game. Let's try again to solve
+  m_Text: Now you know everything important to play Squared. Let's try again to solve
     this level the fastest way.
 --- !u!222 &1410492721
 CanvasRenderer:
@@ -8228,7 +8226,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: When you click on a tile, the one you pressed and all squares surrounding
+  m_Text: When you press on a tile, the tile you pressed and all tiles surrounding
     it, will turn around.
 --- !u!222 &1522068949
 CanvasRenderer:
@@ -8301,10 +8299,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Congratulatios!
+  m_Text: 'Congratulations!
 
-    You just solved your fist level. Now you''re ready to start your journey with
-    squared.'
+    You just solved your fist level. Now you''re ready to start playing Squared. Good
+    luck!'
 --- !u!222 &1525662802
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8378,7 +8376,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tap all the corner pieces!
+  m_Text: Tap all the corner tiles!
 --- !u!222 &1535033085
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8678,8 +8676,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sometimes however you will end up lost. Orange tiles will turn back to blue
-    when hit again. Think your moves through before clicking.
+  m_Text: Sometimes however you will end up stuck. Orange tiles will turn back to
+    blue when pressed again. Think your moves through before playing.
 --- !u!222 &1566127943
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8942,7 +8940,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This panel counts up with every move you make.
+  m_Text: This panel counts up with every tile you click.
 --- !u!222 &1617131609
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9547,8 +9545,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: In every level you will be presented with a number of blue squares. Your
-    goal is to have all squares show an orange color.
+  m_Text: 'In every level you will be presented with a number of blue tiles.
+
+    Your goal is to arrange all tiles so they display an orange color.'
 --- !u!222 &1722663065
 CanvasRenderer:
   m_ObjectHideFlags: 0
