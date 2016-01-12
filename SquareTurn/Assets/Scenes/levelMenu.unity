@@ -76238,7 +76238,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1341109511}
   m_Direction: 0
   m_Value: 0
-  m_Size: .49999997
+  m_Size: .50000006
   m_NumberOfSteps: 2
   m_OnValueChanged:
     m_PersistentCalls:
@@ -86519,7 +86519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
-  m_DragThreshold: 5
+  m_DragThreshold: 15
 --- !u!4 &1908229641
 Transform:
   m_ObjectHideFlags: 0
