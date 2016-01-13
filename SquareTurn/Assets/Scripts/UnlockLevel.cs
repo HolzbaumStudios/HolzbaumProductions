@@ -22,7 +22,7 @@ public class UnlockLevel : MonoBehaviour {
 
 		int levelPackUnlocked = PlayerPrefs.GetInt ("levelPack"+levelPackNumber+"Unlocked");
 		if (levelPackUnlocked != 1) {
-			int countTotalStars = PlayerPrefs.GetInt ("Category1Stars") + PlayerPrefs.GetInt ("Category2Stars") + PlayerPrefs.GetInt ("Category3Stars");
+			int countTotalStars = PlayerPrefs.GetInt ("Category1Stars") + PlayerPrefs.GetInt ("Category2Stars") + PlayerPrefs.GetInt ("Category3Stars") + PlayerPrefs.GetInt ("Category4Stars");
 			if (countTotalStars >= neededStars) {
 					LevelUnlock ();
 			}
