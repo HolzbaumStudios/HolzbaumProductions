@@ -13,6 +13,7 @@ public class Tutorial1Script : MonoBehaviour {
 	public GameObject turnsPanel;
 
 	private bool checkForUserInput = true;
+    private bool waitBeforeInput = false; //Everytime an input is made, the user has to wait at least 0.5 seconds before the next input
 	private int currentStep;
 	private int moveCounterTutorial = 0;
 	
@@ -29,12 +30,20 @@ public class Tutorial1Script : MonoBehaviour {
 	{
 		if(checkForUserInput)
 		{
-			if(Input.touchCount > 0 || Input.GetMouseButtonDown(0))
+			if((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && waitBeforeInput == false)
 			{
+                waitBeforeInput = true;
 				ExecuteStep(currentStep + 1);
+                StartCoroutine(CountDownTime(0.5f));
 			}
 		}
 	}
+
+    public IEnumerator CountDownTime(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        waitBeforeInput = false;
+    }
 
 	public void ExecuteStep(int stepNumber)
 	{
