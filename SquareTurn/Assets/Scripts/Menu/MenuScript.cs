@@ -70,11 +70,12 @@ public class MenuScript : MonoBehaviour {
 	{
 		//Disable the slider
 		categorySlider.SetActive(false);
-		
-		//Disable the active Category
-		if(category1.activeSelf) category1.SetActive(false);
-		else if(category2.activeSelf) category2.SetActive(false);
-		else if(category3.activeSelf) category3.SetActive(false);
+
+        //Disable the active Category
+        if (category1.activeSelf) category1.SetActive(false);
+        else if (category2.activeSelf) category2.SetActive(false);
+        else if (category3.activeSelf) category3.SetActive(false);
+        else if (category4.activeSelf) category4.SetActive(false);
 		
 		//Enable category Choice
 		categoryChoice.SetActive (true);
@@ -98,6 +99,7 @@ public class MenuScript : MonoBehaviour {
 		case 1: category1.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category1.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 1); break;
 		case 2: category2.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category2.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 2); break;
 		case 3: category3.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category3.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 3); break;
+        case 4: category4.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category4.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 4); break;
 		}
 
 		//Enable the scrollbar;
