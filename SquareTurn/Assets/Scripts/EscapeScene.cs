@@ -8,7 +8,15 @@ public class EscapeScene : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
-			Application.LoadLevel(scene);
+            if(Application.loadedLevelName == "startMenu")
+            {
+                Debug.Log("Quit Application!");
+                Application.Quit();
+            }
+            else
+            {
+                Application.LoadLevel(scene);
+            }
 		}
 	}
 }
