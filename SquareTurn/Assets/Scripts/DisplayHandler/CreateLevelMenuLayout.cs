@@ -14,7 +14,10 @@ public class CreateLevelMenuLayout : MonoBehaviour {
 
     public float resolutionWidth;
     public float resolutionHeight;
+    public float numberColumns = 3; //How many rows with levelButtons should be displayed
+    public float numberRows = 4; // How many columns with levelButtons should be displayed
     public int categroies = 4;
+    public Sprite squareImage;
 
 
 	public void CreateLayout()
@@ -99,22 +102,48 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         container2Rect.localScale = new Vector3(1, 1, 1);
 
         //-----Create levelbuttons-----
-        for(int i = 0; i<24; i++)
+        int column = 0; //This variables are only used for the layout
+        int row = 1;
+        float xSpacing = resolutionWidth / 12;
+        float ySpacing = resolutionHeight / 12;
+        float buttonHeight = resolutionHeight / 7.5f;
+        float buttonWidth = resolutionWidth / 5.5f;
+        Vector2 buttonSize = new Vector2(buttonWidth, buttonHeight);
+        float xPosition = (-buttonWidth - xSpacing) * Mathf.Floor(numberColumns / 2);
+        float yPosition = (buttonHeight + ySpacing) * Mathf.Floor(numberRows / 2) - (buttonHeight+ySpacing) * 0.5f;
+        Vector2 buttonPosition = new Vector2(xPosition, yPosition);  //Get the button position of the initial button
+        for (int i = 0; i<24; i++)
         {
+            column++;
+            if (column > numberColumns) { //Start a new row
+                column = 1;
+                row++;
+                float tempYPosition = buttonPosition.y - buttonHeight - ySpacing;
+                if (row > numberRows)
+                {
+                    row = 1;
+                    tempYPosition = yPosition;
+                }    
+                buttonPosition = new Vector2(xPosition, tempYPosition);
+                
+            }
+
             if(i < 12) //Attach level 0 - 11 to container1 and 12 - 23 to container2
             {
-                CreateLevelButton(i, cat, container1.transform);
+                CreateLevelButton(i, cat, container1.transform, buttonPosition , buttonSize);
             }
             else
             {
-                CreateLevelButton(i, cat, container2.transform);
+                CreateLevelButton(i, cat, container2.transform, buttonPosition, buttonSize);
             }
+
+            buttonPosition += new Vector2(buttonWidth + xSpacing, 0); // Add button width and xSpacing to the current position
         }
     }
 
     //Create a levelbutton
     //This function takes the level number and the parent to which the categories have to be attached, as argument
-    void CreateLevelButton(int buttonNumber, int category, Transform parent)
+    void CreateLevelButton(int buttonNumber, int category, Transform parent, Vector2 buttonPosition, Vector2 buttonSize)
     {
         string levelNumber;
         if(buttonNumber < 10)
@@ -125,9 +154,27 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         {
             levelNumber = category + "" + buttonNumber;
         }
+        //Create button panel
         GameObject levelButton = new GameObject("Level" + levelNumber + "ButtonPanel");
         levelButton.transform.SetParent(parent);
         levelButton.layer = LayerMask.NameToLayer("UI");
+        levelButton.AddComponent<CanvasRenderer>();
+        levelButton.AddComponent<RectTransform>();
+        //Set button panel rect
+        RectTransform levelButtonRect = levelButton.GetComponent<RectTransform>();
+        levelButtonRect.anchorMin = new Vector2(0.5f, 0.5f);
+        levelButtonRect.anchorMax = new Vector2(0.5f, 0.5f);
+        levelButtonRect.pivot = new Vector2(0.5f, 0.5f);
+        //Set rect transform size and position
+        levelButtonRect.localScale = new Vector3(1, 1, 1);
+        levelButtonRect.sizeDelta = buttonSize;
+        levelButtonRect.anchoredPosition = buttonPosition;
+
+        
+        //Add Image Component
+        Image imageScript = levelButton.AddComponent<Image>();
+        imageScript.sprite = squareImage;
+        imageScript.color = new Color32(72, 120, 168, 255);
     }
 
 
