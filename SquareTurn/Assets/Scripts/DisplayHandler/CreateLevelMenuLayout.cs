@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class CreateLevelMenuLayout : MonoBehaviour {
 
@@ -104,13 +105,29 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         //-----Create levelbuttons-----
         int column = 0; //This variables are only used for the layout
         int row = 1;
-        float xSpacing = resolutionWidth / 12;
-        float ySpacing = resolutionHeight / 12;
-        float buttonHeight = resolutionHeight / 7.5f;
-        float buttonWidth = resolutionWidth / 5.5f;
+        float xSpacing = resolutionWidth / 15;
+        float ySpacing = resolutionHeight / 22;
+        float buttonHeight = resolutionHeight / 6.5f;
+        float buttonWidth = resolutionWidth / 5.0f;
         Vector2 buttonSize = new Vector2(buttonWidth, buttonHeight);
-        float xPosition = (-buttonWidth - xSpacing) * Mathf.Floor(numberColumns / 2);
-        float yPosition = (buttonHeight + ySpacing) * Mathf.Floor(numberRows / 2) - (buttonHeight+ySpacing) * 0.5f;
+        float xPosition;
+        float yPosition;
+        if (numberColumns % 2 == 0) //Check if the number of columns is even and format accordingly
+        {
+            xPosition = (-buttonWidth - xSpacing) * Mathf.Floor(numberColumns / 2) + (buttonWidth + xSpacing) * 0.5f;
+        }
+        else
+        {
+            xPosition = (-buttonWidth - xSpacing) * Mathf.Floor(numberColumns / 2);
+        }
+        if (numberRows % 2 == 0) //Check if the number of rows is even and format accordingly
+        {
+            yPosition = (buttonHeight + ySpacing) * Mathf.Floor(numberRows / 2) - (buttonHeight + ySpacing) * 0.5f;
+        }
+        else
+        {
+            yPosition = (buttonHeight + ySpacing) * Mathf.Floor(numberRows / 2);
+        }
         Vector2 buttonPosition = new Vector2(xPosition, yPosition);  //Get the button position of the initial button
         for (int i = 0; i<24; i++)
         {
@@ -159,23 +176,68 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         levelButton.transform.SetParent(parent);
         levelButton.layer = LayerMask.NameToLayer("UI");
         levelButton.AddComponent<CanvasRenderer>();
-        levelButton.AddComponent<RectTransform>();
+        RectTransform levelButtonRect = levelButton.AddComponent<RectTransform>();
         //Set button panel rect
-        RectTransform levelButtonRect = levelButton.GetComponent<RectTransform>();
         levelButtonRect.anchorMin = new Vector2(0.5f, 0.5f);
         levelButtonRect.anchorMax = new Vector2(0.5f, 0.5f);
         levelButtonRect.pivot = new Vector2(0.5f, 0.5f);
         //Set rect transform size and position
         levelButtonRect.localScale = new Vector3(1, 1, 1);
         levelButtonRect.sizeDelta = buttonSize;
-        levelButtonRect.anchoredPosition = buttonPosition;
-
-        
+        levelButtonRect.anchoredPosition = buttonPosition;        
         //Add Image Component
         Image imageScript = levelButton.AddComponent<Image>();
         imageScript.sprite = squareImage;
         imageScript.color = new Color32(72, 120, 168, 255);
-    }
+        //Add Shadow Component
+        Shadow shadowScript = levelButton.AddComponent<Shadow>();
+        shadowScript.effectDistance = new Vector2(2, -2);
+        shadowScript.useGraphicAlpha = true;
+        //Add scripts
+        ChooseLevelScript chooseLevelScript = levelButton.AddComponent<ChooseLevelScript>();
+        //Add button
+        Button buttonScript = levelButton.AddComponent<Button>();
+        int level = (category*100) + buttonNumber;
+        buttonScript.onClick.AddListener(() =>  chooseLevelScript.LoadLevel(level) ); //The on click function can not be seen on the editor
 
+            //------ Create Lower Button ------------
+            GameObject lowerButton = new GameObject("LevelButton");
+            lowerButton.transform.SetParent(levelButton.transform);
+            lowerButton.layer = LayerMask.NameToLayer("UI");
+            lowerButton.AddComponent<CanvasRenderer>();
+            RectTransform lowerButtonRect = lowerButton.AddComponent<RectTransform>();
+            //Set lower button Rect
+            lowerButtonRect.anchorMin = new Vector2(0, 0);
+            lowerButtonRect.anchorMax = new Vector2(1, 1);
+            lowerButtonRect.pivot = new Vector2(0.5f, 0.5f);
+            float offset = buttonSize.x / 14;
+            float offsetBottom = buttonSize.y / 3;
+            lowerButtonRect.offsetMax = new Vector2(-offset, -offset);
+            lowerButtonRect.offsetMin = new Vector2(offset, offsetBottom);
+            lowerButtonRect.localScale = new Vector3(1, 1, 1);
+            //Add Image Component
+            Image lowerButtonImage = lowerButton.AddComponent<Image>();
+            lowerButtonImage.sprite = squareImage;
+            lowerButtonImage.color = new Color32(58, 112, 165, 255);
+
+                //------ Create Lower Button Text ------
+                GameObject buttonText = new GameObject("ButtonText");
+                buttonText.transform.SetParent(lowerButton.transform);
+                buttonText.layer = LayerMask.NameToLayer("UI");
+                buttonText.AddComponent<CanvasRenderer>();
+                RectTransform buttonTextRect = buttonText.AddComponent<RectTransform>();
+                //Set button text rect
+                buttonTextRect.anchorMin = new Vector2(0, 0);
+                buttonTextRect.anchorMax = new Vector2(1, 1);
+                buttonTextRect.pivot = new Vector2(0.5f, 0.5f);
+        buttonTextRect.offsetMax = new Vector2(0,0);
+        buttonTextRect.offsetMin = new Vector2(0, 0);
+        buttonTextRect.localScale = new Vector3(1, 1, 1);
+        //Add Text component
+        Text textScript = buttonText.AddComponent<Text>();
+        textScript.text = category + "-" + buttonNumber;       
+
+
+    }
 
 }
