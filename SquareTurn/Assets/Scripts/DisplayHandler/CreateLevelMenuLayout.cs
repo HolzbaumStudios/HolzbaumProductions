@@ -230,12 +230,18 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                 buttonTextRect.anchorMin = new Vector2(0, 0);
                 buttonTextRect.anchorMax = new Vector2(1, 1);
                 buttonTextRect.pivot = new Vector2(0.5f, 0.5f);
-        buttonTextRect.offsetMax = new Vector2(0,0);
-        buttonTextRect.offsetMin = new Vector2(0, 0);
+        float textOffset = buttonSize.x / 12;
+        buttonTextRect.offsetMax = new Vector2(-textOffset,-textOffset);
+        buttonTextRect.offsetMin = new Vector2(textOffset, textOffset);
         buttonTextRect.localScale = new Vector3(1, 1, 1);
         //Add Text component
         Text textScript = buttonText.AddComponent<Text>();
-        textScript.text = category + "-" + buttonNumber;       
+        textScript.text = category + "-" + buttonNumber;
+        textScript.fontStyle = FontStyle.Bold;
+        textScript.resizeTextForBestFit = true;
+        textScript.resizeTextMaxSize = 140;
+        textScript.resizeTextMinSize = 20;
+
 
 
     }
