@@ -19,6 +19,8 @@ public class CreateLevelMenuLayout : MonoBehaviour {
     public float numberRows = 4; // How many columns with levelButtons should be displayed
     public int categroies = 4;
     public Sprite squareImage;
+    public Sprite starSprite;
+    public Font textFont;
 
 
 	public void CreateLayout()
@@ -211,7 +213,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
             lowerButtonRect.anchorMax = new Vector2(1, 1);
             lowerButtonRect.pivot = new Vector2(0.5f, 0.5f);
             float offset = buttonSize.x / 14;
-            float offsetBottom = buttonSize.y / 3;
+            float offsetBottom = buttonSize.y / 3.5f;
             lowerButtonRect.offsetMax = new Vector2(-offset, -offset);
             lowerButtonRect.offsetMin = new Vector2(offset, offsetBottom);
             lowerButtonRect.localScale = new Vector3(1, 1, 1);
@@ -230,17 +232,59 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                 buttonTextRect.anchorMin = new Vector2(0, 0);
                 buttonTextRect.anchorMax = new Vector2(1, 1);
                 buttonTextRect.pivot = new Vector2(0.5f, 0.5f);
-        float textOffset = buttonSize.x / 12;
-        buttonTextRect.offsetMax = new Vector2(-textOffset,-textOffset);
-        buttonTextRect.offsetMin = new Vector2(textOffset, textOffset);
-        buttonTextRect.localScale = new Vector3(1, 1, 1);
-        //Add Text component
-        Text textScript = buttonText.AddComponent<Text>();
-        textScript.text = category + "-" + buttonNumber;
-        textScript.fontStyle = FontStyle.Bold;
-        textScript.resizeTextForBestFit = true;
-        textScript.resizeTextMaxSize = 140;
-        textScript.resizeTextMinSize = 20;
+        float textOffsetSides;
+                if (buttonNumber < 9)
+                { 
+                    textOffsetSides = buttonSize.x / 8.5f;
+                }
+                else
+                {
+                    textOffsetSides = buttonSize.x / 20;
+                }
+                buttonTextRect.offsetMax = new Vector2(-textOffsetSides,0);
+                buttonTextRect.offsetMin = new Vector2(textOffsetSides, 0);
+                buttonTextRect.localScale = new Vector3(1, 1, 1);
+                //Add Text component
+                Text textScript = buttonText.AddComponent<Text>();
+                textScript.text = category + "-" + (buttonNumber+1);
+                textScript.font = textFont;
+                textScript.fontStyle = FontStyle.Bold;
+                textScript.resizeTextForBestFit = true;
+                textScript.resizeTextMaxSize = 140;
+                textScript.resizeTextMinSize = 20;
+                textScript.alignment = TextAnchor.MiddleCenter;
+
+                //------ Create stars ------
+                float starSize = buttonSize.x / 6;
+                float starSpacing = buttonSize.x /14;
+                float positionX = -starSize - starSpacing;
+                float positionY = (float)(buttonSize.y/3.5)/2;
+                for (int i=1; i < 4; i++)
+                {
+                     GameObject star = new GameObject("star");
+                    star.transform.SetParent(levelButton.transform);
+                    star.layer = LayerMask.NameToLayer("UI");
+                    star.AddComponent<CanvasRenderer>();
+                     RectTransform starRect = star.AddComponent<RectTransform>();
+                    //Set button text rect
+                    starRect.anchorMin = new Vector2(0.5f, 0);
+                    starRect.anchorMax = new Vector2(0.5f, 0);
+                    starRect.pivot = new Vector2(0.5f, 0.5f);
+                    //StartSize
+                    starRect.localScale = new Vector3(1, 1, 1);
+                    starRect.sizeDelta = new Vector2(starSize,starSize);
+                    starRect.anchoredPosition = new Vector2(positionX, positionY);
+                    //Set new position
+                    positionX += starSpacing + starSize;
+                    //---- Add image ----
+                    Image starImage = star.AddComponent<Image>();
+                    starImage.sprite = starSprite;
+                    starImage.preserveAspect = true;
+                    //----- Add scripts -----
+                    StarColorScript starScript = star.AddComponent<StarColorScript>();
+                    starScript.starNumber = i;
+                    starScript.levelNumber = level;
+                }
 
 
 
