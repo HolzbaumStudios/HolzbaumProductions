@@ -21,7 +21,13 @@ public class CreateLevelMenuLayout : MonoBehaviour {
     public Sprite squareImage;
     public Sprite starSprite;
     public Sprite arrowSprite;
+    public Sprite dotSprite;
+    public Sprite[] categorySprite;
     public Font textFont;
+    public GameObject scrollbarPrefab; //Scrollbar prefab
+
+    //Private reference variables
+    GameObject scrollbar; //For having reference across the script
 
 
 	public void CreateLayout()
@@ -47,13 +53,20 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         levelChoiceRect.anchorMin = new Vector2(0, 0);
         levelChoiceRect.anchorMax = new Vector2(1, 1);
         levelChoiceRect.pivot = new Vector2(0.5f, 0.5f);
- 
+
+        //-----Create scrollbar------
+        scrollbar = Instantiate(scrollbarPrefab);
+        scrollbar.transform.SetParent(levelChoice.transform);
+        scrollbar.name = "Scrollbar";
 
         //-----Create categories-----
         for(int cat = 1; cat <= categroies; cat++)
         {
             CreateCategory(cat, levelChoice.transform);
         }
+
+        //-----Create Category Choice Panel-----
+        GameObject categoryChoice = CreateCategoryChoice(levelChoice);
 
     }
 
@@ -339,6 +352,122 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         //Add shadow
         Shadow arrowShadow = arrow.AddComponent<Shadow>();
         if (rightArrow) { arrowShadow.effectDistance = new Vector2(1, 0); } else { arrowShadow.effectDistance = new Vector2(-1, 0); }
+        //Add arrow script
+        ArrowLevelchoice arrowScript = arrow.AddComponent<ArrowLevelchoice>();
+        arrowScript.scrollObject = scrollbar;
+        //Add button
+        Button arrowButtonScript = arrow.AddComponent<Button>();
+        int value = 0;
+        if (rightArrow) { value = 1; }
+        arrowButtonScript.onClick.AddListener(() => arrowScript.ScrollLevelMenu(value)); //The on click function can not be seen on the editor
+        //Add Dots
+        float dotSize = arrowPanelHeight * 0.3f;
+        float dotPositionX = -dotSize;
+        for (int i = 0; i < 2; i++)
+        {
+            GameObject dot = new GameObject("Dot");
+            dot.transform.SetParent(arrowPanel.transform);
+            dot.layer = LayerMask.NameToLayer("UI");
+            dot.AddComponent<CanvasRenderer>();
+            RectTransform dotRect = dot.AddComponent<RectTransform>();
+            //Set dot rect
+            dotRect.anchorMin = new Vector2(0.5f, 0.5f);
+            dotRect.anchorMax = new Vector2(0.5f, 0.5f);
+            dotRect.pivot = new Vector2(0.5f, 0.5f);
+            //Set dot rect size
+            dotRect.localScale = new Vector3(1, 1, 1);
+            dotRect.sizeDelta = new Vector2(dotSize, dotSize);
+            dotRect.anchoredPosition = new Vector2(dotPositionX, 0);
+            //Add image
+            Image dotImage = dot.AddComponent<Image>();
+            dotImage.sprite = dotSprite;
+            if((i == 0 && rightArrow) || (i== 1 && !rightArrow))
+            {
+                dotImage.color = new Color32(249,143,74,255);
+                //Add shadow
+                Shadow dotShadow = dot.AddComponent<Shadow>();
+                dotShadow.effectDistance = new Vector2(1, 0);
+            }
+
+            dotPositionX += dotSize * 2;
+        }
+    }
+
+    //Function to create category choice
+    //This function return the game object for reference by the menu script
+    GameObject CreateCategoryChoice(GameObject levelChoice)
+    {
+        GameObject categoryChoice = new GameObject("CategoryChoice");
+        categoryChoice.transform.SetParent(levelChoice.transform);
+        categoryChoice.layer = LayerMask.NameToLayer("UI");
+        categoryChoice.AddComponent<CanvasRenderer>();
+        RectTransform categoryChoiceRect = categoryChoice.AddComponent<RectTransform>();
+        //Set category choice rect
+        categoryChoiceRect.anchorMin = new Vector2(0, 0);
+        categoryChoiceRect.anchorMax = new Vector2(1, 1);
+        categoryChoiceRect.pivot = new Vector2(0.5f, 0.5f);
+        //Category choice size
+        categoryChoiceRect.offsetMax = new Vector2(0, 0);
+        categoryChoiceRect.offsetMin = new Vector2(0, 0);
+        categoryChoiceRect.localScale = new Vector3(1, 1, 1);
+
+        //Create category buttons
+       
+        float buttonWidth = resolutionWidth * 0.5f;
+        float buttonHeight = resolutionHeight / 5;
+        float buttonSpacing = (resolutionHeight / 5) / 6;
+        float positionY = buttonHeight * 1.5f + buttonSpacing * 1.5f;
+        for (int i=1; i<5; i++)
+        {
+            string categoryButtonName = "Category" + i + "Button";
+            GameObject categoryButton = new GameObject(categoryButtonName);
+            categoryButton.transform.SetParent(categoryChoice.transform);
+            categoryButton.layer = LayerMask.NameToLayer("UI");
+            categoryButton.AddComponent<CanvasRenderer>();
+            RectTransform categoryButtonRect = categoryButton.AddComponent<RectTransform>();
+            //Set rect anchor
+            categoryButtonRect.anchorMin = new Vector2(0.5f, 0.5f);
+            categoryButtonRect.anchorMax = new Vector2(0.5f, 0.5f);
+            categoryButtonRect.pivot = new Vector2(0.5f, 0.5f);
+            //Set dot rect size
+            categoryButtonRect.localScale = new Vector3(1, 1, 1);
+            categoryButtonRect.sizeDelta = new Vector2(buttonWidth, buttonHeight);
+            categoryButtonRect.anchoredPosition = new Vector2(0, positionY);
+            //Add image
+            Image categoryButtonImage = categoryButton.AddComponent<Image>();
+            categoryButtonImage.sprite = squareImage;
+            categoryButtonImage.color = new Color32(72,120,168,255);
+            //Add shadow
+            Shadow categoryButtonShadow = categoryButton.AddComponent<Shadow>();
+            categoryButtonShadow.effectDistance= new Vector2(2, -2);
+            //AddButton
+            Button categoryButtonScript = categoryButton.AddComponent<Button>();
+            categoryButtonScript.onClick.AddListener(() => levelChoice.GetComponent<MenuScript>().ChooseCategory(i));
+
+                //----- Add category button image -----
+                GameObject categoryButtonGraphic = new GameObject("Image");
+                categoryButtonGraphic.transform.SetParent(categoryButton.transform);
+                categoryButtonGraphic.layer = LayerMask.NameToLayer("UI");
+                categoryButtonGraphic.AddComponent<CanvasRenderer>();
+                RectTransform categoryButtonGraphicRect = categoryButtonGraphic.AddComponent<RectTransform>();
+                //Set Image rect
+                float imageSize = buttonHeight*0.9f;
+                categoryButtonGraphicRect.anchorMin = new Vector2(1, 0.5f);
+                categoryButtonGraphicRect.anchorMax = new Vector2(1, 0.5f);
+                categoryButtonGraphicRect.pivot = new Vector2(0.5f, 0.5f);
+                categoryButtonGraphicRect.localScale = new Vector3(1, 1, 1);
+                categoryButtonGraphicRect.sizeDelta = new Vector2(imageSize, imageSize);
+                categoryButtonGraphicRect.anchoredPosition = new Vector2(-buttonHeight*0.5f, 0);
+                //Add image
+                Image categoryButtonGraphicImage = categoryButtonGraphic.AddComponent<Image>();
+                categoryButtonGraphicImage.sprite = categorySprite[i-1];
+
+
+            //Set new yPosition
+            positionY -= buttonHeight + buttonSpacing;
+        }
+
+        return categoryChoice;
     }
 
 }
