@@ -27,11 +27,20 @@ public class CreateLevelMenuLayout : MonoBehaviour {
     public GameObject scrollbarPrefab; //Scrollbar prefab
 
     //Private reference variables
-    GameObject scrollbar; //For having reference across the script
-
+    private GameObject scrollbar; //For having reference across the script
+    private float screenRatio;
+ 
 
 	public void CreateLayout()
     {
+        if(resolutionHeight > resolutionWidth)
+        { 
+            screenRatio = resolutionHeight / resolutionWidth;
+        }
+        else
+        {
+            screenRatio = resolutionWidth / resolutionHeight;
+        }
         //Set all canvas settings
         CanvasScaler scalerComponent;
         scalerComponent = GetComponent<CanvasScaler>();
@@ -412,8 +421,8 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         categoryChoiceRect.localScale = new Vector3(1, 1, 1);
 
         //Create category buttons
-       
-        float buttonWidth = resolutionWidth * 0.5f;
+        float buttonWidth;
+        if (screenRatio > 1.5f) { buttonWidth = resolutionWidth * 0.5f; } else { buttonWidth = resolutionWidth * 0.45f; }         
         float buttonHeight = resolutionHeight / 5;
         float buttonSpacing = (resolutionHeight / 5) / 6;
         float positionY = buttonHeight * 1.5f + buttonSpacing * 1.5f;
@@ -461,6 +470,29 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                 //Add image
                 Image categoryButtonGraphicImage = categoryButtonGraphic.AddComponent<Image>();
                 categoryButtonGraphicImage.sprite = categorySprite[i-1];
+
+                //----- Add category Information -----
+                GameObject categoryInformation = new GameObject("CategoryInformation");
+                categoryInformation.transform.SetParent(categoryButton.transform);
+                categoryInformation.layer = LayerMask.NameToLayer("UI");
+                categoryInformation.AddComponent<CanvasRenderer>();
+                RectTransform categoryInformationRect = categoryInformation.AddComponent<RectTransform>();
+                //Set category information rect
+                Vector2 categoryInformationSize = new Vector2(buttonWidth - imageSize*1.1f, buttonHeight / 3);
+                categoryInformationRect.anchorMin = new Vector2(0, 0.5f);
+                categoryInformationRect.anchorMax = new Vector2(0, 0.5f);
+                categoryInformationRect.pivot = new Vector2(0.5f, 0.5f);
+                categoryInformationRect.localScale = new Vector3(1, 1, 1);
+                categoryInformationRect.sizeDelta = categoryInformationSize;
+                categoryInformationRect.anchoredPosition = new Vector2(categoryInformationSize.x / 2, 0);
+                
+                    //----- Create star image ------
+                    GameObject categoryStar = new GameObject("StarImage");
+                    categoryStar.transform.SetParent(categoryInformation.transform);
+                    categoryStar.layer = LayerMask.NameToLayer("UI");
+                    categoryStar.AddComponent<CanvasRenderer>();
+                    RectTransform categoryStarRect = categoryStar.AddComponent<RectTransform>();
+
 
 
             //Set new yPosition
