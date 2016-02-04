@@ -20,6 +20,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
     public int categroies = 4;
     public Sprite squareImage;
     public Sprite starSprite;
+    public Sprite arrowSprite;
     public Font textFont;
 
 
@@ -104,6 +105,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         container2Rect.sizeDelta = new Vector2(resolutionWidth, resolutionHeight);
         container2Rect.localScale = new Vector3(1, 1, 1);
 
+
         //-----Create levelbuttons-----
         int column = 0; //This variables are only used for the layout
         int row = 1;
@@ -158,6 +160,10 @@ public class CreateLevelMenuLayout : MonoBehaviour {
 
             buttonPosition += new Vector2(buttonWidth + xSpacing, 0); // Add button width and xSpacing to the current position
         }
+
+        //-----Create arrows-----------
+        CreateArrow(true, container1.transform);
+        CreateArrow(false, container2.transform);
     }
 
     //Create a levelbutton
@@ -232,7 +238,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                 buttonTextRect.anchorMin = new Vector2(0, 0);
                 buttonTextRect.anchorMax = new Vector2(1, 1);
                 buttonTextRect.pivot = new Vector2(0.5f, 0.5f);
-        float textOffsetSides;
+                float textOffsetSides;
                 if (buttonNumber < 9)
                 { 
                     textOffsetSides = buttonSize.x / 8.5f;
@@ -285,9 +291,54 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                     starScript.starNumber = i;
                     starScript.levelNumber = level;
                 }
+    }
 
-
-
+    //Creates the arrows
+    //If right arrow bool is true, create right arrow, else create left arrow
+    void CreateArrow(bool rightArrow, Transform parent)
+    {
+        String panelName;
+        if (rightArrow) { panelName = "rightArrowPanel"; } else { panelName = "leftArrowPanel"; }
+        GameObject arrowPanel = new GameObject(panelName);
+        arrowPanel.transform.SetParent(parent);
+        arrowPanel.layer = LayerMask.NameToLayer("UI");
+        arrowPanel.AddComponent<CanvasRenderer>();
+        RectTransform arrowPanelRect = arrowPanel.AddComponent<RectTransform>();
+        //Set arrowpanel rect transform anchors
+        arrowPanelRect.anchorMin = new Vector2(0.5f, 0);
+        arrowPanelRect.anchorMax = new Vector2(0.5f, 0);
+        arrowPanelRect.pivot = new Vector2(0.5f, 0.5f);
+        //Set Panelsize
+        float arrowPanelHeight = resolutionHeight / 9.5f;
+        arrowPanelRect.sizeDelta = new Vector2(resolutionWidth, arrowPanelHeight);
+        arrowPanelRect.anchoredPosition = new Vector2(0, arrowPanelHeight / 2);
+        arrowPanelRect.localScale = new Vector3(1, 1, 1);
+        //-----Create arrow button-----
+        GameObject arrow = new GameObject("arrow");
+        arrow.transform.SetParent(arrowPanel.transform);
+        arrow.layer = LayerMask.NameToLayer("UI");
+        arrow.AddComponent<CanvasRenderer>();
+        RectTransform arrowRect = arrow.AddComponent<RectTransform>();
+        //Set arrow rect
+        int anchorValue;
+        if(rightArrow) { anchorValue = 1; } else { anchorValue = 0; }
+        arrowRect.anchorMin = new Vector2(anchorValue, 0.5f);
+        arrowRect.anchorMax = new Vector2(anchorValue, 0.5f);
+        arrowRect.pivot = new Vector2(0.5f, 0.5f);
+        //Set arrow size
+        float arrowSize = arrowPanelHeight * 0.8f;
+        float arrowXOffset = resolutionWidth / 4;
+        arrowRect.sizeDelta = new Vector2(arrowSize, arrowSize);
+        if (rightArrow) { arrowXOffset = arrowXOffset * -1; } else { arrowRect.localRotation = Quaternion.Euler(0, 0, 180); }
+        arrowRect.anchoredPosition = new Vector2(arrowXOffset, 0);
+        arrowRect.localScale = new Vector3(1, 1, 1);
+        //Add image script
+        Image arrowImage = arrow.AddComponent<Image>();
+        arrowImage.sprite = arrowSprite;
+        arrowImage.color = new Color32(249, 143, 74, 255);
+        //Add shadow
+        Shadow arrowShadow = arrow.AddComponent<Shadow>();
+        if (rightArrow) { arrowShadow.effectDistance = new Vector2(1, 0); } else { arrowShadow.effectDistance = new Vector2(-1, 0); }
     }
 
 }
