@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System;
+using UnityEditor.Animations;
 
 public class CreateLevelMenuLayout : MonoBehaviour {
 
@@ -25,9 +26,11 @@ public class CreateLevelMenuLayout : MonoBehaviour {
     public Sprite[] categorySprite;
     public Font textFont;
     public GameObject scrollbarPrefab; //Scrollbar prefab
+    public AnimatorController animationController;
 
     //Private reference variables
     private GameObject scrollbar; //For having reference across the script
+    private GameObject levelUnlockedPanel; //Reference to levelUnlockedPanel across the script
     private float screenRatio;
  
 
@@ -73,6 +76,9 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         {
             CreateCategory(cat, levelChoice.transform);
         }
+
+        //------Create level unlocked panel-----
+        CreateLevelUnlocked(this.gameObject.transform);
 
         //-----Create Category Choice Panel-----
         GameObject categoryChoice = CreateCategoryChoice(levelChoice);
@@ -402,6 +408,71 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         }
     }
 
+
+    //Funciton to create level unlocked panel
+    void CreateLevelUnlocked(Transform parent)
+    {
+        levelUnlockedPanel = new GameObject("LevelUnlockedPanel");
+        levelUnlockedPanel.transform.SetParent(parent);
+        levelUnlockedPanel.layer = LayerMask.NameToLayer("UI");
+        levelUnlockedPanel.AddComponent<CanvasRenderer>();
+        RectTransform levelUnlockedPanelRect = levelUnlockedPanel.AddComponent<RectTransform>();
+        //Set rect transform anchors
+        levelUnlockedPanelRect.anchorMin = new Vector2(0, 0);
+        levelUnlockedPanelRect.anchorMax = new Vector2(1, 1);
+        levelUnlockedPanelRect.pivot = new Vector2(0.5f, 0.5f);
+        //Set Rect size
+        levelUnlockedPanelRect.offsetMin = new Vector2(0, 0);
+        levelUnlockedPanelRect.offsetMax = new Vector2(0, 0);
+        levelUnlockedPanelRect.localScale = new Vector3(1, 1, 1);
+        
+            //-----Add level unlocked panel base-----
+            GameObject levelUnlockedPanelBase = new GameObject("LevelUnlockedPanelBase");
+            levelUnlockedPanelBase.transform.SetParent(levelUnlockedPanel.transform);
+            levelUnlockedPanelBase.layer = LayerMask.NameToLayer("UI");
+            levelUnlockedPanelBase.AddComponent<CanvasRenderer>();
+            RectTransform levelUnlockedPanelBaseRect = levelUnlockedPanelBase.AddComponent<RectTransform>();
+            //Set rect transform anchors
+            levelUnlockedPanelBaseRect.anchorMin = new Vector2(0.5f, 1);
+            levelUnlockedPanelBaseRect.anchorMax = new Vector2(0.5f, 1);
+            levelUnlockedPanelBaseRect.pivot = new Vector2(0.5f, 0.5f);
+            //Set rect size
+            Vector2 levelUnlockedSize = new Vector2(resolutionWidth*0.8f, resolutionHeight/7); 
+            levelUnlockedPanelBaseRect.localScale = new Vector3(1, 1, 1);
+            levelUnlockedPanelBaseRect.sizeDelta = levelUnlockedSize;
+            levelUnlockedPanelBaseRect.anchoredPosition = new Vector2(0, levelUnlockedSize.y / 2);
+            //Add image
+            Image levelUnlockedBackground = levelUnlockedPanelBase.AddComponent<Image>();
+            levelUnlockedBackground.sprite = squareImage;
+            levelUnlockedBackground.color = new Color32(72,120,168,255);
+            //Add shadow
+            Shadow levelUnlockedShadow = levelUnlockedPanelBase.AddComponent<Shadow>();
+            levelUnlockedShadow.effectDistance = new Vector2(2,-2);
+            //Add Animator
+            Animator levelUnlockedAnimator = levelUnlockedPanelBase.AddComponent<Animator>();
+            levelUnlockedAnimator.runtimeAnimatorController = animationController;
+
+                //-----Add level unlocked title
+                GameObject levelUnlockedTitle = new GameObject("LevelUnlockedTitle");
+                levelUnlockedTitle.transform.SetParent(levelUnlockedPanelBase.transform);
+                levelUnlockedTitle.layer = LayerMask.NameToLayer("UI");
+                levelUnlockedTitle.AddComponent<CanvasRenderer>();
+                RectTransform levelUnlockedTitleRect = levelUnlockedTitle.AddComponent<RectTransform>();
+                //Set rect transform anchors
+                levelUnlockedTitleRect.anchorMin = new Vector2(1, 1);
+                levelUnlockedTitleRect.anchorMax = new Vector2(1, 1);
+                levelUnlockedTitleRect.pivot = new Vector2(0.5f, 0.5f);
+                //Set rect size
+                Vector2 levelUnlockedTitleSize = new Vector2(levelUnlockedSize.x*0.5f, levelUnlockedSize.y*0.2f);
+                levelUnlockedTitleRect.localScale = new Vector3(1, 1, 1);
+                levelUnlockedTitleRect.sizeDelta = levelUnlockedTitleSize;
+                levelUnlockedTitleRect.anchoredPosition = new Vector2(-levelUnlockedSize.x*0.35f, -levelUnlockedSize.y * 0.3f);
+                //Add text component
+                Text levelUnlockedTitleText = levelUnlockedTitle.AddComponent<Text>();
+                
+
+    }
+
     //Function to create category choice
     //This function return the game object for reference by the menu script
     GameObject CreateCategoryChoice(GameObject levelChoice)
@@ -478,7 +549,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                 categoryInformation.AddComponent<CanvasRenderer>();
                 RectTransform categoryInformationRect = categoryInformation.AddComponent<RectTransform>();
                 //Set category information rect
-                Vector2 categoryInformationSize = new Vector2(buttonWidth - imageSize*1.1f, buttonHeight / 3);
+                Vector2 categoryInformationSize = new Vector2(buttonWidth - imageSize*1.1f, buttonHeight / 4.5f);
                 categoryInformationRect.anchorMin = new Vector2(0, 0.5f);
                 categoryInformationRect.anchorMax = new Vector2(0, 0.5f);
                 categoryInformationRect.pivot = new Vector2(0.5f, 0.5f);
@@ -492,8 +563,55 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                     categoryStar.layer = LayerMask.NameToLayer("UI");
                     categoryStar.AddComponent<CanvasRenderer>();
                     RectTransform categoryStarRect = categoryStar.AddComponent<RectTransform>();
+                    //Set rect size
+                    categoryStarRect.anchorMin = new Vector2(0.5f, 1);
+                    categoryStarRect.anchorMax = new Vector2(0.5f, 1);
+                    categoryStarRect.pivot = new Vector2(0.5f, 0.5f);
+                    categoryStarRect.localScale = new Vector3(1, 1, 1);
+                    float categoryStarSize = categoryInformationSize.x *0.35f;
+                    categoryStarRect.sizeDelta = new Vector2(categoryStarSize, categoryStarSize);
+                    categoryStarRect.anchoredPosition = new Vector2(0, 0);
+                    //Add image
+                    Image categoryStarImage = categoryStar.AddComponent<Image>();
+                    categoryStarImage.sprite = starSprite;
+                    categoryStarImage.color = new Color32(254,255,186,255);
+                    //Add shadow
+                    Shadow categoryStarShadow = categoryStar.AddComponent<Shadow>();
+                    categoryStarShadow.effectDistance = new Vector2(1, -1);
 
+                    //----- Create star info ------
+                    GameObject starInfo = new GameObject("starInfo");
+                    starInfo.transform.SetParent(categoryInformation.transform);
+                    starInfo.layer = LayerMask.NameToLayer("UI");
+                    starInfo.AddComponent<CanvasRenderer>();
+                    RectTransform starInfoRect = starInfo.AddComponent<RectTransform>();
+                    //Set star info canvs
+                    starInfoRect.anchorMin = new Vector2(0.5f, 0);
+                    starInfoRect.anchorMax = new Vector2(0.5f, 0);
+                    starInfoRect.pivot = new Vector2(0.5f, 0.5f);
+                    starInfoRect.localScale = new Vector3(1, 1, 1);
+                    float starInfoSize = categoryInformationSize.x *0.75f;
+                    starInfoRect.sizeDelta = new Vector2(starInfoSize, starInfoSize*0.4f);
+                    starInfoRect.anchoredPosition = new Vector2(0, 0);
+                    //Add text
+                    Text starInfoText = starInfo.AddComponent<Text>();
+                    starInfoText.text = "20 / 72";
+                    starInfoText.font = textFont;
+                    starInfoText.fontStyle = FontStyle.Bold;
+                    starInfoText.resizeTextForBestFit = true;
+                    starInfoText.resizeTextMaxSize = 80;
+                    starInfoText.resizeTextMinSize = 10;
+                    starInfoText.alignment = TextAnchor.MiddleCenter;
+                    //Add script
+                    SetCategoryInfo setCategoryInfo = starInfo.AddComponent<SetCategoryInfo>();
+                    setCategoryInfo.categoryNumber = i;
+                    setCategoryInfo.maxStars = "72";
 
+                     /////////////////////////////////////////////
+                     /////////////                    ////////////
+                     /////       Added level lock here ///////////
+                     ////////////                     ////////////
+                     /////////////////////////////////////////////
 
             //Set new yPosition
             positionY -= buttonHeight + buttonSpacing;
