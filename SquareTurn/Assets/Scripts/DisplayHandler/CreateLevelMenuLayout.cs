@@ -469,7 +469,37 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                 levelUnlockedTitleRect.anchoredPosition = new Vector2(-levelUnlockedSize.x*0.35f, -levelUnlockedSize.y * 0.3f);
                 //Add text component
                 Text levelUnlockedTitleText = levelUnlockedTitle.AddComponent<Text>();
-                
+                levelUnlockedTitleText.font = textFont;
+                levelUnlockedTitleText.fontStyle = FontStyle.Bold;
+                levelUnlockedTitleText.resizeTextForBestFit = true;
+                levelUnlockedTitleText.resizeTextMaxSize = 120;
+                levelUnlockedTitleText.resizeTextMinSize = 10;
+                levelUnlockedTitleText.alignment = TextAnchor.UpperLeft;
+                levelUnlockedTitleText.color = new Color32(254,255,186,255);
+
+                //------Add level unlocked Text------
+                GameObject levelUnlockedText = new GameObject("LevelUnlockedText");
+                levelUnlockedText.transform.SetParent(levelUnlockedPanelBase.transform);
+                levelUnlockedText.layer = LayerMask.NameToLayer("UI");
+                levelUnlockedText.AddComponent<CanvasRenderer>();
+                RectTransform levelUnlockedTextRect = levelUnlockedText.AddComponent<RectTransform>();
+                //Set rect transform anchors
+                levelUnlockedTextRect.anchorMin = new Vector2(1, 1);
+                levelUnlockedTextRect.anchorMax = new Vector2(1, 1);
+                levelUnlockedTextRect.pivot = new Vector2(0.5f, 0.5f);
+                //Set rect size
+                Vector2 levelUnlockedTextSize = new Vector2(levelUnlockedSize.x * 0.5f, levelUnlockedSize.y * 0.39f);
+                levelUnlockedTextRect.localScale = new Vector3(1, 1, 1);
+                levelUnlockedTextRect.sizeDelta = levelUnlockedTextSize;
+                levelUnlockedTextRect.anchoredPosition = new Vector2(-levelUnlockedSize.x * 0.35f, -levelUnlockedSize.y * 0.6f);
+                //Add text component
+                Text levelUnlockedTextText = levelUnlockedText.AddComponent<Text>();
+                levelUnlockedTextText.font = textFont;
+                levelUnlockedTextText.fontStyle = FontStyle.Normal;
+                levelUnlockedTextText.resizeTextForBestFit = true;
+                levelUnlockedTextText.resizeTextMaxSize = 50;
+                levelUnlockedTextText.resizeTextMinSize = 10;
+                levelUnlockedTextText.alignment = TextAnchor.UpperLeft;
 
     }
 
