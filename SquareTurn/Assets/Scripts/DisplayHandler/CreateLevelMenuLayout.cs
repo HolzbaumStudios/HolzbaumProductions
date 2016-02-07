@@ -466,7 +466,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                 Vector2 levelUnlockedTitleSize = new Vector2(levelUnlockedSize.x*0.5f, levelUnlockedSize.y*0.2f);
                 levelUnlockedTitleRect.localScale = new Vector3(1, 1, 1);
                 levelUnlockedTitleRect.sizeDelta = levelUnlockedTitleSize;
-                levelUnlockedTitleRect.anchoredPosition = new Vector2(-levelUnlockedSize.x*0.35f, -levelUnlockedSize.y * 0.3f);
+                levelUnlockedTitleRect.anchoredPosition = new Vector2(-levelUnlockedSize.x*0.4f, -levelUnlockedSize.y * 0.29f);
                 //Add text component
                 Text levelUnlockedTitleText = levelUnlockedTitle.AddComponent<Text>();
                 levelUnlockedTitleText.font = textFont;
@@ -491,7 +491,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                 Vector2 levelUnlockedTextSize = new Vector2(levelUnlockedSize.x * 0.5f, levelUnlockedSize.y * 0.39f);
                 levelUnlockedTextRect.localScale = new Vector3(1, 1, 1);
                 levelUnlockedTextRect.sizeDelta = levelUnlockedTextSize;
-                levelUnlockedTextRect.anchoredPosition = new Vector2(-levelUnlockedSize.x * 0.35f, -levelUnlockedSize.y * 0.6f);
+                levelUnlockedTextRect.anchoredPosition = new Vector2(-levelUnlockedSize.x * 0.4f, -levelUnlockedSize.y * 0.61f);
                 //Add text component
                 Text levelUnlockedTextText = levelUnlockedText.AddComponent<Text>();
                 levelUnlockedTextText.font = textFont;
@@ -501,6 +501,23 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                 levelUnlockedTextText.resizeTextMinSize = 10;
                 levelUnlockedTextText.alignment = TextAnchor.UpperLeft;
 
+                //-----Add level unlocked image-----
+                GameObject levelUnlockedImage = new GameObject("LevelUnlockedImage");
+                levelUnlockedImage.transform.SetParent(levelUnlockedPanelBase.transform);
+                levelUnlockedImage.layer = LayerMask.NameToLayer("UI");
+                levelUnlockedImage.AddComponent<CanvasRenderer>();
+                RectTransform levelUnlockedImageRect = levelUnlockedImage.AddComponent<RectTransform>();
+                //Set rect transform anchors
+                levelUnlockedImageRect.anchorMin = new Vector2(0, 0.5f);
+                levelUnlockedImageRect.anchorMax = new Vector2(0, 0.5f);
+                levelUnlockedImageRect.pivot = new Vector2(0.5f, 0.5f);
+                //Set rect size
+                Vector2 levelUnlockedImageSize = new Vector2(levelUnlockedSize.y * 0.7f, levelUnlockedSize.y * 0.7f);
+                levelUnlockedImageRect.localScale = new Vector3(1, 1, 1);
+                levelUnlockedImageRect.sizeDelta = levelUnlockedImageSize;
+                levelUnlockedImageRect.anchoredPosition = new Vector2(levelUnlockedSize.x * 0.2f, 0);
+                //Add image
+                levelUnlockedImage.AddComponent<Image>();
     }
 
     //Function to create category choice
@@ -637,11 +654,48 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                     setCategoryInfo.categoryNumber = i;
                     setCategoryInfo.maxStars = "72";
 
-                     /////////////////////////////////////////////
-                     /////////////                    ////////////
-                     /////       Added level lock here ///////////
-                     ////////////                     ////////////
-                     /////////////////////////////////////////////
+
+            //----- Add level locked images ----
+            if(i > 1)
+            {
+                string lockedLevelName = "ShowCategory" + i;
+                GameObject lockedLevel = new GameObject(lockedLevelName);
+                lockedLevel.transform.SetParent(categoryChoice.transform);
+                lockedLevel.layer = LayerMask.NameToLayer("UI");
+                lockedLevel.AddComponent<CanvasRenderer>();
+                RectTransform lockedLevelRect = lockedLevel.AddComponent<RectTransform>();
+                //Set rect anchor
+                lockedLevelRect.anchorMin = new Vector2(0.5f, 0.5f);
+                lockedLevelRect.anchorMax = new Vector2(0.5f, 0.5f);
+                lockedLevelRect.pivot = new Vector2(0.5f, 0.5f);
+                //Set dot rect size
+                lockedLevelRect.localScale = new Vector3(1, 1, 1);
+                lockedLevelRect.sizeDelta = new Vector2(buttonWidth, buttonHeight);
+                lockedLevelRect.anchoredPosition = new Vector2(0, positionY);
+                //Add image
+                Image lockedLevelBackground = lockedLevel.AddComponent<Image>();
+                lockedLevelBackground.sprite = squareImage;
+                lockedLevelBackground.color = new Color32(141, 141, 141, 255);
+                //Add script
+                int starsNeeded = 0;
+                switch(i)
+                {
+                    case 2: starsNeeded = 40; break;
+                    case 3: starsNeeded = 90; break;
+                    case 4: starsNeeded = 140; break;
+                }
+                UnlockLevel lockedLevelScript = lockedLevel.AddComponent<UnlockLevel>();
+                lockedLevelScript.neededStars = starsNeeded;
+                lockedLevelScript.levelUnlocked = this.gameObject;
+                lockedLevelScript.levelUnlockedTitle = "LEVELE PACK " + i;
+                lockedLevelScript.levelUnlockedText = "Congratulations!\nYou just unlocked new levels!";
+                lockedLevelScript.levelUnlockedImage = categorySprite[i-1];
+                lockedLevelScript.levelPackNumber = i.ToString();
+
+
+                ////////////////CONTINUE HERE//////////////////////////
+
+            }
 
             //Set new yPosition
             positionY -= buttonHeight + buttonSpacing;
