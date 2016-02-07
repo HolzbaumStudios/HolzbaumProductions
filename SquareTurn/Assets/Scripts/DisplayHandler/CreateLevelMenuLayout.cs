@@ -692,9 +692,33 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                 lockedLevelScript.levelUnlockedImage = categorySprite[i-1];
                 lockedLevelScript.levelPackNumber = i.ToString();
 
+                    //----- Add locked Title------
+                    GameObject lockedLevelTitle = new GameObject("LockedTitle");
+                    lockedLevelTitle.transform.SetParent(lockedLevel.transform);
+                    lockedLevelTitle.layer = LayerMask.NameToLayer("UI");
+                    lockedLevelTitle.AddComponent<CanvasRenderer>();
+                    RectTransform lockedLevelTitleRect = lockedLevelTitle.AddComponent<RectTransform>();
+                    //Set rect anchor
+                    lockedLevelTitleRect.anchorMin = new Vector2(0.5f, 0.5f);
+                    lockedLevelTitleRect.anchorMax = new Vector2(0.5f, 0.5f);
+                    lockedLevelTitleRect.pivot = new Vector2(0.5f, 0.5f);
+                    //Set dot rect size
+                    Vector2 lockedTitleSize = new Vector2(buttonWidth*0.8f, buttonHeight*0.15f);
+                    lockedLevelTitleRect.localScale = new Vector3(1, 1, 1);
+                    lockedLevelTitleRect.sizeDelta = lockedTitleSize;
+                    lockedLevelTitleRect.anchoredPosition = new Vector2(0, buttonHeight*0.35f);
+                    //Add Text
+                    Text lockedTitleText = lockedLevelTitle.AddComponent<Text>();
+                    lockedTitleText.text = "LEVELS LOCKED";
+                    lockedTitleText.fontStyle = FontStyle.Bold;
+                    lockedTitleText.resizeTextForBestFit = true;
+                    lockedTitleText.resizeTextMaxSize = 30;
+                    lockedTitleText.resizeTextMinSize = 5;
+                    lockedTitleText.alignment = TextAnchor.MiddleCenter;
+                    lockedTitleText.color = new Color32(254,255,186,255);
+                    
 
-                ////////////////CONTINUE HERE//////////////////////////
-
+                ///////////// CONTINUE HERE ////////////////////////
             }
 
             //Set new yPosition
