@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System;
-using UnityEditor.Animations;
+
 
 public class CreateLevelMenuLayout : MonoBehaviour {
 
@@ -24,15 +24,33 @@ public class CreateLevelMenuLayout : MonoBehaviour {
     public Sprite arrowSprite;
     public Sprite dotSprite;
     public Sprite[] categorySprite;
+    public Sprite lockSprite;
     public Font textFont;
     public GameObject scrollbarPrefab; //Scrollbar prefab
-    public AnimatorController animationController;
+    
 
     //Private reference variables
-    private GameObject scrollbar; //For having reference across the script
+    private GameObject scrollbarObject; //For having reference across the script
     private GameObject levelUnlockedPanel; //Reference to levelUnlockedPanel across the script
+    private GameObject achievementPanel; //Reference to achievementPanel across the script
+    private GameObject[] category = new GameObject[4];
     private float screenRatio;
  
+    void Awake()
+    {
+        if (Screen.height > Screen.width)
+        {
+            resolutionHeight = Screen.height;
+            resolutionWidth = Screen.width;
+        }
+        else
+        {
+            resolutionHeight = Screen.width;
+            resolutionWidth = Screen.height;
+        }
+
+        CreateLayout();
+    }
 
 	public void CreateLayout()
     {
@@ -67,31 +85,51 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         levelChoiceRect.pivot = new Vector2(0.5f, 0.5f);
 
         //-----Create scrollbar------
-        scrollbar = Instantiate(scrollbarPrefab);
-        scrollbar.transform.SetParent(levelChoice.transform);
-        scrollbar.name = "Scrollbar";
+        scrollbarObject = Instantiate(scrollbarPrefab) as GameObject;
+        scrollbarObject.transform.SetParent(levelChoice.transform);
+        scrollbarObject.name = "Scrollbar";
+        Scrollbar scrollbar = scrollbarObject.GetComponent<Scrollbar>();
 
         //-----Create categories-----
         for(int cat = 1; cat <= categroies; cat++)
         {
-            CreateCategory(cat, levelChoice.transform);
+            category[cat -1] = CreateCategory(cat, levelChoice.transform);
         }
 
         //------Create level unlocked panel-----
         CreateLevelUnlocked(this.gameObject.transform);
 
+        //-----Create achievement panel
+        CreateAchievementPanel(this.gameObject.transform);
+
         //-----Create Category Choice Panel-----
         GameObject categoryChoice = CreateCategoryChoice(levelChoice);
 
+        //-----Add level choice scroll rect and menu script-----
+        //Add scrollrect
+        ScrollRect scrollRect = levelChoice.AddComponent<ScrollRect>();
+        scrollRect.horizontal = true;
+        scrollRect.vertical = false;
+        scrollRect.movementType = ScrollRect.MovementType.Elastic;
+        scrollRect.horizontalScrollbar = scrollbar;
+        //Add script
+        MenuScript menuScript = levelChoice.AddComponent<MenuScript>();
+        menuScript.categoryChoice = categoryChoice;
+        menuScript.category1 = category[0];
+        menuScript.category2 = category[1];
+        menuScript.category3 = category[2];
+        menuScript.category4 = category[3];
+        menuScript.categorySlider = scrollbarObject;
     }
 
     //Create a category
     //This function takes the category number and the parent to which the categories have to be attached, as argument
-    void CreateCategory(int cat, Transform parent)
+    GameObject CreateCategory(int cat, Transform parent)
     {
         //Create Category Object
         GameObject category = new GameObject("Category" + cat);
         category.transform.SetParent(parent);
+        category.SetActive(false);
         category.layer = LayerMask.NameToLayer("UI");
         category.AddComponent<CanvasRenderer>();
         category.AddComponent<RectTransform>();
@@ -192,6 +230,8 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         //-----Create arrows-----------
         CreateArrow(true, container1.transform);
         CreateArrow(false, container2.transform);
+
+        return category;
     }
 
     //Create a levelbutton
@@ -369,7 +409,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         if (rightArrow) { arrowShadow.effectDistance = new Vector2(1, 0); } else { arrowShadow.effectDistance = new Vector2(-1, 0); }
         //Add arrow script
         ArrowLevelchoice arrowScript = arrow.AddComponent<ArrowLevelchoice>();
-        arrowScript.scrollObject = scrollbar;
+        arrowScript.scrollObject = scrollbarObject;
         //Add button
         Button arrowButtonScript = arrow.AddComponent<Button>();
         int value = 0;
@@ -428,6 +468,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         
             //-----Add level unlocked panel base-----
             GameObject levelUnlockedPanelBase = new GameObject("LevelUnlockedPanelBase");
+            levelUnlockedPanelBase.SetActive(false);
             levelUnlockedPanelBase.transform.SetParent(levelUnlockedPanel.transform);
             levelUnlockedPanelBase.layer = LayerMask.NameToLayer("UI");
             levelUnlockedPanelBase.AddComponent<CanvasRenderer>();
@@ -450,7 +491,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
             levelUnlockedShadow.effectDistance = new Vector2(2,-2);
             //Add Animator
             Animator levelUnlockedAnimator = levelUnlockedPanelBase.AddComponent<Animator>();
-            levelUnlockedAnimator.runtimeAnimatorController = animationController;
+            levelUnlockedAnimator.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("AchievementMovementPortrait");
 
                 //-----Add level unlocked title
                 GameObject levelUnlockedTitle = new GameObject("LevelUnlockedTitle");
@@ -520,6 +561,122 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                 levelUnlockedImage.AddComponent<Image>();
     }
 
+    //Funciton to create achievement panel
+    void CreateAchievementPanel(Transform parent)
+    {
+        achievementPanel = new GameObject("AchievementPanel");
+        achievementPanel.transform.SetParent(parent);
+        achievementPanel.layer = LayerMask.NameToLayer("UI");
+        achievementPanel.AddComponent<CanvasRenderer>();
+        RectTransform achievementPanelRect = achievementPanel.AddComponent<RectTransform>();
+        //Set rect transform anchors
+        achievementPanelRect.anchorMin = new Vector2(0, 0);
+        achievementPanelRect.anchorMax = new Vector2(1, 1);
+        achievementPanelRect.pivot = new Vector2(0.5f, 0.5f);
+        //Set Rect size
+        achievementPanelRect.offsetMin = new Vector2(0, 0);
+        achievementPanelRect.offsetMax = new Vector2(0, 0);
+        achievementPanelRect.localScale = new Vector3(1, 1, 1);
+        
+            //-----Add achievement panel base-----
+            GameObject achievementPanelBase = new GameObject("AchievementPanelBase");
+            achievementPanelBase.SetActive(false);
+            achievementPanelBase.transform.SetParent(achievementPanel.transform);
+            achievementPanelBase.layer = LayerMask.NameToLayer("UI");
+            achievementPanelBase.AddComponent<CanvasRenderer>();
+            RectTransform achievementPanelBaseRect = achievementPanelBase.AddComponent<RectTransform>();
+            //Set rect transform anchors
+            achievementPanelBaseRect.anchorMin = new Vector2(0.5f, 1);
+            achievementPanelBaseRect.anchorMax = new Vector2(0.5f, 1);
+            achievementPanelBaseRect.pivot = new Vector2(0.5f, 0.5f);
+            //Set rect size
+            Vector2 achievementPanelSize = new Vector2(resolutionWidth * 0.8f, resolutionHeight / 7);
+            achievementPanelBaseRect.localScale = new Vector3(1, 1, 1);
+            achievementPanelBaseRect.sizeDelta = achievementPanelSize;
+            achievementPanelBaseRect.anchoredPosition = new Vector2(0, achievementPanelSize.y / 2);
+            //Add image
+            Image achievementPanelBackground = achievementPanelBase.AddComponent<Image>();
+            achievementPanelBackground.sprite = squareImage;
+            achievementPanelBackground.color = new Color32(72, 120, 168, 255);
+            //Add shadow
+            Shadow achievementPanelShadow = achievementPanelBase.AddComponent<Shadow>();
+            achievementPanelShadow.effectDistance = new Vector2(2, -2);
+            //Add Animator
+            Animator achievementPanelAnimator = achievementPanelBase.AddComponent<Animator>();
+            achievementPanelAnimator.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("AchievementMovementPortrait");
+
+                //-----Add achievement title
+                GameObject achievementTitle = new GameObject("AchievementTitle");
+                achievementTitle.transform.SetParent(achievementPanelBase.transform);
+                achievementTitle.layer = LayerMask.NameToLayer("UI");
+                achievementTitle.AddComponent<CanvasRenderer>();
+                RectTransform achievementTitleRect = achievementTitle.AddComponent<RectTransform>();
+                //Set rect transform anchors
+                achievementTitleRect.anchorMin = new Vector2(1, 1);
+                achievementTitleRect.anchorMax = new Vector2(1, 1);
+                achievementTitleRect.pivot = new Vector2(0.5f, 0.5f);
+                //Set rect size
+                Vector2 achievementTitleSize = new Vector2(achievementPanelSize.x * 0.6f, achievementPanelSize.y * 0.2f);
+                achievementTitleRect.localScale = new Vector3(1, 1, 1);
+                achievementTitleRect.sizeDelta = achievementTitleSize;
+                achievementTitleRect.anchoredPosition = new Vector2(-achievementPanelSize.x * 0.4f, -achievementPanelSize.y * 0.29f);
+                //Add text component
+                Text achievementTitleText = achievementTitle.AddComponent<Text>();
+                achievementTitleText.font = textFont;
+                achievementTitleText.fontStyle = FontStyle.Bold;
+                achievementTitleText.resizeTextForBestFit = true;
+                achievementTitleText.resizeTextMaxSize = 120;
+                achievementTitleText.resizeTextMinSize = 10;
+                achievementTitleText.alignment = TextAnchor.UpperLeft;
+                achievementTitleText.color = new Color32(254, 255, 186, 255);
+
+                //------Add achievement Text------
+                GameObject achievementText = new GameObject("AchievementText");
+                achievementText.transform.SetParent(achievementPanelBase.transform);
+                achievementText.layer = LayerMask.NameToLayer("UI");
+                achievementText.AddComponent<CanvasRenderer>();
+                RectTransform achievementTextRect = achievementText.AddComponent<RectTransform>();
+                //Set rect transform anchors
+                achievementTextRect.anchorMin = new Vector2(1, 1);
+                achievementTextRect.anchorMax = new Vector2(1, 1);
+                achievementTextRect.pivot = new Vector2(0.5f, 0.5f);
+                //Set rect size
+                Vector2 achievementTextSize = new Vector2(achievementPanelSize.x * 0.6f, achievementPanelSize.y * 0.39f);
+                achievementTextRect.localScale = new Vector3(1, 1, 1);
+                achievementTextRect.sizeDelta = achievementTextSize;
+                achievementTextRect.anchoredPosition = new Vector2(-achievementPanelSize.x * 0.4f, -achievementPanelSize.y * 0.61f);
+                //Add text component
+                Text achievementTextText = achievementText.AddComponent<Text>();
+                achievementTextText.font = textFont;
+                achievementTextText.fontStyle = FontStyle.Normal;
+                achievementTextText.resizeTextForBestFit = true;
+                achievementTextText.resizeTextMaxSize = 50;
+                achievementTextText.resizeTextMinSize = 10;
+                achievementTextText.alignment = TextAnchor.UpperLeft;
+
+                //-----Add achievement image-----
+                GameObject achievementImage = new GameObject("AchievementImage");
+                achievementImage.transform.SetParent(achievementPanelBase.transform);
+                achievementImage.layer = LayerMask.NameToLayer("UI");
+                achievementImage.AddComponent<CanvasRenderer>();
+                RectTransform achievementImageRect = achievementImage.AddComponent<RectTransform>();
+                //Set rect transform anchors
+                achievementImageRect.anchorMin = new Vector2(0, 0.5f);
+                achievementImageRect.anchorMax = new Vector2(0, 0.5f);
+                achievementImageRect.pivot = new Vector2(0.5f, 0.5f);
+                //Set rect size
+                Vector2 achievementImageSize = new Vector2(achievementPanelSize.y * 0.75f, achievementPanelSize.y * 0.75f);
+                achievementImageRect.localScale = new Vector3(1, 1, 1);
+                achievementImageRect.sizeDelta = achievementImageSize;
+                achievementImageRect.anchoredPosition = new Vector2(achievementPanelSize.x * 0.15f, 0);
+                //Add image
+                achievementImage.AddComponent<Image>();
+
+        //Add script
+        CheckForAchievements achievementPanelScript = achievementPanel.AddComponent<CheckForAchievements>();
+        achievementPanelScript.achievementPanel = achievementPanelBase;
+    }
+
     //Function to create category choice
     //This function return the game object for reference by the menu script
     GameObject CreateCategoryChoice(GameObject levelChoice)
@@ -542,7 +699,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         float buttonWidth;
         if (screenRatio > 1.5f) { buttonWidth = resolutionWidth * 0.5f; } else { buttonWidth = resolutionWidth * 0.45f; }         
         float buttonHeight = resolutionHeight / 5;
-        float buttonSpacing = (resolutionHeight / 5) / 6;
+        float buttonSpacing = (resolutionHeight / 5) / 12;
         float positionY = buttonHeight * 1.5f + buttonSpacing * 1.5f;
         for (int i=1; i<5; i++)
         {
@@ -569,7 +726,9 @@ public class CreateLevelMenuLayout : MonoBehaviour {
             categoryButtonShadow.effectDistance= new Vector2(2, -2);
             //AddButton
             Button categoryButtonScript = categoryButton.AddComponent<Button>();
-            categoryButtonScript.onClick.AddListener(() => levelChoice.GetComponent<MenuScript>().ChooseCategory(i));
+            Debug.Log("Category number sender: " + i);
+            int tempValue = i;
+            categoryButtonScript.onClick.AddListener(() => levelChoice.GetComponent<MenuScript>().ChooseCategory(tempValue));
 
                 //----- Add category button image -----
                 GameObject categoryButtonGraphic = new GameObject("Image");
@@ -710,6 +869,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                     //Add Text
                     Text lockedTitleText = lockedLevelTitle.AddComponent<Text>();
                     lockedTitleText.text = "LEVELS LOCKED";
+                    lockedTitleText.font = textFont;
                     lockedTitleText.fontStyle = FontStyle.Bold;
                     lockedTitleText.resizeTextForBestFit = true;
                     lockedTitleText.resizeTextMaxSize = 30;
@@ -717,8 +877,56 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                     lockedTitleText.alignment = TextAnchor.MiddleCenter;
                     lockedTitleText.color = new Color32(254,255,186,255);
                     
+                    //----- Add locked Image------
+                    GameObject lockedLevelImage = new GameObject("LockedImage");
+                    lockedLevelImage.transform.SetParent(lockedLevel.transform);
+                    lockedLevelImage.layer = LayerMask.NameToLayer("UI");
+                    lockedLevelImage.AddComponent<CanvasRenderer>();
+                    RectTransform lockedLevelImageRect = lockedLevelImage.AddComponent<RectTransform>();
+                    //Set rect anchor
+                    lockedLevelImageRect.anchorMin = new Vector2(0.5f, 0.5f);
+                    lockedLevelImageRect.anchorMax = new Vector2(0.5f, 0.5f);
+                    lockedLevelImageRect.pivot = new Vector2(0.5f, 0.5f);
+                    //Set dot rect size
+                    Vector2 lockedImageSize = new Vector2(buttonHeight*0.7f, buttonHeight*0.7f);
+                    lockedLevelImageRect.localScale = new Vector3(1, 1, 1);
+                    lockedLevelImageRect.sizeDelta = lockedImageSize;
+                    lockedLevelImageRect.anchoredPosition = new Vector2(-buttonWidth*0.28f, -buttonHeight*0.07f);
+                    //Add Image
+                    Image lockedImageSprite = lockedLevelImage.AddComponent<Image>();
+                    lockedImageSprite.sprite = lockSprite;
+                    lockedImageSprite.preserveAspect = true;
 
-                ///////////// CONTINUE HERE ////////////////////////
+                    //----- Add locked Text------
+                    GameObject lockedLevelText = new GameObject("LockedText");
+                    lockedLevelText.transform.SetParent(lockedLevel.transform);
+                    lockedLevelText.layer = LayerMask.NameToLayer("UI");
+                    lockedLevelText.AddComponent<CanvasRenderer>();
+                    RectTransform lockedLevelTextRect = lockedLevelText.AddComponent<RectTransform>();
+                    //Set rect anchor
+                    lockedLevelTextRect.anchorMin = new Vector2(0.5f, 0.5f);
+                    lockedLevelTextRect.anchorMax = new Vector2(0.5f, 0.5f);
+                    lockedLevelTextRect.pivot = new Vector2(0.5f, 0.5f);
+                    //Set dot rect size
+                    Vector2 lockedTextSize = new Vector2(buttonWidth * 0.48f, buttonHeight * 0.65f);
+                    lockedLevelTextRect.localScale = new Vector3(1, 1, 1);
+                    lockedLevelTextRect.sizeDelta = lockedTextSize;
+                    lockedLevelTextRect.anchoredPosition = new Vector2(buttonWidth * 0.15f, -buttonHeight * 0.07f);
+                    //Add Text
+                    string lockedText = "";
+                    switch(i) //Change text based on category
+                    {
+                        case 2: lockedText = "Available at 40 stars from the previous package";  break;
+                        case 3: lockedText = "Available at 90 stars from the previous packages"; break;
+                        case 4: lockedText = "Available at 140 stars from the previous packages";  break;
+                    }
+                    Text lockedTextText = lockedLevelText.AddComponent<Text>();
+                    lockedTextText.text = lockedText;
+                    lockedTextText.font = textFont;
+                    lockedTextText.resizeTextForBestFit = true;
+                    lockedTextText.resizeTextMaxSize = 35;
+                    lockedTextText.resizeTextMinSize = 5;
+                    lockedTextText.alignment = TextAnchor.MiddleLeft;
             }
 
             //Set new yPosition

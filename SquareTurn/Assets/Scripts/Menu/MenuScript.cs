@@ -90,9 +90,9 @@ public class MenuScript : MonoBehaviour {
 		if(categoryChoice)categoryChoice.SetActive (false);
 
 		//Get levelChoice component
-		GameObject levelChoice = GameObject.Find ("LevelChoice").gameObject;
+		GameObject levelChoice = this.gameObject;
 
-		//Debug.Log (categoryNumber);
+		Debug.Log ("Category number:" + categoryNumber);
 		//Set the scrollrect to the correct category
 		switch(categoryNumber)
 		{
