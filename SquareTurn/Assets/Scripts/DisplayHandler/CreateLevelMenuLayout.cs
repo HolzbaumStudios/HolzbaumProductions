@@ -175,10 +175,21 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         //-----Create levelbuttons-----
         int column = 0; //This variables are only used for the layout
         int row = 1;
-        float xSpacing = resolutionWidth / 15;
+        float xSpacing;
         float ySpacing = resolutionHeight / 22;
         float buttonHeight = resolutionHeight / 6.5f;
-        float buttonWidth = resolutionWidth / 5.0f;
+        float buttonWidth;
+        if (screenRatio > 1.6f)
+        {
+            xSpacing = resolutionWidth / 15f;
+            buttonWidth = resolutionWidth / 4.2f;
+            ySpacing = resolutionHeight / 25;
+        }
+        else
+        {
+            xSpacing = resolutionWidth * 0.067f;
+            buttonWidth = resolutionWidth / 5;
+        }
         Vector2 buttonSize = new Vector2(buttonWidth, buttonHeight);
         float xPosition;
         float yPosition;
@@ -697,7 +708,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
 
         //Create category buttons
         float buttonWidth;
-        if (screenRatio > 1.5f) { buttonWidth = resolutionWidth * 0.5f; } else { buttonWidth = resolutionWidth * 0.45f; }         
+        if (screenRatio > 1.5f) { buttonWidth = resolutionWidth * 0.52f; } else { buttonWidth = resolutionWidth * 0.45f; }         
         float buttonHeight = resolutionHeight / 5;
         float buttonSpacing = (resolutionHeight / 5) / 12;
         float positionY = buttonHeight * 1.5f + buttonSpacing * 1.5f;
