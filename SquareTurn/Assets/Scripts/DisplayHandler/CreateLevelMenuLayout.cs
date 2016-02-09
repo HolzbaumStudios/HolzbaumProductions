@@ -14,7 +14,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
     /// This should help with adjusting the menu on different resolutions
     /// </summary>
 
-
+    public bool portraitMode;
     public float resolutionWidth;
     public float resolutionHeight;
     public float numberColumns = 3; //How many rows with levelButtons should be displayed
@@ -40,23 +40,25 @@ public class CreateLevelMenuLayout : MonoBehaviour {
  
     void Awake()
     {
-        if (Screen.height > Screen.width)
-        {
+        
+        /*if (Screen.height > Screen.width)
+        {*/
             resolutionHeight = Screen.height;
             resolutionWidth = Screen.width;
-        }
-        else
-        {
-            resolutionHeight = Screen.width;
-            resolutionWidth = Screen.height;
-        }
+        /* }
+         else
+         {
+             resolutionHeight = Screen.width;
+             resolutionWidth = Screen.height;
+         }*/
 
         CreateLayout();
     }
 
 	public void CreateLayout()
     {
-        if(resolutionHeight > resolutionWidth)
+        Debug.Log(Screen.width + "x" + Screen.height);
+        if (resolutionHeight > resolutionWidth)
         { 
             screenRatio = resolutionHeight / resolutionWidth;
         }
@@ -712,10 +714,26 @@ public class CreateLevelMenuLayout : MonoBehaviour {
 
         //Create category buttons
         float buttonWidth;
-        if (screenRatio > 1.5f) { buttonWidth = resolutionWidth * 0.52f; } else { buttonWidth = resolutionWidth * 0.45f; }         
-        float buttonHeight = resolutionHeight / 5;
-        float buttonSpacing = (resolutionHeight / 5) / 12;
-        float positionY = buttonHeight * 1.5f + buttonSpacing * 1.5f;
+        float buttonHeight;
+        float buttonSpacing;
+        float positionY = 0;
+        float positionX = 0;
+        if (portraitMode) //Portrait
+        {
+            if (screenRatio > 1.5f) { buttonWidth = resolutionWidth * 0.52f; } else { buttonWidth = resolutionWidth * 0.45f; }
+            buttonHeight = resolutionHeight / 5;
+            buttonSpacing = (resolutionHeight / 5) / 12;
+            positionY = buttonHeight * 1.5f + buttonSpacing * 1.5f;
+        }
+        else //Landscape
+        {
+            buttonWidth = resolutionWidth * 0.21f;
+            if (screenRatio > 1.5f) { buttonHeight = resolutionHeight * 0.45f; } else { buttonHeight = resolutionHeight * 0.38f; }
+            buttonSpacing = buttonWidth / 12;
+            positionX = -(buttonWidth * 1.5f + buttonSpacing * 1.5f);
+        }
+
+        
         for (int i=1; i<5; i++)
         {
             string categoryButtonName = "Category" + i + "Button";
@@ -731,7 +749,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
             //Set dot rect size
             categoryButtonRect.localScale = new Vector3(1, 1, 1);
             categoryButtonRect.sizeDelta = new Vector2(buttonWidth, buttonHeight);
-            categoryButtonRect.anchoredPosition = new Vector2(0, positionY);
+            categoryButtonRect.anchoredPosition = new Vector2(positionX, positionY);
             //Add image
             Image categoryButtonImage = categoryButton.AddComponent<Image>();
             categoryButtonImage.sprite = squareImage;
@@ -751,13 +769,26 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                 categoryButtonGraphic.AddComponent<CanvasRenderer>();
                 RectTransform categoryButtonGraphicRect = categoryButtonGraphic.AddComponent<RectTransform>();
                 //Set Image rect
-                float imageSize = buttonHeight*0.9f;
-                categoryButtonGraphicRect.anchorMin = new Vector2(1, 0.5f);
-                categoryButtonGraphicRect.anchorMax = new Vector2(1, 0.5f);
+                float imageSize;
+                Vector2 anchoredPositionImage;
+                if(portraitMode) //Portrait
+                {
+                    imageSize = buttonHeight*0.9f;
+                    anchoredPositionImage = new Vector2(-buttonHeight*0.5f, 0);
+                    categoryButtonGraphicRect.anchorMin = new Vector2(1, 0.5f);
+                    categoryButtonGraphicRect.anchorMax = new Vector2(1, 0.5f);
+                }
+                else //Landscape
+                {
+                    imageSize = buttonWidth*0.9f;
+                    anchoredPositionImage = new Vector2(0, -buttonWidth * 0.5f);
+                    categoryButtonGraphicRect.anchorMin = new Vector2(0.5f, 1);
+                    categoryButtonGraphicRect.anchorMax = new Vector2(0.5f, 1);
+                }
                 categoryButtonGraphicRect.pivot = new Vector2(0.5f, 0.5f);
                 categoryButtonGraphicRect.localScale = new Vector3(1, 1, 1);
                 categoryButtonGraphicRect.sizeDelta = new Vector2(imageSize, imageSize);
-                categoryButtonGraphicRect.anchoredPosition = new Vector2(-buttonHeight*0.5f, 0);
+                categoryButtonGraphicRect.anchoredPosition = anchoredPositionImage;
                 //Add image
                 Image categoryButtonGraphicImage = categoryButtonGraphic.AddComponent<Image>();
                 categoryButtonGraphicImage.sprite = categorySprite[i-1];
@@ -844,7 +875,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                 //Set dot rect size
                 lockedLevelRect.localScale = new Vector3(1, 1, 1);
                 lockedLevelRect.sizeDelta = new Vector2(buttonWidth, buttonHeight);
-                lockedLevelRect.anchoredPosition = new Vector2(0, positionY);
+                lockedLevelRect.anchoredPosition = new Vector2(positionX, positionY);
                 //Add image
                 Image lockedLevelBackground = lockedLevel.AddComponent<Image>();
                 lockedLevelBackground.sprite = squareImage;
@@ -944,7 +975,14 @@ public class CreateLevelMenuLayout : MonoBehaviour {
             }
 
             //Set new yPosition
-            positionY -= buttonHeight + buttonSpacing;
+            if (portraitMode)
+            {
+                positionY -= buttonHeight + buttonSpacing;
+            }
+            else // Set new xPosition
+            {
+                positionX += buttonWidth + buttonSpacing;
+            }  
         }
 
         return categoryChoice;
