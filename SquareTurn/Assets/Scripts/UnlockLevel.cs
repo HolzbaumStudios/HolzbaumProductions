@@ -42,7 +42,7 @@ public class UnlockLevel : MonoBehaviour {
 		//Update Analytics
 		Analytics.CustomEvent(playerPrefName, new Dictionary<string, object>{});
 
-		StartCoroutine (StopUnlockMessage());
+        StartCoroutine (StopUnlockMessage());
 	}
 
 	//Coroutine

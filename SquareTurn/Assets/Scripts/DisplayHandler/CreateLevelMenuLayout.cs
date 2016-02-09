@@ -3,7 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 using System;
 
-
+//Makes sure, that the script checkLevelAchievemnts is attached to the object
+[RequireComponent(typeof(CheckLevelAchievements))]
 public class CreateLevelMenuLayout : MonoBehaviour {
 
 
@@ -32,6 +33,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
     //Private reference variables
     private GameObject scrollbarObject; //For having reference across the script
     private GameObject levelUnlockedPanel; //Reference to levelUnlockedPanel across the script
+    private GameObject levelUnlockedPanelBase;
     private GameObject achievementPanel; //Reference to achievementPanel across the script
     private GameObject[] category = new GameObject[4];
     private float screenRatio;
@@ -67,6 +69,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         scalerComponent = GetComponent<CanvasScaler>();
         scalerComponent.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         scalerComponent.referenceResolution = new Vector2(resolutionWidth, resolutionHeight);
+
 
         //-----Create LevelChoice Panel-----
         GameObject levelChoice = new GameObject("LevelChoice");
@@ -478,7 +481,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         levelUnlockedPanelRect.localScale = new Vector3(1, 1, 1);
         
             //-----Add level unlocked panel base-----
-            GameObject levelUnlockedPanelBase = new GameObject("LevelUnlockedPanelBase");
+            levelUnlockedPanelBase = new GameObject("LevelUnlockedPanelBase");
             levelUnlockedPanelBase.SetActive(false);
             levelUnlockedPanelBase.transform.SetParent(levelUnlockedPanel.transform);
             levelUnlockedPanelBase.layer = LayerMask.NameToLayer("UI");
@@ -540,17 +543,17 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                 levelUnlockedTextRect.anchorMax = new Vector2(1, 1);
                 levelUnlockedTextRect.pivot = new Vector2(0.5f, 0.5f);
                 //Set rect size
-                Vector2 levelUnlockedTextSize = new Vector2(levelUnlockedSize.x * 0.5f, levelUnlockedSize.y * 0.39f);
+                Vector2 levelUnlockedTextSize = new Vector2(levelUnlockedSize.x * 0.62f, levelUnlockedSize.y * 0.48f);
                 levelUnlockedTextRect.localScale = new Vector3(1, 1, 1);
                 levelUnlockedTextRect.sizeDelta = levelUnlockedTextSize;
-                levelUnlockedTextRect.anchoredPosition = new Vector2(-levelUnlockedSize.x * 0.4f, -levelUnlockedSize.y * 0.61f);
+                levelUnlockedTextRect.anchoredPosition = new Vector2(-levelUnlockedSize.x * 0.34f, -levelUnlockedSize.y * 0.65f);
                 //Add text component
                 Text levelUnlockedTextText = levelUnlockedText.AddComponent<Text>();
                 levelUnlockedTextText.font = textFont;
                 levelUnlockedTextText.fontStyle = FontStyle.Normal;
                 levelUnlockedTextText.resizeTextForBestFit = true;
                 levelUnlockedTextText.resizeTextMaxSize = 50;
-                levelUnlockedTextText.resizeTextMinSize = 10;
+                levelUnlockedTextText.resizeTextMinSize = 5;
                 levelUnlockedTextText.alignment = TextAnchor.UpperLeft;
 
                 //-----Add level unlocked image-----
@@ -627,17 +630,18 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                 achievementTitleRect.anchorMax = new Vector2(1, 1);
                 achievementTitleRect.pivot = new Vector2(0.5f, 0.5f);
                 //Set rect size
-                Vector2 achievementTitleSize = new Vector2(achievementPanelSize.x * 0.6f, achievementPanelSize.y * 0.2f);
+                Vector2 achievementTitleSize = new Vector2(achievementPanelSize.x * 0.64f, achievementPanelSize.y * 0.2f);
                 achievementTitleRect.localScale = new Vector3(1, 1, 1);
                 achievementTitleRect.sizeDelta = achievementTitleSize;
-                achievementTitleRect.anchoredPosition = new Vector2(-achievementPanelSize.x * 0.4f, -achievementPanelSize.y * 0.29f);
+                achievementTitleRect.anchoredPosition = new Vector2(-achievementPanelSize.x * 0.38f, -achievementPanelSize.y * 0.29f);
                 //Add text component
                 Text achievementTitleText = achievementTitle.AddComponent<Text>();
+                achievementTitleText.text = "ACHIEVEMENT UNLOCKED";
                 achievementTitleText.font = textFont;
                 achievementTitleText.fontStyle = FontStyle.Bold;
                 achievementTitleText.resizeTextForBestFit = true;
                 achievementTitleText.resizeTextMaxSize = 120;
-                achievementTitleText.resizeTextMinSize = 10;
+                achievementTitleText.resizeTextMinSize = 4;
                 achievementTitleText.alignment = TextAnchor.UpperLeft;
                 achievementTitleText.color = new Color32(254, 255, 186, 255);
 
@@ -652,10 +656,10 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                 achievementTextRect.anchorMax = new Vector2(1, 1);
                 achievementTextRect.pivot = new Vector2(0.5f, 0.5f);
                 //Set rect size
-                Vector2 achievementTextSize = new Vector2(achievementPanelSize.x * 0.6f, achievementPanelSize.y * 0.39f);
+                Vector2 achievementTextSize = new Vector2(achievementPanelSize.x * 0.64f, achievementPanelSize.y * 0.35f);
                 achievementTextRect.localScale = new Vector3(1, 1, 1);
                 achievementTextRect.sizeDelta = achievementTextSize;
-                achievementTextRect.anchoredPosition = new Vector2(-achievementPanelSize.x * 0.4f, -achievementPanelSize.y * 0.61f);
+                achievementTextRect.anchoredPosition = new Vector2(-achievementPanelSize.x * 0.38f, -achievementPanelSize.y * 0.61f);
                 //Add text component
                 Text achievementTextText = achievementText.AddComponent<Text>();
                 achievementTextText.font = textFont;
@@ -737,7 +741,6 @@ public class CreateLevelMenuLayout : MonoBehaviour {
             categoryButtonShadow.effectDistance= new Vector2(2, -2);
             //AddButton
             Button categoryButtonScript = categoryButton.AddComponent<Button>();
-            Debug.Log("Category number sender: " + i);
             int tempValue = i;
             categoryButtonScript.onClick.AddListener(() => levelChoice.GetComponent<MenuScript>().ChooseCategory(tempValue));
 
@@ -856,7 +859,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                 }
                 UnlockLevel lockedLevelScript = lockedLevel.AddComponent<UnlockLevel>();
                 lockedLevelScript.neededStars = starsNeeded;
-                lockedLevelScript.levelUnlocked = this.gameObject;
+                lockedLevelScript.levelUnlocked = levelUnlockedPanelBase;
                 lockedLevelScript.levelUnlockedTitle = "LEVELE PACK " + i;
                 lockedLevelScript.levelUnlockedText = "Congratulations!\nYou just unlocked new levels!";
                 lockedLevelScript.levelUnlockedImage = categorySprite[i-1];
@@ -947,4 +950,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         return categoryChoice;
     }
 
+    
 }
+
+

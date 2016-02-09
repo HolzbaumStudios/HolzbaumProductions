@@ -26,7 +26,6 @@ public class MenuScript : MonoBehaviour {
 	public void SetSliderPosition()
 	{
 		float sliderPosition = PlayerPrefs.GetFloat ("SliderPosition");
-		Debug.Log ("SetSLiderPosition: " + sliderPosition);
 		categorySlider.GetComponent<Scrollbar> ().value = sliderPosition;
 	}
 	

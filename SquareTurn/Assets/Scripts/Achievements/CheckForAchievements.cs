@@ -10,7 +10,6 @@ public class CheckForAchievements : MonoBehaviour {
 	// Use this for initialization
 	public void CheckAchievements () {
 		if (PlayerPrefs.GetInt ("NewAchievement") == 1) {
-			Debug.Log ("Checking Achievements");
 			GameObject.Find ("UserStatistics").GetComponent<AchievementCollection>().SetAchievementWindow(achievementPanel);
 		}
 	}
