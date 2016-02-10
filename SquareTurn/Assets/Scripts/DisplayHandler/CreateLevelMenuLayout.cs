@@ -494,7 +494,15 @@ public class CreateLevelMenuLayout : MonoBehaviour {
             levelUnlockedPanelBaseRect.anchorMax = new Vector2(0.5f, 1);
             levelUnlockedPanelBaseRect.pivot = new Vector2(0.5f, 0.5f);
             //Set rect size
-            Vector2 levelUnlockedSize = new Vector2(resolutionWidth*0.8f, resolutionHeight/7); 
+            Vector2 levelUnlockedSize;
+            if(portraitMode)
+            {
+                levelUnlockedSize = new Vector2(resolutionWidth*0.8f, resolutionHeight/7); 
+            }
+            else
+            {
+                levelUnlockedSize = new Vector2(resolutionHeight*0.8f, resolutionWidth/7); 
+            }
             levelUnlockedPanelBaseRect.localScale = new Vector3(1, 1, 1);
             levelUnlockedPanelBaseRect.sizeDelta = levelUnlockedSize;
             levelUnlockedPanelBaseRect.anchoredPosition = new Vector2(0, levelUnlockedSize.y / 2);
@@ -606,7 +614,15 @@ public class CreateLevelMenuLayout : MonoBehaviour {
             achievementPanelBaseRect.anchorMax = new Vector2(0.5f, 1);
             achievementPanelBaseRect.pivot = new Vector2(0.5f, 0.5f);
             //Set rect size
-            Vector2 achievementPanelSize = new Vector2(resolutionWidth * 0.8f, resolutionHeight / 7);
+            Vector2 achievementPanelSize;
+            if(portraitMode) //Portrait
+            {
+                achievementPanelSize = new Vector2(resolutionWidth * 0.8f, resolutionHeight / 7);
+            }
+            else //Landscape
+            {
+                achievementPanelSize = new Vector2(resolutionHeight * 0.8f, resolutionWidth / 7);
+            }
             achievementPanelBaseRect.localScale = new Vector3(1, 1, 1);
             achievementPanelBaseRect.sizeDelta = achievementPanelSize;
             achievementPanelBaseRect.anchoredPosition = new Vector2(0, achievementPanelSize.y / 2);
@@ -940,11 +956,10 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                     lockedLevelTitle.layer = LayerMask.NameToLayer("UI");
                     lockedLevelTitle.AddComponent<CanvasRenderer>();
                     RectTransform lockedLevelTitleRect = lockedLevelTitle.AddComponent<RectTransform>();
-                    //Set rect anchor
+                    //Set rect
                     lockedLevelTitleRect.anchorMin = new Vector2(0.5f, 0.5f);
                     lockedLevelTitleRect.anchorMax = new Vector2(0.5f, 0.5f);
                     lockedLevelTitleRect.pivot = new Vector2(0.5f, 0.5f);
-                    //Set dot rect size
                     Vector2 lockedTitleSize = new Vector2(buttonWidth*0.8f, buttonHeight*0.15f);
                     lockedLevelTitleRect.localScale = new Vector3(1, 1, 1);
                     lockedLevelTitleRect.sizeDelta = lockedTitleSize;
@@ -967,18 +982,31 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                     lockedLevelImage.AddComponent<CanvasRenderer>();
                     RectTransform lockedLevelImageRect = lockedLevelImage.AddComponent<RectTransform>();
                     //Set rect anchor
+                    Vector2 lockedImageSize;
+                    Vector2 lockedImagePosition;
+                    if(portraitMode) //Portrait
+                    {
+                        lockedImageSize = new Vector2(buttonHeight*0.7f, buttonHeight*0.7f);
+                        lockedImagePosition = new Vector2(-buttonWidth * 0.28f, -buttonHeight * 0.07f);
+                }
+                    else //Landscape
+                    {
+                        lockedImageSize = new Vector2(buttonHeight*0.4f, buttonHeight*0.38f);
+                        lockedImagePosition = new Vector2(0, -buttonHeight * 0.3f);
+                    }
                     lockedLevelImageRect.anchorMin = new Vector2(0.5f, 0.5f);
                     lockedLevelImageRect.anchorMax = new Vector2(0.5f, 0.5f);
                     lockedLevelImageRect.pivot = new Vector2(0.5f, 0.5f);
-                    //Set dot rect size
-                    Vector2 lockedImageSize = new Vector2(buttonHeight*0.7f, buttonHeight*0.7f);
                     lockedLevelImageRect.localScale = new Vector3(1, 1, 1);
                     lockedLevelImageRect.sizeDelta = lockedImageSize;
-                    lockedLevelImageRect.anchoredPosition = new Vector2(-buttonWidth*0.28f, -buttonHeight*0.07f);
+                    lockedLevelImageRect.anchoredPosition = lockedImagePosition;
                     //Add Image
                     Image lockedImageSprite = lockedLevelImage.AddComponent<Image>();
                     lockedImageSprite.sprite = lockSprite;
                     lockedImageSprite.preserveAspect = true;
+                    //Add shadow
+                    Shadow lockedImageShadow = lockedLevelImage.AddComponent<Shadow>();
+                    lockedImageShadow.effectDistance = new Vector2(1, -1);
 
                     //----- Add locked Text------
                     GameObject lockedLevelText = new GameObject("LockedText");
@@ -987,21 +1015,31 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                     lockedLevelText.AddComponent<CanvasRenderer>();
                     RectTransform lockedLevelTextRect = lockedLevelText.AddComponent<RectTransform>();
                     //Set rect anchor
+                    Vector2 lockedTextSize;
+                    Vector2 lockedTextPosition;
+                    if(portraitMode) //Portrait
+                    {
+                        lockedTextSize = new Vector2(buttonWidth * 0.48f, buttonHeight * 0.65f);
+                        lockedTextPosition = new Vector2(buttonWidth * 0.15f, -buttonHeight * 0.07f);
+                }
+                    else //Landscape
+                    {
+                        lockedTextSize = new Vector2(buttonWidth * 0.8f, buttonHeight * 0.31f);
+                        lockedTextPosition = new Vector2(0, buttonHeight * 0.07f);
+                    }
                     lockedLevelTextRect.anchorMin = new Vector2(0.5f, 0.5f);
                     lockedLevelTextRect.anchorMax = new Vector2(0.5f, 0.5f);
-                    lockedLevelTextRect.pivot = new Vector2(0.5f, 0.5f);
-                    //Set dot rect size
-                    Vector2 lockedTextSize = new Vector2(buttonWidth * 0.48f, buttonHeight * 0.65f);
+                    lockedLevelTextRect.pivot = new Vector2(0.5f, 0.5f);   
                     lockedLevelTextRect.localScale = new Vector3(1, 1, 1);
                     lockedLevelTextRect.sizeDelta = lockedTextSize;
-                    lockedLevelTextRect.anchoredPosition = new Vector2(buttonWidth * 0.15f, -buttonHeight * 0.07f);
+                    lockedLevelTextRect.anchoredPosition = lockedTextPosition;
                     //Add Text
                     string lockedText = "";
                     switch(i) //Change text based on category
                     {
-                        case 2: lockedText = "Available at 40 stars from the previous package";  break;
-                        case 3: lockedText = "Available at 90 stars from the previous packages"; break;
-                        case 4: lockedText = "Available at 140 stars from the previous packages";  break;
+                        case 2: lockedText = "Available after collecting a total of 40 stars";  break;
+                        case 3: lockedText = "Available after collecting a total of 90 stars"; break;
+                        case 4: lockedText = "Available after collecting a total of 140 stars";  break;
                     }
                     Text lockedTextText = lockedLevelText.AddComponent<Text>();
                     lockedTextText.text = lockedText;
@@ -1009,7 +1047,14 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                     lockedTextText.resizeTextForBestFit = true;
                     lockedTextText.resizeTextMaxSize = 35;
                     lockedTextText.resizeTextMinSize = 5;
-                    lockedTextText.alignment = TextAnchor.MiddleLeft;
+                    if (portraitMode)
+                    {
+                        lockedTextText.alignment = TextAnchor.MiddleLeft;
+                    }
+                    else
+                    {
+                        lockedTextText.alignment = TextAnchor.MiddleCenter;
+                    }      
             }
 
             //Set new yPosition
