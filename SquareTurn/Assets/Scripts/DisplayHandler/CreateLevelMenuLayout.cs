@@ -800,13 +800,24 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                 categoryInformation.AddComponent<CanvasRenderer>();
                 RectTransform categoryInformationRect = categoryInformation.AddComponent<RectTransform>();
                 //Set category information rect
-                Vector2 categoryInformationSize = new Vector2(buttonWidth - imageSize*1.1f, buttonHeight / 4.5f);
-                categoryInformationRect.anchorMin = new Vector2(0, 0.5f);
-                categoryInformationRect.anchorMax = new Vector2(0, 0.5f);
+                Vector2 categoryInformationSize;
+                if (portraitMode) //Portrait
+                {
+                    categoryInformationSize = new Vector2(buttonWidth - imageSize*1.1f, buttonHeight / 4.5f);
+                    categoryInformationRect.anchorMin = new Vector2(0, 0.5f);
+                    categoryInformationRect.anchorMax = new Vector2(0, 0.5f);
+                    categoryInformationRect.anchoredPosition = new Vector2(categoryInformationSize.x / 2, 0);
+                }
+                else //Landscape
+                {
+                    categoryInformationSize = new Vector2(buttonWidth*0.6f, buttonHeight-imageSize*1.05f);
+                    categoryInformationRect.anchorMin = new Vector2(0, 0);
+                    categoryInformationRect.anchorMax = new Vector2(0, 0);
+                    categoryInformationRect.anchoredPosition = new Vector2(categoryInformationSize.x * 0.57f, categoryInformationSize.y *0.5f);
+                }
                 categoryInformationRect.pivot = new Vector2(0.5f, 0.5f);
                 categoryInformationRect.localScale = new Vector3(1, 1, 1);
                 categoryInformationRect.sizeDelta = categoryInformationSize;
-                categoryInformationRect.anchoredPosition = new Vector2(categoryInformationSize.x / 2, 0);
                 
                     //----- Create star image ------
                     GameObject categoryStar = new GameObject("StarImage");
@@ -815,13 +826,26 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                     categoryStar.AddComponent<CanvasRenderer>();
                     RectTransform categoryStarRect = categoryStar.AddComponent<RectTransform>();
                     //Set rect size
-                    categoryStarRect.anchorMin = new Vector2(0.5f, 1);
-                    categoryStarRect.anchorMax = new Vector2(0.5f, 1);
+                    float categoryStarSize;
+                    Vector2 categoryStarPosition;
+                    if(portraitMode) //Portrait
+                    {
+                        categoryStarRect.anchorMin = new Vector2(0.5f, 1);
+                        categoryStarRect.anchorMax = new Vector2(0.5f, 1);
+                        categoryStarSize = categoryInformationSize.x *0.35f;
+                        categoryStarPosition = new Vector2(0,0);
+                    }
+                    else //Landscape
+                    {
+                        categoryStarRect.anchorMin = new Vector2(0, 0.5f);
+                        categoryStarRect.anchorMax = new Vector2(0, 0.5f);
+                        categoryStarSize = categoryInformationSize.y *0.6f;
+                        categoryStarPosition = new Vector2(categoryStarSize*0.65f,0);
+                    }
                     categoryStarRect.pivot = new Vector2(0.5f, 0.5f);
                     categoryStarRect.localScale = new Vector3(1, 1, 1);
-                    float categoryStarSize = categoryInformationSize.x *0.35f;
                     categoryStarRect.sizeDelta = new Vector2(categoryStarSize, categoryStarSize);
-                    categoryStarRect.anchoredPosition = new Vector2(0, 0);
+                    categoryStarRect.anchoredPosition = categoryStarPosition;
                     //Add image
                     Image categoryStarImage = categoryStar.AddComponent<Image>();
                     categoryStarImage.sprite = starSprite;
@@ -836,14 +860,28 @@ public class CreateLevelMenuLayout : MonoBehaviour {
                     starInfo.layer = LayerMask.NameToLayer("UI");
                     starInfo.AddComponent<CanvasRenderer>();
                     RectTransform starInfoRect = starInfo.AddComponent<RectTransform>();
-                    //Set star info canvs
-                    starInfoRect.anchorMin = new Vector2(0.5f, 0);
-                    starInfoRect.anchorMax = new Vector2(0.5f, 0);
+                    //Set star info rect
+                    float starInfoSize;
+                    Vector2 starInfoPosition;
+                    if(portraitMode) //Portrait
+                    {
+                        starInfoRect.anchorMin = new Vector2(0.5f, 0);
+                        starInfoRect.anchorMax = new Vector2(0.5f, 0);
+                        starInfoSize = categoryInformationSize.x *0.75f;
+                        starInfoRect.sizeDelta = new Vector2(starInfoSize, starInfoSize*0.4f);
+                        starInfoPosition = new Vector2(0, 0);
+            }
+                    else //Landscape
+                    {
+                        starInfoRect.anchorMin = new Vector2(1, 0.5f);
+                        starInfoRect.anchorMax = new Vector2(1, 0.5f);
+                        starInfoSize = categoryInformationSize.y *0.75f;
+                        starInfoRect.sizeDelta = new Vector2(starInfoSize*2.5f, starInfoSize * 0.9f);
+                        starInfoPosition = new Vector2(-starInfoSize* 0.6f, -starInfoSize*0.05f);
+                    }
                     starInfoRect.pivot = new Vector2(0.5f, 0.5f);
-                    starInfoRect.localScale = new Vector3(1, 1, 1);
-                    float starInfoSize = categoryInformationSize.x *0.75f;
-                    starInfoRect.sizeDelta = new Vector2(starInfoSize, starInfoSize*0.4f);
-                    starInfoRect.anchoredPosition = new Vector2(0, 0);
+                    starInfoRect.localScale = new Vector3(1, 1, 1); 
+                    starInfoRect.anchoredPosition = starInfoPosition;
                     //Add text
                     Text starInfoText = starInfo.AddComponent<Text>();
                     starInfoText.text = "20 / 72";
