@@ -20756,7 +20756,7 @@ Prefab:
     - target: {fileID: 11402750, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
       propertyPath: landscapeCanvas
       value: 
-      objectReference: {fileID: 474263175}
+      objectReference: {fileID: 1478193043}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
   m_IsPrefabParent: 0
@@ -91662,7 +91662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1478193044
 MonoBehaviour:
   m_ObjectHideFlags: 0

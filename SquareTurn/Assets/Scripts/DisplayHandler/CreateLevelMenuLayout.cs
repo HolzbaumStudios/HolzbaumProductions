@@ -181,20 +181,45 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         int column = 0; //This variables are only used for the layout
         int row = 1;
         float xSpacing;
-        float ySpacing = resolutionHeight / 22;
-        float buttonHeight = resolutionHeight / 6.5f;
+        float ySpacing;
+        float buttonHeight;
         float buttonWidth;
-        if (screenRatio > 1.6f)
+        if(portraitMode) //Portrait
         {
-            xSpacing = resolutionWidth / 15f;
-            buttonWidth = resolutionWidth / 4.2f;
-            ySpacing = resolutionHeight / 25;
+            buttonHeight = resolutionHeight / 6.5f;
+            if (screenRatio > 1.6f)
+            {  
+                buttonWidth = resolutionWidth / 4.2f;
+                ySpacing = buttonWidth * 0.3f;
+                xSpacing = buttonWidth * 0.3f;
+            }
+            else
+            {
+                
+                buttonWidth = resolutionWidth / 5;
+                ySpacing = buttonWidth * 0.3f;
+                xSpacing = buttonWidth*0.3f;
+            }
         }
-        else
+        else //Landscape
         {
-            xSpacing = resolutionWidth * 0.067f;
-            buttonWidth = resolutionWidth / 5;
+            
+            if (screenRatio > 1.6f)
+            { 
+                buttonHeight = resolutionHeight *0.22f;
+                buttonWidth = buttonHeight * 0.9f;
+                xSpacing = buttonWidth * 0.3f;
+                ySpacing = buttonWidth * 0.2f;
+            }
+            else
+            {
+                buttonHeight = resolutionHeight * 0.2f;
+                buttonWidth = buttonHeight * 0.85f;
+                xSpacing = buttonWidth * 0.3f;
+                ySpacing = buttonWidth * 0.3f;
+            }
         }
+        
         Vector2 buttonSize = new Vector2(buttonWidth, buttonHeight);
         float xPosition;
         float yPosition;
@@ -389,14 +414,26 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         arrowPanel.AddComponent<CanvasRenderer>();
         RectTransform arrowPanelRect = arrowPanel.AddComponent<RectTransform>();
         //Set arrowpanel rect transform anchors
-        arrowPanelRect.anchorMin = new Vector2(0.5f, 0);
-        arrowPanelRect.anchorMax = new Vector2(0.5f, 0);
         arrowPanelRect.pivot = new Vector2(0.5f, 0.5f);
-        //Set Panelsize
-        float arrowPanelHeight = resolutionHeight / 9.5f;
-        arrowPanelRect.sizeDelta = new Vector2(resolutionWidth, arrowPanelHeight);
-        arrowPanelRect.anchoredPosition = new Vector2(0, arrowPanelHeight / 2);
         arrowPanelRect.localScale = new Vector3(1, 1, 1);
+        float arrowPanelHeight;
+        if (portraitMode) //Portrait
+        {
+            arrowPanelRect.anchorMin = new Vector2(0.5f, 0);
+            arrowPanelRect.anchorMax = new Vector2(0.5f, 0);
+            arrowPanelHeight = resolutionHeight / 9.5f;
+            arrowPanelRect.sizeDelta = new Vector2(resolutionWidth, arrowPanelHeight);
+            arrowPanelRect.anchoredPosition = new Vector2(0, arrowPanelHeight / 2);
+        }
+        else //Landscape
+        {
+            arrowPanelRect.anchorMin = new Vector2(0, 0);
+            arrowPanelRect.anchorMax = new Vector2(1, 1);
+            arrowPanelRect.offsetMin = new Vector2(0, 0);
+            arrowPanelRect.offsetMax = new Vector2(0, 0);
+            arrowPanelHeight = resolutionWidth / 8.5f;
+        }    
+        
         //-----Create arrow button-----
         GameObject arrow = new GameObject("arrow");
         arrow.transform.SetParent(arrowPanel.transform);
@@ -410,9 +447,20 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         arrowRect.anchorMax = new Vector2(anchorValue, 0.5f);
         arrowRect.pivot = new Vector2(0.5f, 0.5f);
         //Set arrow size
-        float arrowSize = arrowPanelHeight * 0.8f;
-        float arrowXOffset = resolutionWidth / 4;
-        arrowRect.sizeDelta = new Vector2(arrowSize, arrowSize);
+        float arrowSize;
+        float arrowXOffset;
+        if (portraitMode) //Portrait
+        {
+            arrowSize = arrowPanelHeight * 0.8f;
+            arrowXOffset = resolutionWidth / 4;
+            arrowRect.sizeDelta = new Vector2(arrowSize, arrowSize);
+        }
+        else //Landscape
+        {
+            arrowSize = arrowPanelHeight;
+            arrowXOffset = resolutionWidth * 0.1f;
+            arrowRect.sizeDelta = new Vector2(arrowSize, arrowSize*1.3f);
+        }         
         if (rightArrow) { arrowXOffset = arrowXOffset * -1; } else { arrowRect.localRotation = Quaternion.Euler(0, 0, 180); }
         arrowRect.anchoredPosition = new Vector2(arrowXOffset, 0);
         arrowRect.localScale = new Vector3(1, 1, 1);
@@ -442,13 +490,21 @@ public class CreateLevelMenuLayout : MonoBehaviour {
             dot.AddComponent<CanvasRenderer>();
             RectTransform dotRect = dot.AddComponent<RectTransform>();
             //Set dot rect
-            dotRect.anchorMin = new Vector2(0.5f, 0.5f);
-            dotRect.anchorMax = new Vector2(0.5f, 0.5f);
+            if(portraitMode) //Portrait
+            {
+                dotRect.anchorMin = new Vector2(0.5f, 0.5f);
+                dotRect.anchorMax = new Vector2(0.5f, 0.5f);
+                dotRect.anchoredPosition = new Vector2(dotPositionX, 0);
+            }
+            else //Landscape
+            {
+                dotRect.anchorMin = new Vector2(0.5f, 0);
+                dotRect.anchorMax = new Vector2(0.5f, 0);
+                dotRect.anchoredPosition = new Vector2(dotPositionX, arrowPanelHeight*0.3f);
+            }
             dotRect.pivot = new Vector2(0.5f, 0.5f);
-            //Set dot rect size
             dotRect.localScale = new Vector3(1, 1, 1);
             dotRect.sizeDelta = new Vector2(dotSize, dotSize);
-            dotRect.anchoredPosition = new Vector2(dotPositionX, 0);
             //Add image
             Image dotImage = dot.AddComponent<Image>();
             dotImage.sprite = dotSprite;
