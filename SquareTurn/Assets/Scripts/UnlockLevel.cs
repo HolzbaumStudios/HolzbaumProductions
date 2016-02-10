@@ -41,15 +41,15 @@ public class UnlockLevel : MonoBehaviour {
 		PlayerPrefs.SetInt (playerPrefName, 1);
 		//Update Analytics
 		Analytics.CustomEvent(playerPrefName, new Dictionary<string, object>{});
-
-        StartCoroutine (StopUnlockMessage());
+        this.gameObject.SetActive(false);
+        //StartCoroutine (StopUnlockMessage());
 	}
 
 	//Coroutine
-	IEnumerator StopUnlockMessage() {
+	/*IEnumerator StopUnlockMessage() {
 		yield return new WaitForSeconds (6f);
 		levelUnlocked.SetActive (false);
 		this.gameObject.SetActive(false);
-	}
+	}*/
 
 }

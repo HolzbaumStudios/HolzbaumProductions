@@ -190,8 +190,8 @@ public class CreateLevelMenuLayout : MonoBehaviour {
             if (screenRatio > 1.6f)
             {  
                 buttonWidth = resolutionWidth / 4.2f;
-                ySpacing = buttonWidth * 0.3f;
-                xSpacing = buttonWidth * 0.3f;
+                ySpacing = buttonWidth * 0.25f;
+                xSpacing = buttonWidth * 0.25f;
             }
             else
             {
@@ -569,9 +569,13 @@ public class CreateLevelMenuLayout : MonoBehaviour {
             //Add shadow
             Shadow levelUnlockedShadow = levelUnlockedPanelBase.AddComponent<Shadow>();
             levelUnlockedShadow.effectDistance = new Vector2(2,-2);
-            //Add Animator
+            /*/Add Animator
             Animator levelUnlockedAnimator = levelUnlockedPanelBase.AddComponent<Animator>();
-            levelUnlockedAnimator.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("AchievementMovementPortrait");
+            levelUnlockedAnimator.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("AchievementMovementPortrait");*/
+            //Add animation script
+            levelUnlockedPanelBase.AddComponent<AnimationScript>();
+            //Add script
+            levelUnlockedPanelBase.AddComponent<DisableByTime>();
 
                 //-----Add level unlocked title
                 GameObject levelUnlockedTitle = new GameObject("LevelUnlockedTitle");
@@ -689,9 +693,11 @@ public class CreateLevelMenuLayout : MonoBehaviour {
             //Add shadow
             Shadow achievementPanelShadow = achievementPanelBase.AddComponent<Shadow>();
             achievementPanelShadow.effectDistance = new Vector2(2, -2);
-            //Add Animator
+            /*/Add Animator
             Animator achievementPanelAnimator = achievementPanelBase.AddComponent<Animator>();
-            achievementPanelAnimator.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("AchievementMovementPortrait");
+            achievementPanelAnimator.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("AchievementMovementPortrait");*/
+            //Add animation script
+            achievementPanelBase.AddComponent<AnimationScript>();
 
                 //-----Add achievement title
                 GameObject achievementTitle = new GameObject("AchievementTitle");
