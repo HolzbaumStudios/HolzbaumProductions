@@ -44,25 +44,39 @@ public class MenuScript : MonoBehaviour {
 	void Update(){
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
-			if(Application.loadedLevelName == "levelMenu")
-			{
-				if(categoryChoice.activeSelf)
-				{
-					Application.LoadLevel("startMenu");
-				}
-				else
-				{
-					DisableAllCategories();
-				}
-
-			}
-			else
-			{
-				Application.LoadLevel("startMenu");
-			}
+            EscapeButton();
 		}
 	}
+
+    //Everything that happens, when you press Escape or the escape button
+    public void EscapeButton()
+    {
+        if (Application.loadedLevelName == "levelMenu")
+        {
+            if (categoryChoice.activeSelf)
+            {
+                Application.LoadLevel("startMenu");
+            }
+            else
+            {
+                DisableAllCategories();
+            }
+
+        }
+        else
+        {
+            Application.LoadLevel("startMenu");
+        }
+    }
 	
+    //Disable categories only, without going back to level menu
+    public void DisableCategoriesOnly()
+    {
+        category1.SetActive(false);
+        category2.SetActive(false);
+        category3.SetActive(false);
+        category4.SetActive(false);
+    }
 
 	//Disables all categories and opens the level choice
 	public void DisableAllCategories()
@@ -70,14 +84,20 @@ public class MenuScript : MonoBehaviour {
 		//Disable the slider
 		categorySlider.SetActive(false);
 
-        //Disable the active Category
+        /*//Disable the active Category
         if (category1.activeSelf) category1.SetActive(false);
         else if (category2.activeSelf) category2.SetActive(false);
         else if (category3.activeSelf) category3.SetActive(false);
-        else if (category4.activeSelf) category4.SetActive(false);
-		
-		//Enable category Choice
-		categoryChoice.SetActive (true);
+        else if (category4.activeSelf) category4.SetActive(false);*/
+
+        //Disable all categories
+        category1.SetActive(false);
+        category2.SetActive(false);
+        category3.SetActive(false);
+        category4.SetActive(false);
+
+        //Enable category Choice
+        categoryChoice.SetActive (true);
 		PlayerPrefs.SetInt ("ActiveCategory", 0);
 	}
 
@@ -95,10 +115,10 @@ public class MenuScript : MonoBehaviour {
 		//Set the scrollrect to the correct category
 		switch(categoryNumber)
 		{
-		case 1: category1.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category1.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 1); break;
-		case 2: category2.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category2.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 2); break;
-		case 3: category3.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category3.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 3); break;
-        case 4: category4.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category4.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 4); break;
+		case 1: DisableCategoriesOnly(); category1.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category1.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 1); break;
+		case 2: DisableCategoriesOnly(); category2.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category2.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 2); break;
+		case 3: DisableCategoriesOnly(); category3.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category3.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 3); break;
+        case 4: DisableCategoriesOnly(); category4.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category4.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 4); break;
 		}
 
 		//Enable the scrollbar;

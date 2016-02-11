@@ -26,6 +26,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
     public Sprite dotSprite;
     public Sprite[] categorySprite;
     public Sprite lockSprite;
+    public Sprite crossSprite;
     public Font textFont;
     public GameObject scrollbarPrefab; //Scrollbar prefab
     
@@ -125,6 +126,76 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         menuScript.category3 = category[2];
         menuScript.category4 = category[3];
         menuScript.categorySlider = scrollbarObject;
+
+//Add this code only on iOS
+#if UNITY_IOS
+        //-----Add return button------
+        GameObject returnButton = new GameObject("ReturnButton");
+        returnButton.layer = LayerMask.NameToLayer("UI");
+        returnButton.transform.SetParent(this.gameObject.transform);
+        returnButton.AddComponent<CanvasRenderer>();
+        RectTransform returnButtonRect = returnButton.AddComponent<RectTransform>();
+        //Set rect
+        Vector2 returnButtonSize;
+        Vector2 returnButtonPosition;
+        if (portraitMode) //Portrait
+        {
+            if (screenRatio > 1.6f)
+            { 
+                returnButtonSize = new Vector2(resolutionWidth * 0.13f, resolutionWidth * 0.13f);
+            }
+            else
+            {
+                returnButtonSize = new Vector2(resolutionWidth * 0.115f, resolutionWidth * 0.115f);
+            }
+            returnButtonPosition = new Vector2(-returnButtonSize.x*0.8f, -returnButtonSize.x*0.8f);
+        }
+        else //Landscape
+        {
+            if (screenRatio > 1.6f)
+            {
+                returnButtonSize = new Vector2(resolutionHeight * 0.13f, resolutionHeight * 0.13f);
+            }
+            else
+            {
+                returnButtonSize = new Vector2(resolutionHeight * 0.10f, resolutionHeight * 0.10f);
+            }
+            returnButtonPosition = new Vector2(-returnButtonSize.x*0.8f, -returnButtonSize.x*0.8f);
+        }
+        returnButtonRect.anchorMin = new Vector2(1, 1);
+        returnButtonRect.anchorMax = new Vector2(1, 1);
+        returnButtonRect.pivot = new Vector2(0.5f, 0.5f);
+        returnButtonRect.localScale = new Vector3(1, 1, 1);
+        returnButtonRect.sizeDelta = returnButtonSize;
+        returnButtonRect.anchoredPosition = returnButtonPosition;
+        //Add image
+        Image returnButtonBackground = returnButton.AddComponent<Image>();
+        returnButtonBackground.color = new Color32(240,120,48,255);
+        returnButtonBackground.sprite = squareImage;
+        //Add shadow
+        Shadow returnButtonShadow = returnButton.AddComponent<Shadow>();
+        returnButtonShadow.effectDistance = new Vector2(2, -2);
+        //Add button
+        Button returnButtonScript = returnButton.AddComponent<Button>();
+        returnButtonScript.onClick.AddListener(() => menuScript.EscapeButton()); //The on click function can not be seen on the editor
+
+        //-----Add cross image-----
+        GameObject returnButtonImage = new GameObject("ReturnButtonImage");
+            returnButtonImage.layer = LayerMask.NameToLayer("UI");
+            returnButtonImage.transform.SetParent(returnButton.transform);
+            returnButtonImage.AddComponent<CanvasRenderer>();
+            RectTransform returnButtonImageRect = returnButtonImage.AddComponent<RectTransform>();
+            //Rect
+            returnButtonImageRect.anchorMin = new Vector2(0.5f, 0.5f);
+            returnButtonImageRect.anchorMax = new Vector2(0.5f, 0.5f);
+            returnButtonImageRect.pivot = new Vector2(0.5f, 0.5f);
+            returnButtonImageRect.anchoredPosition = new Vector2(0,0);
+            returnButtonImageRect.sizeDelta = new Vector2(returnButtonRect.sizeDelta.x*0.9f, returnButtonRect.sizeDelta.y * 0.9f);
+            returnButtonImageRect.localScale = new Vector3(1,1,1);
+            //Add image
+            Image returnButtonImageSprite = returnButtonImage.AddComponent<Image>();
+            returnButtonImageSprite.sprite = crossSprite;
+#endif
     }
 
     //Create a category
@@ -138,17 +209,22 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         category.layer = LayerMask.NameToLayer("UI");
         category.AddComponent<CanvasRenderer>();
         category.AddComponent<RectTransform>();
-        //Set rect transform size
         RectTransform categoryRect = category.GetComponent<RectTransform>();
-        categoryRect.offsetMin = new Vector2(0, 0);
-        categoryRect.offsetMax = new Vector2(resolutionWidth, 0);
-        categoryRect.localScale = new Vector3(1, 1, 1);
         //Set rect transform anchors
-        categoryRect.anchorMin = new Vector2(0, 0);
-        categoryRect.anchorMax = new Vector2(1, 1);
+        categoryRect.anchorMin = new Vector2(0.5f, 0.5f);
+        categoryRect.anchorMax = new Vector2(0.5f, 0.5f);
         categoryRect.pivot = new Vector2(0.5f, 0.5f);
+        //Set rect transform size
+        Vector2 categorySize = new Vector2(resolutionWidth*2, resolutionHeight);
+        Vector2 categoryPosition = new Vector2(resolutionWidth / 2, 0);
+        categoryRect.sizeDelta = categorySize;
+        categoryRect.anchoredPosition = categoryPosition;
+        categoryRect.localScale = new Vector3(1, 1, 1);
+        //Add background image
+        Image categoryBackground = category.AddComponent<Image>();
+        categoryBackground.color = new Color32(255, 255, 255, 0);
 
-        //Create LevelContainers (12 levels each)
+        //-----Create LevelContainers (12 levels each)
         GameObject container1 = new GameObject("Level" + cat + "00-" + cat +"11");
         GameObject container2 = new GameObject("Level" + cat + "12-" + cat + "23");
         container1.layer = LayerMask.NameToLayer("UI");
