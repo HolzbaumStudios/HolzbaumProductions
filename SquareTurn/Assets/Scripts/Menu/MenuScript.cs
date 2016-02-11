@@ -44,24 +44,30 @@ public class MenuScript : MonoBehaviour {
 	void Update(){
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
-			if(Application.loadedLevelName == "levelMenu")
-			{
-				if(categoryChoice.activeSelf)
-				{
-					Application.LoadLevel("startMenu");
-				}
-				else
-				{
-					DisableAllCategories();
-				}
-
-			}
-			else
-			{
-				Application.LoadLevel("startMenu");
-			}
+            EscapeButton();
 		}
 	}
+
+    //Everything that happens, when you press Escape or the escape button
+    public void EscapeButton()
+    {
+        if (Application.loadedLevelName == "levelMenu")
+        {
+            if (categoryChoice.activeSelf)
+            {
+                Application.LoadLevel("startMenu");
+            }
+            else
+            {
+                DisableAllCategories();
+            }
+
+        }
+        else
+        {
+            Application.LoadLevel("startMenu");
+        }
+    }
 	
     //Disable categories only, without going back to level menu
     public void DisableCategoriesOnly()
