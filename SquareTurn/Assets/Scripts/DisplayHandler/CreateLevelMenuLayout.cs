@@ -138,17 +138,22 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         category.layer = LayerMask.NameToLayer("UI");
         category.AddComponent<CanvasRenderer>();
         category.AddComponent<RectTransform>();
-        //Set rect transform size
         RectTransform categoryRect = category.GetComponent<RectTransform>();
-        categoryRect.offsetMin = new Vector2(0, 0);
-        categoryRect.offsetMax = new Vector2(resolutionWidth, 0);
-        categoryRect.localScale = new Vector3(1, 1, 1);
         //Set rect transform anchors
-        categoryRect.anchorMin = new Vector2(0, 0);
-        categoryRect.anchorMax = new Vector2(1, 1);
+        categoryRect.anchorMin = new Vector2(0.5f, 0.5f);
+        categoryRect.anchorMax = new Vector2(0.5f, 0.5f);
         categoryRect.pivot = new Vector2(0.5f, 0.5f);
+        //Set rect transform size
+        Vector2 categorySize = new Vector2(resolutionWidth*2, resolutionHeight);
+        Vector2 categoryPosition = new Vector2(resolutionWidth / 2, 0);
+        categoryRect.sizeDelta = categorySize;
+        categoryRect.anchoredPosition = categoryPosition;
+        categoryRect.localScale = new Vector3(1, 1, 1);
+        //Add background image
+        Image categoryBackground = category.AddComponent<Image>();
+        categoryBackground.color = new Color32(255, 255, 255, 0);
 
-        //Create LevelContainers (12 levels each)
+        //-----Create LevelContainers (12 levels each)
         GameObject container1 = new GameObject("Level" + cat + "00-" + cat +"11");
         GameObject container2 = new GameObject("Level" + cat + "12-" + cat + "23");
         container1.layer = LayerMask.NameToLayer("UI");
