@@ -41184,6 +41184,14 @@ Prefab:
       propertyPath: disableTestMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11402338, guid: c645196baaf981a4f85764a08926bcc2, type: 2}
+      propertyPath: iOS._gameID
+      value: 102812
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402338, guid: c645196baaf981a4f85764a08926bcc2, type: 2}
+      propertyPath: iOS._testGameID
+      value: 102812
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c645196baaf981a4f85764a08926bcc2, type: 2}
   m_IsPrefabParent: 0
