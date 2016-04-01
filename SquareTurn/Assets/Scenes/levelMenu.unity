@@ -28093,7 +28093,7 @@ GameObject:
   - 114: {fileID: 474263177}
   - 114: {fileID: 474263180}
   m_Layer: 5
-  m_Name: CanvasLandscape
+  m_Name: CanvasLandscape_DoNotUse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45655,7 +45655,7 @@ GameObject:
   - 114: {fileID: 784055102}
   - 114: {fileID: 784055101}
   m_Layer: 5
-  m_Name: CanvasPortrait
+  m_Name: CanvasPortrait_DoNot_Use
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50458,7 +50458,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 188834, guid: 2ff133b95ddf7d148bdf1444cd531430, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9570262, guid: 2ff133b95ddf7d148bdf1444cd531430, type: 2}
       propertyPath: m_Controller
@@ -58488,7 +58488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &976894868
 RectTransform:
   m_ObjectHideFlags: 0
@@ -65770,7 +65770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1082590716
 RectTransform:
   m_ObjectHideFlags: 0
@@ -72709,7 +72709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1186143050
 RectTransform:
   m_ObjectHideFlags: 0
@@ -116147,7 +116147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1918806780
 RectTransform:
   m_ObjectHideFlags: 0
@@ -125601,6 +125601,10 @@ Prefab:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 157808, guid: 2ff133b95ddf7d148bdf1444cd531430, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188834, guid: 2ff133b95ddf7d148bdf1444cd531430, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
