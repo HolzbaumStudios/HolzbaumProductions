@@ -499,7 +499,12 @@ public class GameLogic : MonoBehaviour {
 				int newStarValue = PlayerPrefs.GetInt("Category3Stars") + difference;
 				PlayerPrefs.SetInt ("Category3Stars", newStarValue);
 			}
-			else
+            else if (levelNumber >= 400 && levelNumber < 500)
+            {
+                int newStarValue = PlayerPrefs.GetInt("Category4Stars") + difference;
+                PlayerPrefs.SetInt("Category4Stars", newStarValue);
+            }
+            else
 			{
 				Debug.Log ("Levelnummer nicht vorhanden!");
 			}
