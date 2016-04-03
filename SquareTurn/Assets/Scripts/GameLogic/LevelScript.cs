@@ -1121,7 +1121,7 @@ public class LevelScript : MonoBehaviour {
             fieldStructureArray[4, 1] = 5;
             fieldStructureArray[4, 2] = 5;
             fieldStructureArray[5, 0] = 2;
-            fieldStructureArray[3, 1] = 5;
+            fieldStructureArray[5, 1] = 5;
             fieldStructureArray[5, 2] = 2;
         }
 
