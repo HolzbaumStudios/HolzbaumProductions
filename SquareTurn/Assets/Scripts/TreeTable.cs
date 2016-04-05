@@ -121,25 +121,25 @@ public class TreeTable : MonoBehaviour {
             case 402: twoTrees = 5; threeTrees = 3; break;  //shoe
             case 403: twoTrees = 6; threeTrees = 4; break;  //heart
             case 404: twoTrees = 6; threeTrees = 3; break;  //lightbulb
-            case 405: twoTrees = 6; threeTrees = 6; break;  //xmastree
-            case 406: twoTrees = 6; threeTrees = 6; break;  //bottle
-            case 407: twoTrees = 6; threeTrees = 6; break;  //mouse
-            case 408: twoTrees = 6; threeTrees = 8; break;  //sun
-            case 409: twoTrees = 6; threeTrees = 8; break;  //rocket
-            case 410: twoTrees = 6; threeTrees = 9; break;  //sword
-            case 411: twoTrees = 6; threeTrees = 10; break;  //star
-            case 412: twoTrees = 6; threeTrees = 12; break;  //house
-            case 413: twoTrees = 6; threeTrees = 12; break;  //roflcopter
+            case 405: twoTrees = 10; threeTrees = 6; break;  //xmastree
+            case 406: twoTrees = 10; threeTrees = 6; break;  //bottle
+            case 407: twoTrees = 9; threeTrees = 6; break;  //mouse
+            case 408: twoTrees = 12; threeTrees = 8; break;  //sun
+            case 409: twoTrees = 12; threeTrees = 8; break;  //rocket
+            case 410: twoTrees = 14; threeTrees = 9; break;  //sword
+            case 411: twoTrees = 15; threeTrees = 10; break;  //star
+            case 412: twoTrees = 18; threeTrees = 12; break;  //house
+            case 413: twoTrees = 18; threeTrees = 12; break;  //roflcopter
             case 414: twoTrees = 6; threeTrees = 4; break;
-            case 415: twoTrees = 6; threeTrees = 4; break;
-            case 416: twoTrees = 6; threeTrees = 4; break;
-            case 417: twoTrees = 6; threeTrees = 4; break;
-            case 418: twoTrees = 6; threeTrees = 4; break;
-            case 419: twoTrees = 6; threeTrees = 4; break;
-            case 420: twoTrees = 6; threeTrees = 4; break;
-            case 421: twoTrees = 6; threeTrees = 4; break;
-            case 422: twoTrees = 6; threeTrees = 4; break;
-            case 423: twoTrees = 6; threeTrees = 4; break;
+            case 415: twoTrees = 6; threeTrees = 3; break;
+            case 416: twoTrees = 8; threeTrees = 5; break;
+            case 417: twoTrees = 11; threeTrees = 7; break;
+            case 418: twoTrees = 8; threeTrees = 5; break;
+            case 419: twoTrees = 9; threeTrees = 6; break;
+            case 420: twoTrees = 12; threeTrees = 8; break;
+            case 421: twoTrees = 10; threeTrees = 7; break;
+            case 422: twoTrees = 10; threeTrees = 7; break;
+            case 423: twoTrees = 14; threeTrees = 9; break;
 
         }
 	}

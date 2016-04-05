@@ -15,7 +15,7 @@ public class DisplayHandler : MonoBehaviour {
 		//portraitCanvas = GameObject.Find ("CanvasPortrait");
 		//landscapeCanvas = GameObject.Find ("CanvasLandscape");
 
-		SetDisplayMode ();
+		//SetDisplayMode ();
 	}
 
 	void Update()
@@ -44,7 +44,7 @@ public class DisplayHandler : MonoBehaviour {
 				//--What happens before changing
 					if(Application.loadedLevelName == "levelMenu")
 					{
-						SetLevelMenuCategorySlider(false);
+						//SetLevelMenuCategorySlider(false);
 					}
 					if(Application.loadedLevelName == "startMenu")
 					{
@@ -73,7 +73,7 @@ public class DisplayHandler : MonoBehaviour {
 				//--What happens before changing
 					if(Application.loadedLevelName == "levelMenu")
 					{
-						SetLevelMenuCategorySlider(true);
+						//SetLevelMenuCategorySlider(true);
 					}
 					if(Application.loadedLevelName == "startMenu")
 					{
