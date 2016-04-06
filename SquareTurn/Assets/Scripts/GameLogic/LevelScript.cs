@@ -1096,17 +1096,33 @@ public class LevelScript : MonoBehaviour {
             fieldStructureArray[4, 5] = 2;
         }
 
-        if (level == 414) //tree
+        if (level == 414) //plane
         {
-            InitializeArraySize(5, 5);
-            fieldStructureArray[0, 3] = 2;
+            InitializeArraySize(6, 5);
+            fieldStructureArray[0, 0] = 2;
+            fieldStructureArray[0, 2] = 2;
+            fieldStructureArray[0, 4] = 2;
             fieldStructureArray[1, 0] = 2;
-            fieldStructureArray[1, 4] = 2;
-            fieldStructureArray[4, 0] = 2;
-            fieldStructureArray[4, 4] = 2;
+            fieldStructureArray[1, 1] = 2;
+			fieldStructureArray[1, 3] = 2;
+			fieldStructureArray[1, 4] = 2;
+			fieldStructureArray[2, 0] = 2;
+			fieldStructureArray[2, 1] = 2;
+			fieldStructureArray[2, 3] = 2;
+			fieldStructureArray[2, 4] = 2;
+			fieldStructureArray[3, 0] = 5;
+			fieldStructureArray[3, 4] = 5;
+			fieldStructureArray[4, 0] = 2;
+			fieldStructureArray[4, 1] = 2;
+			fieldStructureArray[4, 3] = 2;
+			fieldStructureArray[4, 4] = 2;
+			fieldStructureArray[5, 0] = 2;
+			fieldStructureArray[5, 1] = 2;
+			fieldStructureArray[5, 3] = 2;
+			fieldStructureArray[5, 4] = 2;
         }
 
-        if (level == 415) //tree
+        if (level == 415) //desktop lamp
         {
             InitializeArraySize(6, 3);
             fieldStructureArray[0, 1] = 2;
@@ -1125,7 +1141,7 @@ public class LevelScript : MonoBehaviour {
             fieldStructureArray[5, 2] = 2;
         }
 
-        if (level == 416) //tree
+        if (level == 416) //tie
         {
             InitializeArraySize(6, 6);
             fieldStructureArray[0, 0] = 2;
@@ -1152,7 +1168,7 @@ public class LevelScript : MonoBehaviour {
             fieldStructureArray[5, 5] = 2;
         }
 
-        if (level == 417) //tree
+        if (level == 417) //rocket
         {
             InitializeArraySize(6, 6);
             fieldStructureArray[0, 1] = 5;
@@ -1174,7 +1190,7 @@ public class LevelScript : MonoBehaviour {
 
         }
 
-        if (level == 418) //tree
+        if (level == 418) //lamp upside down
         {
             InitializeArraySize(6, 5);
             fieldStructureArray[0, 0] = 2;
@@ -1192,7 +1208,7 @@ public class LevelScript : MonoBehaviour {
             fieldStructureArray[5, 4] = 2;
         }
 
-        if (level == 419) //tree
+        if (level == 419) //art
         {
             InitializeArraySize(6, 6);
             fieldStructureArray[0, 1] = 2;
@@ -1217,7 +1233,7 @@ public class LevelScript : MonoBehaviour {
             fieldStructureArray[5, 5] = 2;
         }
 
-        if (level == 420) //tree
+        if (level == 420) //candle holder
         {
             InitializeArraySize(5, 5);
             fieldStructureArray[0, 0] = 2;
@@ -1238,7 +1254,7 @@ public class LevelScript : MonoBehaviour {
             fieldStructureArray[4, 4] = 5;
         }
 
-        if (level == 421) //tree
+        if (level == 421) //ankh
         {
             InitializeArraySize(6, 5);
             fieldStructureArray[0, 0] = 2;
@@ -1260,7 +1276,7 @@ public class LevelScript : MonoBehaviour {
             fieldStructureArray[4, 4] = 2;
         }
 
-        if (level == 422) //tree
+        if (level == 422) //bomb
         {
             InitializeArraySize(6, 5);
             fieldStructureArray[0, 0] = 2;
@@ -1282,7 +1298,7 @@ public class LevelScript : MonoBehaviour {
             fieldStructureArray[5, 4] = 2;
         }
 
-        if (level == 423) //tree
+        if (level == 423) //screwdriver
         {
             InitializeArraySize(6, 6);
             fieldStructureArray[0, 0] = 2;
