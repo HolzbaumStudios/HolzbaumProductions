@@ -122,24 +122,24 @@ public class TreeTable : MonoBehaviour {
             case 403: twoTrees = 6; threeTrees = 4; break;  //heart
             case 404: twoTrees = 6; threeTrees = 3; break;  //lightbulb
             case 405: twoTrees = 10; threeTrees = 6; break;  //xmastree
-            case 406: twoTrees = 10; threeTrees = 6; break;  //bottle
+            case 406: twoTrees = 18; threeTrees = 12; break;  //bottle
             case 407: twoTrees = 9; threeTrees = 6; break;  //mouse
             case 408: twoTrees = 12; threeTrees = 8; break;  //sun
-            case 409: twoTrees = 12; threeTrees = 8; break;  //rocket
+            case 409: twoTrees = 12; threeTrees = 8; break;  //rocket1
             case 410: twoTrees = 14; threeTrees = 9; break;  //sword
-            case 411: twoTrees = 15; threeTrees = 10; break;  //star
+            case 411: twoTrees = 15; threeTrees = 10; break;  //frog
             case 412: twoTrees = 18; threeTrees = 12; break;  //house
-            case 413: twoTrees = 18; threeTrees = 12; break;  //roflcopter
-            case 414: twoTrees = 6; threeTrees = 4; break;
-            case 415: twoTrees = 6; threeTrees = 3; break;
-            case 416: twoTrees = 8; threeTrees = 5; break;
-            case 417: twoTrees = 11; threeTrees = 7; break;
-            case 418: twoTrees = 8; threeTrees = 5; break;
-            case 419: twoTrees = 9; threeTrees = 6; break;
-            case 420: twoTrees = 12; threeTrees = 8; break;
-            case 421: twoTrees = 10; threeTrees = 7; break;
-            case 422: twoTrees = 10; threeTrees = 7; break;
-            case 423: twoTrees = 14; threeTrees = 9; break;
+            case 413: twoTrees = 20; threeTrees = 13; break;  //roflcopter
+            case 414: twoTrees = 10; threeTrees = 6; break;	//plane
+            case 415: twoTrees = 6; threeTrees = 3; break; //desktop lamp
+            case 416: twoTrees = 8; threeTrees = 5; break; //tie
+            case 417: twoTrees = 11; threeTrees = 7; break; //rocket2
+            case 418: twoTrees = 8; threeTrees = 5; break; //lamp upside down
+            case 419: twoTrees = 9; threeTrees = 6; break; //art
+            case 420: twoTrees = 15; threeTrees = 10; break; //candle holder
+            case 421: twoTrees = 10; threeTrees = 6; break; //ankh
+            case 422: twoTrees = 10; threeTrees = 7; break; //bomb
+            case 423: twoTrees = 14; threeTrees = 9; break; //screwdriver
 
         }
 	}

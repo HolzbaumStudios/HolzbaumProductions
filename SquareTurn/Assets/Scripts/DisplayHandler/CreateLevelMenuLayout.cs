@@ -41,17 +41,38 @@ public class CreateLevelMenuLayout : MonoBehaviour {
  
     void Awake()
     {
-        
-        /*if (Screen.height > Screen.width)
-        {*/
-            resolutionHeight = Screen.height;
-            resolutionWidth = Screen.width;
-        /* }
-         else
-         {
-             resolutionHeight = Screen.width;
-             resolutionWidth = Screen.height;
-         }*/
+
+#if UNITY_EDITOR
+        resolutionHeight = Screen.height;
+        resolutionWidth = Screen.width;
+#else
+        if (Screen.orientation == ScreenOrientation.Portrait || Screen.orientation == ScreenOrientation.PortraitUpsideDown)
+        {
+            if(Screen.height > Screen.width)
+            {
+                resolutionHeight = Screen.height;
+                resolutionWidth = Screen.width;
+            }
+            else
+            {
+                resolutionHeight = Screen.width;
+                resolutionWidth = Screen.height;
+            }
+        }
+        else
+        {
+            if(Screen.width > Screen.height)
+            {
+                resolutionHeight = Screen.height;
+                resolutionWidth = Screen.width;
+            }
+            else
+            {
+                resolutionHeight = Screen.width;
+                resolutionWidth = Screen.height;
+            }
+        }
+#endif
 
         CreateLayout();
     }
