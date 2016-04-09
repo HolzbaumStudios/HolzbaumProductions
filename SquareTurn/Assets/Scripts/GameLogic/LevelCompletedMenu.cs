@@ -15,7 +15,7 @@ public class LevelCompletedMenu : MonoBehaviour {
 	{
 		userStatistics = GameObject.Find("UserStatistics");
 		int levelNumber = PlayerPrefs.GetInt ("ChosenLevel");
-		if(levelNumber == 123 || levelNumber == 223 || levelNumber == 323 || levelNumber == 424)
+		if(levelNumber == 123 || levelNumber == 223 || levelNumber == 323 || levelNumber == 423)
 		{
 			DisableContinue();
 		}
