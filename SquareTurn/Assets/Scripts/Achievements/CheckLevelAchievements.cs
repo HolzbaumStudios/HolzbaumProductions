@@ -208,6 +208,73 @@ public class CheckLevelAchievements : MonoBehaviour {
 				}
 			}
 		}
-	}
+
+        //Category 4
+        if (lastPlayedLevel >= 400 && lastPlayedLevel < 500)
+        {
+            if (PlayerPrefs.GetInt("Achievement16State") == 0)
+            {
+                bool reachedOneStar = true;
+
+                for (int i = 400; i <= 423; i++)
+                {
+                    playerPrefName = "StarsLevel" + i;
+                    if (PlayerPrefs.GetInt(playerPrefName) < 1)
+                    {
+                        reachedOneStar = false;
+                    }
+                }
+
+                if (reachedOneStar == true)
+                {
+                    GameObject userStatistics = GameObject.Find("UserStatistics");
+                    userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState(16, 1);
+                    PlayerPrefs.SetInt("NewAchievement", 1);
+
+                    //Check if also reached all three stars in the same moment
+                    bool reachedThreeStars = true;
+                    for (int i = 400; i <= 423; i++)
+                    {
+                        playerPrefName = "StarsLevel" + i;
+                        if (PlayerPrefs.GetInt(playerPrefName) < 3)
+                        {
+                            reachedThreeStars = false;
+                        }
+                    }
+                    if (reachedThreeStars == true)
+                    {
+                        userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState(17, 1);
+                    }
+                    //--END CHECK 3 stars
+
+                    GameObject achievementPanel = GameObject.Find("AchievementPanel");
+                    achievementPanel.GetComponent<CheckForAchievements>().CheckAchievements();
+                }
+            }
+            else if (PlayerPrefs.GetInt("Achievement17State") == 0)
+            {
+                bool reachedThreeStars = true;
+
+                for (int i = 400; i <= 423; i++)
+                {
+                    playerPrefName = "StarsLevel" + i;
+                    if (PlayerPrefs.GetInt(playerPrefName) < 3)
+                    {
+                        reachedThreeStars = false;
+                    }
+                }
+
+                if (reachedThreeStars == true)
+                {
+                    GameObject userStatistics = GameObject.Find("UserStatistics");
+                    userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState(17, 1);
+                    PlayerPrefs.SetInt("NewAchievement", 1);
+
+                    GameObject achievementPanel = GameObject.Find("AchievementPanel");
+                    achievementPanel.GetComponent<CheckForAchievements>().CheckAchievements();
+                }
+            }
+        }
+    }
 
 }

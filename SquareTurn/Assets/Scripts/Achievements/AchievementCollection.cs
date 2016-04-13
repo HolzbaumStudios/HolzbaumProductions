@@ -63,8 +63,10 @@ public class AchievementCollection : MonoBehaviour {
 	public Sprite spriteAchievement13;
 	public Sprite spriteAchievement14;
 	public Sprite spriteAchievement15;
+    public Sprite spriteAchievement16;
+    public Sprite spriteAchievement17;
 
-	public string[] achievementLogoLink;
+    public string[] achievementLogoLink;
 
 	//Create Lists
 	List<Sprite> achievementSpriteList = new List<Sprite> ();
@@ -77,9 +79,11 @@ public class AchievementCollection : MonoBehaviour {
 	Achievement achievement2 = new Achievement("Time to blossom", "Solve every level from pack 2"); 
 	Achievement achievement3 = new Achievement("Climbing tree", "Get all the stars in pack 2"); 
 	Achievement achievement4 = new Achievement("Flowerfield", "Solve every level from pack 3"); 
-	Achievement achievement5 = new Achievement("Rainforest dryer", "Get all the stars in pack 3"); 
+	Achievement achievement5 = new Achievement("Rainforest dryer", "Get all the stars in pack 3");
+    Achievement achievement16 = new Achievement("Cherry blossom blues", "Solve every level from pack 4");
+    Achievement achievement17 = new Achievement("Forest of mountains", "Get all the stars in pack 4");
 
-	Achievement achievement6 = new Achievement("First steps", "Solve 5 levels");
+    Achievement achievement6 = new Achievement("First steps", "Solve 5 levels");
 	Achievement achievement7 = new Achievement("Amateur", "Solve 20 levels"); 
 	Achievement achievement8 = new Achievement("Challenger", "Solve 40 levels"); 
 	Achievement achievement9 = new Achievement("Blackbelt", "Solve 72 levels");
@@ -118,9 +122,11 @@ public class AchievementCollection : MonoBehaviour {
 		achievementList.Add(achievement13);
 		achievementList.Add(achievement14);
 		achievementList.Add(achievement15);
+        achievementList.Add(achievement16);
+        achievementList.Add(achievement17);
 
-		//Initialize the sprite list
-		achievementSpriteList.Add (spriteAchievement0);
+        //Initialize the sprite list
+        achievementSpriteList.Add (spriteAchievement0);
 		achievementSpriteList.Add (spriteAchievement1);
 		achievementSpriteList.Add (spriteAchievement2);
 		achievementSpriteList.Add (spriteAchievement3);
@@ -136,11 +142,13 @@ public class AchievementCollection : MonoBehaviour {
 		achievementSpriteList.Add (spriteAchievement13);
 		achievementSpriteList.Add (spriteAchievement14);
 		achievementSpriteList.Add (spriteAchievement15);
+        achievementSpriteList.Add (spriteAchievement16);
+        achievementSpriteList.Add (spriteAchievement17);
 
 
 
-		//Get the state for all achievements at the beginning
-		for (int i = 0; i < achievementList.Count; i++)
+        //Get the state for all achievements at the beginning
+        for (int i = 0; i < achievementList.Count; i++)
 		{
 			string prefabName = "Achievement" + i + "State";
 			achievementList[i].SetState (PlayerPrefs.GetInt (prefabName));
@@ -157,7 +165,6 @@ public class AchievementCollection : MonoBehaviour {
 	/// Change the Values of the achievement panel
 	public void SetAchievementWindow(GameObject achievementPanel){
 		int achievementNumber = GetNextAchievement (); //Call function to check which achievement has been unlocked
-		Debug.Log (achievementPanel.name);
 
 		if(achievementNumber != 100)
 		{ 

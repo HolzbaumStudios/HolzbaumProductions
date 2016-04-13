@@ -22,7 +22,7 @@ public class UnlockLevel : MonoBehaviour {
 
 		int levelPackUnlocked = PlayerPrefs.GetInt ("levelPack"+levelPackNumber+"Unlocked");
 		if (levelPackUnlocked != 1) {
-			int countTotalStars = PlayerPrefs.GetInt ("Category1Stars") + PlayerPrefs.GetInt ("Category2Stars") + PlayerPrefs.GetInt ("Category3Stars");
+			int countTotalStars = PlayerPrefs.GetInt ("Category1Stars") + PlayerPrefs.GetInt ("Category2Stars") + PlayerPrefs.GetInt ("Category3Stars") + PlayerPrefs.GetInt ("Category4Stars");
 			if (countTotalStars >= neededStars) {
 					LevelUnlock ();
 			}
@@ -41,15 +41,15 @@ public class UnlockLevel : MonoBehaviour {
 		PlayerPrefs.SetInt (playerPrefName, 1);
 		//Update Analytics
 		Analytics.CustomEvent(playerPrefName, new Dictionary<string, object>{});
-
-		StartCoroutine (StopUnlockMessage());
+        this.gameObject.SetActive(false);
+        //StartCoroutine (StopUnlockMessage());
 	}
 
 	//Coroutine
-	IEnumerator StopUnlockMessage() {
+	/*IEnumerator StopUnlockMessage() {
 		yield return new WaitForSeconds (6f);
 		levelUnlocked.SetActive (false);
 		this.gameObject.SetActive(false);
-	}
+	}*/
 
 }

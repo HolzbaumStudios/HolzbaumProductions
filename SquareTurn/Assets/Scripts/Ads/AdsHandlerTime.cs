@@ -8,7 +8,6 @@ public class AdsHandlerTime : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		timer += Time.deltaTime;
-		Debug.Log ("Time: " + timer);
 
 		if(timer > 600)
 		{

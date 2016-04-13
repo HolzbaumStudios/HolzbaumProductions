@@ -272,6 +272,16 @@ Prefab:
       propertyPath: achievementLogoLink.Array.data[9]
       value: scontent-vie1-1.xx.fbcdn.net/hphotos-xpf1/v/l/t1.0-9/11899923_939791912726174_1669668771682018615_n.png?oh=a7e84f865a819a8a2bc4a977433132f3&oe=56362C66
       objectReference: {fileID: 0}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: spriteAchievement16
+      value: 
+      objectReference: {fileID: 21300000, guid: 2297fa2e620f02a4b91c134fb357f32e,
+        type: 3}
+    - target: {fileID: 11425188, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
+      propertyPath: spriteAchievement17
+      value: 
+      objectReference: {fileID: 21300000, guid: c091b27c227a75745ba9a36d6b72f583,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7a9023d8a7645c4cbdc18653423d29a, type: 2}
   m_IsPrefabParent: 0
