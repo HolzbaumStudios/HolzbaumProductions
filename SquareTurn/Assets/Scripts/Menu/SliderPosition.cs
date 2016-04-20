@@ -10,19 +10,25 @@ public class SliderPosition : MonoBehaviour {
 
 	float sliderPosition;
 
-	// Use this for initialization
-	void OnEnable () {
-		sliderPosition = PlayerPrefs.GetFloat ("SliderPosition");
-	}
+    void Awake()
+    {
+        sliderPosition = PlayerPrefs.GetFloat("SliderPosition");
+        gameObject.GetComponent<Scrollbar>().value = sliderPosition;
+
+    }
+
 	
 	// Update is called once per frame
 	void Update () {
-		float currentPosition = gameObject.GetComponent<Scrollbar> ().value;
+        sliderPosition = PlayerPrefs.GetFloat("SliderPosition");
+        gameObject.GetComponent<Scrollbar>().value = sliderPosition;
+        /*float currentPosition = gameObject.GetComponent<Scrollbar> ().value;
 		if(currentPosition != sliderPosition)
 		{
+            Debug.Log("Changed position! Category: " + currentPosition);
 			sliderPosition = currentPosition;
 			PlayerPrefs.SetFloat ("SliderPosition", sliderPosition);
-		}
-	
-	}
+		}*/
+
+    }
 }
