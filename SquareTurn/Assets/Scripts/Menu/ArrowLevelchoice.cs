@@ -11,7 +11,7 @@ public class ArrowLevelchoice : MonoBehaviour {
 
 	public void ScrollLevelMenu(float scrollValue)
 	{
-		Debug.Log ("Executed Function. Value : " + scrollValue);
 		scrollObject.GetComponent<Scrollbar> ().value = scrollValue;
-	}
+        PlayerPrefs.SetFloat("SliderPosition", scrollValue);
+    }
 }
