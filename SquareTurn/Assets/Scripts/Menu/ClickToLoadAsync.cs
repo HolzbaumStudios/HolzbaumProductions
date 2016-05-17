@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -17,7 +18,7 @@ public class ClickToLoadAsync : MonoBehaviour {
 
 	IEnumerator LoadLevelWithBar (int level)
 	{
-		async = Application.LoadLevelAsync (level);
+		async = SceneManager.LoadSceneAsync(level);
 		while (!async.isDone) 
 		{
 			Slider_Loading.value = async.progress;

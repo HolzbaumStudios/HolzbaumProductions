@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -32,12 +33,12 @@ public class MenuScript : MonoBehaviour {
 
 	public IEnumerator StartLevel(){
 		yield return new WaitForSeconds(0.1f);
-		Application.LoadLevel ("gameScene");
+        SceneManager.LoadScene("gameScene");
 	}
 
 	public void GoBackToMenu(){
 		GameObject.Find("UserStatistics").SendMessage ("StoreStatistics");
-		Application.LoadLevel ("levelMenu");
+        SceneManager.LoadScene("levelMenu");
 	}
 
 
@@ -51,11 +52,11 @@ public class MenuScript : MonoBehaviour {
     //Everything that happens, when you press Escape or the escape button
     public void EscapeButton()
     {
-        if (Application.loadedLevelName == "levelMenu")
+        if (SceneManager.GetActiveScene().name == "levelMenu")
         {
             if (categoryChoice.activeSelf)
             {
-                Application.LoadLevel("startMenu");
+                SceneManager.LoadScene("startMenu");
             }
             else
             {
@@ -65,7 +66,7 @@ public class MenuScript : MonoBehaviour {
         }
         else
         {
-            Application.LoadLevel("startMenu");
+            SceneManager.LoadScene("startMenu");
         }
     }
 	

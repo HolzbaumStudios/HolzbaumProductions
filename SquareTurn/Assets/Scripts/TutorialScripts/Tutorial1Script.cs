@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -281,7 +282,7 @@ public class Tutorial1Script : MonoBehaviour {
 		Screen.orientation = ScreenOrientation.AutoRotation;
 		
 		PlayerPrefs.SetInt ("Tutorial1Finished", 1);
-		Application.LoadLevel ("gameScene");
+        SceneManager.LoadScene("gameScene");
 	}
 
 }

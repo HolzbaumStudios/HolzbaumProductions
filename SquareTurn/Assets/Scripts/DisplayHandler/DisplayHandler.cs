@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class DisplayHandler : MonoBehaviour {
@@ -42,11 +43,11 @@ public class DisplayHandler : MonoBehaviour {
 				if(!setToLandscape)
 				{
 				//--What happens before changing
-					if(Application.loadedLevelName == "levelMenu")
+					if(SceneManager.GetActiveScene().name == "levelMenu")
 					{
 						//SetLevelMenuCategorySlider(false);
 					}
-					if(Application.loadedLevelName == "startMenu")
+					if(SceneManager.GetActiveScene().name == "startMenu")
 					{
 						SetLevelMusic(true);
 					}
@@ -55,7 +56,7 @@ public class DisplayHandler : MonoBehaviour {
 
 				//--What happens after changing
 					//Only on levelMenu -- Set correct category
-					if(Application.loadedLevelName == "levelMenu")
+					if(SceneManager.GetActiveScene().name == "levelMenu")
 					{
 						SetLevelMenu(true);
 					}
@@ -71,11 +72,11 @@ public class DisplayHandler : MonoBehaviour {
 				if(!setToPortrait)
 				{
 				//--What happens before changing
-					if(Application.loadedLevelName == "levelMenu")
+					if(SceneManager.GetActiveScene().name == "levelMenu")
 					{
 						//SetLevelMenuCategorySlider(true);
 					}
-					if(Application.loadedLevelName == "startMenu")
+					if(SceneManager.GetActiveScene().name == "startMenu")
 					{
 						SetLevelMusic(false);
 					}
@@ -84,7 +85,7 @@ public class DisplayHandler : MonoBehaviour {
 
 				//--What happens after changing
 					//Only on levelMenu -- Set correct category
-					if(Application.loadedLevelName == "levelMenu")
+					if(SceneManager.GetActiveScene().name == "levelMenu")
 					{
 						SetLevelMenu(false);
 					}

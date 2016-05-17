@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class turnAchievementsOnClick : MonoBehaviour {
@@ -75,6 +76,6 @@ public class turnAchievementsOnClick : MonoBehaviour {
 		squareS.transform.FindChild ("Letter").gameObject.SetActive (false);
 
 		yield return new WaitForSeconds(0.25f);
-		Application.LoadLevel ("achievements");
+        SceneManager.LoadScene("achievements");
 	}
 }

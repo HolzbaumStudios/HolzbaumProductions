@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.Analytics;
 using System.Collections.Generic;
@@ -27,12 +28,12 @@ public class LevelCompletedMenu : MonoBehaviour {
 		endGameBackgroundPortrait.SetActive (false);
 		userStatistics.GetComponent<UserStatistics>().UpdateStatistic("Resets++",1);
 		userStatistics.SendMessage ("StoreStatistics");
-		Application.LoadLevel ("gameScene");
+		SceneManager.LoadScene ("gameScene");
 	}
 
 	public void BackToMainMenu(){
 		GameObject.Find("UserStatistics").SendMessage ("StoreStatistics");
-		Application.LoadLevel ("levelMenu");
+        SceneManager.LoadScene("levelMenu");
 
 	}
 
@@ -53,7 +54,7 @@ public class LevelCompletedMenu : MonoBehaviour {
         });
 
         PlayerPrefs.SetInt ("ChosenLevel", levelNumber);
-		Application.LoadLevel ("gameScene");
+        SceneManager.LoadScene("gameScene");
 	}
 
 	public void DisableContinue()

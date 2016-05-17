@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class turnPlayOnClick : MonoBehaviour {
@@ -39,7 +40,7 @@ public class turnPlayOnClick : MonoBehaviour {
 		yield return new WaitForSeconds(0.5f);
 
 		PlayerPrefs.SetInt ("ActiveCategory", 0); //Set the the levelcategory to none (with this, the category selection is displayed)
-		Application.LoadLevel ("levelMenu");
+        SceneManager.LoadScene("levelMenu");
 	}
 
 

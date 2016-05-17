@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -41,7 +42,7 @@ public class DontDestroyAndLoad : MonoBehaviour {
 
 	IEnumerator LoadLevel(){
 		yield return new WaitForSeconds (4);
-		Application.LoadLevel (loadLevelName);
+        SceneManager.LoadScene(loadLevelName);
 	}
 
 }

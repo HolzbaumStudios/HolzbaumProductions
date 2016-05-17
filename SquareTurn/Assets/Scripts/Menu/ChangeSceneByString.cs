@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class ChangeSceneByString : MonoBehaviour {
@@ -8,6 +9,6 @@ public class ChangeSceneByString : MonoBehaviour {
 
 	public void LoadSceneByString(string sceneName)
 	{
-		Application.LoadLevel (sceneName);
+        SceneManager.LoadScene(sceneName);
 	}
 }

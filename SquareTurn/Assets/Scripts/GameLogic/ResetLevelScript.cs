@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class ResetLevelScript : MonoBehaviour {
@@ -14,6 +15,6 @@ public class ResetLevelScript : MonoBehaviour {
 	public void ReloadLevel(){
 		userStatistics.GetComponent<UserStatistics>().UpdateStatistic("Resets++",1);
 		userStatistics.SendMessage ("StoreStatistics");
-		Application.LoadLevel ("gameScene");
+        SceneManager.LoadScene("gameScene");
 	}
 }
