@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class turnIconsOnClick : MonoBehaviour {
@@ -24,6 +25,6 @@ public class turnIconsOnClick : MonoBehaviour {
 		squareButton.GetComponent<UnityEngine.UI.Image>().enabled = false;
 		yield return new WaitForSeconds(0.7f);
 		Debug.Log (levelName);
-		Application.LoadLevel (levelName);
+        SceneManager.LoadScene(levelName);
 	}
 }

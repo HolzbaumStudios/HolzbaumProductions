@@ -111,6 +111,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         levelChoiceRect.anchorMax = new Vector2(1, 1);
         levelChoiceRect.pivot = new Vector2(0.5f, 0.5f);
 
+
         //-----Create scrollbar------
         scrollbarObject = Instantiate(scrollbarPrefab) as GameObject;
         scrollbarObject.transform.SetParent(levelChoice.transform);
@@ -132,6 +133,9 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         //-----Create Category Choice Panel-----
         GameObject categoryChoice = CreateCategoryChoice(levelChoice);
 
+        //----Add script for level rect-----
+        DetectScrolling scrollScript = levelChoice.AddComponent<DetectScrolling>();
+
         //-----Add level choice scroll rect and menu script-----
         //Add scrollrect
         ScrollRect scrollRect = levelChoice.AddComponent<ScrollRect>();
@@ -139,6 +143,7 @@ public class CreateLevelMenuLayout : MonoBehaviour {
         scrollRect.vertical = false;
         scrollRect.movementType = ScrollRect.MovementType.Elastic;
         scrollRect.horizontalScrollbar = scrollbar;
+        scrollRect.onValueChanged.AddListener(delegate { scrollScript.DetectScrollChange(); } );
         //Add script
         MenuScript menuScript = levelChoice.AddComponent<MenuScript>();
         menuScript.categoryChoice = categoryChoice;

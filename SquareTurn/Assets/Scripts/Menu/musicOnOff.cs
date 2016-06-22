@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class musicOnOff : MonoBehaviour {
@@ -11,7 +12,7 @@ public class musicOnOff : MonoBehaviour {
 
 	// Funktionen
 	void Update(){
-		if (Application.loadedLevelName == "startMenu" && firststart == true && PlayerPrefs.GetString("gameMusic")!="Off") {
+		if (SceneManager.GetActiveScene().name == "startMenu" && firststart == true && PlayerPrefs.GetString("gameMusic")!="Off") {
 			this.GetComponent<AudioSource>().Play();
             firststart = false;
         

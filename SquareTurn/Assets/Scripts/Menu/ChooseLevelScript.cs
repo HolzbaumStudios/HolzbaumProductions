@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.Analytics;
@@ -24,7 +25,7 @@ public class ChooseLevelScript : MonoBehaviour {
 				{ "levelNumber", level }
 			});
 
-			Application.LoadLevel ("tutorialScene");
+            SceneManager.LoadScene("tutorialScene");
 		}
 		else
 		{
@@ -35,7 +36,7 @@ public class ChooseLevelScript : MonoBehaviour {
             });
 
             //This line is used to load the scene
-            Application.LoadLevel ("gameScene");
+            SceneManager.LoadScene("gameScene");
 		}
 	}
 
@@ -47,7 +48,7 @@ public class ChooseLevelScript : MonoBehaviour {
 	}
 
 	public void LoadAchievementsLevel(){
-		Application.LoadLevel ("achievements");
+        SceneManager.LoadScene("achievements");
 	}
 
 

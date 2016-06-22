@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class EscapeScene : MonoBehaviour {
@@ -14,14 +15,14 @@ public class EscapeScene : MonoBehaviour {
 
     public void ChangeScene()
     {
-        if (Application.loadedLevelName == "startMenu")
+        if (SceneManager.GetActiveScene().name == "startMenu")
         {
             Debug.Log("Quit Application!");
             Application.Quit();
         }
         else
         {
-            Application.LoadLevel(scene);
+            SceneManager.LoadScene(scene);
         }
     }
 }

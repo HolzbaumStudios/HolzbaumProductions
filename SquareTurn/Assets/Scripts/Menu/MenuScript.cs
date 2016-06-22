@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -20,7 +21,7 @@ public class MenuScript : MonoBehaviour {
 			ChooseCategory (activeCategory);
 		}
 
-		SetSliderPosition ();
+		//SetSliderPosition ();
 	}
 
 	public void SetSliderPosition()
@@ -32,12 +33,12 @@ public class MenuScript : MonoBehaviour {
 
 	public IEnumerator StartLevel(){
 		yield return new WaitForSeconds(0.1f);
-		Application.LoadLevel ("gameScene");
+        SceneManager.LoadScene("gameScene");
 	}
 
 	public void GoBackToMenu(){
 		GameObject.Find("UserStatistics").SendMessage ("StoreStatistics");
-		Application.LoadLevel ("levelMenu");
+        SceneManager.LoadScene("levelMenu");
 	}
 
 
@@ -51,11 +52,11 @@ public class MenuScript : MonoBehaviour {
     //Everything that happens, when you press Escape or the escape button
     public void EscapeButton()
     {
-        if (Application.loadedLevelName == "levelMenu")
+        if (SceneManager.GetActiveScene().name == "levelMenu")
         {
             if (categoryChoice.activeSelf)
             {
-                Application.LoadLevel("startMenu");
+                SceneManager.LoadScene("startMenu");
             }
             else
             {
@@ -65,7 +66,7 @@ public class MenuScript : MonoBehaviour {
         }
         else
         {
-            Application.LoadLevel("startMenu");
+            SceneManager.LoadScene("startMenu");
         }
     }
 	
@@ -112,13 +113,14 @@ public class MenuScript : MonoBehaviour {
 		GameObject levelChoice = this.gameObject;
 
 		Debug.Log ("Category number:" + categoryNumber);
-		//Set the scrollrect to the correct category
-		switch(categoryNumber)
+        //Set the scrollrect to the correct category
+        if (categoryNumber != PlayerPrefs.GetInt("ActiveCategory")) PlayerPrefs.SetFloat("SliderPosition", 0);
+        switch (categoryNumber)
 		{
-		case 1: DisableCategoriesOnly(); category1.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category1.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 1); break;
-		case 2: DisableCategoriesOnly(); category2.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category2.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 2); break;
-		case 3: DisableCategoriesOnly(); category3.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category3.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 3); break;
-        case 4: DisableCategoriesOnly(); category4.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category4.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 4); break;
+		case 1: DisableCategoriesOnly(); category1.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category1.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 1);break;
+		case 2: DisableCategoriesOnly(); category2.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category2.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 2);break;
+		case 3: DisableCategoriesOnly(); category3.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category3.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 3);break;
+        case 4: DisableCategoriesOnly(); category4.SetActive(true); levelChoice.GetComponent<ScrollRect>().content = category4.GetComponent<RectTransform>();PlayerPrefs.SetInt ("ActiveCategory", 4);break;
 		}
 
 		//Enable the scrollbar;
@@ -135,9 +137,9 @@ public class MenuScript : MonoBehaviour {
 		PlayerPrefs.SetInt ("PosCategory2", (int)category2.transform.position.x);
 		PlayerPrefs.SetInt ("PosCategory3", (int)category3.transform.position.x);
 		*/
-		float sliderPosition = categorySlider.GetComponent<Scrollbar> ().value;
-		Debug.Log ("SaveSLiderPosition: " + sliderPosition);
-		PlayerPrefs.SetFloat ("SliderPosition", sliderPosition);
+		//float sliderPosition = categorySlider.GetComponent<Scrollbar> ().value;
+		//Debug.Log ("SaveSLiderPosition: " + sliderPosition);
+		//PlayerPrefs.SetFloat ("SliderPosition", sliderPosition);
 	}
 
 }
