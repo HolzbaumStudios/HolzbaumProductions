@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/StartMenu.unity
+- path: Assets/Scene/Themen/Senioren/SenZmi.unity
   isLoaded: 1
   isActive: 1
