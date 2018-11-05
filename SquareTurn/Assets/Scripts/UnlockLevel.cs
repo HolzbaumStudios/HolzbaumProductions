@@ -33,9 +33,9 @@ public class UnlockLevel : MonoBehaviour {
 	}
 
 	void LevelUnlock () {
-		levelUnlocked.transform.FindChild ("LevelUnlockedTitle").GetComponent<Text> ().text = levelUnlockedTitle;
-		levelUnlocked.transform.FindChild ("LevelUnlockedText").GetComponent<Text> ().text = levelUnlockedText;
-		levelUnlocked.transform.FindChild ("LevelUnlockedImage").GetComponent<Image> ().sprite = levelUnlockedImage;
+		levelUnlocked.transform.Find ("LevelUnlockedTitle").GetComponent<Text> ().text = levelUnlockedTitle;
+		levelUnlocked.transform.Find ("LevelUnlockedText").GetComponent<Text> ().text = levelUnlockedText;
+		levelUnlocked.transform.Find ("LevelUnlockedImage").GetComponent<Image> ().sprite = levelUnlockedImage;
 		levelUnlocked.SetActive(true);
 		string playerPrefName = "levelPack" + levelPackNumber + "Unlocked";
 		PlayerPrefs.SetInt (playerPrefName, 1);

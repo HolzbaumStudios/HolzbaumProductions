@@ -172,8 +172,8 @@ public class AchievementCollection : MonoBehaviour {
 			//Debug.Log ("Achievement active");
 			//achievementPanel.GetComponent<Animation>().Play ();
 
-			GameObject achievementImage = achievementPanel.transform.FindChild ("AchievementImage").gameObject;
-			GameObject achievementText = achievementPanel.transform.FindChild ("AchievementText").gameObject;
+			GameObject achievementImage = achievementPanel.transform.Find ("AchievementImage").gameObject;
+			GameObject achievementText = achievementPanel.transform.Find ("AchievementText").gameObject;
 
 			achievementImage.GetComponent<Image>().sprite = achievementSpriteList[achievementNumber];
 			string achievementTitle = achievementList[achievementNumber].GetTitle();
@@ -231,8 +231,8 @@ public class AchievementCollection : MonoBehaviour {
 		for (int i = 0; i < numberOfAchievements; i++) {
 			if(achievementList[i].GetState() == 2){ //If achievement has been unlocked
 				string panelName = "ShowAchievementPanel" + i;
-				Transform panelObject = achievementContainer.FindChild (panelName).transform;
-				GameObject lockedPanel = panelObject.FindChild("Locked").gameObject; //Find the locked component
+				Transform panelObject = achievementContainer.Find (panelName).transform;
+				GameObject lockedPanel = panelObject.Find("Locked").gameObject; //Find the locked component
 				lockedPanel.SetActive (false);
 			}
 		}

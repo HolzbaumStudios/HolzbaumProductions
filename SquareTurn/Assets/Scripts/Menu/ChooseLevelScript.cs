@@ -41,7 +41,7 @@ public class ChooseLevelScript : MonoBehaviour {
 	}
 
 	public void InputLevel(){
-		GameObject inputField = transform.FindChild ("InputField").FindChild ("Text").gameObject;
+		GameObject inputField = transform.Find ("InputField").Find ("Text").gameObject;
 	
 		int levelNumber = int.Parse (inputField.GetComponent<Text> ().text);
         LoadLevel (levelNumber);

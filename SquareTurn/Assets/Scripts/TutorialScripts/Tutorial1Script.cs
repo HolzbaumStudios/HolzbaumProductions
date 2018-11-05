@@ -54,14 +54,14 @@ public class Tutorial1Script : MonoBehaviour {
 		{
 			case 1: //Changed to second message
 			{
-				messagePanels[0].transform.FindChild("Text1").gameObject.SetActive(false);
-				messagePanels[0].transform.FindChild("Text2").gameObject.SetActive(true);
+				messagePanels[0].transform.Find("Text1").gameObject.SetActive(false);
+				messagePanels[0].transform.Find("Text2").gameObject.SetActive(true);
 			}break;
 			case 2: //Show message and arrow to click the button
 			{
 				checkForUserInput = false;
 
-				messagePanels[0].transform.FindChild("Text2").gameObject.SetActive(false);
+				messagePanels[0].transform.Find("Text2").gameObject.SetActive(false);
 				messagePanels[0].SetActive(false);
 				messagePanels[1].SetActive(true);
 
@@ -87,14 +87,14 @@ public class Tutorial1Script : MonoBehaviour {
 				squareContainerRow3[2].GetComponent<TurnScriptTutorial>().TurnSquare(1);
 				squareContainerRow3[3].GetComponent<TurnScriptTutorial>().TurnSquare(1);
 
-				messagePanels[1].transform.FindChild("Text3").gameObject.SetActive(false);
+				messagePanels[1].transform.Find("Text3").gameObject.SetActive(false);
 				messagePanels[1].SetActive(false);
 				StartCoroutine(WaitSomeTime(1.0f));
 			}break;
 			case 4: //Show the the next message after 1.5 seconds
 			{
 				messagePanels[0].SetActive(true);
-				messagePanels[0].transform.FindChild("Text4").gameObject.SetActive(true);
+				messagePanels[0].transform.Find("Text4").gameObject.SetActive(true);
 				//enable touch input again
 				checkForUserInput = true;
 			}break;
@@ -103,7 +103,7 @@ public class Tutorial1Script : MonoBehaviour {
 				//enable touch input again
 				checkForUserInput = false;
 
-				messagePanels[0].transform.FindChild("Text4").gameObject.SetActive(false);
+				messagePanels[0].transform.Find("Text4").gameObject.SetActive(false);
 				messagePanels[0].SetActive(false);
 				messagePanels[2].SetActive(true);
 				//enable the next square
@@ -113,7 +113,7 @@ public class Tutorial1Script : MonoBehaviour {
 			{
 				//Disable button again
 				squareContainerRow1[2].GetComponent<Button>().enabled = false;
-				messagePanels[2].transform.FindChild("Text5").gameObject.SetActive(false);
+				messagePanels[2].transform.Find("Text5").gameObject.SetActive(false);
 				messagePanels[2].SetActive(false);
 				//Set the movecounter
 				moveCounterTutorial++;
@@ -135,24 +135,24 @@ public class Tutorial1Script : MonoBehaviour {
 			case 7: //Show the next message
 			{
 				messagePanels[0].SetActive(true);
-				messagePanels[0].transform.FindChild("Text6").gameObject.SetActive(true);
+				messagePanels[0].transform.Find("Text6").gameObject.SetActive(true);
 				
 				//enable touch input again
 				checkForUserInput = true;
 			}break;
 			case 8: //Show the next message
 			{
-				messagePanels[0].transform.FindChild("Text6").gameObject.SetActive(false);
-				messagePanels[0].transform.FindChild("Text7").gameObject.SetActive(true);
+				messagePanels[0].transform.Find("Text6").gameObject.SetActive(false);
+				messagePanels[0].transform.Find("Text7").gameObject.SetActive(true);
 			}break;
 			case 9: //Show the message to reload the game
 			{
 				checkForUserInput = false;
 
-				messagePanels[0].transform.FindChild("Text7").gameObject.SetActive(false);
+				messagePanels[0].transform.Find("Text7").gameObject.SetActive(false);
 				messagePanels[0].SetActive(false);
 				messagePanels[2].SetActive(true);
-				messagePanels[2].transform.FindChild("Text8").gameObject.SetActive(true);
+				messagePanels[2].transform.Find("Text8").gameObject.SetActive(true);
 
 				GameObject.Find ("resetPanel").GetComponent<Button>().enabled = true;
 			}break;
@@ -181,14 +181,14 @@ public class Tutorial1Script : MonoBehaviour {
 			{
 				checkForUserInput = true;
 				messagePanels[0].SetActive(true);
-				messagePanels[0].transform.FindChild("Text9").gameObject.SetActive(true);
+				messagePanels[0].transform.Find("Text9").gameObject.SetActive(true);
 			}break;
 			case 12:
 			{
-				messagePanels[0].transform.FindChild("Text9").gameObject.SetActive(false);	
+				messagePanels[0].transform.Find("Text9").gameObject.SetActive(false);	
 				messagePanels[0].SetActive(false);
 				messagePanels[1].SetActive(true);
-				messagePanels[1].transform.FindChild("Text10").gameObject.SetActive(true);
+				messagePanels[1].transform.Find("Text10").gameObject.SetActive(true);
 				
 				checkForUserInput = false;
 
@@ -200,12 +200,12 @@ public class Tutorial1Script : MonoBehaviour {
 			case 13: 
 			{
 				messagePanels[3].SetActive(false);
-				messagePanels[1].transform.FindChild("Text10").gameObject.SetActive(false);	
+				messagePanels[1].transform.Find("Text10").gameObject.SetActive(false);	
 				messagePanels[1].SetActive(false);
 				messagePanels[0].SetActive(true);
-				messagePanels[0].transform.FindChild("Text12").gameObject.SetActive(true);
+				messagePanels[0].transform.Find("Text12").gameObject.SetActive(true);
 				//Set ending text
-				messagePanels[4].transform.FindChild("Text11").gameObject.GetComponent<Text>().text = "End Tutorial";
+				messagePanels[4].transform.Find("Text11").gameObject.GetComponent<Text>().text = "End Tutorial";
 			}break;
 		}
 	}

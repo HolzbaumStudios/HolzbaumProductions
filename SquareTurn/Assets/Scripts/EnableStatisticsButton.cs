@@ -10,7 +10,7 @@ public class EnableStatisticsButton : MonoBehaviour {
 		// Check if Pro mode is enabled
 		if(userStatistics.GetComponent<EnableProVersion>().proVersion == true)
 		{
-			gameObject.transform.FindChild("StatisticsButton").gameObject.SetActive(true);
+			gameObject.transform.Find("StatisticsButton").gameObject.SetActive(true);
 		}
 	}
 	

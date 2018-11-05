@@ -9,7 +9,7 @@ public class DetectScrolling : MonoBehaviour {
 
     void Start()
     {
-        scrollbar = this.transform.FindChild("Scrollbar").gameObject;
+        scrollbar = this.transform.Find("Scrollbar").gameObject;
     }
 
     public void DetectScrollChange()

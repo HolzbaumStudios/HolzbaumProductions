@@ -59,7 +59,7 @@ public class LevelCompletedMenu : MonoBehaviour {
 
 	public void DisableContinue()
 	{
-		transform.FindChild("ContinueButton").gameObject.SetActive(false);
+		transform.Find("ContinueButton").gameObject.SetActive(false);
 	}
 }
 

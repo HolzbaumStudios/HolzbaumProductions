@@ -23,19 +23,19 @@ public class turnExitOnClick : MonoBehaviour {
 		squareE.GetComponent<Animation> ().Play();
 		yield return new WaitForSeconds(0.25f);
 		squareE.GetComponent<UnityEngine.UI.Image> ().color = new Color32(240, 120, 48, 255);
-		squareE.transform.FindChild ("Letter").gameObject.SetActive (false);
+		squareE.transform.Find ("Letter").gameObject.SetActive (false);
 		squareX.GetComponent<Animation> ().Play();
 		yield return new WaitForSeconds(0.25f);
 		squareX.GetComponent<UnityEngine.UI.Image> ().color = new Color32(240, 120, 48, 255);
-		squareX.transform.FindChild ("Letter").gameObject.SetActive (false);
+		squareX.transform.Find ("Letter").gameObject.SetActive (false);
 		squareI.GetComponent<Animation> ().Play();
 		yield return new WaitForSeconds(0.25f);
 		squareI.GetComponent<UnityEngine.UI.Image> ().color = new Color32(240, 120, 48, 255);
-		squareI.transform.FindChild ("Letter").gameObject.SetActive (false);
+		squareI.transform.Find ("Letter").gameObject.SetActive (false);
 		squareT.GetComponent<Animation> ().Play();
 		yield return new WaitForSeconds(0.25f);
 		squareT.GetComponent<UnityEngine.UI.Image> ().color = new Color32(240, 120, 48, 255);
-		squareT.transform.FindChild ("Letter").gameObject.SetActive (false);
+		squareT.transform.Find ("Letter").gameObject.SetActive (false);
 		yield return new WaitForSeconds(0.5f);
 		Application.Quit();
 	}

@@ -119,11 +119,11 @@ public class DisplayHandler : MonoBehaviour {
 		//landscapeCanvas.transform.FindChild("LevelChoice").gameObject.GetComponent<MenuScript> ().SaveCategoryPosition ();
 		if(setLandscape)
 		{
-			levelChoice = landscapeCanvas.transform.FindChild("LevelChoice").gameObject;
+			levelChoice = landscapeCanvas.transform.Find("LevelChoice").gameObject;
 		}
 		else
 		{
-			levelChoice = portraitCanvas.transform.FindChild("LevelChoice").gameObject;
+			levelChoice = portraitCanvas.transform.Find("LevelChoice").gameObject;
 		}
 	}
 
@@ -135,12 +135,12 @@ public class DisplayHandler : MonoBehaviour {
 		if(setLandscape)
 		{
 
-			levelChoice = landscapeCanvas.transform.FindChild("LevelChoice").gameObject;
+			levelChoice = landscapeCanvas.transform.Find("LevelChoice").gameObject;
 		}
 		else
 		{
 
-			levelChoice = portraitCanvas.transform.FindChild("LevelChoice").gameObject;
+			levelChoice = portraitCanvas.transform.Find("LevelChoice").gameObject;
 		}
 
 		if (activeCategory > 0)
@@ -175,13 +175,13 @@ public class DisplayHandler : MonoBehaviour {
 
 		if(setLandscape) 
 		{
-			Transform imageBackground = landscapeCanvas.transform.FindChild("Image_Background");
-			musicButton = imageBackground.FindChild ("SquareImage_Music").gameObject;
+			Transform imageBackground = landscapeCanvas.transform.Find("Image_Background");
+			musicButton = imageBackground.Find ("SquareImage_Music").gameObject;
 		} 
 		else
 		{
-			Transform imageBackground = portraitCanvas.transform.FindChild("Image_Background");
-			musicButton = imageBackground.FindChild ("SquareImage_Music").gameObject;
+			Transform imageBackground = portraitCanvas.transform.Find("Image_Background");
+			musicButton = imageBackground.Find ("SquareImage_Music").gameObject;
 		}
 		TurnButton (musicButton, statusMusicButton);
 		
@@ -194,12 +194,12 @@ public class DisplayHandler : MonoBehaviour {
 		if (status == false)
 		{
 			squareMusicButton.GetComponent<UnityEngine.UI.Image> ().color = new Color32(131, 139, 139, 255);
-			squareMusicButton.transform.FindChild ("DisabledButton").gameObject.SetActive (true);
+			squareMusicButton.transform.Find ("DisabledButton").gameObject.SetActive (true);
 		}
 		else if (status == true)
 		{
 			squareMusicButton.GetComponent<UnityEngine.UI.Image> ().color = new Color32(72, 120, 168, 255);
-			squareMusicButton.transform.FindChild ("DisabledButton").gameObject.SetActive (false);
+			squareMusicButton.transform.Find ("DisabledButton").gameObject.SetActive (false);
 		}
 	}
 

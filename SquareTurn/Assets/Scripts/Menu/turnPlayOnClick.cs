@@ -24,19 +24,19 @@ public class turnPlayOnClick : MonoBehaviour {
 		squareP.GetComponent<Animation> ().Play();
 		yield return new WaitForSeconds(0.25f);
 		squareP.GetComponent<UnityEngine.UI.Image> ().color = new Color32(240, 120, 48, 255);
-		squareP.transform.FindChild ("Letter").gameObject.SetActive (false);
+		squareP.transform.Find ("Letter").gameObject.SetActive (false);
 		squareL.GetComponent<Animation> ().Play();
 		yield return new WaitForSeconds(0.25f);
 		squareL.GetComponent<UnityEngine.UI.Image> ().color = new Color32(240, 120, 48, 255);
-		squareL.transform.FindChild ("Letter").gameObject.SetActive (false);
+		squareL.transform.Find ("Letter").gameObject.SetActive (false);
 		squareA.GetComponent<Animation> ().Play();
 		yield return new WaitForSeconds(0.25f);
 		squareA.GetComponent<UnityEngine.UI.Image> ().color = new Color32(240, 120, 48, 255);
-		squareA.transform.FindChild ("Letter").gameObject.SetActive (false);
+		squareA.transform.Find ("Letter").gameObject.SetActive (false);
 		squareY.GetComponent<Animation> ().Play();
 		yield return new WaitForSeconds(0.25f);
 		squareY.GetComponent<UnityEngine.UI.Image> ().color = new Color32(240, 120, 48, 255);
-		squareY.transform.FindChild ("Letter").gameObject.SetActive (false);
+		squareY.transform.Find ("Letter").gameObject.SetActive (false);
 		yield return new WaitForSeconds(0.5f);
 
 		PlayerPrefs.SetInt ("ActiveCategory", 0); //Set the the levelcategory to none (with this, the category selection is displayed)

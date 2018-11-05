@@ -1,13 +1,13 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{D42C1817-323F-26CF-DE86-AF63F628E9EC}") = "SquareTurn", "Assembly-CSharp-firstpass.csproj", "{6A3E2634-DF32-7D51-EC37-E78E58715571}"
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{6A3E2634-DF32-7D51-EC37-E78E58715571}"
 EndProject
-Project("{D42C1817-323F-26CF-DE86-AF63F628E9EC}") = "SquareTurn", "Assembly-CSharp.csproj", "{A59FF704-255F-40C2-8D2E-3CCAA606BF8E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{A59FF704-255F-40C2-8D2E-3CCAA606BF8E}"
 EndProject
-Project("{D42C1817-323F-26CF-DE86-AF63F628E9EC}") = "SquareTurn", "Assembly-CSharp-Editor-firstpass.csproj", "{C8E4E3B8-7F27-EF6E-4891-BD90809294E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor-firstpass", "Assembly-CSharp-Editor-firstpass.csproj", "{C8E4E3B8-7F27-EF6E-4891-BD90809294E6}"
 EndProject
-Project("{D42C1817-323F-26CF-DE86-AF63F628E9EC}") = "SquareTurn", "Assembly-CSharp-Editor.csproj", "{D0F4AAFE-BE8E-9CB5-34AF-58C7DD1591F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{D0F4AAFE-BE8E-9CB5-34AF-58C7DD1591F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,8 +34,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
