@@ -13,19 +13,18 @@ public class GameLogic : MonoBehaviour
     int turnNumber;
 
     public GameObject squareObject;
-    public GameObject turnTextLandscape;
     public GameObject turnTextPortrait;
     public bool playerWon = false;
     LevelScript levelScript;
     private GameObject userStatistics;
     private int numberOfTurns; //To count how many squares have been turned --> for statistics
 
-    public GameObject gameEndPanel; //The panel which appears, when the level has been finished
     public GameObject gameEndPanelPortrait;
-    public GameObject treeContainer;
     public GameObject treeContainerPortrait;
     public GameObject achievementPanel;
-    public GameObject achievementPanelLandscape;
+
+    public Material backsideMaterial;
+    public Material backsideMaterialYellow;
 
     //Variables to store achievement prefabs
     //The prefab values are stored in this variables (in the start function), because they have to be checked with every move.
@@ -93,7 +92,8 @@ public class GameLogic : MonoBehaviour
         //If mode == portrait, set the square size depending on the height
         if (Screen.height > Screen.width)
         {
-            squareSpace = Screen.height / 12.3f; //The spacing between the squares  --> otherwise 120 //before 13.3 -> /14 
+            //squareSpace = Screen.height / 12.3f; //The spacing between the squares  --> otherwise 120 //before 13.3 -> /14 
+            squareSpace = 1.15f;
             squareSize = Screen.height / 13; //before 13.3 -> /15
         }
 
@@ -130,50 +130,52 @@ public class GameLogic : MonoBehaviour
             for (int j = 0; j < fieldColumns; j++)
             {
                 //GET THE VALUES FROM THE LEVEL
-                squareArray[i, j].squareState = levelScript.fieldStructureArray[i, j];
+                var square = squareArray[i, j];
+                square.squareState = levelScript.fieldStructureArray[i, j];
                 //Debug.Log (squareArray[i,j].squareState);
                 //Create the square
-                if (squareArray[i, j].squareState == 0 || squareArray[i, j].squareState == 1 || squareArray[i, j].squareState == 3 || squareArray[i, j].squareState == 4 || squareArray[i, j].squareState == 5)
+                if (square.squareState == 0 || square.squareState == 1 || square.squareState == 3 || square.squareState == 4 || square.squareState == 5)
                 {
                     GameObject column = Instantiate(squareObject, transform.position, transform.rotation) as GameObject;
-                    squareArray[i, j].squareObject = column;
+                    square.squareObject = column;
                     column.transform.parent = GameObject.Find("squarePanel").transform;
                     column.name = "r" + i + "c" + j;
                     //if state is set to 1 change the color
-                    if (squareArray[i, j].squareState == 1)
+                    if (square.squareState == 1)
                     { //if correct side
-                        column.transform.GetComponent<UnityEngine.UI.Image>().color = new Color32(240, 120, 48, 255);
+                        column.transform.eulerAngles = new Vector3(0, 0, 0); //column.transform.GetComponent<UnityEngine.UI.Image>().color = new Color32(240, 120, 48, 255);
                     }
-                    else if (squareArray[i, j].squareState == 3)
+                    else if (square.squareState == 3)
                     { //If cross
                         column.transform.GetComponent<UnityEngine.UI.Image>().color = Color.red;
                     }
-                    else if (squareArray[i, j].squareState == 4)
+                    else if (square.squareState == 4)
                     { //If cross
                         column.transform.GetComponent<UnityEngine.UI.Image>().color = Color.green;
                     }
-                    else if (squareArray[i, j].squareState == 5)
+                    else if (square.squareState == 5)
                     { //If cross
-                        column.transform.GetComponent<UnityEngine.UI.Image>().color = new Color32(255, 226, 32, 255);
+                        column.transform.eulerAngles = new Vector3(0, 180, 0); //column.transform.GetComponent<UnityEngine.UI.Image>().color = new Color32(255, 226, 32, 255);
+                        square.squareObject.transform.Find("backSide").GetComponent<Renderer>().material = backsideMaterialYellow;
                     }
                     //Set position regarding width count
                     if (evenNumberWidth)
                     {
                         float halfField = fieldColumns / 2;
                         float difference = halfField - j;
-                        column.GetComponent<RectTransform>().anchoredPosition = new Vector2(-difference * squareSpace + squareSpace / 2, yPosition);
+                        column.transform.position = new Vector2(-difference * squareSpace + squareSpace / 2, yPosition);
                         //Debug.Log (i + "," + j+ "   X: " + (-difference * squareSpace + squareSpace/2) + " Y: " + yPosition);
                     }
                     else
                     {
                         float halfField = fieldColumns / 2;
                         float difference = halfField - j;
-                        column.GetComponent<RectTransform>().anchoredPosition = new Vector2(-difference * squareSpace, yPosition);
+                        column.transform.position = new Vector2(-difference * squareSpace, yPosition);
                         //Debug.Log (i + "," + j+ "   X: " + (-difference * squareSpace) + " Y: " + yPosition);
                     }
 
                     //Set size of the square
-                    column.GetComponent<RectTransform>().sizeDelta = new Vector2(squareSize, squareSize);
+                    //column.GetComponent<RectTransform>().sizeDelta = new Vector2(squareSize, squareSize);
                 }
             }
 
@@ -187,10 +189,6 @@ public class GameLogic : MonoBehaviour
     {
         turnNumber++;
 
-        if (turnTextLandscape)
-        {
-            turnTextLandscape.GetComponent<UnityEngine.UI.Text>().text = turnNumber.ToString();
-        }
         if (turnTextPortrait)
         {
             turnTextPortrait.GetComponent<UnityEngine.UI.Text>().text = turnNumber.ToString();
@@ -391,10 +389,6 @@ public class GameLogic : MonoBehaviour
         {
             achievementPanel.GetComponent<CheckForAchievements>().CheckAchievements();
         }
-        if (achievementPanelLandscape.transform.parent.gameObject.activeSelf == true)
-        {
-            achievementPanelLandscape.GetComponent<CheckForAchievements>().CheckAchievements();
-        }
 
         //Check if won
         CheckIfWon();
@@ -403,19 +397,27 @@ public class GameLogic : MonoBehaviour
     //Checks the state of the square and change it accordingly
     int CheckSquareState(int row, int column)
     {
-        if (squareArray[row, column].squareState == 0)
+        var square = squareArray[row, column];
+        if (square.squareState == 0)
         {
-            squareArray[row, column].SetSquareState(1);
+            square.SetSquareState(1);
         }
-        else if (squareArray[row, column].squareState == 1)
+        else if (square.squareState == 1)
         {
-            squareArray[row, column].SetSquareState(0);
+            square.SetSquareState(0);
         }
-        else if (squareArray[row, column].squareState == 5)
+        else if (square.squareState == 5)
         {
-            squareArray[row, column].SetSquareState(0);
+            square.SetSquareState(0);
+            StartCoroutine(ChangeBacksideColor(square.squareObject));
         }
-        return squareArray[row, column].squareState;
+        return square.squareState;
+    }
+
+    IEnumerator ChangeBacksideColor(GameObject square)
+    {
+        yield return new WaitForSeconds(0.5f);
+        square.transform.Find("backSide").GetComponent<Renderer>().material = backsideMaterial;
     }
 
 
@@ -480,11 +482,8 @@ public class GameLogic : MonoBehaviour
     IEnumerator EnableEndPanel()
     {
         yield return new WaitForSeconds(0.5f);
-        gameEndPanel.SetActive(true);
         gameEndPanelPortrait.SetActive(true);
-        GameObject childPanel = gameEndPanel.transform.Find("GameEndPanel").gameObject;
         GameObject childPanelPortrait = gameEndPanelPortrait.transform.Find("GameEndPanel").gameObject;
-        childPanel.GetComponent<Animation>().Play();
         childPanelPortrait.GetComponent<Animation>().Play();
 
         //Set the number of turns
@@ -497,7 +496,6 @@ public class GameLogic : MonoBehaviour
         {
             turnText = turnNumber + " turn";
         }
-        childPanel.transform.Find("TurnText").GetComponent<UnityEngine.UI.Text>().text = turnText;
         childPanelPortrait.transform.Find("TurnText").GetComponent<UnityEngine.UI.Text>().text = turnText;
 
 
@@ -566,38 +564,28 @@ public class GameLogic : MonoBehaviour
         }
 
         //Get the tree objects
-        GameObject tree1Landscape = treeContainer.transform.Find("Tree1").gameObject;
-        GameObject tree2Landscape = treeContainer.transform.Find("Tree2").gameObject;
-        GameObject tree3Landscape = treeContainer.transform.Find("Tree3").gameObject;
-
         GameObject tree1Portrait = treeContainerPortrait.transform.Find("Tree1").gameObject;
         GameObject tree2Portrait = treeContainerPortrait.transform.Find("Tree2").gameObject;
         GameObject tree3Portrait = treeContainerPortrait.transform.Find("Tree3").gameObject;
 
         //Set the tree objects
-        tree1Landscape.GetComponent<Image>().color = Color.yellow;
         tree1Portrait.GetComponent<Image>().color = Color.yellow;
         if (numberOfTrees > 1)
         {
-            tree2Landscape.GetComponent<Image>().color = Color.yellow;
             tree2Portrait.GetComponent<Image>().color = Color.yellow;
         }
         else
         {
-            tree2Landscape.GetComponent<Image>().color = Color.black;
             tree2Portrait.GetComponent<Image>().color = Color.black;
-            tree3Landscape.GetComponent<Image>().color = Color.black;
             tree3Portrait.GetComponent<Image>().color = Color.black;
         }
 
         if (numberOfTrees > 2)
         {
-            tree3Landscape.GetComponent<Image>().color = Color.yellow;
             tree3Portrait.GetComponent<Image>().color = Color.yellow;
         }
         else
         {
-            tree3Landscape.GetComponent<Image>().color = Color.black;
             tree3Portrait.GetComponent<Image>().color = Color.black;
         }
     }

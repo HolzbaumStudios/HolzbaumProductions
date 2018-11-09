@@ -2,167 +2,81 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class DisplayHandler : MonoBehaviour {
+public class DisplayHandler : MonoBehaviour
+{
 
 
-	public bool debugSimulateLandscape = false; //This variable is only used to simluate the rotation on the pc
-	public GameObject portraitCanvas;
-	public GameObject landscapeCanvas;
-	private bool setToLandscape = false; //Used to check, that functions on screen orientation change only occur once
-	private bool setToPortrait = false; //Used to check, that functions on screen orientation change only occur once
+    public bool debugSimulateLandscape = false; //This variable is only used to simluate the rotation on the pc
+    public GameObject portraitCanvas;
+    private bool setToPortrait = false; //Used to check, that functions on screen orientation change only occur once
 
-	// Use this for initialization
-	void Awake () {
-		//portraitCanvas = GameObject.Find ("CanvasPortrait");
-		//landscapeCanvas = GameObject.Find ("CanvasLandscape");
 
-		//SetDisplayMode ();
-	}
+    void Update()
+    {
+        SetDisplayMode();
+    }
 
-	void Update()
-	{
-		SetDisplayMode ();
-	}
+    void SetDisplayMode()
+    {
+#if UNITY_EDITOR
 
-	void SetDisplayMode()
-	{
-		#if UNITY_EDITOR
-				if (Screen.width > Screen.height)
-				{
-					debugSimulateLandscape = true;
-				}
-				else
-				{
-					debugSimulateLandscape = false;
-				}
-		   
-			#endif
+            debugSimulateLandscape = false;
 
-			if(Screen.orientation == ScreenOrientation.LandscapeLeft || Screen.orientation == ScreenOrientation.LandscapeRight || debugSimulateLandscape == true)
-			{
-				if(!setToLandscape)
-				{
-				//--What happens before changing
-					if(SceneManager.GetActiveScene().name == "levelMenu")
-					{
-						//SetLevelMenuCategorySlider(false);
-					}
-					if(SceneManager.GetActiveScene().name == "startMenu")
-					{
-						SetLevelMusic(true);
-					}
+#endif
 
-					SetScreenOrientation(true);
+        //--What happens before changing
+        if (SceneManager.GetActiveScene().name == "levelMenu")
+        {
+            //SetLevelMenuCategorySlider(true);
+        }
+        if (SceneManager.GetActiveScene().name == "startMenu")
+        {
+            SetLevelMusic(false);
+        }
 
-				//--What happens after changing
-					//Only on levelMenu -- Set correct category
-					if(SceneManager.GetActiveScene().name == "levelMenu")
-					{
-						SetLevelMenu(true);
-					}
+        SetScreenOrientation();
 
-					
+        //--What happens after changing
+        //Only on levelMenu -- Set correct category
+        if (SceneManager.GetActiveScene().name == "levelMenu")
+        {
+            SetLevelMenu(false);
+        }
 
-					setToLandscape = true;
-					setToPortrait = false;
-				}
-			}
-			else
-			{
-				if(!setToPortrait)
-				{
-				//--What happens before changing
-					if(SceneManager.GetActiveScene().name == "levelMenu")
-					{
-						//SetLevelMenuCategorySlider(true);
-					}
-					if(SceneManager.GetActiveScene().name == "startMenu")
-					{
-						SetLevelMusic(false);
-					}
+        setToPortrait = true;   
+    }
 
-					SetScreenOrientation(false);
+    //Enable/disable the canvas based on the screen orientation
+    void SetScreenOrientation()
+    {
+        portraitCanvas.SetActive(true);
+    }
 
-				//--What happens after changing
-					//Only on levelMenu -- Set correct category
-					if(SceneManager.GetActiveScene().name == "levelMenu")
-					{
-						SetLevelMenu(false);
-					}
-					
-					
 
-					setToLandscape = false;
-					setToPortrait = true;
-				}
-			}
-	}
+    //Set the settings for the levelMenu
+    void SetLevelMenu(bool setLandscape)
+    {
+        int activeCategory = PlayerPrefs.GetInt("ActiveCategory");
+        GameObject levelChoice = portraitCanvas.transform.Find("LevelChoice").gameObject;
 
-	//Enable/disable the canvas based on the screen orientation
-	void SetScreenOrientation(bool setLandscape)
-	{
-		if(setLandscape)
-		{
-			portraitCanvas.SetActive(false);
-			landscapeCanvas.SetActive(true);
-		}
-		else
-		{
-			portraitCanvas.SetActive(true);
-			landscapeCanvas.SetActive(false);
-		}
-	}
+        if (activeCategory > 0)
+        {
+            levelChoice.GetComponent<MenuScript>().ChooseCategory(activeCategory);
+            levelChoice.GetComponent<MenuScript>().SetSliderPosition();
+        }
+        else
+        {
+            levelChoice.GetComponent<MenuScript>().DisableAllCategories();
+        }
+    }
 
-	void SetLevelMenuCategorySlider(bool setLandscape)
-	{
-		GameObject levelChoice;
-		//landscapeCanvas.transform.FindChild("LevelChoice").gameObject.GetComponent<MenuScript> ().SaveCategoryPosition ();
-		if(setLandscape)
-		{
-			levelChoice = landscapeCanvas.transform.Find("LevelChoice").gameObject;
-		}
-		else
-		{
-			levelChoice = portraitCanvas.transform.Find("LevelChoice").gameObject;
-		}
-	}
+    void SetLevelMusic(bool setLandscape)
+    {
+        GameObject musicButton; // Das ist der Music Button
+        GameObject musicBackground; // Da hängt der Skript MuiscOnOff dran (inkl. Status des Buttons)
+        bool statusMusicButton; // Der aktuelle Status
 
-	//Set the settings for the levelMenu
-	void SetLevelMenu(bool setLandscape)
-	{
-		int activeCategory = PlayerPrefs.GetInt ("ActiveCategory");
-		GameObject levelChoice;
-		if(setLandscape)
-		{
-
-			levelChoice = landscapeCanvas.transform.Find("LevelChoice").gameObject;
-		}
-		else
-		{
-
-			levelChoice = portraitCanvas.transform.Find("LevelChoice").gameObject;
-		}
-
-		if (activeCategory > 0)
-		{
-			levelChoice.GetComponent<MenuScript>().ChooseCategory (activeCategory);
-			levelChoice.GetComponent<MenuScript> ().SetSliderPosition ();
-		}
-		else
-		{
-			//Disable the active Category
-			levelChoice.GetComponent<MenuScript>().DisableAllCategories();
-		}
-
-	}
-
-	void SetLevelMusic(bool setLandscape)
-	{
-		GameObject musicButton; // Das ist der Music Button
-		GameObject musicBackground; // Da hängt der Skript MuiscOnOff dran (inkl. Status des Buttons)
-		bool statusMusicButton; // Der aktuelle Status
-
-		musicBackground = GameObject.Find("Music_Background").gameObject;
+        musicBackground = GameObject.Find("Music_Background").gameObject;
         if (PlayerPrefs.GetString("gameMusic") != "Off")
         {
             statusMusicButton = true;
@@ -171,38 +85,27 @@ public class DisplayHandler : MonoBehaviour {
         {
             statusMusicButton = false;
         }
-		//statusMusicButton = musicBackground.GetComponent<musicOnOff>().status;
-
-		if(setLandscape) 
-		{
-			Transform imageBackground = landscapeCanvas.transform.Find("Image_Background");
-			musicButton = imageBackground.Find ("SquareImage_Music").gameObject;
-		} 
-		else
-		{
-			Transform imageBackground = portraitCanvas.transform.Find("Image_Background");
-			musicButton = imageBackground.Find ("SquareImage_Music").gameObject;
-		}
-		TurnButton (musicButton, statusMusicButton);
-		
-	}
-
-	public void TurnButton(GameObject musicButton, bool status)
-	{
-		GameObject squareMusicButton = musicButton;
-		
-		if (status == false)
-		{
-			squareMusicButton.GetComponent<UnityEngine.UI.Image> ().color = new Color32(131, 139, 139, 255);
-			squareMusicButton.transform.Find ("DisabledButton").gameObject.SetActive (true);
-		}
-		else if (status == true)
-		{
-			squareMusicButton.GetComponent<UnityEngine.UI.Image> ().color = new Color32(72, 120, 168, 255);
-			squareMusicButton.transform.Find ("DisabledButton").gameObject.SetActive (false);
-		}
-	}
+        //statusMusicButton = musicBackground.GetComponent<musicOnOff>().status;
 
 
+        Transform imageBackground = portraitCanvas.transform.Find("Image_Background");
+        musicButton = imageBackground.Find("SquareImage_Music").gameObject;
+        TurnButton(musicButton, statusMusicButton);
+    }
 
+    public void TurnButton(GameObject musicButton, bool status)
+    {
+        GameObject squareMusicButton = musicButton;
+
+        if (status == false)
+        {
+            squareMusicButton.GetComponent<UnityEngine.UI.Image>().color = new Color32(131, 139, 139, 255);
+            squareMusicButton.transform.Find("DisabledButton").gameObject.SetActive(true);
+        }
+        else if (status == true)
+        {
+            squareMusicButton.GetComponent<UnityEngine.UI.Image>().color = new Color32(72, 120, 168, 255);
+            squareMusicButton.transform.Find("DisabledButton").gameObject.SetActive(false);
+        }
+    }
 }

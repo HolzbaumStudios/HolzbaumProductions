@@ -4,11 +4,7 @@ using System.Collections;
 
 public class SetStarInfo : MonoBehaviour {
 
-	public GameObject starInfoBoxLandscape;
 	public GameObject starInfoBoxPortrait;
-
-	public GameObject threeStarInfoLandscape;
-	public GameObject twoStarInfoLandscape;
 
 	public GameObject threeStarInfoPortrait;
 	public GameObject twoStarInfoPortrait;
@@ -20,7 +16,6 @@ public class SetStarInfo : MonoBehaviour {
 		int twoStarValue;
 		int threeStarValue;
 
-		starInfoBoxLandscape.SetActive(true);
 		starInfoBoxPortrait.SetActive(true);
 
 		userStatistics.GetComponent<TreeTable>().GetValuesPro();
@@ -29,11 +24,9 @@ public class SetStarInfo : MonoBehaviour {
 		threeStarValue = userStatistics.GetComponent<TreeTable>().threeTrees + 1;
 
 		string textValue = "<" + twoStarValue.ToString ();
-		twoStarInfoLandscape.GetComponent<Text>().text = textValue;
 		twoStarInfoPortrait.GetComponent<Text>().text = textValue;
 
 		textValue = "<" + threeStarValue.ToString ();
-		threeStarInfoLandscape.GetComponent<Text>().text = textValue;
 		threeStarInfoPortrait.GetComponent<Text>().text = textValue;
 	}
 }
