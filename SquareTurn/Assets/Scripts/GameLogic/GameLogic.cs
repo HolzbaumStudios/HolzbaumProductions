@@ -475,13 +475,31 @@ public class GameLogic : MonoBehaviour
             }
             //Store the statistics in Prefabs (Script: UserStatistics)
             //userStatistics.SendMessage ("StoreStatistics");
-            StartCoroutine(EnableEndPanel());
+            StartCoroutine(EndingAnimation());
+            StartCoroutine(EnableEndPanel(fieldRows * 0.3f + 3f));
         }
     }
 
-    IEnumerator EnableEndPanel()
+    IEnumerator EndingAnimation()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1);
+        for(int x = 0; x < fieldColumns; x++)
+        {
+            for (int y = 0; y < fieldRows; y++)
+            {
+                cSquareClass square = squareArray[y, x];
+                if(square != null && square.squareObject != null)
+                {
+                    square.squareObject.GetComponent<Animation>().Play("turn360");
+                }
+            }
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
+
+    IEnumerator EnableEndPanel(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
         gameEndPanelPortrait.SetActive(true);
         GameObject childPanelPortrait = gameEndPanelPortrait.transform.Find("GameEndPanel").gameObject;
         childPanelPortrait.GetComponent<Animation>().Play();

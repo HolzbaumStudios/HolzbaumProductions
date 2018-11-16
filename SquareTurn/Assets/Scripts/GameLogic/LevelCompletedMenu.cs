@@ -24,11 +24,10 @@ public class LevelCompletedMenu : MonoBehaviour {
 
 	public void ResetLevel()
 	{
-		endGameBackgroundLandscape.SetActive (false);
 		endGameBackgroundPortrait.SetActive (false);
 		userStatistics.GetComponent<UserStatistics>().UpdateStatistic("Resets++",1);
 		userStatistics.SendMessage ("StoreStatistics");
-		SceneManager.LoadScene ("gameScene");
+		SceneManager.LoadScene("gameScene");
 	}
 
 	public void BackToMainMenu(){
