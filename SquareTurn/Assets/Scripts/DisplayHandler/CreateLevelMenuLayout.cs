@@ -30,6 +30,8 @@ public class CreateLevelMenuLayout : MonoBehaviour
     public Font textFont;
     public GameObject scrollbarPrefab; //Scrollbar prefab
 
+    [SerializeField]
+    private GameObject levelButtonPrefab;
 
     //Private reference variables
     private GameObject scrollbarObject; //For having reference across the script
@@ -280,11 +282,12 @@ public class CreateLevelMenuLayout : MonoBehaviour
             levelNumber = category + "" + buttonNumber;
         }
         //Create button panel
-        GameObject levelButton = new GameObject("Level" + levelNumber + "ButtonPanel");
+        //GameObject levelButton = new GameObject("Level" + levelNumber + "ButtonPanel");
+        GameObject levelButton = Instantiate(levelButtonPrefab);
+        levelButton.name = "Level" + levelNumber + "ButtonPanel";
         levelButton.transform.SetParent(parent);
         levelButton.layer = LayerMask.NameToLayer("UI");
-        levelButton.AddComponent<CanvasRenderer>();
-        RectTransform levelButtonRect = levelButton.AddComponent<RectTransform>();
+        RectTransform levelButtonRect = levelButton.GetComponent<RectTransform>();
         //Set button panel rect
         levelButtonRect.anchorMin = new Vector2(0.5f, 0.5f);
         levelButtonRect.anchorMax = new Vector2(0.5f, 0.5f);
@@ -293,22 +296,25 @@ public class CreateLevelMenuLayout : MonoBehaviour
         levelButtonRect.localScale = new Vector3(1, 1, 1);
         levelButtonRect.sizeDelta = buttonSize;
         levelButtonRect.anchoredPosition = buttonPosition;
-        //Add Image Component
-        Image imageScript = levelButton.AddComponent<Image>();
-        imageScript.sprite = squareImage;
-        imageScript.color = new Color32(72, 120, 168, 255);
-        //Add Shadow Component
-        Shadow shadowScript = levelButton.AddComponent<Shadow>();
-        shadowScript.effectDistance = new Vector2(2, -2);
-        shadowScript.useGraphicAlpha = true;
-        //Add scripts
-        ChooseLevelScript chooseLevelScript = levelButton.AddComponent<ChooseLevelScript>();
-        //Add button
-        Button buttonScript = levelButton.AddComponent<Button>();
-        int level = (category * 100) + buttonNumber;
-        buttonScript.onClick.AddListener(() => chooseLevelScript.LoadLevel(level)); //The on click function can not be seen on the editor
 
-        //------ Create Lower Button ------------
+        PrepareLevelButton prepareLevelButton = levelButton.GetComponent<PrepareLevelButton>();
+        prepareLevelButton.SetLevelNumber(category, buttonNumber);
+
+        //Add Image Component
+        //Image imageScript = levelButton.AddComponent<Image>();
+        //imageScript.sprite = squareImage;
+        //Add Shadow Component
+        //Shadow shadowScript = levelButton.AddComponent<Shadow>();
+        //shadowScript.effectDistance = new Vector2(-6, -6);
+        //shadowScript.useGraphicAlpha = true;
+        //Add scripts
+        //ChooseLevelScript chooseLevelScript = levelButton.AddComponent<ChooseLevelScript>();
+        //Add button
+        //Button buttonScript = levelButton.AddComponent<Button>();
+        //int level = (category * 100) + buttonNumber;
+        //buttonScript.onClick.AddListener(() => chooseLevelScript.LoadLevel(level)); //The on click function can not be seen on the editor
+
+        /*/------ Create Lower Button ------------
         GameObject lowerButton = new GameObject("LevelButton");
         lowerButton.transform.SetParent(levelButton.transform);
         lowerButton.layer = LayerMask.NameToLayer("UI");
@@ -323,7 +329,7 @@ public class CreateLevelMenuLayout : MonoBehaviour
         lowerButtonRect.offsetMax = new Vector2(-offset, -offset);
         lowerButtonRect.offsetMin = new Vector2(offset, offsetBottom);
         lowerButtonRect.localScale = new Vector3(1, 1, 1);
-        //Add Image Component
+        /*Add Image Component
         Image lowerButtonImage = lowerButton.AddComponent<Image>();
         lowerButtonImage.sprite = squareImage;
         lowerButtonImage.color = new Color32(58, 112, 165, 255);
@@ -359,6 +365,10 @@ public class CreateLevelMenuLayout : MonoBehaviour
         textScript.resizeTextMaxSize = 140;
         textScript.resizeTextMinSize = 20;
         textScript.alignment = TextAnchor.MiddleCenter;
+        //Add Shadow Component
+        Shadow buttonShadowScript = buttonText.AddComponent<Shadow>();
+        buttonShadowScript.effectDistance = new Vector2(-6, -6);
+        buttonShadowScript.useGraphicAlpha = true;
 
         //------ Create stars ------
         float starSize = buttonSize.x / 6;
@@ -390,7 +400,7 @@ public class CreateLevelMenuLayout : MonoBehaviour
             StarColorScript starScript = star.AddComponent<StarColorScript>();
             starScript.starNumber = i;
             starScript.levelNumber = level;
-        }
+        }*/
     }
 
     //Creates the arrows
