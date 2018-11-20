@@ -101913,7 +101913,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -101946,7 +101946,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19687ce2820b4b040aa43cdd13ed908b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portraitMode: 1
   resolutionWidth: 1080
   resolutionHeight: 1920
   numberColumns: 3

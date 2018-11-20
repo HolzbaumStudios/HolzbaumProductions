@@ -80,7 +80,6 @@ public class CreateLevelMenuLayout : MonoBehaviour
         scalerComponent.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         scalerComponent.referenceResolution = new Vector2(resolutionWidth, resolutionHeight);
 
-
         //-----Create LevelChoice Panel-----
         GameObject levelChoice = new GameObject("LevelChoice");
         levelChoice.transform.SetParent(this.gameObject.transform);
@@ -157,8 +156,8 @@ public class CreateLevelMenuLayout : MonoBehaviour
         categoryRect.anchorMax = new Vector2(0.5f, 0.5f);
         categoryRect.pivot = new Vector2(0.5f, 0.5f);
         //Set rect transform size
-        Vector2 categorySize = new Vector2(resolutionWidth * 2, resolutionHeight);
-        Vector2 categoryPosition = new Vector2(resolutionWidth / 2, 0);
+        Vector2 categorySize = new Vector2(resolutionWidth, resolutionHeight * 1.6f);
+        Vector2 categoryPosition = new Vector2(0, -resolutionHeight / 2);
         categoryRect.sizeDelta = categorySize;
         categoryRect.anchoredPosition = categoryPosition;
         categoryRect.localScale = new Vector3(1, 1, 1);
@@ -261,8 +260,8 @@ public class CreateLevelMenuLayout : MonoBehaviour
         }
 
         //-----Create arrows-----------
-        CreateArrow(true, container1.transform);
-        CreateArrow(false, container2.transform);
+        //CreateArrow(true, container1.transform);
+        //CreateArrow(false, container2.transform);
 
         return category;
     }
