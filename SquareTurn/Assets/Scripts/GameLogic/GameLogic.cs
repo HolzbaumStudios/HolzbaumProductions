@@ -20,8 +20,12 @@ public class GameLogic : MonoBehaviour
     private int numberOfTurns; //To count how many squares have been turned --> for statistics
 
     public GameObject gameEndPanelPortrait;
-    public GameObject treeContainerPortrait;
     public GameObject achievementPanel;
+
+    public GameObject starOne;
+    public GameObject starsTwo;
+    public GameObject starsThree;
+    public UnityEngine.UI.Text gameEndTurnsObject;
 
     public Material backsideMaterial;
     public Material backsideMaterialYellow;
@@ -502,6 +506,7 @@ public class GameLogic : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         gameEndPanelPortrait.SetActive(true);
         GameObject childPanelPortrait = gameEndPanelPortrait.transform.Find("GameEndPanel").gameObject;
+        gameEndTurnsObject.text = turnNumber.ToString();
         childPanelPortrait.GetComponent<Animation>().Play();
 
         //Set the number of turns
@@ -581,30 +586,19 @@ public class GameLogic : MonoBehaviour
             }
         }
 
-        //Get the tree objects
-        GameObject tree1Portrait = treeContainerPortrait.transform.Find("Tree1").gameObject;
-        GameObject tree2Portrait = treeContainerPortrait.transform.Find("Tree2").gameObject;
-        GameObject tree3Portrait = treeContainerPortrait.transform.Find("Tree3").gameObject;
 
-        //Set the tree objects
-        tree1Portrait.GetComponent<Image>().color = Color.yellow;
-        if (numberOfTrees > 1)
-        {
-            tree2Portrait.GetComponent<Image>().color = Color.yellow;
-        }
-        else
-        {
-            tree2Portrait.GetComponent<Image>().color = Color.black;
-            tree3Portrait.GetComponent<Image>().color = Color.black;
-        }
-
+        //Enable the correct stars object
         if (numberOfTrees > 2)
         {
-            tree3Portrait.GetComponent<Image>().color = Color.yellow;
+            starsThree.SetActive(true);
+        }
+        else if (numberOfTrees > 1)
+        {
+            starsTwo.SetActive(true);
         }
         else
         {
-            tree3Portrait.GetComponent<Image>().color = Color.black;
+            starOne.SetActive(true);
         }
     }
 
