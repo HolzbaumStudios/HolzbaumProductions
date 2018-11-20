@@ -2,6 +2,8 @@
 SquareTurn/Assembly-CSharp-Editor.csproj
 SquareTurn/Assembly-CSharp-firstpass-vs.csproj
 SquareTurn/Library/
+SquareTurn/.vs/
+SquareTurn/obj/
 *.userprefs
 *.user
 *.sln
