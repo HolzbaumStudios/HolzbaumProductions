@@ -32,6 +32,8 @@ public class CreateLevelMenuLayout : MonoBehaviour
 
     [SerializeField]
     private GameObject levelButtonPrefab;
+    [SerializeField]
+    private GameObject categoryButtonPrefab;
 
     //Private reference variables
     private GameObject scrollbarObject; //For having reference across the script
@@ -132,7 +134,7 @@ public class CreateLevelMenuLayout : MonoBehaviour
         scrollRect.horizontalScrollbar = scrollbar;
         scrollRect.onValueChanged.AddListener(delegate { scrollScript.DetectScrollChange(); });
         //Add script
-        MenuScript menuScript = levelChoice.AddComponent<MenuScript>();
+        MenuScript menuScript = levelChoice.GetComponent<MenuScript>();
         menuScript.categoryChoice = categoryChoice;
         menuScript.category1 = category[0];
         menuScript.category2 = category[1];
@@ -299,198 +301,7 @@ public class CreateLevelMenuLayout : MonoBehaviour
 
         PrepareLevelButton prepareLevelButton = levelButton.GetComponent<PrepareLevelButton>();
         prepareLevelButton.SetLevelNumber(category, buttonNumber);
-
-        //Add Image Component
-        //Image imageScript = levelButton.AddComponent<Image>();
-        //imageScript.sprite = squareImage;
-        //Add Shadow Component
-        //Shadow shadowScript = levelButton.AddComponent<Shadow>();
-        //shadowScript.effectDistance = new Vector2(-6, -6);
-        //shadowScript.useGraphicAlpha = true;
-        //Add scripts
-        //ChooseLevelScript chooseLevelScript = levelButton.AddComponent<ChooseLevelScript>();
-        //Add button
-        //Button buttonScript = levelButton.AddComponent<Button>();
-        //int level = (category * 100) + buttonNumber;
-        //buttonScript.onClick.AddListener(() => chooseLevelScript.LoadLevel(level)); //The on click function can not be seen on the editor
-
-        /*/------ Create Lower Button ------------
-        GameObject lowerButton = new GameObject("LevelButton");
-        lowerButton.transform.SetParent(levelButton.transform);
-        lowerButton.layer = LayerMask.NameToLayer("UI");
-        lowerButton.AddComponent<CanvasRenderer>();
-        RectTransform lowerButtonRect = lowerButton.AddComponent<RectTransform>();
-        //Set lower button Rect
-        lowerButtonRect.anchorMin = new Vector2(0, 0);
-        lowerButtonRect.anchorMax = new Vector2(1, 1);
-        lowerButtonRect.pivot = new Vector2(0.5f, 0.5f);
-        float offset = buttonSize.x / 14;
-        float offsetBottom = buttonSize.y / 3.5f;
-        lowerButtonRect.offsetMax = new Vector2(-offset, -offset);
-        lowerButtonRect.offsetMin = new Vector2(offset, offsetBottom);
-        lowerButtonRect.localScale = new Vector3(1, 1, 1);
-        /*Add Image Component
-        Image lowerButtonImage = lowerButton.AddComponent<Image>();
-        lowerButtonImage.sprite = squareImage;
-        lowerButtonImage.color = new Color32(58, 112, 165, 255);
-
-        //------ Create Lower Button Text ------
-        GameObject buttonText = new GameObject("ButtonText");
-        buttonText.transform.SetParent(lowerButton.transform);
-        buttonText.layer = LayerMask.NameToLayer("UI");
-        buttonText.AddComponent<CanvasRenderer>();
-        RectTransform buttonTextRect = buttonText.AddComponent<RectTransform>();
-        //Set button text rect
-        buttonTextRect.anchorMin = new Vector2(0, 0);
-        buttonTextRect.anchorMax = new Vector2(1, 1);
-        buttonTextRect.pivot = new Vector2(0.5f, 0.5f);
-        float textOffsetSides;
-        if (buttonNumber < 9)
-        {
-            textOffsetSides = buttonSize.x / 8.5f;
-        }
-        else
-        {
-            textOffsetSides = buttonSize.x / 20;
-        }
-        buttonTextRect.offsetMax = new Vector2(-textOffsetSides, 0);
-        buttonTextRect.offsetMin = new Vector2(textOffsetSides, 0);
-        buttonTextRect.localScale = new Vector3(1, 1, 1);
-        //Add Text component
-        Text textScript = buttonText.AddComponent<Text>();
-        textScript.text = category + "-" + (buttonNumber + 1);
-        textScript.font = textFont;
-        textScript.fontStyle = FontStyle.Bold;
-        textScript.resizeTextForBestFit = true;
-        textScript.resizeTextMaxSize = 140;
-        textScript.resizeTextMinSize = 20;
-        textScript.alignment = TextAnchor.MiddleCenter;
-        //Add Shadow Component
-        Shadow buttonShadowScript = buttonText.AddComponent<Shadow>();
-        buttonShadowScript.effectDistance = new Vector2(-6, -6);
-        buttonShadowScript.useGraphicAlpha = true;
-
-        //------ Create stars ------
-        float starSize = buttonSize.x / 6;
-        float starSpacing = buttonSize.x / 14;
-        float positionX = -starSize - starSpacing;
-        float positionY = (float)(buttonSize.y / 3.5) / 2;
-        for (int i = 1; i < 4; i++)
-        {
-            GameObject star = new GameObject("star");
-            star.transform.SetParent(levelButton.transform);
-            star.layer = LayerMask.NameToLayer("UI");
-            star.AddComponent<CanvasRenderer>();
-            RectTransform starRect = star.AddComponent<RectTransform>();
-            //Set button text rect
-            starRect.anchorMin = new Vector2(0.5f, 0);
-            starRect.anchorMax = new Vector2(0.5f, 0);
-            starRect.pivot = new Vector2(0.5f, 0.5f);
-            //StartSize
-            starRect.localScale = new Vector3(1, 1, 1);
-            starRect.sizeDelta = new Vector2(starSize, starSize);
-            starRect.anchoredPosition = new Vector2(positionX, positionY);
-            //Set new position
-            positionX += starSpacing + starSize;
-            //---- Add image ----
-            Image starImage = star.AddComponent<Image>();
-            starImage.sprite = starSprite;
-            starImage.preserveAspect = true;
-            //----- Add scripts -----
-            StarColorScript starScript = star.AddComponent<StarColorScript>();
-            starScript.starNumber = i;
-            starScript.levelNumber = level;
-        }*/
     }
-
-    //Creates the arrows
-    //If right arrow bool is true, create right arrow, else create left arrow
-    void CreateArrow(bool rightArrow, Transform parent)
-    {
-        String panelName;
-        if (rightArrow) { panelName = "rightArrowPanel"; } else { panelName = "leftArrowPanel"; }
-        GameObject arrowPanel = new GameObject(panelName);
-        arrowPanel.transform.SetParent(parent);
-        arrowPanel.layer = LayerMask.NameToLayer("UI");
-        arrowPanel.AddComponent<CanvasRenderer>();
-        RectTransform arrowPanelRect = arrowPanel.AddComponent<RectTransform>();
-        //Set arrowpanel rect transform anchors
-        arrowPanelRect.pivot = new Vector2(0.5f, 0.5f);
-        arrowPanelRect.localScale = new Vector3(1, 1, 1);
-        float arrowPanelHeight;
-        arrowPanelRect.anchorMin = new Vector2(0.5f, 0);
-        arrowPanelRect.anchorMax = new Vector2(0.5f, 0);
-        arrowPanelHeight = resolutionHeight / 9.5f;
-        arrowPanelRect.sizeDelta = new Vector2(resolutionWidth, arrowPanelHeight);
-        arrowPanelRect.anchoredPosition = new Vector2(0, arrowPanelHeight / 2);
-
-        //-----Create arrow button-----
-        GameObject arrow = new GameObject("arrow");
-        arrow.transform.SetParent(arrowPanel.transform);
-        arrow.layer = LayerMask.NameToLayer("UI");
-        arrow.AddComponent<CanvasRenderer>();
-        RectTransform arrowRect = arrow.AddComponent<RectTransform>();
-        //Set arrow rect
-        int anchorValue;
-        if (rightArrow) { anchorValue = 1; } else { anchorValue = 0; }
-        arrowRect.anchorMin = new Vector2(anchorValue, 0.5f);
-        arrowRect.anchorMax = new Vector2(anchorValue, 0.5f);
-        arrowRect.pivot = new Vector2(0.5f, 0.5f);
-        //Set arrow size
-        float arrowSize = arrowPanelHeight * 0.8f;
-        float arrowXOffset = resolutionWidth / 4;
-        arrowRect.sizeDelta = new Vector2(arrowSize, arrowSize);
-
-        if (rightArrow) { arrowXOffset = arrowXOffset * -1; } else { arrowRect.localRotation = Quaternion.Euler(0, 0, 180); }
-        arrowRect.anchoredPosition = new Vector2(arrowXOffset, 0);
-        arrowRect.localScale = new Vector3(1, 1, 1);
-        //Add image script
-        Image arrowImage = arrow.AddComponent<Image>();
-        arrowImage.sprite = arrowSprite;
-        arrowImage.color = new Color32(249, 143, 74, 255);
-        //Add shadow
-        Shadow arrowShadow = arrow.AddComponent<Shadow>();
-        if (rightArrow) { arrowShadow.effectDistance = new Vector2(1, 0); } else { arrowShadow.effectDistance = new Vector2(-1, 0); }
-        //Add arrow script
-        ArrowLevelchoice arrowScript = arrow.AddComponent<ArrowLevelchoice>();
-        arrowScript.scrollObject = scrollbarObject;
-        //Add button
-        Button arrowButtonScript = arrow.AddComponent<Button>();
-        int value = 0;
-        if (rightArrow) { value = 1; }
-        arrowButtonScript.onClick.AddListener(() => arrowScript.ScrollLevelMenu(value)); //The on click function can not be seen on the editor
-        //Add Dots
-        float dotSize = arrowPanelHeight * 0.3f;
-        float dotPositionX = -dotSize;
-        for (int i = 0; i < 2; i++)
-        {
-            GameObject dot = new GameObject("Dot");
-            dot.transform.SetParent(arrowPanel.transform);
-            dot.layer = LayerMask.NameToLayer("UI");
-            dot.AddComponent<CanvasRenderer>();
-            RectTransform dotRect = dot.AddComponent<RectTransform>();
-            //Set dot rect
-            dotRect.anchorMin = new Vector2(0.5f, 0.5f);
-            dotRect.anchorMax = new Vector2(0.5f, 0.5f);
-            dotRect.anchoredPosition = new Vector2(dotPositionX, 0);
-            dotRect.pivot = new Vector2(0.5f, 0.5f);
-            dotRect.localScale = new Vector3(1, 1, 1);
-            dotRect.sizeDelta = new Vector2(dotSize, dotSize);
-            //Add image
-            Image dotImage = dot.AddComponent<Image>();
-            dotImage.sprite = dotSprite;
-            if ((i == 0 && rightArrow) || (i == 1 && !rightArrow))
-            {
-                dotImage.color = new Color32(249, 143, 74, 255);
-                //Add shadow
-                Shadow dotShadow = dot.AddComponent<Shadow>();
-                dotShadow.effectDistance = new Vector2(1, 0);
-            }
-
-            dotPositionX += dotSize * 2;
-        }
-    }
-
 
     //Funciton to create level unlocked panel
     void CreateLevelUnlocked(Transform parent)
@@ -732,6 +543,7 @@ public class CreateLevelMenuLayout : MonoBehaviour
     //This function return the game object for reference by the menu script
     GameObject CreateCategoryChoice(GameObject levelChoice)
     {
+        MenuScript menuScript = levelChoice.AddComponent<MenuScript>();
         GameObject categoryChoice = new GameObject("CategoryChoice");
         categoryChoice.transform.SetParent(levelChoice.transform);
         categoryChoice.layer = LayerMask.NameToLayer("UI");
@@ -748,154 +560,32 @@ public class CreateLevelMenuLayout : MonoBehaviour
 
         //Create category buttons
         float buttonWidth;
-
         float positionX = 0;
 
-        if (screenRatio > 1.5f) { buttonWidth = resolutionWidth * 0.52f; } else { buttonWidth = resolutionWidth * 0.45f; }
-        float buttonHeight = resolutionHeight / 5;
+        if (screenRatio > 1.5f) { buttonWidth = resolutionWidth * 0.8f; } else { buttonWidth = resolutionWidth * 0.8f; }
+        float buttonHeight = buttonWidth / 2.25f;
         float buttonSpacing = (resolutionHeight / 5) / 12;
         float positionY = buttonHeight * 1.5f + buttonSpacing * 1.5f;
 
         for (int i = 1; i < 5; i++)
         {
-            string categoryButtonName = "Category" + i + "Button";
-            GameObject categoryButton = new GameObject(categoryButtonName);
+            GameObject categoryButton = Instantiate(categoryButtonPrefab);
             categoryButton.transform.SetParent(categoryChoice.transform);
-            categoryButton.layer = LayerMask.NameToLayer("UI");
-            categoryButton.AddComponent<CanvasRenderer>();
-            RectTransform categoryButtonRect = categoryButton.AddComponent<RectTransform>();
-            //Set rect anchor
-            categoryButtonRect.anchorMin = new Vector2(0.5f, 0.5f);
-            categoryButtonRect.anchorMax = new Vector2(0.5f, 0.5f);
-            categoryButtonRect.pivot = new Vector2(0.5f, 0.5f);
+            RectTransform categoryButtonRect = categoryButton.GetComponent<RectTransform>();
             //Set dot rect size
-            categoryButtonRect.localScale = new Vector3(1, 1, 1);
-            categoryButtonRect.sizeDelta = new Vector2(buttonWidth, buttonHeight);
+
             categoryButtonRect.anchoredPosition = new Vector2(positionX, positionY);
-            //Add image
-            Image categoryButtonImage = categoryButton.AddComponent<Image>();
-            categoryButtonImage.sprite = squareImage;
-            categoryButtonImage.color = new Color32(72, 120, 168, 255);
-            //Add shadow
-            Shadow categoryButtonShadow = categoryButton.AddComponent<Shadow>();
-            categoryButtonShadow.effectDistance = new Vector2(2, -2);
-            //AddButton
-            Button categoryButtonScript = categoryButton.AddComponent<Button>();
-            int tempValue = i;
-            categoryButtonScript.onClick.AddListener(() => levelChoice.GetComponent<MenuScript>().ChooseCategory(tempValue));
 
-            //----- Add category button image -----
-            GameObject categoryButtonGraphic = new GameObject("Image");
-            categoryButtonGraphic.transform.SetParent(categoryButton.transform);
-            categoryButtonGraphic.layer = LayerMask.NameToLayer("UI");
-            categoryButtonGraphic.AddComponent<CanvasRenderer>();
-            RectTransform categoryButtonGraphicRect = categoryButtonGraphic.AddComponent<RectTransform>();
-            //Set Image rect
-            float imageSize = buttonHeight * 0.9f;
-            Vector2 anchoredPositionImage = new Vector2(-buttonHeight * 0.5f, 0);
-            categoryButtonGraphicRect.anchorMin = new Vector2(1, 0.5f);
-            categoryButtonGraphicRect.anchorMax = new Vector2(1, 0.5f);
-
-            categoryButtonGraphicRect.pivot = new Vector2(0.5f, 0.5f);
-            categoryButtonGraphicRect.localScale = new Vector3(1, 1, 1);
-            categoryButtonGraphicRect.sizeDelta = new Vector2(imageSize, imageSize);
-            categoryButtonGraphicRect.anchoredPosition = anchoredPositionImage;
-            //Add image
-            Image categoryButtonGraphicImage = categoryButtonGraphic.AddComponent<Image>();
-            categoryButtonGraphicImage.sprite = categorySprite[i - 1];
-
-            //----- Add category Information -----
-            GameObject categoryInformation = new GameObject("CategoryInformation");
-            categoryInformation.transform.SetParent(categoryButton.transform);
-            categoryInformation.layer = LayerMask.NameToLayer("UI");
-            categoryInformation.AddComponent<CanvasRenderer>();
-            RectTransform categoryInformationRect = categoryInformation.AddComponent<RectTransform>();
-            //Set category information rect
-            Vector2 categoryInformationSize = new Vector2(buttonWidth - imageSize * 1.1f, buttonHeight / 4.5f);
-            categoryInformationRect.anchorMin = new Vector2(0, 0.5f);
-            categoryInformationRect.anchorMax = new Vector2(0, 0.5f);
-            categoryInformationRect.anchoredPosition = new Vector2(categoryInformationSize.x / 2, 0);
-  
-            categoryInformationRect.pivot = new Vector2(0.5f, 0.5f);
-            categoryInformationRect.localScale = new Vector3(1, 1, 1);
-            categoryInformationRect.sizeDelta = categoryInformationSize;
-
-            //----- Create star image ------
-            GameObject categoryStar = new GameObject("StarImage");
-            categoryStar.transform.SetParent(categoryInformation.transform);
-            categoryStar.layer = LayerMask.NameToLayer("UI");
-            categoryStar.AddComponent<CanvasRenderer>();
-            RectTransform categoryStarRect = categoryStar.AddComponent<RectTransform>();
-            //Set rect size
-            categoryStarRect.anchorMin = new Vector2(0.5f, 1);
-            categoryStarRect.anchorMax = new Vector2(0.5f, 1);
-            float categoryStarSize = categoryInformationSize.x * 0.35f;
-            Vector2 categoryStarPosition = new Vector2(0, 0);
-
-            categoryStarRect.pivot = new Vector2(0.5f, 0.5f);
-            categoryStarRect.localScale = new Vector3(1, 1, 1);
-            categoryStarRect.sizeDelta = new Vector2(categoryStarSize, categoryStarSize);
-            categoryStarRect.anchoredPosition = categoryStarPosition;
-            //Add image
-            Image categoryStarImage = categoryStar.AddComponent<Image>();
-            categoryStarImage.sprite = starSprite;
-            categoryStarImage.color = new Color32(254, 255, 186, 255);
-            //Add shadow
-            Shadow categoryStarShadow = categoryStar.AddComponent<Shadow>();
-            categoryStarShadow.effectDistance = new Vector2(1, -1);
-
-            //----- Create star info ------
-            GameObject starInfo = new GameObject("starInfo");
-            starInfo.transform.SetParent(categoryInformation.transform);
-            starInfo.layer = LayerMask.NameToLayer("UI");
-            starInfo.AddComponent<CanvasRenderer>();
-            RectTransform starInfoRect = starInfo.AddComponent<RectTransform>();
-            //Set star info rect
-            starInfoRect.anchorMin = new Vector2(0.5f, 0);
-            starInfoRect.anchorMax = new Vector2(0.5f, 0);
-            float starInfoSize = categoryInformationSize.x * 0.75f;
-            starInfoRect.sizeDelta = new Vector2(starInfoSize, starInfoSize * 0.4f);
-            Vector2 starInfoPosition = new Vector2(0, 0);
-
-            starInfoRect.pivot = new Vector2(0.5f, 0.5f);
-            starInfoRect.localScale = new Vector3(1, 1, 1);
-            starInfoRect.anchoredPosition = starInfoPosition;
-            //Add text
-            Text starInfoText = starInfo.AddComponent<Text>();
-            starInfoText.text = "20 / 72";
-            starInfoText.font = textFont;
-            starInfoText.fontStyle = FontStyle.Bold;
-            starInfoText.resizeTextForBestFit = true;
-            starInfoText.resizeTextMaxSize = 80;
-            starInfoText.resizeTextMinSize = 10;
-            starInfoText.alignment = TextAnchor.MiddleCenter;
-            //Add script
-            SetCategoryInfo setCategoryInfo = starInfo.AddComponent<SetCategoryInfo>();
-            setCategoryInfo.categoryNumber = i;
-            setCategoryInfo.maxStars = "72";
+            //----- Set category Information -----
+            SetCategoryInfo setCategoryInfo = categoryButton.GetComponent<SetCategoryInfo>();
+            setCategoryInfo.SetCategoryNumber(i);
+            setCategoryInfo.SetMenuScript(menuScript);
 
 
             //----- Add level locked images ----
+            GameObject lockedLevelObject = categoryButton.transform.Find("LockedCategoryImage").gameObject;
             if (i > 1)
-            {
-                string lockedLevelName = "ShowCategory" + i;
-                GameObject lockedLevel = new GameObject(lockedLevelName);
-                lockedLevel.transform.SetParent(categoryChoice.transform);
-                lockedLevel.layer = LayerMask.NameToLayer("UI");
-                lockedLevel.AddComponent<CanvasRenderer>();
-                RectTransform lockedLevelRect = lockedLevel.AddComponent<RectTransform>();
-                //Set rect anchor
-                lockedLevelRect.anchorMin = new Vector2(0.5f, 0.5f);
-                lockedLevelRect.anchorMax = new Vector2(0.5f, 0.5f);
-                lockedLevelRect.pivot = new Vector2(0.5f, 0.5f);
-                //Set dot rect size
-                lockedLevelRect.localScale = new Vector3(1, 1, 1);
-                lockedLevelRect.sizeDelta = new Vector2(buttonWidth, buttonHeight);
-                lockedLevelRect.anchoredPosition = new Vector2(positionX, positionY);
-                //Add image
-                Image lockedLevelBackground = lockedLevel.AddComponent<Image>();
-                lockedLevelBackground.sprite = squareImage;
-                lockedLevelBackground.color = new Color32(141, 141, 141, 255);
+            { 
                 //Add script
                 int starsNeeded = 0;
                 switch (i)
@@ -904,104 +594,19 @@ public class CreateLevelMenuLayout : MonoBehaviour
                     case 3: starsNeeded = 90; break;
                     case 4: starsNeeded = 140; break;
                 }
-                UnlockLevel lockedLevelScript = lockedLevel.AddComponent<UnlockLevel>();
+                UnlockLevel lockedLevelScript = lockedLevelObject.AddComponent<UnlockLevel>();
                 lockedLevelScript.neededStars = starsNeeded;
                 lockedLevelScript.levelUnlocked = levelUnlockedPanelBase;
-                lockedLevelScript.levelUnlockedTitle = "LEVELE PACK " + i;
+                lockedLevelScript.levelUnlockedTitle = "LEVEL PACK " + i;
                 lockedLevelScript.levelUnlockedText = "Congratulations!\nYou just unlocked new levels!";
                 lockedLevelScript.levelUnlockedImage = categorySprite[i - 1];
                 lockedLevelScript.levelPackNumber = i.ToString();
-
-                //----- Add locked Title------
-                GameObject lockedLevelTitle = new GameObject("LockedTitle");
-                lockedLevelTitle.transform.SetParent(lockedLevel.transform);
-                lockedLevelTitle.layer = LayerMask.NameToLayer("UI");
-                lockedLevelTitle.AddComponent<CanvasRenderer>();
-                RectTransform lockedLevelTitleRect = lockedLevelTitle.AddComponent<RectTransform>();
-                //Set rect
-                lockedLevelTitleRect.anchorMin = new Vector2(0.5f, 0.5f);
-                lockedLevelTitleRect.anchorMax = new Vector2(0.5f, 0.5f);
-                lockedLevelTitleRect.pivot = new Vector2(0.5f, 0.5f);
-                Vector2 lockedTitleSize = new Vector2(buttonWidth * 0.8f, buttonHeight * 0.15f);
-                lockedLevelTitleRect.localScale = new Vector3(1, 1, 1);
-                lockedLevelTitleRect.sizeDelta = lockedTitleSize;
-                lockedLevelTitleRect.anchoredPosition = new Vector2(0, buttonHeight * 0.35f);
-                //Add Text
-                Text lockedTitleText = lockedLevelTitle.AddComponent<Text>();
-                lockedTitleText.text = "LEVELS LOCKED";
-                lockedTitleText.font = textFont;
-                lockedTitleText.fontStyle = FontStyle.Bold;
-                lockedTitleText.resizeTextForBestFit = true;
-                lockedTitleText.resizeTextMaxSize = 30;
-                lockedTitleText.resizeTextMinSize = 5;
-                lockedTitleText.alignment = TextAnchor.MiddleCenter;
-                lockedTitleText.color = new Color32(254, 255, 186, 255);
-
-                //----- Add locked Image------
-                GameObject lockedLevelImage = new GameObject("LockedImage");
-                lockedLevelImage.transform.SetParent(lockedLevel.transform);
-                lockedLevelImage.layer = LayerMask.NameToLayer("UI");
-                lockedLevelImage.AddComponent<CanvasRenderer>();
-                RectTransform lockedLevelImageRect = lockedLevelImage.AddComponent<RectTransform>();
-                //Set rect anchor
-                Vector2 lockedImageSize;
-                Vector2 lockedImagePosition;
-
-                lockedImageSize = new Vector2(buttonHeight * 0.7f, buttonHeight * 0.7f);
-                lockedImagePosition = new Vector2(-buttonWidth * 0.28f, -buttonHeight * 0.07f);
-   
-                lockedLevelImageRect.anchorMin = new Vector2(0.5f, 0.5f);
-                lockedLevelImageRect.anchorMax = new Vector2(0.5f, 0.5f);
-                lockedLevelImageRect.pivot = new Vector2(0.5f, 0.5f);
-                lockedLevelImageRect.localScale = new Vector3(1, 1, 1);
-                lockedLevelImageRect.sizeDelta = lockedImageSize;
-                lockedLevelImageRect.anchoredPosition = lockedImagePosition;
-                //Add Image
-                Image lockedImageSprite = lockedLevelImage.AddComponent<Image>();
-                lockedImageSprite.sprite = lockSprite;
-                lockedImageSprite.preserveAspect = true;
-                //Add shadow
-                Shadow lockedImageShadow = lockedLevelImage.AddComponent<Shadow>();
-                lockedImageShadow.effectDistance = new Vector2(1, -1);
-
-                //----- Add locked Text------
-                GameObject lockedLevelText = new GameObject("LockedText");
-                lockedLevelText.transform.SetParent(lockedLevel.transform);
-                lockedLevelText.layer = LayerMask.NameToLayer("UI");
-                lockedLevelText.AddComponent<CanvasRenderer>();
-                RectTransform lockedLevelTextRect = lockedLevelText.AddComponent<RectTransform>();
-                //Set rect anchor
-                Vector2 lockedTextSize;
-                Vector2 lockedTextPosition;
-
-                lockedTextSize = new Vector2(buttonWidth * 0.48f, buttonHeight * 0.65f);
-                lockedTextPosition = new Vector2(buttonWidth * 0.15f, -buttonHeight * 0.07f);
-     
-                lockedLevelTextRect.anchorMin = new Vector2(0.5f, 0.5f);
-                lockedLevelTextRect.anchorMax = new Vector2(0.5f, 0.5f);
-                lockedLevelTextRect.pivot = new Vector2(0.5f, 0.5f);
-                lockedLevelTextRect.localScale = new Vector3(1, 1, 1);
-                lockedLevelTextRect.sizeDelta = lockedTextSize;
-                lockedLevelTextRect.anchoredPosition = lockedTextPosition;
-                //Add Text
-                string lockedText = "";
-                switch (i) //Change text based on category
-                {
-                    case 2: lockedText = "Available after collecting a total of 40 stars"; break;
-                    case 3: lockedText = "Available after collecting a total of 90 stars"; break;
-                    case 4: lockedText = "Available after collecting a total of 140 stars"; break;
-                }
-                Text lockedTextText = lockedLevelText.AddComponent<Text>();
-                lockedTextText.text = lockedText;
-                lockedTextText.font = textFont;
-                lockedTextText.resizeTextForBestFit = true;
-                lockedTextText.resizeTextMaxSize = 35;
-                lockedTextText.resizeTextMinSize = 5;
-                lockedTextText.alignment = TextAnchor.MiddleLeft;
             }
-
+            else
+            {
+                lockedLevelObject.SetActive(false);
+            }
             positionY -= buttonHeight + buttonSpacing;
-
         }
 
         return categoryChoice;
