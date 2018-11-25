@@ -29,7 +29,8 @@ public class UnlockLevel : MonoBehaviour {
 		}
 		else {
 			this.gameObject.SetActive(false);
-		}
+            this.transform.parent.GetComponent<Button>().enabled = true;
+        }
 	}
 
 	void LevelUnlock () {
@@ -42,14 +43,7 @@ public class UnlockLevel : MonoBehaviour {
 		//Update Analytics
 		Analytics.CustomEvent(playerPrefName, new Dictionary<string, object>{});
         this.gameObject.SetActive(false);
-        //StartCoroutine (StopUnlockMessage());
+        this.transform.parent.GetComponent<Button>().enabled = true;
 	}
-
-	//Coroutine
-	/*IEnumerator StopUnlockMessage() {
-		yield return new WaitForSeconds (6f);
-		levelUnlocked.SetActive (false);
-		this.gameObject.SetActive(false);
-	}*/
 
 }

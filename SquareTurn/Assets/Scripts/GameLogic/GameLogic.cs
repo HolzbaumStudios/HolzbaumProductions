@@ -505,21 +505,22 @@ public class GameLogic : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         gameEndPanelPortrait.SetActive(true);
-        GameObject childPanelPortrait = gameEndPanelPortrait.transform.Find("GameEndPanel").gameObject;
         gameEndTurnsObject.text = turnNumber.ToString();
-        childPanelPortrait.GetComponent<Animation>().Play();
+        /* GameObject childPanelPortrait = gameEndPanelPortrait.transform.Find("GameEndPanelNew").gameObject;
 
-        //Set the number of turns
-        string turnText;
-        if (turnNumber > 1)
-        {
-            turnText = turnNumber + " turns";
-        }
-        else
-        {
-            turnText = turnNumber + " turn";
-        }
-        childPanelPortrait.transform.Find("TurnText").GetComponent<UnityEngine.UI.Text>().text = turnText;
+         childPanelPortrait.GetComponent<Animation>().Play();
+
+         //Set the number of turns
+         string turnText;
+         if (turnNumber > 1)
+         {
+             turnText = turnNumber + " turns";
+         }
+         else
+         {
+             turnText = turnNumber + " turn";
+         }
+         childPanelPortrait.transform.Find("TurnText").GetComponent<UnityEngine.UI.Text>().text = turnText;*/
 
 
         GetNumberOfTrees();

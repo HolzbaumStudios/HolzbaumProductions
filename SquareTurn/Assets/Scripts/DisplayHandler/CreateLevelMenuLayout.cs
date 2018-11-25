@@ -601,6 +601,8 @@ public class CreateLevelMenuLayout : MonoBehaviour
                 lockedLevelScript.levelUnlockedText = "Congratulations!\nYou just unlocked new levels!";
                 lockedLevelScript.levelUnlockedImage = categorySprite[i - 1];
                 lockedLevelScript.levelPackNumber = i.ToString();
+
+                categoryButton.GetComponent<Button>().enabled = false;
             }
             else
             {

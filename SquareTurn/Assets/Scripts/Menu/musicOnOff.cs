@@ -9,59 +9,34 @@ public class musicOnOff : MonoBehaviour {
 	public bool status;
 	public bool firststart;
 
-
-	// Funktionen
-	void Update(){
-		if (SceneManager.GetActiveScene().name == "startMenu" && firststart == true && PlayerPrefs.GetString("gameMusic")!="Off") {
-			this.GetComponent<AudioSource>().Play();
-            firststart = false;
-        
-        
-         
-		}
-	}
-    /*
-    void CheckFirstStart()
+    void Update()
     {
-        if (PlayerPrefs.GetInt("firstStart") != 1)
+        if (SceneManager.GetActiveScene().name == "startMenu" && firststart == true && PlayerPrefs.GetString("gameMusic") != "Off")
         {
-            firststart = true;
-            PlayerPrefs.SetInt("firstStart",1);
-        }
-        else
-        {
+            this.GetComponent<AudioSource>().Play();
             firststart = false;
         }
     }
-    */
-    
 
-	public void TurnButton(GameObject musicButton)
-	{
-		squareMusicButton = musicButton;
-        if (PlayerPrefs.GetString("gameMusic") != "Off")
+    public void TurnButton(GameObject musicButton)
+    {
+        squareMusicButton = musicButton;
+        status = PlayerPrefs.GetString("gameMusic") != "Off";
+        if (status)
         {
-            status = true;
+            squareMusicButton.GetComponent<UnityEngine.UI.Image>().color = new Color32(131, 139, 139, 255);
+            squareMusicButton.transform.Find("DisabledButton").gameObject.SetActive(true);
+            this.GetComponent<AudioSource>().Pause();
+            status = false;
+            PlayerPrefs.SetString("gameMusic", "Off");
         }
         else
         {
-            status = false;
-        }
-		if (status == true)
-		{
-			squareMusicButton.GetComponent<UnityEngine.UI.Image> ().color = new Color32(131, 139, 139, 255);
-			squareMusicButton.transform.Find ("DisabledButton").gameObject.SetActive (true);
-			this.GetComponent<AudioSource>().Pause();
-			status = false;
-            PlayerPrefs.SetString("gameMusic","Off");
-		}
-		else if (status == false)
-		{
-			squareMusicButton.GetComponent<UnityEngine.UI.Image> ().color = new Color32(72, 120, 168, 255);
-			squareMusicButton.transform.Find ("DisabledButton").gameObject.SetActive (false);
-			this.GetComponent<AudioSource>().Play();
-			status = true;
+            squareMusicButton.GetComponent<UnityEngine.UI.Image>().color = new Color32(255, 255, 255, 255);
+            squareMusicButton.transform.Find("DisabledButton").gameObject.SetActive(false);
+            this.GetComponent<AudioSource>().Play();
+            status = true;
             PlayerPrefs.SetString("gameMusic", "On");
-		}
-	}
+        }
+    }
 }

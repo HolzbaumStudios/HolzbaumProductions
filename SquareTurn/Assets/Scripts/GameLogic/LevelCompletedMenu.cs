@@ -9,8 +9,10 @@ public class LevelCompletedMenu : MonoBehaviour {
 	//It contains the functions for the buttons of said panel
 
 	private GameObject userStatistics;
-	public GameObject endGameBackgroundLandscape;
 	public GameObject endGameBackgroundPortrait;
+
+    [SerializeField]
+    private GameObject continueButton;
 
 	void Start()
 	{
@@ -58,7 +60,7 @@ public class LevelCompletedMenu : MonoBehaviour {
 
 	public void DisableContinue()
 	{
-		transform.Find("ContinueButton").gameObject.SetActive(false);
+        continueButton.SetActive(false);
 	}
 }
 

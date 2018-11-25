@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1371916399864762}
+  m_IsPrefabAsset: 1
+--- !u!1 &1371916399864762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4629164730672528}
+  - component: {fileID: 114461331735014602}
+  - component: {fileID: 114089161326738096}
+  - component: {fileID: 114482429703272930}
+  m_Layer: 0
+  m_Name: gameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4629164730672528
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1371916399864762}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 389.5, y: 183.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114089161326738096
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1371916399864762}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a444413464c6648af61335ae45ff36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LandscapeCanvas: {fileID: 0}
+  PortraitCanvas: {fileID: 0}
+--- !u!114 &114461331735014602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1371916399864762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3d63abf52b5f541936d97ffae1c237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squareObject: {fileID: 1618915416851490, guid: 4c089b3a1d4d63346ac5d26a28aa1a52,
+    type: 2}
+  turnTextPortrait: {fileID: 0}
+  playerWon: 0
+  gameEndPanelPortrait: {fileID: 0}
+  achievementPanel: {fileID: 0}
+  starOne: {fileID: 0}
+  starsTwo: {fileID: 0}
+  starsThree: {fileID: 0}
+  gameEndTurnsObject: {fileID: 0}
+  backsideMaterial: {fileID: 2100000, guid: 985da82e8b4bda342a92da3cc00ab94d, type: 2}
+  backsideMaterialYellow: {fileID: 2100000, guid: 6ec02ee2d91bc8748bf9ce9aeaea4a26,
+    type: 2}
+--- !u!114 &114482429703272930
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1371916399864762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c1fe11e4eb74e419b6f94107f2fca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starInfoBoxPortrait: {fileID: 0}
+  threeStarInfoPortrait: {fileID: 0}
+  twoStarInfoPortrait: {fileID: 0}
