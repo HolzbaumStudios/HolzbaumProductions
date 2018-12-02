@@ -20,7 +20,7 @@ public class CheckLevelAchievements : MonoBehaviour {
 
 				for(int i = 100; i <= 123; i++)
 				{
-					playerPrefName = "StarsLevel" + i;
+					playerPrefName = LevelStatistics.STARS_PER_LEVEL_PREFAB + i;
 					if(PlayerPrefs.GetInt (playerPrefName) < 1)
 				    {
 						reachedOneStar = false;
@@ -37,7 +37,7 @@ public class CheckLevelAchievements : MonoBehaviour {
 					bool reachedThreeStars = true;
 					for(int i = 100; i <= 123; i++)
 					{
-						playerPrefName = "StarsLevel" + i;
+						playerPrefName = LevelStatistics.STARS_PER_LEVEL_PREFAB + i;
 						if(PlayerPrefs.GetInt (playerPrefName) < 3)
 						{
 							reachedThreeStars = false;
@@ -58,7 +58,7 @@ public class CheckLevelAchievements : MonoBehaviour {
 				
 				for(int i = 100; i <= 123; i++)
 				{
-					playerPrefName = "StarsLevel" + i;
+					playerPrefName = LevelStatistics.STARS_PER_LEVEL_PREFAB + i;
 					if(PlayerPrefs.GetInt (playerPrefName) < 3)
 					{
 						reachedThreeStars = false;
@@ -85,7 +85,7 @@ public class CheckLevelAchievements : MonoBehaviour {
 				
 				for(int i = 200; i <= 223; i++)
 				{
-					playerPrefName = "StarsLevel" + i;
+					playerPrefName = LevelStatistics.STARS_PER_LEVEL_PREFAB + i;
 					if(PlayerPrefs.GetInt (playerPrefName) < 1)
 					{
 						reachedOneStar = false;
@@ -102,7 +102,7 @@ public class CheckLevelAchievements : MonoBehaviour {
 					bool reachedThreeStars = true;
 					for(int i = 200; i <= 223; i++)
 					{
-						playerPrefName = "StarsLevel" + i;
+						playerPrefName = LevelStatistics.STARS_PER_LEVEL_PREFAB + i;
 						if(PlayerPrefs.GetInt (playerPrefName) < 3)
 						{
 							reachedThreeStars = false;
@@ -124,7 +124,7 @@ public class CheckLevelAchievements : MonoBehaviour {
 				
 				for(int i = 200; i <= 223; i++)
 				{
-					playerPrefName = "StarsLevel" + i;
+					playerPrefName = LevelStatistics.STARS_PER_LEVEL_PREFAB + i;
 					if(PlayerPrefs.GetInt (playerPrefName) < 3)
 					{
 						reachedThreeStars = false;
@@ -151,7 +151,7 @@ public class CheckLevelAchievements : MonoBehaviour {
 				
 				for(int i = 300; i <= 323; i++)
 				{
-					playerPrefName = "StarsLevel" + i;
+					playerPrefName = LevelStatistics.STARS_PER_LEVEL_PREFAB + i;
 					if(PlayerPrefs.GetInt (playerPrefName) < 1)
 					{
 						reachedOneStar = false;
@@ -168,7 +168,7 @@ public class CheckLevelAchievements : MonoBehaviour {
 					bool reachedThreeStars = true;
 					for(int i = 300; i <= 323; i++)
 					{
-						playerPrefName = "StarsLevel" + i;
+						playerPrefName = LevelStatistics.STARS_PER_LEVEL_PREFAB + i;
 						if(PlayerPrefs.GetInt (playerPrefName) < 3)
 						{
 							reachedThreeStars = false;
@@ -190,7 +190,7 @@ public class CheckLevelAchievements : MonoBehaviour {
 				
 				for(int i = 300; i <= 323; i++)
 				{
-					playerPrefName = "StarsLevel" + i;
+					playerPrefName = LevelStatistics.STARS_PER_LEVEL_PREFAB + i;
 					if(PlayerPrefs.GetInt (playerPrefName) < 3)
 					{
 						reachedThreeStars = false;
@@ -218,7 +218,7 @@ public class CheckLevelAchievements : MonoBehaviour {
 
                 for (int i = 400; i <= 423; i++)
                 {
-                    playerPrefName = "StarsLevel" + i;
+                    playerPrefName = LevelStatistics.STARS_PER_LEVEL_PREFAB + i;
                     if (PlayerPrefs.GetInt(playerPrefName) < 1)
                     {
                         reachedOneStar = false;
@@ -235,7 +235,7 @@ public class CheckLevelAchievements : MonoBehaviour {
                     bool reachedThreeStars = true;
                     for (int i = 400; i <= 423; i++)
                     {
-                        playerPrefName = "StarsLevel" + i;
+                        playerPrefName = LevelStatistics.STARS_PER_LEVEL_PREFAB + i;
                         if (PlayerPrefs.GetInt(playerPrefName) < 3)
                         {
                             reachedThreeStars = false;
@@ -257,7 +257,7 @@ public class CheckLevelAchievements : MonoBehaviour {
 
                 for (int i = 400; i <= 423; i++)
                 {
-                    playerPrefName = "StarsLevel" + i;
+                    playerPrefName = LevelStatistics.STARS_PER_LEVEL_PREFAB + i;
                     if (PlayerPrefs.GetInt(playerPrefName) < 3)
                     {
                         reachedThreeStars = false;

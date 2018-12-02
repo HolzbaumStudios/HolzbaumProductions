@@ -21,7 +21,7 @@ public class StarColorScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {;
-		prefabName = "StarsLevel" + levelNumber;
+		prefabName = LevelStatistics.STARS_PER_LEVEL_PREFAB + levelNumber;
 		achievedStars = PlayerPrefs.GetInt (prefabName);
 
 		//If star was reached

@@ -38,8 +38,7 @@ public class SetCategoryInfo : MonoBehaviour
         string achievedStars = PlayerPrefs.GetInt(starPrefName).ToString();
         starInfoText.text = achievedStars + " / " + maxStars;
 
-        string levelPrefName = "Category" + categoryNumber + "Levels";
-        string finishedLevels = PlayerPrefs.GetInt(levelPrefName).ToString();
+        string finishedLevels = LevelStatistics.GetInstance().GetNumberOfCompletedLevels(categoryNumber).ToString();
         levelInfoText.text = finishedLevels + " / " + maxLevels;
 
         categoryImageComponent.sprite = categoryImages[categoryNumber-1];

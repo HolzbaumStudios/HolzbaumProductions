@@ -30,6 +30,8 @@ public class GameLogic : MonoBehaviour
     public Material backsideMaterial;
     public Material backsideMaterialYellow;
 
+    private LevelStatistics levelStatistics;
+
     //Variables to store achievement prefabs
     //The prefab values are stored in this variables (in the start function), because they have to be checked with every move.
     //Getting prefabs costs more than just checking a variable
@@ -61,6 +63,7 @@ public class GameLogic : MonoBehaviour
         userStatistics = GameObject.Find("UserStatistics");
 
         levelScript = GameObject.Find("LevelScript").GetComponent<LevelScript>();
+        levelStatistics = LevelStatistics.GetInstance();
 
         //Get Rows and Columns
         fieldRows = levelScript.rows;
@@ -446,10 +449,13 @@ public class GameLogic : MonoBehaviour
         if (playerWon)
         {
             //If a new level has been solved, save this value into a prefab
-            if (PlayerPrefs.GetInt("StarsLevel" + chosenLevel) == 0)
+            int category = chosenLevel / 100;
+            int levelNumber = chosenLevel - category*100;
+            int numberOfStarsInPrefab = levelStatistics.GetNumberOfStars(category, levelNumber);
+            if (numberOfStarsInPrefab == 0)
             {
-                int completedLevels = PlayerPrefs.GetInt("NumberOfCompletedLevels") + 1;
-                PlayerPrefs.SetInt("NumberOfCompletedLevels", completedLevels);
+                levelStatistics.AddCompletedLevel(category);
+                int completedLevels = levelStatistics.GetTotalCompletedLevels();
 
                 //Check for reached achievements
                 if (completedLevels == 5)
@@ -541,11 +547,12 @@ public class GameLogic : MonoBehaviour
         numberOfTrees = userStatistics.GetComponent<TreeTable>().GetNumberOfTrees(levelNumber, turnNumber); //Call the function Get number of trees transmitting the levelnumber and the number of turns needed
 
 
-        string prefabName = "StarsLevel" + levelNumber;
-        int playerPrefValue = PlayerPrefs.GetInt(prefabName);
-        if (numberOfTrees > playerPrefValue)
+        int category = levelNumber / 100;
+        int levelNumberShort = levelNumber - category * 100;
+        int numberOfStarsInPrefab = levelStatistics.GetNumberOfStars(category, levelNumberShort);
+        if (numberOfTrees > numberOfStarsInPrefab)
         {
-            PlayerPrefs.SetInt(prefabName, numberOfTrees);
+            levelStatistics.UpdateLocalAndPrefabStarValue(category, levelNumberShort, numberOfTrees);
             //If reached 3 stars for the first time, update to the playerprefs
             if (numberOfTrees == 3)
             {
@@ -558,9 +565,9 @@ public class GameLogic : MonoBehaviour
 
         //Add number of stars to statistic
 
-        if (playerPrefValue < numberOfTrees)
+        if (numberOfStarsInPrefab < numberOfTrees)
         {
-            int difference = numberOfTrees - playerPrefValue;
+            int difference = numberOfTrees - numberOfStarsInPrefab;
             if (levelNumber >= 100 && levelNumber < 200)
             {
                 int newStarValue = PlayerPrefs.GetInt("Category1Stars") + difference;

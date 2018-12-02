@@ -22,10 +22,13 @@ public class PrepareLevelButton : MonoBehaviour {
     private int levelNumberLong;
     private int categoryNumber;
 
+    private LevelStatistics levelStatistics;
+
     public void SetLevelNumber(int categoryNumber, int levelNumber)
     {
         this.levelNumberShort = levelNumber;
         this.levelNumberLong = (categoryNumber * 100) + levelNumberShort;
+        this.categoryNumber = categoryNumber;
 
         textComponent.text = categoryNumber + "-" + (levelNumber + 1);
         textComponent.fontStyle = FontStyle.Bold;
@@ -39,13 +42,13 @@ public class PrepareLevelButton : MonoBehaviour {
 
     public void Start()
     {
+        levelStatistics = LevelStatistics.GetInstance();
         EnableCorrectStarContainer();
     }
 
     private void EnableCorrectStarContainer()
     {
-        string prefabName = "StarsLevel" + levelNumberLong;
-        int achievedStars = PlayerPrefs.GetInt(prefabName);
+        int achievedStars = levelStatistics.GetNumberOfStars(categoryNumber, levelNumberShort);
 
         if (achievedStars == 3)
         {
