@@ -20,12 +20,14 @@ public class GooglePlayInitialization : MonoBehaviour
         // Initialize and activate the platform
         PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.Activate();
+
+        SignIn();
     }
 
 
     private void SignIn()
     {
-        Social.localUser.Authenticate(SignInCallback);
+        PlayGamesPlatform.Instance.Authenticate(SignInCallback, false);
     }
 
     private void SignInCallback(bool success)

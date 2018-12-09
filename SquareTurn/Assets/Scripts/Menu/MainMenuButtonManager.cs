@@ -28,4 +28,9 @@ public class MainMenuButtonManager : MonoBehaviour {
     {
         musicOnOff.TurnButton(soundButton);
     }
+
+    public void LoadAchievements()
+    {
+        GooglePlayAchievements.ShowAchievementsUI();
+    }
 }

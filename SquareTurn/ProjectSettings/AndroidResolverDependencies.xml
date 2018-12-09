@@ -22,6 +22,6 @@
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-games-15.0.1.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-nearby-15.0.1.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-tasks-15.0.1.aar</file>
-    <file>Assets/Plugins/Android/com.google.games.gpgs-plugin-support-0.9.55.aar</file>
+    <file>Assets/Plugins/Android/com.google.games.gpgs-plugin-support-0.9.55</file>
   </files>
 </dependencies>
