@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameLogic : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class GameLogic : MonoBehaviour
     int turnNumber;
 
     public GameObject squareObject;
-    public GameObject turnTextPortrait;
+    public TextMeshProUGUI turnTextPortrait;
     public bool playerWon = false;
     LevelScript levelScript;
     private GameObject userStatistics;
@@ -198,7 +199,7 @@ public class GameLogic : MonoBehaviour
 
         if (turnTextPortrait)
         {
-            turnTextPortrait.GetComponent<UnityEngine.UI.Text>().text = turnNumber.ToString();
+            turnTextPortrait.text = turnNumber.ToString();
         }
 
 
