@@ -354,11 +354,12 @@ public class GameLogic : MonoBehaviour
 
         //Send statistic to  userstatistics.cs
         userStatistics.GetComponent<UserStatistics>().UpdateStatistic("Turns++", numberOfTurns);
+        AchievementCollection achievementCollection = userStatistics.GetComponent<AchievementCollection>();
         numberOfTurns = 0;
 
-        int achievement10State = userStatistics.GetComponent<AchievementCollection>().GetLocalAchievementState(10);
-        int achievement11State = userStatistics.GetComponent<AchievementCollection>().GetLocalAchievementState(11);
-        int achievement12State = userStatistics.GetComponent<AchievementCollection>().GetLocalAchievementState(12);
+        int achievement10State = achievementCollection.GetLocalAchievementState(10);
+        int achievement11State = achievementCollection.GetLocalAchievementState(11);
+        int achievement12State = achievementCollection.GetLocalAchievementState(12);
 
         //Check achievements
         int totalNumberOfTurns = PlayerPrefs.GetInt("TotalNumberOfTurns");
@@ -367,9 +368,8 @@ public class GameLogic : MonoBehaviour
             if (totalNumberOfTurns >= 200) //.. check if achievement condition is met
             {
                 Debug.Log("Execute Achievement 10");
-                userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState(10, 1);
-                PlayerPrefs.SetInt("NewAchievement", 1); //Set the newAchievement playerPref always after setting the achievementStates
-
+                GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A13_TURNAROUND);
+                achievementCollection.CompleteGlobalAchievement(10);
             }
         }
         else if (achievement11State < 1)
@@ -377,8 +377,8 @@ public class GameLogic : MonoBehaviour
             if (totalNumberOfTurns >= 1000)
             {
                 Debug.Log("Execute Achievement 11");
-                userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState(11, 1);
-                PlayerPrefs.SetInt("NewAchievement", 1);
+                GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A14_TURNING_TABLES);
+                achievementCollection.CompleteGlobalAchievement(11);
 
             }
         }
@@ -386,9 +386,8 @@ public class GameLogic : MonoBehaviour
         {
             if (totalNumberOfTurns >= 5000)
             {
-                userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState(12, 1);
-                PlayerPrefs.SetInt("NewAchievement", 1);
-
+                GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A15_FLIPPING_NINJA);
+                achievementCollection.CompleteGlobalAchievement(12);
             }
         }
 
@@ -449,6 +448,7 @@ public class GameLogic : MonoBehaviour
 
         if (playerWon)
         {
+            AchievementCollection achievementCollection = userStatistics.GetComponent<AchievementCollection>();
             //If a new level has been solved, save this value into a prefab
             int category = chosenLevel / 100;
             int levelNumber = chosenLevel - category*100;
@@ -461,27 +461,23 @@ public class GameLogic : MonoBehaviour
                 //Check for reached achievements
                 if (completedLevels == 5)
                 {
-                    userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState(6, 1);
-                    PlayerPrefs.SetInt("NewAchievement", 1);
-                    achievementPanel.GetComponent<CheckForAchievements>().CheckAchievements();
+                    GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A9_FIRST_STEPS);
+                    achievementCollection.CompleteGlobalAchievement(6);
                 }
                 else if (completedLevels == 20)
                 {
-                    userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState(7, 1);
-                    PlayerPrefs.SetInt("NewAchievement", 1);
-                    achievementPanel.GetComponent<CheckForAchievements>().CheckAchievements();
+                    GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A10_AMATEUR);
+                    achievementCollection.CompleteGlobalAchievement(7);
                 }
                 else if (completedLevels == 40)
                 {
-                    userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState(8, 1);
-                    PlayerPrefs.SetInt("NewAchievement", 1);
-                    achievementPanel.GetComponent<CheckForAchievements>().CheckAchievements();
+                    GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A11_CHALLENGER);
+                    achievementCollection.CompleteGlobalAchievement(8);
                 }
                 else if (completedLevels == 72)
                 {
-                    userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState(9, 1);
-                    PlayerPrefs.SetInt("NewAchievement", 1);
-                    achievementPanel.GetComponent<CheckForAchievements>().CheckAchievements();
+                    GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A12_BLACKBELT);
+                    achievementCollection.CompleteGlobalAchievement(9);
                 }
             }
             //Store the statistics in Prefabs (Script: UserStatistics)

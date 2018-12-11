@@ -11,15 +11,17 @@ public class CheckAchievementsAtStart : MonoBehaviour {
 		GameObject userStatistics = GameObject.Find ("UserStatistics");
 		GameObject achievementPanel = GameObject.Find ("AchievementPanel");
 
-		int numberOfAppStarts = PlayerPrefs.GetInt ("NumberOfAppStarts");
+        AchievementCollection achievementCollection = userStatistics.GetComponent<AchievementCollection>();
+
+
+        int numberOfAppStarts = PlayerPrefs.GetInt ("NumberOfAppStarts");
 		
 		if(userStatistics.GetComponent<AchievementCollection>().GetLocalAchievementState(13) == 0)
 		{
 			if(numberOfAppStarts >= 5)
 			{
-				userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (13,1);
-				PlayerPrefs.SetInt ("NewAchievement", 1); //Set the newAchievement playerPref always after setting the achievementStates
-				achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
+                achievementCollection.CompleteGlobalAchievement(13);
+                GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A16_CHILD);
 			}
 		}
 		else if(userStatistics.GetComponent<AchievementCollection>().GetLocalAchievementState(14) == 0)
@@ -27,10 +29,9 @@ public class CheckAchievementsAtStart : MonoBehaviour {
 
 			if(numberOfAppStarts >= 20)
 			{
-				userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (14,1);
-				PlayerPrefs.SetInt ("NewAchievement", 1); //Set the newAchievement playerPref always after setting the achievementStates
-				achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
-			}
+                achievementCollection.CompleteGlobalAchievement(14);
+                GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A17_ADULT);
+            }
 		}
 		else if(userStatistics.GetComponent<AchievementCollection>().GetLocalAchievementState(15) == 0)
 		{
@@ -39,7 +40,10 @@ public class CheckAchievementsAtStart : MonoBehaviour {
 				userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (15,1);
 				PlayerPrefs.SetInt ("NewAchievement", 1); //Set the newAchievement playerPref always after setting the achievementStates
 				achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
-			}
+
+                achievementCollection.CompleteGlobalAchievement(15);
+                GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A18_VETERAN);
+            }
 		}
 	}
 }

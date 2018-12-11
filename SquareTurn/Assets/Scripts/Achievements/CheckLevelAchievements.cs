@@ -11,8 +11,10 @@ public class CheckLevelAchievements : MonoBehaviour {
 		//Get the variabele of the last chosen level
 		int lastPlayedLevel = PlayerPrefs.GetInt ("ChosenLevel");
 		string playerPrefName; //PlayerPrefs names will be generated in stored in this variable
+        GameObject userStatistics = GameObject.Find("UserStatistics");
+        AchievementCollection achievementCollection = userStatistics.GetComponent<AchievementCollection>();
 
-		if(lastPlayedLevel >= 100 && lastPlayedLevel < 200)
+        if (lastPlayedLevel >= 100 && lastPlayedLevel < 200)
 		{
 			if(PlayerPrefs.GetInt("Achievement0State") == 0)
 			{
@@ -29,12 +31,11 @@ public class CheckLevelAchievements : MonoBehaviour {
 
 				if(reachedOneStar == true)
 				{
-					GameObject userStatistics = GameObject.Find ("UserStatistics");
-					userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (0,1);
-					PlayerPrefs.SetInt ("NewAchievement", 1);
+                    GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A1_PLANTING_THE_SEED);
+                    achievementCollection.CompleteGlobalAchievement(0);
 
-					//Check if also reached all three stars in the same moment
-					bool reachedThreeStars = true;
+                    //Check if also reached all three stars in the same moment
+                    bool reachedThreeStars = true;
 					for(int i = 100; i <= 123; i++)
 					{
 						playerPrefName = LevelStatistics.STARS_PER_LEVEL_PREFAB + i;
@@ -45,11 +46,10 @@ public class CheckLevelAchievements : MonoBehaviour {
 					}
 					if(reachedThreeStars == true)
 					{
-						userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (1,1);
-					}
+                        GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A2_GROWING_STEM);
+                        achievementCollection.CompleteGlobalAchievement(1);
+                    }
 					//--END CHECK 3 stars
-					GameObject achievementPanel = GameObject.Find ("AchievementPanel");
-					achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
 				}
 			}
 			else if(PlayerPrefs.GetInt ("Achievement1State") == 0)
@@ -67,12 +67,8 @@ public class CheckLevelAchievements : MonoBehaviour {
 				
 				if(reachedThreeStars == true)
 				{
-					GameObject userStatistics = GameObject.Find ("UserStatistics");
-					userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (1,1);
-					PlayerPrefs.SetInt ("NewAchievement", 1);
-					
-					GameObject achievementPanel = GameObject.Find ("AchievementPanel");
-					achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
+                    GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A2_GROWING_STEM);
+                    achievementCollection.CompleteGlobalAchievement(1);
 				}
 			}
 		}
@@ -94,12 +90,11 @@ public class CheckLevelAchievements : MonoBehaviour {
 				
 				if(reachedOneStar == true)
 				{
-					GameObject userStatistics = GameObject.Find ("UserStatistics");
-					userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (2,1);
-					PlayerPrefs.SetInt ("NewAchievement", 1);
+                    GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A3_TIME_TO_BLOSSOM);
+                    achievementCollection.CompleteGlobalAchievement(2);
 
-					//Check if also reached all three stars in the same moment
-					bool reachedThreeStars = true;
+                    //Check if also reached all three stars in the same moment
+                    bool reachedThreeStars = true;
 					for(int i = 200; i <= 223; i++)
 					{
 						playerPrefName = LevelStatistics.STARS_PER_LEVEL_PREFAB + i;
@@ -110,12 +105,10 @@ public class CheckLevelAchievements : MonoBehaviour {
 					}
 					if(reachedThreeStars == true)
 					{
-						userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (3,1);
-					}
+                        GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A4_CLIMBING_TREE);
+                        achievementCollection.CompleteGlobalAchievement(3);
+                    }
 					//--END CHECK 3 stars
-					
-					GameObject achievementPanel = GameObject.Find ("AchievementPanel");
-					achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
 				}
 			}
 			else if(PlayerPrefs.GetInt ("Achievement3State") == 0)
@@ -133,12 +126,8 @@ public class CheckLevelAchievements : MonoBehaviour {
 				
 				if(reachedThreeStars == true)
 				{
-					GameObject userStatistics = GameObject.Find ("UserStatistics");
-					userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (3,1);
-					PlayerPrefs.SetInt ("NewAchievement", 1);
-					
-					GameObject achievementPanel = GameObject.Find ("AchievementPanel");
-					achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
+                    GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A4_CLIMBING_TREE);
+                    achievementCollection.CompleteGlobalAchievement(3);
 				}
 			}
 		}
@@ -160,12 +149,11 @@ public class CheckLevelAchievements : MonoBehaviour {
 				
 				if(reachedOneStar == true)
 				{
-					GameObject userStatistics = GameObject.Find ("UserStatistics");
-					userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (4,1);
-					PlayerPrefs.SetInt ("NewAchievement", 1);
+                    GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A5_FLOWER_FIELD);
+                    achievementCollection.CompleteGlobalAchievement(4);
 
-					//Check if also reached all three stars in the same moment
-					bool reachedThreeStars = true;
+                    //Check if also reached all three stars in the same moment
+                    bool reachedThreeStars = true;
 					for(int i = 300; i <= 323; i++)
 					{
 						playerPrefName = LevelStatistics.STARS_PER_LEVEL_PREFAB + i;
@@ -176,12 +164,10 @@ public class CheckLevelAchievements : MonoBehaviour {
 					}
 					if(reachedThreeStars == true)
 					{
-						userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (5,1);
-					}
+                        GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A6_RAINFOREST_DRYER);
+                        achievementCollection.CompleteGlobalAchievement(5);
+                    }
 					//--END CHECK 3 stars
-					
-					GameObject achievementPanel = GameObject.Find ("AchievementPanel");
-					achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
 				}
 			}
 			else if(PlayerPrefs.GetInt ("Achievement5State") == 0)
@@ -199,12 +185,8 @@ public class CheckLevelAchievements : MonoBehaviour {
 				
 				if(reachedThreeStars == true)
 				{
-					GameObject userStatistics = GameObject.Find ("UserStatistics");
-					userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState (5,1);
-					PlayerPrefs.SetInt ("NewAchievement", 1);
-					
-					GameObject achievementPanel = GameObject.Find ("AchievementPanel");
-					achievementPanel.GetComponent<CheckForAchievements> ().CheckAchievements ();
+                    GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A6_RAINFOREST_DRYER);
+                    achievementCollection.CompleteGlobalAchievement(5);
 				}
 			}
 		}
@@ -227,9 +209,8 @@ public class CheckLevelAchievements : MonoBehaviour {
 
                 if (reachedOneStar == true)
                 {
-                    GameObject userStatistics = GameObject.Find("UserStatistics");
-                    userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState(16, 1);
-                    PlayerPrefs.SetInt("NewAchievement", 1);
+                    GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A7_CHERRY_BLOSSOM_BLUES);
+                    achievementCollection.CompleteGlobalAchievement(16);
 
                     //Check if also reached all three stars in the same moment
                     bool reachedThreeStars = true;
@@ -243,12 +224,10 @@ public class CheckLevelAchievements : MonoBehaviour {
                     }
                     if (reachedThreeStars == true)
                     {
-                        userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState(17, 1);
+                        GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A8_FOREST_OF_MOUNTAINS);
+                        achievementCollection.CompleteGlobalAchievement(17);
                     }
                     //--END CHECK 3 stars
-
-                    GameObject achievementPanel = GameObject.Find("AchievementPanel");
-                    achievementPanel.GetComponent<CheckForAchievements>().CheckAchievements();
                 }
             }
             else if (PlayerPrefs.GetInt("Achievement17State") == 0)
@@ -266,12 +245,8 @@ public class CheckLevelAchievements : MonoBehaviour {
 
                 if (reachedThreeStars == true)
                 {
-                    GameObject userStatistics = GameObject.Find("UserStatistics");
-                    userStatistics.GetComponent<AchievementCollection>().SetLocalAchievementState(17, 1);
-                    PlayerPrefs.SetInt("NewAchievement", 1);
-
-                    GameObject achievementPanel = GameObject.Find("AchievementPanel");
-                    achievementPanel.GetComponent<CheckForAchievements>().CheckAchievements();
+                    GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A8_FOREST_OF_MOUNTAINS);
+                    achievementCollection.CompleteGlobalAchievement(17);
                 }
             }
         }

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4220205438924494}
   - component: {fileID: 114404659589637764}
   - component: {fileID: 114289644370724900}
+  - component: {fileID: 114491781628632182}
   m_Layer: 0
   m_Name: GooglePlayServices
   m_TagString: Untagged
@@ -61,5 +62,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 713f4f320948506488978c49061c4c99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114491781628632182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1525134984900870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e19f29185239b94bb361bc4cd1a732c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

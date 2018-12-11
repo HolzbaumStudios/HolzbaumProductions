@@ -257,8 +257,14 @@ public class AchievementCollection : MonoBehaviour {
 		return achievementList [achievementNumber].GetState ();
 	}
 
-	//Resets all achievements
-	public void SetAchievementsBack()
+    public void CompleteGlobalAchievement(int achievementNumber)
+    {
+        achievementList[achievementNumber].SetState(2);
+        PlayerPrefs.SetInt("Achievement" + achievementNumber + "State", 2);
+    }
+
+    //Resets all achievements
+    public void SetAchievementsBack()
 	{
 		for (int i = 0; i < achievementList.Count; i++)
 		{
