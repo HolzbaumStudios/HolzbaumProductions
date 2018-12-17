@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Analytics;
+using TMPro;
 
 public class UnlockLevel : MonoBehaviour {
 	[Range (10,200)]
@@ -34,8 +35,8 @@ public class UnlockLevel : MonoBehaviour {
 	}
 
 	void LevelUnlock () {
-		levelUnlocked.transform.Find ("LevelUnlockedTitle").GetComponent<Text> ().text = levelUnlockedTitle;
-		levelUnlocked.transform.Find ("LevelUnlockedText").GetComponent<Text> ().text = levelUnlockedText;
+		levelUnlocked.transform.Find ("LevelUnlockedTitle").GetComponent<TextMeshProUGUI> ().text = levelUnlockedTitle;
+		levelUnlocked.transform.Find ("LevelUnlockedText").GetComponent<TextMeshProUGUI> ().text = levelUnlockedText;
 		levelUnlocked.transform.Find ("LevelUnlockedImage").GetComponent<Image> ().sprite = levelUnlockedImage;
 		levelUnlocked.SetActive(true);
 		string playerPrefName = "levelPack" + levelPackNumber + "Unlocked";

@@ -6,8 +6,8 @@ public class DeleteAllData : MonoBehaviour {
 	public void DeleteData()
 	{
 
-
-		PlayerPrefs.DeleteAll ();
+#if (UNITY_EDITOR)
+        PlayerPrefs.DeleteAll ();
 
 		//Set Variables
 		GameObject userStatistics = GameObject.Find ("UserStatistics");
@@ -15,5 +15,6 @@ public class DeleteAllData : MonoBehaviour {
 		userStatistics.GetComponent<UserStatistics> ().SetStatisticsBack ();
 
 		Debug.Log ("Data deleted!");
-	}
+#endif
+    }
 }

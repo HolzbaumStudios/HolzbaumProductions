@@ -361,11 +361,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -502,11 +502,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -615,11 +615,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -770,10 +770,10 @@ MonoBehaviour:
   categoryImageComponent: {fileID: 114795161684022382}
   categoryButtonComponent: {fileID: 114569507303444792}
   categoryImages:
-  - {fileID: 21300000, guid: 742c676adf35eaf46aa34a9de4062ba0, type: 3}
-  - {fileID: 21300000, guid: 2532215be5202864bb1486904766fa21, type: 3}
-  - {fileID: 21300000, guid: d4050d054e0e3b449859a2d69c848263, type: 3}
-  - {fileID: 21300000, guid: b189ba6d88462ba428d719a95816980e, type: 3}
+  - {fileID: 21300000, guid: b6c7d94b3b8333d4f84e647d30083107, type: 3}
+  - {fileID: 21300000, guid: 95f97ae449f7a2540b7f673b16f4690b, type: 3}
+  - {fileID: 21300000, guid: 10c50e83e3f2c6c449bb6975b69449ca, type: 3}
+  - {fileID: 21300000, guid: 9a3c5f7d2d677e849bca76762d7dae75, type: 3}
 --- !u!114 &114717125027558834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -977,11 +977,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:

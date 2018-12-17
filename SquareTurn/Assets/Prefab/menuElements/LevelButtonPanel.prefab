@@ -341,9 +341,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 6d17763b5c9860f4a953c319a165bc80, type: 3}
     m_FontSize: 80
     m_FontStyle: 1
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 80
+    m_MaxSize: 150
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -506,7 +506,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 114757063734377838}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -845,7 +845,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1888647043365474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224622511344260550}
@@ -857,8 +857,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000045776, y: 6.48}
-  m_SizeDelta: {x: 200, y: 230.62}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 237.7, y: 274.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224407314985100500
 RectTransform:
@@ -932,7 +932,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.000015258789, y: 1.6699982}
-  m_SizeDelta: {x: -26, y: -29.35}
+  m_SizeDelta: {x: -54.61, y: -62.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224880332247271448
 RectTransform:

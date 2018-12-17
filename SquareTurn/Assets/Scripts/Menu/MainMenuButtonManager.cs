@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuButtonManager : MonoBehaviour {
 
@@ -9,10 +10,18 @@ public class MainMenuButtonManager : MonoBehaviour {
 
     [SerializeField]
     private GameObject soundButton;
+    private Image soundButtonImage;
+    private GameObject disabledSoundButtonElement;
 
     public void Start()
     {
         musicOnOff = GameObject.Find("Music_Background").GetComponent<musicOnOff>();
+        soundButtonImage = soundButton.GetComponent<UnityEngine.UI.Image>();
+        disabledSoundButtonElement = soundButton.transform.Find("DisabledButton").gameObject;
+        if (PlayerPrefs.GetString("gameMusic") == "Off")
+        {
+            SetButtonGUIDisabled();
+        }
     }
 
     public void LoadScene(string sceneName)
@@ -32,5 +41,11 @@ public class MainMenuButtonManager : MonoBehaviour {
     public void LoadAchievements()
     {
         GooglePlayAchievements.ShowAchievementsUI();
+    }
+
+    public void SetButtonGUIDisabled()
+    {
+        soundButtonImage.color = new Color32(131, 139, 139, 255);
+        disabledSoundButtonElement.SetActive(true);
     }
 }

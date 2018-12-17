@@ -483,13 +483,13 @@ public class GameLogic : MonoBehaviour
             //Store the statistics in Prefabs (Script: UserStatistics)
             //userStatistics.SendMessage ("StoreStatistics");
             StartCoroutine(EndingAnimation());
-            StartCoroutine(EnableEndPanel(fieldRows * 0.3f + 3f));
+            StartCoroutine(EnableEndPanel(fieldRows * 0.3f + 1.5f));
         }
     }
 
     IEnumerator EndingAnimation()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         for(int x = 0; x < fieldColumns; x++)
         {
             for (int y = 0; y < fieldRows; y++)
@@ -500,7 +500,7 @@ public class GameLogic : MonoBehaviour
                     square.squareObject.GetComponent<Animation>().Play("turn360");
                 }
             }
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.12f);
         }
     }
 
@@ -509,22 +509,6 @@ public class GameLogic : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         gameEndPanelPortrait.SetActive(true);
         gameEndTurnsObject.text = turnNumber.ToString();
-        /* GameObject childPanelPortrait = gameEndPanelPortrait.transform.Find("GameEndPanelNew").gameObject;
-
-         childPanelPortrait.GetComponent<Animation>().Play();
-
-         //Set the number of turns
-         string turnText;
-         if (turnNumber > 1)
-         {
-             turnText = turnNumber + " turns";
-         }
-         else
-         {
-             turnText = turnNumber + " turn";
-         }
-         childPanelPortrait.transform.Find("TurnText").GetComponent<UnityEngine.UI.Text>().text = turnText;*/
-
 
         GetNumberOfTrees();
     }
@@ -557,8 +541,6 @@ public class GameLogic : MonoBehaviour
                 PlayerPrefs.SetInt("PerfectedLevels", newPerfectValue);
             }
         }
-
-
 
         //Add number of stars to statistic
 
