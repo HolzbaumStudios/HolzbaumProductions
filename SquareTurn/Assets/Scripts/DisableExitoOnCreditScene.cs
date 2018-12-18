@@ -5,7 +5,6 @@ public class DisableExitoOnCreditScene : MonoBehaviour {
 
     //This script is only used on the credit scene
 
-    private bool portrait = false;
     public GameObject exitButton;
 
 	

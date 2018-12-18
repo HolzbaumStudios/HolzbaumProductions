@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class MainMenuButtonManager : MonoBehaviour {
 
-    musicOnOff musicOnOff;
-
     [SerializeField]
     private GameObject soundButton;
     private Image soundButtonImage;
@@ -15,7 +13,6 @@ public class MainMenuButtonManager : MonoBehaviour {
 
     public void Start()
     {
-        musicOnOff = GameObject.Find("Music_Background").GetComponent<musicOnOff>();
         soundButtonImage = soundButton.GetComponent<UnityEngine.UI.Image>();
         disabledSoundButtonElement = soundButton.transform.Find("DisabledButton").gameObject;
         if (PlayerPrefs.GetString("gameMusic") == "Off")
@@ -35,7 +32,7 @@ public class MainMenuButtonManager : MonoBehaviour {
 
     public void SoundButton()
     {
-        musicOnOff.TurnButton(soundButton);
+        MusicManager.GetInstance().TurnButton(soundButton);
     }
 
     public void LoadAchievements()

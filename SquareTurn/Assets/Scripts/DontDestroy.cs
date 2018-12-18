@@ -20,7 +20,11 @@ public class DontDestroy : MonoBehaviour {
 
 		//Set all the objects in the list to not destroy
 		for (int i = 0; i < listLength; i++) {
-			DontDestroyOnLoad(objectList[i]);
+            GameObject gameObject = objectList[i];
+            if (gameObject != null)
+            {
+                DontDestroyOnLoad(gameObject);
+            }
 		}
 
 	}

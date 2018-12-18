@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class SetStarInfo : MonoBehaviour {
 
@@ -24,9 +25,9 @@ public class SetStarInfo : MonoBehaviour {
 		threeStarValue = userStatistics.GetComponent<TreeTable>().threeTrees + 1;
 
 		string textValue = "<" + twoStarValue.ToString ();
-		twoStarInfoPortrait.GetComponent<Text>().text = textValue;
+		twoStarInfoPortrait.GetComponent<TextMeshProUGUI>().text = textValue;
 
 		textValue = "<" + threeStarValue.ToString ();
-		threeStarInfoPortrait.GetComponent<Text>().text = textValue;
+		threeStarInfoPortrait.GetComponent<TextMeshProUGUI>().text = textValue;
 	}
 }

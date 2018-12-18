@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using TMPro;
 
 public class LevelNumberText : MonoBehaviour {
 
@@ -29,7 +30,7 @@ public class LevelNumberText : MonoBehaviour {
             finishedText = finishedText = firstCharacter + "-" + secondCharacter + thirdCharacter;
         }
 
-        this.gameObject.GetComponent<Text>().text = finishedText;
+        this.gameObject.GetComponent<TextMeshProUGUI>().text = finishedText;
 
     }
 }

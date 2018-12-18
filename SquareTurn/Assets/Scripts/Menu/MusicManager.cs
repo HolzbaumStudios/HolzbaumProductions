@@ -2,19 +2,31 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class musicOnOff : MonoBehaviour {
+public class MusicManager : MonoBehaviour {
+
+    private static MusicManager instance;
 
 	// Variablen
 	private GameObject squareMusicButton;
 	public bool status;
-	public bool firststart;
 
-    void Update()
+    private void Awake()
     {
-        if (SceneManager.GetActiveScene().name == "startMenu" && firststart == true && PlayerPrefs.GetString("gameMusic") != "Off")
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            DestroyImmediate(this.gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        if(PlayerPrefs.GetString("gameMusic") != "Off")
         {
             this.GetComponent<AudioSource>().Play();
-            firststart = false;
         }
     }
 
@@ -38,5 +50,10 @@ public class musicOnOff : MonoBehaviour {
             status = true;
             PlayerPrefs.SetString("gameMusic", "On");
         }
+    }
+
+    public static MusicManager GetInstance()
+    {
+        return instance;
     }
 }
