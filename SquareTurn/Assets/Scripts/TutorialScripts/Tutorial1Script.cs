@@ -2,6 +2,7 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
+using TMPro;
 
 public class Tutorial1Script : MonoBehaviour {
 
@@ -74,7 +75,7 @@ public class Tutorial1Script : MonoBehaviour {
 				squareContainerRow2[2].GetComponent<Button>().enabled = false;
 				//Set the movecounter
 				moveCounterTutorial++;
-				turnsPanel.GetComponent<Text>().text = moveCounterTutorial.ToString();
+				turnsPanel.GetComponent<TextMeshProUGUI>().text = moveCounterTutorial.ToString();
 
 				//Turn squares
 				squareContainerRow1[1].GetComponent<TurnScriptTutorial>().TurnSquare(1);
@@ -117,7 +118,7 @@ public class Tutorial1Script : MonoBehaviour {
 				messagePanels[2].SetActive(false);
 				//Set the movecounter
 				moveCounterTutorial++;
-				turnsPanel.GetComponent<Text>().text = moveCounterTutorial.ToString();
+				turnsPanel.GetComponent<TextMeshProUGUI>().text = moveCounterTutorial.ToString();
 
 				//Turn squares
 				squareContainerRow0[1].GetComponent<TurnScriptTutorial>().TurnSquare(1);
@@ -151,19 +152,19 @@ public class Tutorial1Script : MonoBehaviour {
 
 				messagePanels[0].transform.Find("Text7").gameObject.SetActive(false);
 				messagePanels[0].SetActive(false);
-				messagePanels[2].SetActive(true);
-				messagePanels[2].transform.Find("Text8").gameObject.SetActive(true);
+				messagePanels[3].SetActive(true);
+				messagePanels[3].transform.Find("Text8").gameObject.SetActive(true);
 
-				GameObject.Find ("resetPanel").GetComponent<Button>().enabled = true;
+				GameObject.Find ("RefreshButton").GetComponent<Button>().enabled = true;
 			}break;
 			case 10: //Reload the level
 			{
 				//Disable button again
-				GameObject.Find ("resetPanel").GetComponent<Button>().enabled = false;
-				messagePanels[2].SetActive(false);
+				GameObject.Find ("RefreshButton").GetComponent<Button>().enabled = false;
+				messagePanels[3].SetActive(false);
 				//Set the movecounter
 				moveCounterTutorial = 0;
-				turnsPanel.GetComponent<Text>().text = moveCounterTutorial.ToString();
+				turnsPanel.GetComponent<TextMeshProUGUI>().text = moveCounterTutorial.ToString();
 
 				//Turn squares
 				squareContainerRow0[1].GetComponent<TurnScriptTutorial>().TurnSquare(0);
@@ -199,13 +200,13 @@ public class Tutorial1Script : MonoBehaviour {
 			}break;
 			case 13: 
 			{
-				messagePanels[3].SetActive(false);
+				messagePanels[4].SetActive(false);
 				messagePanels[1].transform.Find("Text10").gameObject.SetActive(false);	
 				messagePanels[1].SetActive(false);
 				messagePanels[0].SetActive(true);
 				messagePanels[0].transform.Find("Text12").gameObject.SetActive(true);
 				//Set ending text
-				messagePanels[4].transform.Find("Text11").gameObject.GetComponent<Text>().text = "End Tutorial";
+				messagePanels[5].transform.Find("Text11").gameObject.GetComponent<TextMeshProUGUI>().text = "End Tutorial";
 			}break;
 		}
 	}
@@ -261,11 +262,11 @@ public class Tutorial1Script : MonoBehaviour {
 			}break;
 		}
 
-		turnsPanel.GetComponent<Text>().text = moveCounterTutorial.ToString();
+		turnsPanel.GetComponent<TextMeshProUGUI>().text = moveCounterTutorial.ToString();
 
 		if(moveCounterTutorial == 1)
 		{
-			messagePanels[3].SetActive(true);
+			messagePanels[4].SetActive(true);
 		}
 		else if(moveCounterTutorial == 4)
 		{

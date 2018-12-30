@@ -391,12 +391,6 @@ public class GameLogic : MonoBehaviour
             }
         }
 
-        //Call the achievement check function
-        if (achievementPanel.transform.parent.gameObject.activeSelf == true)
-        {
-            achievementPanel.GetComponent<CheckForAchievements>().CheckAchievements();
-        }
-
         //Check if won
         CheckIfWon();
     }

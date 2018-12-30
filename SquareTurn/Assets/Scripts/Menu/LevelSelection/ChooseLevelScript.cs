@@ -25,7 +25,7 @@ public class ChooseLevelScript : MonoBehaviour {
 				{ "levelNumber", level }
 			});
 
-            SceneManager.LoadScene("tutorialScene");
+            SceneManager.LoadScene("tutorialSceneNew");
 		}
 		else
 		{

@@ -7,17 +7,29 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/logoDisplayScene.unity
+    guid: 91301ff2099eac6479b4acf49cfbb5d1
   - enabled: 1
     path: Assets/Scenes/levelMenu.unity
+    guid: 2de15885709dcf546a3066bee734b32e
   - enabled: 1
     path: Assets/Scenes/startMenu.unity
+    guid: 4848ee70fd534db49bb5d64035619e9d
   - enabled: 1
     path: Assets/Scenes/gameScene.unity
+    guid: 86ef0c9686c5003458071fa5799bcda2
   - enabled: 1
     path: Assets/Scenes/achievements.unity
+    guid: bca14b191eb750b4fabc28cbcfb3e416
   - enabled: 1
     path: Assets/Scenes/creditsScene.unity
+    guid: 555b5995133b45843b2553ed42f9e249
   - enabled: 1
     path: Assets/Scenes/tutorialScene.unity
+    guid: 540caf1a4086161419309a666b1bef7e
+  - enabled: 1
+    path: Assets/Scenes/tutorialSceneNew.unity
+    guid: b6be4f008a8ef624896b6757ea195c98
   - enabled: 1
     path: Assets/Scenes/statisticScene.unity
+    guid: bdc1444c4e24a0147b9d3269caa0f925
+  m_configObjects: {}
