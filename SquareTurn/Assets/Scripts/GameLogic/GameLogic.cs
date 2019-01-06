@@ -483,6 +483,7 @@ public class GameLogic : MonoBehaviour
 
     IEnumerator EndingAnimation()
     {
+        bool isSoundOn = MusicManager.GetInstance().status;
         yield return new WaitForSeconds(0.5f);
         for(int x = 0; x < fieldColumns; x++)
         {
@@ -492,6 +493,9 @@ public class GameLogic : MonoBehaviour
                 if(square != null && square.squareObject != null)
                 {
                     square.squareObject.GetComponent<Animation>().Play("turn360");
+                    if(isSoundOn) { 
+                        square.squareObject.GetComponent<AudioSource>().Play();
+                    }
                 }
             }
             yield return new WaitForSeconds(0.12f);

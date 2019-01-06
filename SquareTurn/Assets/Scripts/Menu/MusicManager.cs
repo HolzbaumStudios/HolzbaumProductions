@@ -27,6 +27,7 @@ public class MusicManager : MonoBehaviour {
         if(PlayerPrefs.GetString("gameMusic") != "Off")
         {
             this.GetComponent<AudioSource>().Play();
+            status = true;
         }
     }
 

@@ -11,13 +11,17 @@ public class TurnScript : MonoBehaviour
     private GameObject managerObject;
     private GameObject userStatistics;
 
+    [SerializeField]
+    private AudioSource audioSource;
+    private bool isSoundOn = false;
+
     //----------------INITIALIZATION-----------------------------------------
     void Start()
     {
         managerObject = GameObject.Find("gameManager");
         userStatistics = GameObject.Find("UserStatistics");
         animationComponent = this.GetComponent<Animation>();
-
+        isSoundOn = MusicManager.GetInstance().status;
     }
 
     //---------------FUNCTIONS-------------------------------
@@ -36,6 +40,10 @@ public class TurnScript : MonoBehaviour
 
     public void TurnSquare(int squareState)
     {
+        if (isSoundOn)
+        {
+            audioSource.Play();
+        }
         switch (squareState)
         {
             case 0:

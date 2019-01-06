@@ -259,56 +259,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 122271462}
   m_CullTransparentMesh: 0
---- !u!1001 &174277832
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 426188, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 426188, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 426188, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 426188, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 426188, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 426188, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 426188, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 426188, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11402750, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
-      propertyPath: portraitCanvas
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11402750, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
-      propertyPath: landscapeCanvas
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5d756eee84f49e5478602eef3dbe533c, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &263788610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1637,7 +1587,7 @@ RectTransform:
   - {fileID: 263788611}
   - {fileID: 2066924505}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
