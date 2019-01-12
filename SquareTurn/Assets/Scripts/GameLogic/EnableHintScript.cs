@@ -13,6 +13,12 @@ public class EnableHintScript : MonoBehaviour {
     private int availableHints = 4;
 
     [SerializeField]
+    private RewardedAds rewardedAds;
+
+    [SerializeField]
+    private GameObject showAdsPanel;
+
+    [SerializeField]
     private Button button;
     [SerializeField]
     private TextMeshProUGUI hintCountText;
@@ -56,11 +62,23 @@ public class EnableHintScript : MonoBehaviour {
             availableHints--;
             PlayerPrefs.SetInt(AVAILABLE_HINTS_PREF, availableHints);
             hintCountText.text = availableHints + "x";
-            if(availableHints == 0)
-            {
-                DisableButton();
-            }
+            DisableButton();   
         }
+        else
+        {
+            showAdsPanel.SetActive(true);
+        }
+    }
+
+    public void ShowRewardAndClosePanel()
+    {
+        rewardedAds.ShowRewardedAd();
+        CancelShowAdsPanel();
+    }
+
+    public void CancelShowAdsPanel()
+    {
+        showAdsPanel.SetActive(false);
     }
 
     private void DisableButton()
@@ -68,5 +86,12 @@ public class EnableHintScript : MonoBehaviour {
         button.interactable = false;
         lightBulbImage.color = transparent;
         hintCountText.color = transparent;
+    }
+
+    public void AddHints()
+    {
+        PlayerPrefs.SetInt(EnableHintScript.AVAILABLE_HINTS_PREF, 4);
+        availableHints = 4;
+        hintCountText.text = availableHints + "x";
     }
 }
