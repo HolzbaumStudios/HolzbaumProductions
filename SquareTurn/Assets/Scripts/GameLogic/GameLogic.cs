@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using TMPro;
+using cakeslice;
 
 public class GameLogic : MonoBehaviour
 {
@@ -72,6 +73,12 @@ public class GameLogic : MonoBehaviour
 
         InitializeArray(fieldRows, fieldColumns); //Initializes the array
         PrepareField(); //Prepares the field with the buttons
+        int levelNumber = PlayerPrefs.GetInt("ChosenLevel");
+        PrepareHintFields(levelNumber);
+        if(HintLevelInfo.IsHintEnabled(levelNumber))
+        {
+            Camera.main.GetComponent<OutlineEffect>().enabled = true;
+        }
     }
 
 
@@ -584,6 +591,16 @@ public class GameLogic : MonoBehaviour
         else
         {
             starOne.SetActive(true);
+        }
+    }
+
+    private void PrepareHintFields(int levelNumber)
+    {
+        var hintInfo = new HintLevelInfo();
+        var hintFieldList = hintInfo.GetHintFields(levelNumber);
+        foreach(CoordinateTuple coord in hintFieldList)
+        {
+            squareArray[coord.RowNumber, coord.ColumnNumber].squareObject.GetComponent<EnableOutline>().EnableOutlineComponent();
         }
     }
 

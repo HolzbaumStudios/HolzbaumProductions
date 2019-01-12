@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4086297663846772}
   - component: {fileID: 33879512098079350}
   - component: {fileID: 23340398415278448}
+  - component: {fileID: 114770523050490742}
   m_Layer: 0
   m_Name: frontSide
   m_TagString: Untagged
@@ -38,6 +39,7 @@ GameObject:
   - component: {fileID: 4572409792121448}
   - component: {fileID: 33650071953955726}
   - component: {fileID: 23898822613427196}
+  - component: {fileID: 114853006664966176}
   m_Layer: 0
   m_Name: backSide
   m_TagString: Untagged
@@ -57,6 +59,7 @@ GameObject:
   - component: {fileID: 111698097584682192}
   - component: {fileID: 114415446189354434}
   - component: {fileID: 114369554551178624}
+  - component: {fileID: 114186355489576954}
   - component: {fileID: 82111050944731156}
   m_Layer: 0
   m_Name: defaultSquare
@@ -314,6 +317,17 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &114186355489576954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1618915416851490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc1f9e26a480013408f46690235f84a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114369554551178624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -337,3 +351,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3e96b4bff05e149a5cdeeeb1f22fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114770523050490742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1419749045068740}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
+--- !u!114 &114853006664966176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1462109255275498}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
