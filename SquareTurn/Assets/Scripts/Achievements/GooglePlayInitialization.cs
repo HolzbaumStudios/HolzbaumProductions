@@ -34,9 +34,13 @@ public class GooglePlayInitialization : MonoBehaviour
     {
         Debug.Log("Log in successful: " + success);
         Debug.Log("Signed in as: " + Social.localUser.userName);
-        if (PlayerPrefs.GetInt("MigratedAchievements") != 1)
+        if (success)
         {
-            AchievementMigration.MigrateAchievements();
+            if (PlayerPrefs.GetInt("MigratedAchievements") != 1)
+            {
+                AchievementMigration.MigrateAchievements();
+            }
+            CheckAchievementsAtStart.CheckStartAchievement();
         }
     }
 }

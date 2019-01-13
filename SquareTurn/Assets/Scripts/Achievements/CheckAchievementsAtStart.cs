@@ -3,17 +3,8 @@ using System.Collections;
 
 public class CheckAchievementsAtStart : MonoBehaviour {
 
-	//This script is mainly made for the main menu, because there is no other script who could call this function
-
-	
-	// Use this for initialization
-	void Start () {
-        StartCoroutine(CheckStartAchievement());
-	}
-
-    IEnumerator CheckStartAchievement()
+    public static void CheckStartAchievement()
     {
-        yield return new WaitForSeconds(2);
         GameObject userStatistics = GameObject.Find("UserStatistics");
         GameObject achievementPanel = GameObject.Find("AchievementPanel");
 
@@ -22,7 +13,7 @@ public class CheckAchievementsAtStart : MonoBehaviour {
 
         int numberOfAppStarts = PlayerPrefs.GetInt("NumberOfAppStarts");
 
-        if (userStatistics.GetComponent<AchievementCollection>().GetLocalAchievementState(13) == 0)
+        if (achievementCollection.GetLocalAchievementState(13) == 0)
         {
             if (numberOfAppStarts >= 5)
             {
@@ -30,7 +21,7 @@ public class CheckAchievementsAtStart : MonoBehaviour {
                 GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A16_CHILD);
             }
         }
-        else if (userStatistics.GetComponent<AchievementCollection>().GetLocalAchievementState(14) == 0)
+        else if (achievementCollection.GetLocalAchievementState(14) == 0)
         {
 
             if (numberOfAppStarts >= 20)
@@ -39,7 +30,7 @@ public class CheckAchievementsAtStart : MonoBehaviour {
                 GooglePlayAchievements.UnlockAchiemevent(GooglePlayAchievements.A17_ADULT);
             }
         }
-        else if (userStatistics.GetComponent<AchievementCollection>().GetLocalAchievementState(15) == 0)
+        else if (achievementCollection.GetLocalAchievementState(15) == 0)
         {
             if (numberOfAppStarts >= 40)
             {

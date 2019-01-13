@@ -225,7 +225,7 @@ Prefab:
     - target: {fileID: 224936267039513528, guid: 0c20fa30b9999a14c86d2d8f272a53e7,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224936267039513528, guid: 0c20fa30b9999a14c86d2d8f272a53e7,
         type: 2}
@@ -467,7 +467,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1119073686}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1045,7 +1045,7 @@ Prefab:
     - target: {fileID: 224976476130947178, guid: ffd1d743b7ee32049af5e4ce8f3bc7b2,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224976476130947178, guid: ffd1d743b7ee32049af5e4ce8f3bc7b2,
         type: 2}
@@ -1604,9 +1604,9 @@ RectTransform:
   - {fileID: 1842112301}
   - {fileID: 2068890745}
   - {fileID: 1259640289}
+  - {fileID: 40592835}
   - {fileID: 1914483074}
   - {fileID: 227545215}
-  - {fileID: 40592835}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2410,10 +2410,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78da3f00f3328541b4526c0b0b5ec5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineThickness: 1.25
-  lineIntensity: 0.5
+  lineThickness: 1.5
+  lineIntensity: 1
   fillAmount: 0.2
-  lineColor0: {r: 1, g: 0, b: 0, a: 1}
+  lineColor0: {r: 0.9411765, g: 0.47058824, b: 0.1882353, a: 1}
   lineColor1: {r: 0, g: 1, b: 0, a: 1}
   lineColor2: {r: 0, g: 0, b: 1, a: 1}
   additiveRendering: 0

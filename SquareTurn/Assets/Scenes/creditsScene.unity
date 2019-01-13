@@ -145,7 +145,7 @@ RectTransform:
   - {fileID: 795560138}
   - {fileID: 417562471}
   m_Father: {fileID: 1910789786}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -255,8 +255,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 72
+  m_fontSize: 57.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -594,7 +594,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1910789786}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -629,8 +629,8 @@ MonoBehaviour:
     Paul Schuurmans Steckhoven\n(Iphone Sponsor)\n\nMarco Schuurmans Steckhoven\n(Iphone
     Sponsor)\n\n\nMUSIC\n\nbensound.com"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -672,7 +672,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 194
+  m_firstOverflowCharacterIndex: 141
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -700,7 +700,7 @@ MonoBehaviour:
     spaceCount: 110
     wordCount: 75
     linkCount: 0
-    lineCount: 74
+    lineCount: 76
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -1066,88 +1066,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: startMenu
---- !u!1 &1164300012
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1164300013}
-  - component: {fileID: 1164300015}
-  - component: {fileID: 1164300014}
-  m_Layer: 5
-  m_Name: TextScrolling
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1164300013
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1164300012}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1910789786}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -938}
-  m_SizeDelta: {x: 460, y: 1876}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1164300014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1164300012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: b4e69c5bdb5230141a96de53accf11ed, type: 3}
-    m_FontSize: 25
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 1
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "Special Thanks \nTo\n\n\n\nTEAM\n\n\nFelipe Blanco\n(Lead Programmer)\n\n\nRoman
-    Martinello\n(Lead GUI Designer)\n\n\nMicha Brunner\n(Lead Level Designer)\n\n\n\nTESTER\n\nDaniel
-    Blanco\n\nDominik Alasu\n\nRaffael Sahli\n\nPascal Kistler\n\nSandro Aebischer\n\nYahya
-    Djelassi\n\nPhilipp Benz\n\nJasmin Berz\n\nBrian Christner\n\nDavid Boeller\n\nMartin
-    Berz\n\nSven Berz\n\nOlivier Denzler\n\nNadisa Bahsani Dilji\n\nSeverin Meier\n\nChristopher
-    Murset\n\nBruno Huerlimann\n\nDaniel Kritkos\n\nFabian Baumann\n(Team Mascot Sponsor)\n\nMaikel
-    Paul Schuurmans Steckhoven\n(Iphone Sponsor)\n\nMarco Schuurmans Steckhoven\n(Iphone
-    Sponsor)\n\n\n"
---- !u!222 &1164300015
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1164300012}
-  m_CullTransparentMesh: 0
 --- !u!1001 &1733003153
 Prefab:
   m_ObjectHideFlags: 0
@@ -1344,7 +1262,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1913726273}
-  - {fileID: 1164300013}
   - {fileID: 446698643}
   - {fileID: 31562503}
   m_Father: {fileID: 1152183840}

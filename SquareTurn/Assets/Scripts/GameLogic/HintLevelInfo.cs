@@ -30,64 +30,71 @@ public class HintLevelInfo {
 		}
 
 		if (level == 101) {
-
-		}
+            list.Add(new CoordinateTuple(0, 2));
+        }
 
 		if (level == 102) {
-
-		}
+            list.Add(new CoordinateTuple(0, 1));
+        }
 
 		if (level == 103) {
-
-		}
+            list.Add(new CoordinateTuple(0, 0));
+            list.Add(new CoordinateTuple(3, 3));
+        }
 
 		if (level == 104) {
-
-		}
+            list.Add(new CoordinateTuple(0, 0));
+            list.Add(new CoordinateTuple(3, 3));
+        }
 
 		if (level == 105) {
-
-		}
+            list.Add(new CoordinateTuple(0, 2));
+        }
 
 		if (level == 106) {
-
-		}
+            list.Add(new CoordinateTuple(2, 0));
+        }
 
 		if (level == 107) {
-
-		}
+            list.Add(new CoordinateTuple(0, 2));
+        }
 
 		if (level == 108) {
-
-		}
+            list.Add(new CoordinateTuple(3, 0));
+            list.Add(new CoordinateTuple(1, 3));
+        }
 
 		if (level == 109) {
-
-		}
+            list.Add(new CoordinateTuple(0, 4));
+            list.Add(new CoordinateTuple(3, 1));
+        }
 
 		if (level == 110) {
-
-		}
+            list.Add(new CoordinateTuple(1, 1));
+        }
 
 		if (level == 111) {
-
-		}
+            list.Add(new CoordinateTuple(1, 1));
+            list.Add(new CoordinateTuple(4, 4));
+        }
 
 		if (level == 112) {
-
-		}
+            list.Add(new CoordinateTuple(4, 1));
+            list.Add(new CoordinateTuple(1, 4));
+        }
 
 		if (level == 113) {
-
-		}
+            list.Add(new CoordinateTuple(2, 1));
+        }
 
 		if (level == 114) {
-
-		}
+            list.Add(new CoordinateTuple(1, 2));
+        }
 
 		if (level == 115) {
-
-		}
+            list.Add(new CoordinateTuple(0, 1));
+            list.Add(new CoordinateTuple(3, 1));
+        }
 
 		if (level == 116) {
 
