@@ -422,62 +422,90 @@ public class HintLevelInfo {
         //////LEVEL 400 - 499/----------------------------------------------------
         if (level == 400) //tree
         {
-
+            list.Add(new CoordinateTuple(0, 1));
+            list.Add(new CoordinateTuple(0, 4));
         }
 
         if (level == 401) //boat
         {
-
+            list.Add(new CoordinateTuple(4, 1));
         }
 
         if (level == 402) //shoe
         {
-
+            list.Add(new CoordinateTuple(1, 1));
         }
 
         if (level == 403) //heart
         {
-
+            list.Add(new CoordinateTuple(1, 1));
+            list.Add(new CoordinateTuple(4, 1));
         }
 
         if (level == 404) //lightbulb
         {
-
+            list.Add(new CoordinateTuple(0, 1));
         }
 
         if (level == 405) //xmastree
         {
-
+            list.Add(new CoordinateTuple(0, 1));
+            list.Add(new CoordinateTuple(2, 1));
+            list.Add(new CoordinateTuple(2, 2));
+            list.Add(new CoordinateTuple(3, 2));
         }
 
         if (level == 406) //bottle
         {
-
+            list.Add(new CoordinateTuple(0, 0));
+            list.Add(new CoordinateTuple(2, 0));
+            list.Add(new CoordinateTuple(3, 0));
+            list.Add(new CoordinateTuple(2, 1));
+            list.Add(new CoordinateTuple(0, 2));
+            list.Add(new CoordinateTuple(1, 2));
+            list.Add(new CoordinateTuple(2, 2));
+            list.Add(new CoordinateTuple(3, 2));
         }
 
         if (level == 407) //mouse
         {
-
+            list.Add(new CoordinateTuple(1, 1));
+            list.Add(new CoordinateTuple(4, 1));
+            list.Add(new CoordinateTuple(4, 4));
         }
 
         if (level == 408) //sun
         {
-
+            list.Add(new CoordinateTuple(0, 0));
+            list.Add(new CoordinateTuple(5, 5));
+            list.Add(new CoordinateTuple(1, 4));
+            list.Add(new CoordinateTuple(4, 1));
         }
 
         if (level == 409) //rocket
         {
-
+            list.Add(new CoordinateTuple(5, 4));
+            list.Add(new CoordinateTuple(4, 4));
+            list.Add(new CoordinateTuple(4, 5));
+            list.Add(new CoordinateTuple(3, 2));
+            list.Add(new CoordinateTuple(2, 0));
+            list.Add(new CoordinateTuple(2, 1));
         }
 
         if (level == 410) //sword
         {
-
+            list.Add(new CoordinateTuple(4, 4));
+            list.Add(new CoordinateTuple(2, 0));
+            list.Add(new CoordinateTuple(2, 3));
+            list.Add(new CoordinateTuple(0, 0));
         }
 
         if (level == 411) //star
         {
-
+            list.Add(new CoordinateTuple(1, 1));
+            list.Add(new CoordinateTuple(3, 1));
+            list.Add(new CoordinateTuple(5, 3));
+            list.Add(new CoordinateTuple(4, 2));
         }
 
         if (level == 412) //house
