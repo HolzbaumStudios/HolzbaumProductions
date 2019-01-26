@@ -517,27 +517,38 @@ public class HintLevelInfo {
 
         if (level == 412) //house
         {
-
+            list.Add(new CoordinateTuple(0, 1));
+            list.Add(new CoordinateTuple(1, 1));
+            list.Add(new CoordinateTuple(1, 2));
+            list.Add(new CoordinateTuple(2, 0));
+            list.Add(new CoordinateTuple(2, 2));
+            list.Add(new CoordinateTuple(3, 4));
         }
 
         if (level == 413) //roflcopter
         {
-
+            list.Add(new CoordinateTuple(0, 0));
+            list.Add(new CoordinateTuple(1, 0));
+            list.Add(new CoordinateTuple(2, 0));
+            list.Add(new CoordinateTuple(0, 1));
+            list.Add(new CoordinateTuple(2, 1));
+            list.Add(new CoordinateTuple(2, 2));
         }
 
         if (level == 414) //plane
         {
-
+            list.Add(new CoordinateTuple(4, 2));
         }
 
         if (level == 415) //desktop lamp
         {
-
+            list.Add(new CoordinateTuple(1, 1));
         }
 
         if (level == 416) //tie
         {
-
+            list.Add(new CoordinateTuple(3, 2));
+            list.Add(new CoordinateTuple(2, 3));
         }
 
         if (level == 417) //rocket
@@ -547,12 +558,15 @@ public class HintLevelInfo {
 
         if (level == 418) //lamp upside down
         {
-
+            list.Add(new CoordinateTuple(2, 1));
+            list.Add(new CoordinateTuple(2, 4));
         }
 
         if (level == 419) //art
         {
-
+            list.Add(new CoordinateTuple(4, 1));
+            list.Add(new CoordinateTuple(5, 1));
+            list.Add(new CoordinateTuple(5, 2));
         }
 
         if (level == 420) //candle holder
