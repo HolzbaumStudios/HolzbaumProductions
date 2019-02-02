@@ -553,7 +553,10 @@ public class HintLevelInfo {
 
         if (level == 417) //rocket
         {
-
+            list.Add(new CoordinateTuple(1, 1));
+            list.Add(new CoordinateTuple(1, 2));
+            list.Add(new CoordinateTuple(1, 3));
+            list.Add(new CoordinateTuple(1, 4));
         }
 
         if (level == 418) //lamp upside down
@@ -571,22 +574,34 @@ public class HintLevelInfo {
 
         if (level == 420) //candle holder
         {
-
+            list.Add(new CoordinateTuple(0, 2));
+            list.Add(new CoordinateTuple(2, 2));
+            list.Add(new CoordinateTuple(2, 3));
+            list.Add(new CoordinateTuple(3, 2));
+            list.Add(new CoordinateTuple(4, 2));
         }
 
         if (level == 421) //ankh
         {
-
+            list.Add(new CoordinateTuple(4, 3));
+            list.Add(new CoordinateTuple(5, 0));
+            list.Add(new CoordinateTuple(1, 2));
         }
 
         if (level == 422) //bomb
         {
-
+            list.Add(new CoordinateTuple(5, 2));
+            list.Add(new CoordinateTuple(3, 1));
+            list.Add(new CoordinateTuple(3, 3));
         }
 
         if (level == 423) //screwdriver
         {
-
+            list.Add(new CoordinateTuple(3, 0));
+            list.Add(new CoordinateTuple(4, 0));
+            list.Add(new CoordinateTuple(3, 5));
+            list.Add(new CoordinateTuple(4, 5));
+            list.Add(new CoordinateTuple(3, 4));
         }
         //////////////////////////////////////////////////
         return list;
