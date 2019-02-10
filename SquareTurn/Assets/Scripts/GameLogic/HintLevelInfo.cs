@@ -239,8 +239,11 @@ public class HintLevelInfo {
         }
 
 		if (level == 217) {
- 
-		}
+            list.Add(new CoordinateTuple(0, 3));
+            list.Add(new CoordinateTuple(2, 1));
+            list.Add(new CoordinateTuple(3, 2));
+            list.Add(new CoordinateTuple(4, 2));
+        }
 
 		if (level == 218) {
             list.Add(new CoordinateTuple(0, 1));
@@ -411,20 +414,43 @@ public class HintLevelInfo {
         }
 
 		if (level == 320) {
-            
+            list.Add(new CoordinateTuple(3, 1));
+            list.Add(new CoordinateTuple(4, 2));
+            list.Add(new CoordinateTuple(3, 3));
+            list.Add(new CoordinateTuple(2, 3));
+            list.Add(new CoordinateTuple(2, 4));
         }
 
 		if (level == 321) {
-
+            list.Add(new CoordinateTuple(5, 2));
+            list.Add(new CoordinateTuple(3, 1));
+            list.Add(new CoordinateTuple(3, 4));
         }
 
 		if (level == 322) {
-
-		}
+            list.Add(new CoordinateTuple(0, 0));
+            list.Add(new CoordinateTuple(1, 0));
+            list.Add(new CoordinateTuple(2, 0));
+            list.Add(new CoordinateTuple(3, 0));
+            list.Add(new CoordinateTuple(4, 0));
+            list.Add(new CoordinateTuple(5, 0));
+            list.Add(new CoordinateTuple(0, 2));
+            list.Add(new CoordinateTuple(1, 2));
+            list.Add(new CoordinateTuple(3, 2));
+            list.Add(new CoordinateTuple(4, 2));
+            list.Add(new CoordinateTuple(5, 2));
+        }
 
 		if (level == 323) {
-
-		}
+            list.Add(new CoordinateTuple(0, 0));
+            list.Add(new CoordinateTuple(0, 1));
+            list.Add(new CoordinateTuple(1, 0));
+            list.Add(new CoordinateTuple(3, 4));
+            list.Add(new CoordinateTuple(3, 5));
+            list.Add(new CoordinateTuple(4, 5));
+            list.Add(new CoordinateTuple(5, 0));
+            list.Add(new CoordinateTuple(5, 1));
+        }
 
         //////LEVEL 400 - 499/----------------------------------------------------
         if (level == 400) //tree
