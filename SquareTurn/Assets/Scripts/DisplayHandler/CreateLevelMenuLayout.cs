@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System;
+using TMPro;
 
 //Makes sure, that the script checkLevelAchievemnts is attached to the object
 [RequireComponent(typeof(CheckLevelAchievements))]
@@ -36,6 +37,8 @@ public class CreateLevelMenuLayout : MonoBehaviour
     private GameObject categoryButtonPrefab;
     [SerializeField]
     private GameObject categoryUnlockedPrefab;
+    [SerializeField]
+    private GameObject numberOfStarsPrefab;
 
     //Private reference variables
     private GameObject scrollbarObject; //For having reference across the script
@@ -331,6 +334,8 @@ public class CreateLevelMenuLayout : MonoBehaviour
         categoryChoiceRect.offsetMin = new Vector2(0, 0);
         categoryChoiceRect.localScale = new Vector3(1, 1, 1);
 
+        CreateStarsInPossesionObject(categoryChoice);
+
         //Create category buttons
         float buttonWidth;
         float positionX = 0;
@@ -359,6 +364,7 @@ public class CreateLevelMenuLayout : MonoBehaviour
 
             //----- Add level locked images ----
             GameObject lockedLevelObject = categoryButton.transform.Find("LockedCategoryImage").gameObject;
+            TextMeshProUGUI starsNeededText = lockedLevelObject.transform.Find("NumberOfStarsNeeded").GetComponent<TextMeshProUGUI>();
             if (i > 1)
             { 
                 //Add script
@@ -369,6 +375,7 @@ public class CreateLevelMenuLayout : MonoBehaviour
                     case 3: starsNeeded = 90; break;
                     case 4: starsNeeded = 140; break;
                 }
+                starsNeededText.text = starsNeeded.ToString();
                 UnlockLevel lockedLevelScript = lockedLevelObject.AddComponent<UnlockLevel>();
                 lockedLevelScript.neededStars = starsNeeded;
                 lockedLevelScript.levelUnlocked = levelUnlockedPanel;
@@ -387,6 +394,21 @@ public class CreateLevelMenuLayout : MonoBehaviour
         }
 
         return categoryChoice;
+    }
+
+    private void CreateStarsInPossesionObject(GameObject parent)
+    {
+        float sizeMultiplier = (1f / 1920) * Screen.height;
+
+        //Create StarsInPossesionGraphic
+        GameObject starsInPossesion = Instantiate(numberOfStarsPrefab);
+        starsInPossesion.transform.SetParent(parent.transform);
+        RectTransform starsInPossesionRect = starsInPossesion.GetComponent<RectTransform>();
+        starsInPossesionRect.anchorMin = new Vector2(0, 1);
+        starsInPossesionRect.anchorMax = new Vector2(0, 1);
+        starsInPossesionRect.pivot = new Vector2(0.5f, 0.5f);
+        starsInPossesionRect.anchoredPosition = new Vector2(120, -120);
+        starsInPossesionRect.localScale = new Vector2(starsInPossesionRect.localScale.x * sizeMultiplier, starsInPossesionRect.localScale.y * sizeMultiplier);
     }
 }
 

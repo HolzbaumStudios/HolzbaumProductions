@@ -66,15 +66,15 @@ public class SetCategoryInfo : MonoBehaviour
                 gameObject.name = "Category1Button";
                 break;
             case 2:
-                categoryTitleText.text = "Pack 2: Ipsum lorem";
+                categoryTitleText.text = "Pack 2: New Colors";
                 gameObject.name = "Category2Button";
                 break;
             case 3:
-                categoryTitleText.text = "Pack 3: Ipsum lorem";
+                categoryTitleText.text = "Pack 3: Mastering the Path";
                 gameObject.name = "Category3Button";
                 break;
             case 4:
-                categoryTitleText.text = "Pack 4: Ipsum lorem";
+                categoryTitleText.text = "Pack 4: All Shapes and Forms";
                 gameObject.name = "Category4Button";
                 break;
         }

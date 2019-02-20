@@ -30,7 +30,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &114088663225909650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,17 +68,22 @@ MonoBehaviour:
   arrowSprite: {fileID: 21300000, guid: e99c0d61874ca844e92d77103f56ca83, type: 3}
   dotSprite: {fileID: 21300000, guid: 2ef1b3dafe977514b981da3157f8eade, type: 3}
   categorySprite:
-  - {fileID: 21300000, guid: 742c676adf35eaf46aa34a9de4062ba0, type: 3}
-  - {fileID: 21300000, guid: 2532215be5202864bb1486904766fa21, type: 3}
-  - {fileID: 21300000, guid: d4050d054e0e3b449859a2d69c848263, type: 3}
-  - {fileID: 21300000, guid: b189ba6d88462ba428d719a95816980e, type: 3}
+  - {fileID: 21300000, guid: 6c52c8a0a39334d468f872de0f2e6d86, type: 3}
+  - {fileID: 21300000, guid: 7906c66432befb74b86a1f3062bf57b1, type: 3}
+  - {fileID: 21300000, guid: 9ba7715f5d9022041a5fe9071afff663, type: 3}
+  - {fileID: 21300000, guid: 760f0d1cc871d38448aa2be2ada6627c, type: 3}
   lockSprite: {fileID: 21300000, guid: ce95c5b0e53df2e428d3152e1bcc3b81, type: 3}
   crossSprite: {fileID: 21300000, guid: 73e15a90953d09e4697daad659b241c8, type: 3}
   textFont: {fileID: 12800000, guid: 6d17763b5c9860f4a953c319a165bc80, type: 3}
   scrollbarPrefab: {fileID: 158664, guid: 450b16c13daf8f540ab6b944f2280e0c, type: 2}
   levelButtonPrefab: {fileID: 1888647043365474, guid: 6cdc5e2eca211f54994dbf2984ef8824,
     type: 2}
-  categoryButtonPrefab: {fileID: 0}
+  categoryButtonPrefab: {fileID: 1754495500951032, guid: 5907aec3782d9964abd912ee48481f9c,
+    type: 2}
+  categoryUnlockedPrefab: {fileID: 1516050213997160, guid: 502d38aba5e47624096a9b2d0cae22ab,
+    type: 2}
+  numberOfStarsPrefab: {fileID: 1154885145852904, guid: 5179c0754b4222640ad2debe8e6774d7,
+    type: 2}
 --- !u!114 &114342964641262032
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -16,7 +16,7 @@ public class PrepareStatisticScene : MonoBehaviour {
 
 	void SetStatistics()
 	{
-		int countTotalStars = PlayerPrefs.GetInt ("Category1Stars") + PlayerPrefs.GetInt ("Category2Stars") + PlayerPrefs.GetInt ("Category3Stars");
+		int countTotalStars = PlayerPrefs.GetInt ("Category1Stars") + PlayerPrefs.GetInt ("Category2Stars") + PlayerPrefs.GetInt ("Category3Stars") + PlayerPrefs.GetInt("Category4Stars");
 
 		statistics [0].text = PlayerPrefs.GetInt ("TotalNumberOfMoves").ToString ();
 		statistics [1].text = PlayerPrefs.GetInt ("TotalNumberOfTurns").ToString ();
