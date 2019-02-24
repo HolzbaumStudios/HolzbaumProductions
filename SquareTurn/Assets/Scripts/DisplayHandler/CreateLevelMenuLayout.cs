@@ -8,7 +8,7 @@ using TMPro;
 [RequireComponent(typeof(CheckLevelAchievements))]
 public class CreateLevelMenuLayout : MonoBehaviour
 {
-
+    float sizeMultiplier = (1f / 1920) * Screen.height;
 
     /// <summary>
     /// This script has to be attached to a UI Canvas Element.
@@ -398,16 +398,13 @@ public class CreateLevelMenuLayout : MonoBehaviour
 
     private void CreateStarsInPossesionObject(GameObject parent)
     {
-        float sizeMultiplier = (1f / 1920) * Screen.height;
+        
 
         //Create StarsInPossesionGraphic
         GameObject starsInPossesion = Instantiate(numberOfStarsPrefab);
         starsInPossesion.transform.SetParent(parent.transform);
         RectTransform starsInPossesionRect = starsInPossesion.GetComponent<RectTransform>();
-        starsInPossesionRect.anchorMin = new Vector2(0, 1);
-        starsInPossesionRect.anchorMax = new Vector2(0, 1);
-        starsInPossesionRect.pivot = new Vector2(0.5f, 0.5f);
-        starsInPossesionRect.anchoredPosition = new Vector2(120, -120);
+        starsInPossesionRect.anchoredPosition = new Vector2(-100*sizeMultiplier, -100*sizeMultiplier);
         starsInPossesionRect.localScale = new Vector2(starsInPossesionRect.localScale.x * sizeMultiplier, starsInPossesionRect.localScale.y * sizeMultiplier);
     }
 }

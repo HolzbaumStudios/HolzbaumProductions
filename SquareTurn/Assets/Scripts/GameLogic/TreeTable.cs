@@ -127,7 +127,7 @@ public class TreeTable : MonoBehaviour {
             case 408: twoTrees = 12; threeTrees = 8; break;  //sun
             case 409: twoTrees = 17; threeTrees = 11; break;  //rocket1
             case 410: twoTrees = 14; threeTrees = 9; break;  //sword
-            case 411: twoTrees = 11; threeTrees = 7; break;  //frog
+            case 411: twoTrees = 14; threeTrees = 10; break;  //frog
             case 412: twoTrees = 18; threeTrees = 12; break;  //house
             case 413: twoTrees = 20; threeTrees = 13; break;  //roflcopter
             case 414: twoTrees = 10; threeTrees = 6; break;	//plane

@@ -158,7 +158,7 @@ PlayerSettings:
     tvOS: com.HolzbaumProductions.Squared
   buildNumber:
     iOS: 2
-  AndroidBundleVersionCode: 16
+  AndroidBundleVersionCode: 25
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1

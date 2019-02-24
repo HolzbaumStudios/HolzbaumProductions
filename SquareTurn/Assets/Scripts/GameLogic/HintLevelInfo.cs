@@ -70,7 +70,7 @@ public class HintLevelInfo {
         }
 
 		if (level == 110) {
-            list.Add(new CoordinateTuple(1, 1));
+            list.Add(new CoordinateTuple(1, 2));
         }
 
 		if (level == 111) {
@@ -227,7 +227,7 @@ public class HintLevelInfo {
 		if (level == 215) {
             list.Add(new CoordinateTuple(4, 0));
             list.Add(new CoordinateTuple(4, 3));
-            list.Add(new CoordinateTuple(2, 4));
+            list.Add(new CoordinateTuple(1, 4));
             list.Add(new CoordinateTuple(1, 1));
         }
 
@@ -298,7 +298,7 @@ public class HintLevelInfo {
 
 		//////LEVEL 300 - 399/----------------------------------------------------
 		if (level == 300) {
-            list.Add(new CoordinateTuple(1, 0));
+            list.Add(new CoordinateTuple(1, 2));
         }
 
 		if (level == 301) {
@@ -338,7 +338,7 @@ public class HintLevelInfo {
 
 		if (level == 308) {
             list.Add(new CoordinateTuple(4, 0));
-            list.Add(new CoordinateTuple(4, 4));
+            list.Add(new CoordinateTuple(4, 3));
         }
 
 		if (level == 309) {
@@ -374,7 +374,7 @@ public class HintLevelInfo {
 
 		if (level == 314) {
             list.Add(new CoordinateTuple(5, 4));
-            list.Add(new CoordinateTuple(4, 2));
+            list.Add(new CoordinateTuple(4, 1));
             list.Add(new CoordinateTuple(3, 4));
         }
 
@@ -502,7 +502,7 @@ public class HintLevelInfo {
 
         if (level == 407) //mouse
         {
-            list.Add(new CoordinateTuple(1, 1));
+            list.Add(new CoordinateTuple(1, 2));
             list.Add(new CoordinateTuple(4, 1));
             list.Add(new CoordinateTuple(4, 4));
         }
@@ -538,7 +538,7 @@ public class HintLevelInfo {
             list.Add(new CoordinateTuple(1, 1));
             list.Add(new CoordinateTuple(3, 1));
             list.Add(new CoordinateTuple(5, 3));
-            list.Add(new CoordinateTuple(4, 2));
+            list.Add(new CoordinateTuple(1, 4));
         }
 
         if (level == 412) //house
