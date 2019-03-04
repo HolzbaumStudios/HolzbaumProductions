@@ -205,10 +205,15 @@ public class Tutorial1Script : MonoBehaviour {
 				messagePanels[1].SetActive(false);
 				messagePanels[0].SetActive(true);
 				messagePanels[0].transform.Find("Text12").gameObject.SetActive(true);
-				//Set ending text
-				messagePanels[5].transform.Find("Text11").gameObject.GetComponent<TextMeshProUGUI>().text = "End Tutorial";
-			}break;
-		}
+                checkForUserInput = true;
+            }
+            break;
+            case 14:
+            {
+                EndTutorial();
+            }
+            break;
+        }
 	}
 
 	IEnumerator WaitSomeTime(float seconds)
